@@ -69,7 +69,9 @@ def test_attempt_history_is_append_only_by_schema(session):
 
 def test_question_occurrence_are_separate_records(session):
     question, occurrence = question_with_occurrence(session)
-    assert question.id != occurrence.id
+    assert isinstance(question, Question)
+    assert isinstance(occurrence, QuestionOccurrence)
+    assert question.__table__ is not occurrence.__table__
     assert occurrence.question_id == question.id
     assert occurrence.verification_status is VerificationStatus.UNVERIFIED
 
