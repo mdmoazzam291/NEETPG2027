@@ -1,6 +1,6 @@
 # NEETPG2027 Study Engine
 
-A personal, local-first NEET PG 2027 study engine for an MBBS intern. Phase 1 provides only a reliable database and a minimal web application foundation; it does **not** include medical content, PYQs, analytics, recommendations, scheduling logic, AI, authentication, or a dashboard.
+A personal, local-first NEET PG 2027 study engine for an MBBS intern. Phases 1–2 provide a reliable database, a minimal web application foundation, and normalized storage for imported question/PYQ data; they do **not** include seeded medical content, analytics, recommendations, scheduling logic, AI, authentication, or a dashboard.
 
 ## Run locally
 

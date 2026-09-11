@@ -1,10 +1,10 @@
 # Architecture
 
-## Phase 1 boundaries
+## Phase 1–2 boundaries
 
 The application uses Python, FastAPI, server-rendered HTML, SQLite, SQLAlchemy, Alembic, and pytest. SQLite is the source of truth. FastAPI exposes a deliberately small responsive landing page and a database-backed health check; it contains no study workflow.
 
-`app/config.py` reads the database URL from `NEETPG2027_DATABASE_URL`. `app/db/models.py` owns SQLAlchemy mappings, while Alembic is the only schema-creation path. The app does not call `create_all` in production startup.
+`app/config.py` reads the database URL from `NEETPG2027_DATABASE_URL`. `app/db/models.py` owns SQLAlchemy mappings, while Alembic is the only schema-creation path. The app does not call `create_all` in production startup. Phase 2 keeps canonical questions separate from source/exam occurrences, keeps taxonomy tags relational and multi-valued, and records import/verification state without an import UI or automatic duplicate merging.
 
 ## Data integrity
 
