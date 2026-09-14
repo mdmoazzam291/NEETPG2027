@@ -221,3 +221,10 @@ __marimo__/
 instance/
 *.sqlite
 *.sqlite3
+
+# Browser regression artifacts
+node_modules/
+playwright-report/
+test-results/
+browser-ci.sqlite3
+ci.sqlite3

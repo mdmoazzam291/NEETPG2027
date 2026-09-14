@@ -1,6 +1,8 @@
 """Minimal FastAPI entry point for the Phase 1 foundation."""
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import HTMLResponse
+from pathlib import Path
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import text
 
 from app.imports.api import router as imports_router
@@ -13,13 +15,15 @@ def create_app() -> FastAPI:
     engine = create_database_engine(settings.database_url)
     session_factory = create_session_factory(engine)
     app = FastAPI(title="NEETPG2027 Study Engine", version="0.1.0")
+    static_dir = Path(__file__).resolve().parent / "static"
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
     app.include_router(imports_router)
     app.state.engine = engine
     app.state.session_factory = session_factory
 
-    @app.get("/", response_class=HTMLResponse)
-    def index() -> str:
-        return """<!doctype html><html><head><meta name=viewport content='width=device-width,initial-scale=1'><title>NEETPG2027</title><style>body{font-family:system-ui;margin:2rem;max-width:42rem;line-height:1.5}</style></head><body><h1>NEETPG2027 Study Engine</h1><p>Phase 3 question import API is running. Open /docs for preview, review, and commit.</p></body></html>"""
+    @app.get("/", response_class=FileResponse, include_in_schema=False)
+    def index():
+        return FileResponse(static_dir / "index.html")
 
     @app.get("/health")
     def health() -> dict[str, str]:

@@ -10,7 +10,7 @@ Normalized canonical question content, options, media references, examination ad
 
 ## Phase 3 — controlled question imports
 
-CSV/JSON previews, per-row validation and audit records, duplicate review decisions, transactional/idempotent commit, source registration, question inspection, and CI are implemented. The ORM enum representation now matches migration-created databases. See IMPORTS.md. Taxonomy creation UI, media ingestion, and broader question types remain follow-up work.
+CSV/JSON previews, per-row validation and audit records, duplicate review decisions, transactional/idempotent commit, source registration, question inspection, and CI are implemented. The ORM enum representation now matches migration-created databases. See IMPORTS.md. The responsive homepage now provides source creation, file upload, duplicate comparison, review decisions, import confirmation, and saved-batch history. Taxonomy creation UI, media ingestion, and broader question types remain follow-up work.
 
 ## Planned later phases
 

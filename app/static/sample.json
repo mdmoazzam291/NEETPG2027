@@ -1,0 +1,13 @@
+[
+  {
+    "external_id": "synthetic-001",
+    "stem": "Synthetic demonstration: select Alpha.",
+    "question_type": "single_best_answer",
+    "options": [
+      {"label": "A", "text": "Alpha", "is_correct": true},
+      {"label": "B", "text": "Beta", "is_correct": false}
+    ],
+    "answer_explanation": "Synthetic example only. This is not a medical question or a PYQ.",
+    "reference_text": "User-authored import demonstration"
+  }
+]
