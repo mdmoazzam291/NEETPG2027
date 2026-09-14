@@ -39,7 +39,7 @@ test('create integrated taxonomy, edit topic links, archive safely, and fit tabl
 
   const refreshedCard = page.locator('.topic-card').filter({hasText:'Browser acute coronary syndrome'});
   await expect(refreshedCard).not.toContainText('System: Browser Cardiovascular');
-  await refreshedCard.getByRole('button', {name:'Archive'}).click();
+  await refreshedCard.locator('.topic-head').getByRole('button', {name:'Archive'}).click();
   await expect(page.getByRole('status')).toHaveText('Topic archived.');
   await expect(page.locator('.topic-card.archived').filter({hasText:'Browser acute coronary syndrome'})).toBeVisible();
 
