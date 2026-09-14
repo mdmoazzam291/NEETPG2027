@@ -58,8 +58,8 @@ def upgrade() -> None:
     op.create_index("ix_questions_content_fingerprint", "questions", ["content_hash", "content_fingerprint_version"])
 
     with op.batch_alter_table("question_occurrences") as batch:
-        batch.add_column(sa.Column("source_id", sa.Integer(), sa.ForeignKey("sources.id", ondelete="RESTRICT")))
-        batch.add_column(sa.Column("exam_administration_id", sa.Integer(), sa.ForeignKey("exam_administrations.id", ondelete="RESTRICT")))
+        batch.add_column(sa.Column("source_id", sa.Integer(), sa.ForeignKey("sources.id", name="fk_occurrences_source", ondelete="RESTRICT")))
+        batch.add_column(sa.Column("exam_administration_id", sa.Integer(), sa.ForeignKey("exam_administrations.id", name="fk_occurrences_administration", ondelete="RESTRICT")))
         batch.add_column(sa.Column("question_number", sa.String(64)))
     # Phase 1 stored source provenance as required free text. Preserve every value by
     # creating a deterministic legacy source and linking existing occurrences to it.
@@ -116,6 +116,7 @@ def downgrade() -> None:
     op.drop_index("ix_questions_content_fingerprint", table_name="questions")
     with op.batch_alter_table("questions") as batch:
         batch.drop_constraint("ck_questions_difficulty_range", type_="check")
+        batch.drop_constraint("question_type", type_="check")
         for column in ["content_fingerprint_version", "clinical_metadata_notes", "is_integrated", "is_clinical", "difficulty", "reference_text", "answer_explanation", "question_type"]:
             batch.drop_column(column)
     for table in ["sources", "exam_administrations", "exams", "subject_systems"]:

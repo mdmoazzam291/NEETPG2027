@@ -99,17 +99,17 @@ class ImportRowStatus(str, Enum):
     REQUIRES_REVIEW = "requires_review"
 
 
-lifecycle_enum = SqlEnum(LifecycleStatus, native_enum=False, create_constraint=True, name="lifecycle_status")
-verification_enum = SqlEnum(VerificationStatus, native_enum=False, create_constraint=True, name="verification_status")
-attempt_outcome_enum = SqlEnum(AttemptOutcome, native_enum=False, create_constraint=True, name="attempt_outcome")
-question_type_enum = SqlEnum(QuestionType, native_enum=False, create_constraint=True, name="question_type")
-tag_role_enum = SqlEnum(TagRole, native_enum=False, create_constraint=True, name="tag_role")
-source_type_enum = SqlEnum(SourceType, native_enum=False, create_constraint=True, name="source_type")
-media_type_enum = SqlEnum(MediaType, native_enum=False, create_constraint=True, name="media_type")
-verification_aspect_enum = SqlEnum(VerificationAspect, native_enum=False, create_constraint=True, name="verification_aspect")
-import_format_enum = SqlEnum(ImportFormat, native_enum=False, create_constraint=True, name="import_format")
-import_batch_status_enum = SqlEnum(ImportBatchStatus, native_enum=False, create_constraint=True, name="import_batch_status")
-import_row_status_enum = SqlEnum(ImportRowStatus, native_enum=False, create_constraint=True, name="import_row_status")
+lifecycle_enum = SqlEnum(LifecycleStatus, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="lifecycle_status")
+verification_enum = SqlEnum(VerificationStatus, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="verification_status")
+attempt_outcome_enum = SqlEnum(AttemptOutcome, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="attempt_outcome")
+question_type_enum = SqlEnum(QuestionType, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="question_type")
+tag_role_enum = SqlEnum(TagRole, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="tag_role")
+source_type_enum = SqlEnum(SourceType, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="source_type")
+media_type_enum = SqlEnum(MediaType, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="media_type")
+verification_aspect_enum = SqlEnum(VerificationAspect, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="verification_aspect")
+import_format_enum = SqlEnum(ImportFormat, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="import_format")
+import_batch_status_enum = SqlEnum(ImportBatchStatus, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="import_batch_status")
+import_row_status_enum = SqlEnum(ImportRowStatus, values_callable=lambda enum: [item.value for item in enum], native_enum=False, create_constraint=True, name="import_row_status")
 
 
 class Timestamped:

@@ -24,10 +24,24 @@ def run_migrations_online() -> None:
     connectable = engine_from_config(config.get_section(config.config_ini_section, {}), prefix="sqlalchemy.", poolclass=pool.NullPool)
     with connectable.connect() as connection:
         if connection.dialect.name == "sqlite":
-            connection.exec_driver_sql("PRAGMA foreign_keys=ON")
-        context.configure(connection=connection, target_metadata=target_metadata)
-        with context.begin_transaction():
-            context.run_migrations()
+            # Batch table rebuilds need FK enforcement suspended. An explicit SQLite
+            # transaction makes DDL and version updates atomic; validate before commit.
+            connection.exec_driver_sql("PRAGMA foreign_keys=OFF")
+            connection.commit()
+            try:
+                with connection.begin():
+                    connection.exec_driver_sql("BEGIN")
+                    context.configure(connection=connection, target_metadata=target_metadata)
+                    context.run_migrations()
+                    if connection.exec_driver_sql("PRAGMA foreign_key_check").first():
+                        raise RuntimeError("migration produced foreign-key violations")
+            finally:
+                connection.exec_driver_sql("PRAGMA foreign_keys=ON")
+                connection.commit()
+        else:
+            context.configure(connection=connection, target_metadata=target_metadata)
+            with context.begin_transaction():
+                context.run_migrations()
 
 
 if context.is_offline_mode():
