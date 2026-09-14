@@ -14,7 +14,7 @@ class StrictModel(BaseModel):
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
 
-class UniqueIdsMixin:
+class UniqueIdsModel(StrictModel):
     @model_validator(mode="after")
     def unique_ids(self):
         for field in ("subject_ids", "system_ids"):
@@ -60,14 +60,14 @@ class SubjectSystemInput(StrictModel):
     system_id: PositiveId
 
 
-class TopicInput(UniqueIdsMixin, StrictModel):
+class TopicInput(UniqueIdsModel):
     name: Name160
     description: Text | None = None
     subject_ids: list[PositiveId] = Field(default_factory=list, max_length=30)
     system_ids: list[PositiveId] = Field(default_factory=list, max_length=30)
 
 
-class TopicEdit(UniqueIdsMixin, StrictModel):
+class TopicEdit(UniqueIdsModel):
     name: Name160 | None = None
     description: Text | None = None
     lifecycle_status: Literal["active", "archived"] | None = None
