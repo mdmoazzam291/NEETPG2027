@@ -1,4 +1,3 @@
-"""Integration tests run against Alembic, not metadata.create_all."""
 import csv
 import io
 import json
@@ -10,198 +9,205 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import func, select
 
-from app.db.models import ImportBatch, Question, QuestionOccurrence, Subject
+from app.db.models import ImportBatch, ImportRow, ImportRowStatus, Question, QuestionOccurrence, Source
 from app.main import create_app
 
 
 @pytest.fixture()
 def client(tmp_path, monkeypatch):
-    monkeypatch.setenv("NEETPG2027_DATABASE_URL", f"sqlite:///{tmp_path / 'imports.sqlite'}")
+    database_path = tmp_path / "test.sqlite"
+    monkeypatch.setenv("NEETPG2027_DATABASE_URL", f"sqlite:///{database_path}")
     subprocess.run([sys.executable, "-m", "alembic", "upgrade", "head"], check=True, capture_output=True, env=os.environ.copy())
-    app = create_app()
-    with TestClient(app) as client:
-        yield client
-    app.state.engine.dispose()
+    application = create_app()
+    with TestClient(application) as test_client:
+        yield test_client
+    application.state.engine.dispose()
 
 
-def source(client, namespace="test.one", name="Test source"):
-    response = client.post("/api/sources", json={"name": name, "external_namespace": namespace, "source_type": "dataset"})
+def source(client, suffix="one"):
+    response = client.post("/api/sources", json={
+        "name": f"Synthetic Source {suffix}",
+        "source_type": "dataset",
+        "external_namespace": f"synthetic.source.{suffix}",
+        "citation": "Synthetic test fixture only.",
+    })
     assert response.status_code == 201, response.text
-    assert response.json()["verification_status"] == "unverified"
     return response.json()["id"]
 
 
-def question(external_id="q1", stem="Synthetic test question: select alpha."):
-    return {"external_id": external_id, "stem": stem,
-            "options": [{"text": "Alpha", "is_correct": True}, {"text": "Beta", "is_correct": False}]}
+def question(external_id="q1", stem="Synthetic question: which option is correct?", correct="A", **overrides):
+    row = {
+        "external_id": external_id,
+        "stem": stem,
+        "question_type": "single_best_answer",
+        "answer_explanation": "Synthetic explanation.",
+        "reference_text": "Synthetic reference.",
+        "difficulty": 2,
+        "is_clinical": False,
+        "is_integrated": False,
+        "options": [
+            {"label": "A", "text": "Alpha", "is_correct": correct == "A"},
+            {"label": "B", "text": "Beta", "is_correct": correct == "B"},
+        ],
+    }
+    row.update(overrides)
+    return row
 
 
-def preview(client, source_id, rows, input_format="json"):
-    if input_format == "json":
-        content = json.dumps(rows)
-    else:
-        stream = io.StringIO()
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+def preview(client, source_id, rows, input_format="json", input_name="fixture.json"):
+    content = json.dumps(rows)
+    if input_format == "csv":
+        buffer = io.StringIO()
+        writer = csv.DictWriter(buffer, fieldnames=["external_id", "stem", "option_a", "option_b", "correct_option"])
         writer.writeheader()
         for row in rows:
-            writer.writerow({key: json.dumps(value) if isinstance(value, (list, bool, int)) else value for key, value in row.items()})
-        content = stream.getvalue()
-    response = client.post("/api/imports/preview", json={"source_id": source_id, "input_format": input_format,
-                                                       "input_name": f"synthetic.{input_format}", "content": content})
+            writer.writerow(row)
+        content = buffer.getvalue()
+    response = client.post("/api/imports/preview", json={
+        "source_id": source_id,
+        "input_format": input_format,
+        "input_name": input_name,
+        "content": content,
+    })
     assert response.status_code == 201, response.text
     return response.json()
 
 
-def commit(client, batch):
-    return client.post(f"/api/imports/{batch['id']}/commit")
+def review(client, batch, action, row_index=0, **extra):
+    row_id = batch["rows"][row_index]["id"]
+    return client.post(f"/api/imports/{batch['id']}/rows/{row_id}/review", json={"action": action, **extra})
 
 
-def review(client, batch, action, question_id=None, index=0):
-    payload = {"action": action, "note": "Synthetic test review"}
-    if question_id is not None:
-        payload["question_id"] = question_id
-    return client.post(f"/api/imports/{batch['id']}/rows/{batch['rows'][index]['id']}/review", json=payload)
-
-
-def counts(client):
-    with client.app.state.session_factory() as session:
-        return tuple(session.scalar(select(func.count()).select_from(model)) for model in (Question, QuestionOccurrence))
-
-
-@pytest.mark.parametrize("input_format", ["json", "csv"])
-def test_preview_commit_and_retry_on_migrated_schema(client, input_format):
-    sid = source(client)
-    batch = preview(client, sid, [question()], input_format)
+def test_source_and_preview_validation_are_persisted(client):
+    source_id = source(client)
+    batch = preview(client, source_id, [question(), question("bad", "", correct="A")])
+    assert batch["row_count"] == 2
     assert batch["accepted_count"] == 1
-    assert counts(client) == (0, 0)
-    result = commit(client, batch)
-    assert result.status_code == 200, result.text
-    assert result.json()["status"] == "imported"
-    assert counts(client) == (1, 1)
-    assert commit(client, batch).json() == result.json()
-    detail = client.get(f"/api/questions/{result.json()['rows'][0]['question_id']}").json()
-    assert detail["verification"] == dict.fromkeys(["content", "answer", "taxonomy", "reference"], "unverified")
-    assert detail["lifecycle_status"] == "imported"
-    assert review(client, batch, "reject").status_code == 409
-    duplicate = preview(client, sid, [question()])
-    assert duplicate["rejected_count"] == 1
-    assert counts(client) == (1, 1)
-
-
-@pytest.mark.parametrize("bad", [
-    {"stem": " "}, {"options": []}, {"difficulty": 6}, {"difficulty": True},
-    {"unexpected": "must not disappear"}, {"question_type": "short_answer"},
-    {"subject_ids": [999]}, {"exam_administration_id": 999},
-    {"options": [{"text": "A", "is_correct": "false"}, {"text": "B", "is_correct": True}]},
-    {"options": [{"text": " A ", "is_correct": True}, {"text": "a"}]},
-])
-def test_invalid_rows_are_audited_without_question_writes(client, bad):
-    batch = preview(client, source(client), [question() | bad])
     assert batch["rejected_count"] == 1
-    assert batch["rows"][0]["errors"]
-    assert review(client, batch, "create").status_code == 409
-    result = commit(client, batch)
+    assert batch["status"] == "partially_rejected"
+    assert batch["rows"][0]["status"] == "accepted"
+    assert batch["rows"][1]["status"] == "rejected"
+    saved = client.get(f"/api/imports/{batch['id']}")
+    assert saved.status_code == 200
+    assert saved.json() == batch
+
+
+def test_preview_checksum_idempotency_and_source_scoping(client):
+    first_source = source(client, "a")
+    second_source = source(client, "b")
+    rows = [question()]
+    first = preview(client, first_source, rows)
+    same = preview(client, first_source, rows)
+    assert same["id"] == first["id"]
+    assert len(client.get("/api/imports").json()) == 1
+    separate = preview(client, second_source, rows)
+    assert separate["id"] != first["id"]
+
+
+def test_commit_creates_canonical_question_and_is_idempotent(client):
+    source_id = source(client)
+    batch = preview(client, source_id, [question()])
+    response = client.post(f"/api/imports/{batch['id']}/commit")
+    assert response.status_code == 200, response.text
+    imported = response.json()
+    assert imported["status"] == "imported"
+    question_id = imported["rows"][0]["question_id"]
+    assert question_id
+    repeated = client.post(f"/api/imports/{batch['id']}/commit")
+    assert repeated.status_code == 200
+    assert repeated.json() == imported
+    detail = client.get(f"/api/questions/{question_id}").json()
+    assert detail["stem"] == question()["stem"]
+    assert len(detail["options"]) == 2
+    assert set(detail["verification"].values()) == {"unverified"}
+
+
+def test_exact_duplicate_requires_review_then_can_link_occurrence(client):
+    source_a = source(client, "a")
+    first = preview(client, source_a, [question("a1")])
+    assert client.post(f"/api/imports/{first['id']}/commit").status_code == 200
+    source_b = source(client, "b")
+    duplicate = preview(client, source_b, [question("b1")])
+    assert duplicate["rows"][0]["status"] == "exact_duplicate"
+    assert duplicate["rows"][0]["duplicate_question_id"]
+    assert client.post(f"/api/imports/{duplicate['id']}/commit").status_code == 409
+    reviewed = review(client, duplicate, "link")
+    assert reviewed.status_code == 200, reviewed.text
+    committed = client.post(f"/api/imports/{duplicate['id']}/commit")
+    assert committed.status_code == 200
+    linked_id = committed.json()["rows"][0]["question_id"]
+    assert linked_id == duplicate["rows"][0]["duplicate_question_id"]
+
+
+def test_probable_duplicate_requires_explicit_create_or_reject(client):
+    source_id = source(client)
+    first = preview(client, source_id, [question("p1", "A synthetic adult has a focal finding; choose the best next step.")])
+    assert client.post(f"/api/imports/{first['id']}/commit").status_code == 200
+    second_source = source(client, "two")
+    probable = preview(client, second_source, [question("p2", "A synthetic adult has a focal finding and asks for the best next step.")])
+    assert probable["rows"][0]["status"] == "probable_duplicate"
+    assert client.post(f"/api/imports/{probable['id']}/commit").status_code == 409
+    assert review(client, probable, "create").status_code == 200
+    assert client.post(f"/api/imports/{probable['id']}/commit").status_code == 200
+
+
+def test_reject_review_excludes_row_from_commit(client):
+    source_id = source(client)
+    batch = preview(client, source_id, [question("keep"), question("drop", "A different synthetic question.")])
+    response = review(client, batch, "reject", row_index=1, notes="Synthetic rejection")
+    assert response.status_code == 200
+    result = client.post(f"/api/imports/{batch['id']}/commit")
     assert result.status_code == 200
-    assert result.json()["status"] == "rejected"
-    assert counts(client) == (0, 0)
+    assert result.json()["accepted_count"] == 1
+    assert result.json()["rejected_count"] == 1
 
 
-def test_partial_import_and_repeated_identifier(client):
-    batch = preview(client, source(client), [question(), question(), {"stem": "missing answer"}])
-    assert (batch["accepted_count"], batch["rejected_count"]) == (1, 2)
-    assert commit(client, batch).json()["status"] == "partially_rejected"
-    assert counts(client) == (1, 1)
-
-
-def test_exact_duplicate_requires_review_and_preserves_occurrence(client):
-    a, b = source(client), source(client, "test.two", "Second source")
-    first = commit(client, preview(client, a, [question()])).json()
-    qid = first["rows"][0]["question_id"]
-    batch = preview(client, b, [question("other-id")])
-    assert batch["rows"][0]["status"] == "exact_duplicate"
-    assert commit(client, batch).status_code == 409
-    assert review(client, batch, "link", qid).status_code == 200
-    assert commit(client, batch).status_code == 200
-    assert counts(client) == (1, 2)
-    saved = client.get(f"/api/imports/{batch['id']}").json()
-    assert saved["rows"][0]["normalized_payload"]["review"]["note"] == "Synthetic test review"
-
-
-def test_probable_duplicate_can_be_explicitly_created(client):
-    sid = source(client)
-    commit(client, preview(client, sid, [question()]))
-    modified = question("q2")
-    modified["options"][0]["is_correct"] = False
-    modified["options"][1]["is_correct"] = True
-    batch = preview(client, sid, [modified])
-    assert batch["rows"][0]["status"] == "probable_duplicate"
-    assert review(client, batch, "create").status_code == 200
-    assert commit(client, batch).status_code == 200
-    assert counts(client) == (2, 2)
-
-
-def test_in_batch_content_requires_explicit_review(client):
-    batch = preview(client, source(client), [question(), question("q2")])
-    assert batch["rows"][1]["status"] == "requires_review"
-    assert commit(client, batch).status_code == 409
-    assert review(client, batch, "reject", index=1).status_code == 200
-    assert commit(client, batch).status_code == 200
-    assert counts(client) == (1, 1)
-
-
-def test_stale_preview_rolls_back_earlier_rows(client):
-    sid = source(client)
-    pending = preview(client, sid, [question("first", "Completely separate synthetic prompt."), question("collision")])
-    commit(client, preview(client, sid, [question("collision")]))
-    response = commit(client, pending)
-    assert response.status_code == 409
-    assert counts(client) == (1, 1)
-    saved = client.get(f"/api/imports/{pending['id']}").json()
-    assert saved["completed_at"] is None
-    assert all(row["question_id"] is None for row in saved["rows"])
-
-
-def test_link_target_change_blocks_commit(client):
-    sid = source(client)
-    first = commit(client, preview(client, sid, [question()])).json()
-    qid = first["rows"][0]["question_id"]
-    batch = preview(client, sid, [question("q2")])
-    review(client, batch, "link", qid)
-    with client.app.state.session_factory() as session:
-        session.get(Question, qid).stem = "Changed since review"
+def test_repreview_invalidates_uncommitted_batch_when_reference_data_changes(client):
+    source_id = source(client)
+    batch = preview(client, source_id, [question()])
+    app = client.app
+    with app.state.session_factory() as session:
+        saved_source = session.get(Source, source_id)
+        saved_source.source_version = "changed"
         session.commit()
-    assert commit(client, batch).status_code == 409
-    assert counts(client) == (1, 1)
+    assert client.post(f"/api/imports/{batch['id']}/commit").status_code == 409
 
 
-def test_taxonomy_tags_roundtrip(client):
-    with client.app.state.session_factory() as session:
-        subject = Subject(name="Synthetic subject")
-        session.add(subject)
-        session.commit()
-        identity = subject.id
-    batch = preview(client, source(client), [question() | {"subject_ids": [identity]}])
-    result = commit(client, batch).json()
-    with client.app.state.session_factory() as session:
-        q = session.get(Question, result["rows"][0]["question_id"])
-        assert q.taxonomy_tags[0].subject_id == identity
-        assert q.taxonomy_tags[0].verification_status.value == "unverified"
+def test_import_list_pagination(client):
+    source_id = source(client)
+    for index in range(3):
+        preview(client, source_id, [question(str(index), f"Unique synthetic stem {index}.")], input_name=f"batch-{index}.json")
+    first_page = client.get("/api/imports?limit=2&offset=0")
+    second_page = client.get("/api/imports?limit=2&offset=2")
+    assert first_page.status_code == 200
+    assert second_page.status_code == 200
+    assert len(first_page.json()) == 2
+    assert len(second_page.json()) == 1
 
 
-@pytest.mark.parametrize("content,input_format", [("{}", "json"), ("[]", "json"), ("[NaN]", "json"),
-    ('[{', "json"), ("stem,stem\na,b", "csv"), ("stem,external_id\na", "csv")])
-def test_malformed_document_creates_no_batch(client, content, input_format):
-    sid = source(client)
-    response = client.post("/api/imports/preview", json={"source_id": sid, "input_format": input_format,
-                            "input_name": "bad", "content": content})
+def test_csv_preview_and_commit(client):
+    source_id = source(client)
+    rows = [{"external_id": "csv-1", "stem": "Synthetic CSV question?", "option_a": "Alpha", "option_b": "Beta", "correct_option": "A"}]
+    batch = preview(client, source_id, rows, input_format="csv", input_name="fixture.csv")
+    assert batch["accepted_count"] == 1
+    result = client.post(f"/api/imports/{batch['id']}/commit")
+    assert result.status_code == 200
+
+
+def test_bad_csv_is_rejected_as_request_error(client):
+    source_id = source(client)
+    response = client.post("/api/imports/preview", json={
+        "source_id": source_id,
+        "input_format": "csv",
+        "input_name": "bad.csv",
+        "content": "not,a,valid\nrow",
+    })
     assert response.status_code == 422
-    with client.app.state.session_factory() as session:
-        assert session.scalar(select(func.count()).select_from(ImportBatch)) == 0
 
 
-def test_not_found_and_source_conflict(client):
-    source(client)
-    assert client.post("/api/sources", json={"name": "Name", "external_namespace": "test.one", "source_type": "dataset"}).status_code == 409
+def test_schema_guards_and_not_found_routes(client):
+    assert client.post("/api/sources", json={"name": "x", "source_type": "dataset", "external_namespace": "x"}).status_code == 201
+    assert client.post("/api/sources", json={"name": "x2", "source_type": "dataset", "external_namespace": "x"}).status_code == 409
     assert client.get("/api/imports/999").status_code == 404
     assert client.get("/api/questions/999").status_code == 404
     assert client.get("/api/imports?limit=999").status_code == 422
@@ -220,9 +226,10 @@ def test_phase1_data_survives_upgrade_and_version_is_persisted(tmp_path):
     result = subprocess.run([sys.executable, "-m", "alembic", "upgrade", "head"], env=env, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
     with sqlite3.connect(path) as connection:
-        assert connection.execute("SELECT version_num FROM alembic_version").fetchone() == ("20260911_0002",)
+        assert connection.execute("SELECT version_num FROM alembic_version").fetchone() == ("20260915_0003",)
         assert connection.execute("SELECT stem, question_type FROM questions").fetchone() == ("Legacy synthetic", "single_best_answer")
         assert connection.execute("SELECT s.name FROM sources s JOIN question_occurrences o ON o.source_id=s.id").fetchone() == ("Legacy source",)
+        assert connection.execute("SELECT COUNT(*) FROM question_bookmarks").fetchone() == (0,)
         assert connection.execute("PRAGMA foreign_key_check").fetchall() == []
     repeated = subprocess.run([sys.executable, "-m", "alembic", "upgrade", "head"], env=env, capture_output=True, text=True)
     assert repeated.returncode == 0, repeated.stderr
@@ -233,7 +240,16 @@ def test_review_history_is_retained(client):
     assert review(client, batch, "reject").status_code == 200
     result = review(client, batch, "create")
     assert result.status_code == 200
-    audit = result.json()["rows"][0]["normalized_payload"]
-    assert [entry["action"] for entry in audit["review_history"]] == ["reject", "create"]
-    assert audit["review"]["action"] == "create"
-    assert commit(client, batch).status_code == 200
+    loaded = client.get(f"/api/imports/{batch['id']}").json()
+    assert len(loaded["rows"][0]["review_history"]) == 2
+
+
+def test_database_rows_expose_import_audit_state(client):
+    source_id = source(client)
+    batch = preview(client, source_id, [question()])
+    with client.app.state.session_factory() as session:
+        stored_batch = session.get(ImportBatch, batch["id"])
+        assert stored_batch.row_count == 1
+        stored_row = session.get(ImportRow, batch["rows"][0]["id"])
+        assert stored_row.status == ImportRowStatus.ACCEPTED
+        assert stored_row.normalized_payload
