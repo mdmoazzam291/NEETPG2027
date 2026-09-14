@@ -1,5 +1,25 @@
 const {test, expect} = require('@playwright/test');
 
+async function expectNoHorizontalOverflow(page) {
+  const report = await page.evaluate(() => {
+    const width = innerWidth;
+    const offenders = [...document.querySelectorAll('body *')].map((element) => {
+      const rect = element.getBoundingClientRect();
+      return {
+        tag: element.tagName.toLowerCase(),
+        id: element.id || null,
+        className: typeof element.className === 'string' ? element.className : null,
+        text: (element.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 90),
+        left: Math.round(rect.left * 10) / 10,
+        right: Math.round(rect.right * 10) / 10,
+        width: Math.round(rect.width * 10) / 10,
+      };
+    }).filter((item) => item.right > width + 0.5 || item.left < -0.5);
+    return {innerWidth: width, scrollWidth: document.documentElement.scrollWidth, offenders: offenders.slice(0, 20)};
+  });
+  expect(report, JSON.stringify(report, null, 2)).toEqual(expect.objectContaining({scrollWidth: report.innerWidth}));
+}
+
 async function createStudyQuestion(request) {
   const sourceResponse = await request.post('/api/sources', {data:{name:'Browser study source', external_namespace:'browser.study', source_type:'dataset'}});
   expect(sourceResponse.ok()).toBeTruthy();
@@ -56,7 +76,7 @@ test('solve without pre-answer leakage, reveal, classify miss, and record histor
   expect(history[0].mistake_category).toBe('confused_options');
   expect(history[0].user_notes).toBe('Synthetic browser reflection');
   expect(history[0].confidence).toBe(2);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+  await expectNoHorizontalOverflow(page);
   await page.screenshot({path:'test-results/tablet-study-session.png', fullPage:true});
 });
 
@@ -64,5 +84,5 @@ test('study workspace fits mobile', async ({page}) => {
   await page.setViewportSize({width:390, height:844});
   await page.goto('/study');
   await expect(page.getByRole('heading', {name:'Study session'})).toBeVisible();
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+  await expectNoHorizontalOverflow(page);
 });
