@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123f3a">
+  <title>Study session · NEETPG2027</title>
+  <link rel="stylesheet" href="/static/imports.css">
+  <link rel="stylesheet" href="/static/study.css">
+  <script src="/static/study.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="/">N<span>NEETPG<span class="year">2027</span></span></a><span class="workspace-label">Your study workspace</span><span class="local-badge">Personal workspace</span></header>
+<div class="shell">
+  <aside>
+    <p class="eyebrow">QUESTION BANK</p>
+    <a class="nav-link" href="/">↥ &nbsp; Import & review</a>
+    <a class="nav-link" href="/taxonomy">⌘ &nbsp; Taxonomy</a>
+    <a class="nav-link" href="/media">▧ &nbsp; Question media</a>
+    <div class="nav-current">▶ &nbsp; Study</div>
+    <div class="sidebar-note"><strong>Attempt first. Reveal second.</strong><p>Answers are scored on the server so the solving screen never needs the answer key before submission.</p></div>
+  </aside>
+  <main id="main">
+    <div class="page-heading">
+      <div><p class="eyebrow">PHASE 5 · ACTIVE RECALL</p><h1>Study session</h1><p>Solve, commit, classify the miss, then move.</p></div>
+      <a class="text-link" href="/">Manage question bank</a>
+    </div>
+    <div id="notice" role="status" aria-live="polite" hidden></div>
+    <div id="error" role="alert" tabindex="-1" hidden></div>
+
+    <section class="panel session-toolbar" aria-labelledby="session-title">
+      <div><h2 id="session-title">Session</h2><p class="muted">Default: 15 unseen single-best-answer questions.</p></div>
+      <div class="session-controls">
+        <label for="study-mode">Mode</label>
+        <select id="study-mode"><option value="unseen">New / unseen</option><option value="incorrect">Retry incorrect</option><option value="bookmarked">Bookmarks</option><option value="all">All eligible</option></select>
+        <label for="session-size">Questions</label>
+        <select id="session-size"><option>5</option><option>10</option><option selected>15</option><option>30</option></select>
+        <button id="start-session" class="primary" type="button">Start session</button>
+      </div>
+    </section>
+
+    <section id="summary" class="stats study-stats" aria-label="Study summary"></section>
+
+    <section id="question-panel" class="panel question-panel" hidden>
+      <div class="question-topline">
+        <div><span id="progress" class="pill"></span> <span id="verification" class="pill"></span></div>
+        <div><span id="timer" class="timer">0:00</span><button id="bookmark" class="secondary compact" type="button">☆ Bookmark</button></div>
+      </div>
+      <h2 id="stem" tabindex="-1"></h2>
+      <div id="stem-media" class="study-media"></div>
+      <fieldset id="options" class="answer-options"><legend class="sr-only">Answer options</legend></fieldset>
+
+      <fieldset class="confidence-box"><legend>Confidence before reveal</legend><div class="confidence-scale" id="confidence">
+        <label><input type="radio" name="confidence" value="1"><span>1<br><small>Guess</small></span></label>
+        <label><input type="radio" name="confidence" value="2"><span>2</span></label>
+        <label><input type="radio" name="confidence" value="3"><span>3</span></label>
+        <label><input type="radio" name="confidence" value="4"><span>4</span></label>
+        <label><input type="radio" name="confidence" value="5"><span>5<br><small>Sure</small></span></label>
+      </div></fieldset>
+      <div class="answer-actions"><button id="submit-answer" class="primary" type="button">Lock answer</button><button id="skip-question" class="secondary" type="button">Skip</button></div>
+
+      <section id="result" class="result-panel" aria-live="polite" hidden>
+        <div class="section-heading"><div><p class="eyebrow">RESULT</p><h3 id="result-title"></h3></div><span id="result-verification" class="pill"></span></div>
+        <p id="explanation"></p>
+        <p id="reference" class="muted"></p>
+        <div class="reflection-grid">
+          <div><label for="mistake-category">Why did I miss it?</label><select id="mistake-category"><option value="">Choose if useful</option><option value="knowledge_gap">Knowledge gap</option><option value="misread_stem">Misread stem</option><option value="confused_options">Confused options</option><option value="overthinking">Overthinking</option><option value="guessing">Guessing</option><option value="time_pressure">Time pressure</option><option value="calculation_error">Calculation error</option><option value="other">Other</option></select></div>
+          <div><label for="attempt-note">One-line note</label><input id="attempt-note" maxlength="4000" placeholder="What should future-me remember?"></div>
+        </div>
+        <div class="answer-actions"><button id="save-reflection" class="secondary" type="button">Save reflection</button><button id="next-question" class="primary" type="button">Next question →</button></div>
+      </section>
+    </section>
+
+    <section id="empty-session" class="panel empty-session" hidden><h2 id="empty-title">No questions in this queue</h2><p id="empty-copy" class="muted">Try another mode or import more questions.</p></section>
+
+    <section class="panel history-panel" aria-labelledby="history-title"><div class="section-heading"><div><h2 id="history-title">Recent attempts</h2><p class="muted">Your latest retrieval history.</p></div><button id="refresh-history" class="text-button" type="button">Refresh</button></div><div id="history"><p class="empty">No attempts yet.</p></div></section>
+    <footer>NEETPG2027 <span>Attempt → feedback → error label → next retrieval.</span></footer>
+  </main>
+</div>
+</body>
+</html>
