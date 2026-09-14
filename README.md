@@ -13,6 +13,10 @@ A personal, local-first NEET PG 2027 study engine for an MBBS intern. Phases 1â€
 
 SQLite data defaults to `instance/neetpg2027.sqlite3`, which is ignored by Git. See [ARCHITECTURE.md](ARCHITECTURE.md), [DATABASE.md](DATABASE.md), and [ROADMAP.md](ROADMAP.md).
 
+## Deployment
+
+The production service is configured to run with `uvicorn app.main:app --host 0.0.0.0 --port $PORT`, apply Alembic migrations before startup, and use `/health` as the deployment health check.
+
 ## Import questions
 
 Phase 3 adds source registration, preview validation, duplicate review, and atomic import commit through `/docs`. See [IMPORTS.md](IMPORTS.md) for the contract, sample payload, and limits. GitHub Actions runs database and import integration tests on Python 3.11/3.12.
