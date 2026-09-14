@@ -220,9 +220,10 @@ def test_phase1_data_survives_upgrade_and_version_is_persisted(tmp_path):
     result = subprocess.run([sys.executable, "-m", "alembic", "upgrade", "head"], env=env, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
     with sqlite3.connect(path) as connection:
-        assert connection.execute("SELECT version_num FROM alembic_version").fetchone() == ("20260911_0002",)
+        assert connection.execute("SELECT version_num FROM alembic_version").fetchone() == ("20260915_0003",)
         assert connection.execute("SELECT stem, question_type FROM questions").fetchone() == ("Legacy synthetic", "single_best_answer")
         assert connection.execute("SELECT s.name FROM sources s JOIN question_occurrences o ON o.source_id=s.id").fetchone() == ("Legacy source",)
+        assert connection.execute("SELECT COUNT(*) FROM question_bookmarks").fetchone() == (0,)
         assert connection.execute("PRAGMA foreign_key_check").fetchall() == []
     repeated = subprocess.run([sys.executable, "-m", "alembic", "upgrade", "head"], env=env, capture_output=True, text=True)
     assert repeated.returncode == 0, repeated.stderr

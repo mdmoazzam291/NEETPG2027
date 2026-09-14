@@ -27,9 +27,16 @@ def test_ui_assets_and_sample(tmp_path, monkeypatch):
         assert '<h1>Question media</h1>' in media.text
         assert 'id="media-form"' in media.text
 
+        study = client.get('/study')
+        assert study.status_code == 200
+        assert '<h1>Study session</h1>' in study.text
+        assert 'id="question-panel"' in study.text
+        assert 'id="confidence"' in study.text
+
         for name, mime in [('imports.css', 'text/css'), ('imports.js', 'javascript'),
                            ('taxonomy.css', 'text/css'), ('taxonomy.js', 'javascript'),
-                           ('media.css', 'text/css'), ('media.js', 'javascript')]:
+                           ('media.css', 'text/css'), ('media.js', 'javascript'),
+                           ('study.css', 'text/css'), ('study.js', 'javascript')]:
             asset = client.get(f'/static/{name}')
             assert asset.status_code == 200
             assert mime in asset.headers['content-type']
