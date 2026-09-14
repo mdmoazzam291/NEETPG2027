@@ -9,10 +9,14 @@ A personal, local-first NEET PG 2027 study engine for an MBBS intern. Phases 1â€
 3. Configure an optional local database path with `NEETPG2027_DATABASE_URL=sqlite:///absolute/path/study.sqlite3`.
 4. Create the default data directory (`mkdir -p instance`), then create the schema: `alembic upgrade head`.
 5. Start the app: `uvicorn app.main:app --reload`.
-6. Visit `/` or `/health`.
+6. Visit `/` to import and review questions, or `/health` for the connection check.
 
 SQLite data defaults to `instance/neetpg2027.sqlite3`, which is ignored by Git. See [ARCHITECTURE.md](ARCHITECTURE.md), [DATABASE.md](DATABASE.md), and [ROADMAP.md](ROADMAP.md).
 
 ## Import questions
 
 Phase 3 adds source registration, preview validation, duplicate review, and atomic import commit through `/docs`. See [IMPORTS.md](IMPORTS.md) for the contract, sample payload, and limits. GitHub Actions runs database and import integration tests on Python 3.11/3.12.
+
+## Import and review interface
+
+The homepage now supports source creation, CSV/JSON file upload (or pasted content), row validation, paginated review, duplicate comparison and linking, explicit final confirmation, and reopening saved batches. A synthetic sample is available from the page. The layout adapts to tablets and phones. See [IMPORTS.md](IMPORTS.md) for the file format.

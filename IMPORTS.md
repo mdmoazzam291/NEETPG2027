@@ -1,6 +1,6 @@
 # Phase 3: controlled question import API
 
-Run migrations, start `uvicorn app.main:app --reload`, and open `/docs`.
+Run migrations, start `uvicorn app.main:app --reload`, and open `/` for the import interface. `/docs` remains available for API access.
 This is a local, single-user API; authentication and hosted deployment are not implemented.
 Use only content you have permission to import. No real PYQs or medical content are seeded.
 
@@ -59,3 +59,9 @@ Limits: 500 rows per batch; 2,000,000 characters of content; 20,000 characters p
 ## Validation
 
 CI runs pytest on Python 3.11 and 3.12 plus an Alembic upgrade/downgrade/upgrade round trip. Import integration tests use migration-created databases to catch ORM/migration mismatches, including the Phase 2 enum-value and unnamed foreign-key defects repaired here. SQLite migrations now run in an explicit transaction, check foreign-key integrity before commit, and preserve populated Phase 1 data. Audit schema version is `pyq-import-v1`; older placeholder previews must be recreated.
+
+## Browser workflow
+
+Select or create a source, choose a CSV/JSON file, then select Preview questions. Use Needs attention to find duplicate candidates; inspect an existing question before linking and record a decision note. Rejected invalid rows must be corrected in a new file. The final summary shows new questions, links, and skipped rows before confirmation. Recent imports and the batch URL restore saved reviews; drafts typed into decision-note fields are not saved until a decision is submitted. Unsaved notes survive filtering and paging within the open page, but are lost on reload.
+
+The sample file is synthetic, not medical content. Browser regression tests exercise uploads, duplicate linking, rejection, confirmation, reload, safe rendering of input text, pagination, and tablet/mobile widths.

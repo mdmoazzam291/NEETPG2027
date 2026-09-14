@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123f3a">
+  <title>Question imports · NEETPG2027</title>
+  <link rel="stylesheet" href="/static/imports.css">
+  <script src="/static/imports.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="/">N<span>NEETPG<span class="year">2027</span></span></a><span class="workspace-label">Your study workspace</span><span class="local-badge">Personal workspace</span></header>
+<div class="shell">
+  <aside><p class="eyebrow">QUESTION BANK</p><div class="nav-current">↥ &nbsp; Import & review</div><div class="sidebar-note"><strong>Build a reliable question bank.</strong><p>Keep sources, answers, and review decisions together.</p></div></aside>
+  <main id="main">
+    <div class="page-heading"><div><p class="eyebrow">PREPARE YOUR QUESTION BANK</p><h1>Import & review</h1><p>Bring your questions in. Check them once. Keep their history.</p></div><a class="text-link" href="/static/sample.json" download="synthetic-sample.json">↓ Sample JSON</a></div>
+    <ol class="steps" aria-label="Import steps"><li><span>1</span> Choose source</li><li><span>2</span> Preview & review</li><li><span>3</span> Confirm import</li></ol>
+    <div id="notice" role="status" aria-live="polite" hidden></div>
+    <div id="error" role="alert" tabindex="-1" hidden></div>
+    <noscript><p class="notice">Enable JavaScript to upload and review questions.</p></noscript>
+    <fieldset id="workspace"><legend class="sr-only">Import workspace</legend>
+    <div class="top-grid">
+      <section class="panel" aria-labelledby="upload-title">
+        <div class="section-heading"><h2 id="upload-title">Add a question file</h2><span class="pill">CSV / JSON</span></div>
+        <form id="upload-form">
+          <label for="source">Question source</label><select id="source" required><option value="">Choose a source</option></select>
+          <details id="source-details"><summary>+ Add a new source</summary><div class="source-fields">
+            <label for="source-name">Source name</label><input id="source-name" maxlength="160" placeholder="e.g. My revision notes">
+            <label for="source-type">Source type</label><select id="source-type"><option value="manual_entry">My own notes</option><option value="dataset">Question dataset</option><option value="official_paper">Official paper</option><option value="official_key">Official answer key</option><option value="publisher">Publisher</option><option value="other">Other</option></select>
+            <label for="source-citation">Citation <span class="muted">(optional)</span></label><input id="source-citation" maxlength="20000" placeholder="Title, edition, or source reference">
+            <button id="save-source" class="secondary" type="button">Save source</button>
+          </div></details>
+          <label class="file-zone" for="file"><span class="upload-icon" aria-hidden="true">↥</span><strong>Choose a question file</strong><span>CSV or JSON · up to 500 questions</span><input id="file" type="file" accept=".csv,.json,text/csv,application/json"></label>
+          <p id="file-info" class="muted">No file selected. File content stays in your app’s database.</p>
+          <details><summary>Or paste file content</summary><label for="format">Format</label><select id="format"><option value="json">JSON</option><option value="csv">CSV</option></select><label for="pasted-content">File content</label><textarea id="pasted-content" rows="5" placeholder="Paste your JSON array or CSV here"></textarea><p class="muted">Pasted content is used only when no file is selected.</p><button id="clear-file" type="button" class="text-button">Clear selected file</button></details>
+          <p class="hint">Preview checks the file without adding questions to your bank. Answers stay unverified until medically reviewed.</p>
+          <button id="preview" type="submit" class="primary">Preview questions <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+      <section class="panel history-panel" aria-labelledby="history-title"><div class="section-heading"><h2 id="history-title">Recent imports</h2><button type="button" id="refresh" class="text-button">Refresh</button></div><p class="muted">Resume a preview or inspect an import.</p><div id="history"><p class="empty">Loading saved batches…</p></div><button type="button" id="more-history" class="secondary" hidden>Load more</button></section>
+    </div>
+    <section id="batch-panel" class="panel batch-panel" aria-labelledby="batch-title" hidden>
+      <div class="section-heading"><div><p class="eyebrow" id="batch-meta"></p><h2 id="batch-title" tabindex="-1">Review questions</h2></div><span id="batch-state" class="pill"></span></div>
+      <div id="stats" class="stats"></div>
+      <div class="review-toolbar"><div><label for="row-filter">Show rows</label><select id="row-filter"><option value="all">All rows</option><option value="attention">Needs attention</option><option value="accepted">Ready to import</option><option value="rejected">Rejected</option></select></div><div><label for="search">Find a question</label><input id="search" type="search" placeholder="Search text or source ID"></div></div>
+      <div id="rows"></div><div class="pager"><button id="previous" type="button" class="secondary">Previous</button><span id="page-info"></span><button id="next" type="button" class="secondary">Next</button></div>
+      <div class="commit-bar"><div><strong id="commit-title">Finish your review</strong><p id="commit-help"></p></div><button id="confirm-import" type="button" class="primary">Review import summary →</button></div>
+      <div id="confirmation" class="confirmation" hidden><h3>Confirm this import</h3><p id="confirmation-text"></p><label class="check-label"><input id="confirm-check" type="checkbox"> I’ve checked this batch and understand the answers remain unverified.</label><div class="actions"><button id="commit" type="button" class="primary" disabled>Confirm import</button><button id="cancel-confirm" type="button" class="secondary">Keep reviewing</button></div></div>
+    </section>
+    </fieldset>
+    <footer>NEETPG2027 <span>One source. One review. A stronger question bank.</span></footer>
+  </main>
+</div>
+</body>
+</html>
