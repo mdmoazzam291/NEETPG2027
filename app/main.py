@@ -10,6 +10,7 @@ from app.config import get_settings
 from app.db.session import create_database_engine, create_session_factory
 from app.imports.api import router as imports_router
 from app.media.api import router as media_router
+from app.study.api import router as study_router
 from app.taxonomy.api import router as taxonomy_router
 
 
@@ -17,12 +18,13 @@ def create_app() -> FastAPI:
     settings = get_settings()
     engine = create_database_engine(settings.database_url)
     session_factory = create_session_factory(engine)
-    app = FastAPI(title="NEETPG2027 Study Engine", version="0.3.0")
+    app = FastAPI(title="NEETPG2027 Study Engine", version="0.4.0")
     static_dir = Path(__file__).resolve().parent / "static"
     app.mount("/static", StaticFiles(directory=static_dir), name="static")
     app.include_router(imports_router)
     app.include_router(taxonomy_router)
     app.include_router(media_router)
+    app.include_router(study_router)
     app.state.engine = engine
     app.state.session_factory = session_factory
     app.state.media_root = settings.media_root
@@ -38,6 +40,10 @@ def create_app() -> FastAPI:
     @app.get("/media", response_class=FileResponse, include_in_schema=False)
     def media():
         return FileResponse(static_dir / "media.html")
+
+    @app.get("/study", response_class=FileResponse, include_in_schema=False)
+    def study():
+        return FileResponse(static_dir / "study.html")
 
     @app.get("/health")
     def health() -> dict[str, str]:
