@@ -1,7 +1,8 @@
-"""Ensure the installed application serves its UI and bundled example."""
+"""Ensure the installed application serves its UI and bundled examples."""
 from fastapi.testclient import TestClient
-from app.main import create_app
+
 from app.imports.schemas import QuestionInput
+from app.main import create_app
 
 
 def test_ui_assets_and_sample(tmp_path, monkeypatch):
@@ -11,9 +12,17 @@ def test_ui_assets_and_sample(tmp_path, monkeypatch):
         response = client.get('/')
         assert response.status_code == 200
         assert 'Import &amp; review' in response.text or 'Import & review' in response.text
+        assert 'href="/taxonomy"' in response.text
         assert 'id="confirmation"' in response.text
         assert 'charset="utf-8"' in response.text
-        for name, mime in [('imports.css', 'text/css'), ('imports.js', 'javascript')]:
+
+        taxonomy = client.get('/taxonomy')
+        assert taxonomy.status_code == 200
+        assert '<h1>Taxonomy</h1>' in taxonomy.text
+        assert 'id="topic-form"' in taxonomy.text
+
+        for name, mime in [('imports.css', 'text/css'), ('imports.js', 'javascript'),
+                           ('taxonomy.css', 'text/css'), ('taxonomy.js', 'javascript')]:
             response = client.get(f'/static/{name}')
             assert response.status_code == 200
             assert mime in response.headers['content-type']

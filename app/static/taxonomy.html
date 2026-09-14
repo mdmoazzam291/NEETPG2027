@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123f3a">
+  <title>Taxonomy · NEETPG2027</title>
+  <link rel="stylesheet" href="/static/imports.css">
+  <link rel="stylesheet" href="/static/taxonomy.css">
+  <script src="/static/taxonomy.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="/">N<span>NEETPG<span class="year">2027</span></span></a><span class="workspace-label">Your study workspace</span><span class="local-badge">Personal workspace</span></header>
+<div class="shell">
+  <aside><p class="eyebrow">QUESTION BANK</p><a class="nav-link" href="/">↥ &nbsp; Import & review</a><div class="nav-current">⌘ &nbsp; Taxonomy</div><div class="sidebar-note"><strong>Build once, tag everywhere.</strong><p>Create stable IDs for subjects, systems, topics, and subtopics before importing tagged questions.</p></div></aside>
+  <main id="main">
+    <div class="page-heading"><div><p class="eyebrow">ORGANIZE YOUR KNOWLEDGE GRAPH</p><h1>Taxonomy</h1><p>Create reusable labels for integrated NEET-PG and INI-CET questions.</p></div><a class="text-link" href="/">← Import questions</a></div>
+    <div id="notice" role="status" aria-live="polite" hidden></div>
+    <div id="error" role="alert" tabindex="-1" hidden></div>
+    <noscript><p class="notice">Enable JavaScript to manage taxonomy.</p></noscript>
+
+    <section id="summary" class="stats taxonomy-stats" aria-label="Taxonomy counts"></section>
+
+    <div class="taxonomy-grid" id="workspace">
+      <section class="panel" aria-labelledby="layers-title">
+        <div class="section-heading"><h2 id="layers-title">1. Create layers</h2><span class="pill">Subject / System</span></div>
+        <div class="split-forms">
+          <form id="subject-form">
+            <h3>Subject</h3>
+            <label for="subject-name">Name</label><input id="subject-name" required maxlength="120" placeholder="e.g. Medicine">
+            <label for="subject-code">Code <span class="muted">(optional)</span></label><input id="subject-code" maxlength="32" placeholder="MED">
+            <button class="primary" type="submit">Add subject</button>
+          </form>
+          <form id="system-form">
+            <h3>System</h3>
+            <label for="system-name">Name</label><input id="system-name" required maxlength="120" placeholder="e.g. Cardiovascular">
+            <button class="primary" type="submit">Add system</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="link-title">
+        <div class="section-heading"><h2 id="link-title">2. Connect layers</h2><span class="pill">Reusable</span></div>
+        <form id="link-form">
+          <label for="link-subject">Subject</label><select id="link-subject" required></select>
+          <label for="link-system">System</label><select id="link-system" required></select>
+          <p class="hint">Example: Medicine ↔ Cardiovascular. The same system can connect to Surgery, Pediatrics, Physiology, and more.</p>
+          <button class="secondary" type="submit">Link subject & system</button>
+        </form>
+      </section>
+
+      <section class="panel wide" aria-labelledby="topic-title">
+        <div class="section-heading"><h2 id="topic-title">3. Add topic</h2><span class="pill">Many-to-many</span></div>
+        <form id="topic-form">
+          <div class="form-columns"><div><label for="topic-name">Topic name</label><input id="topic-name" required maxlength="160" placeholder="e.g. Acute coronary syndrome"></div><div><label for="topic-description">Description <span class="muted">(optional)</span></label><input id="topic-description" maxlength="20000" placeholder="Short scope note"></div></div>
+          <div class="choice-columns"><fieldset><legend>Subjects</legend><div id="topic-subjects" class="choice-grid"></div></fieldset><fieldset><legend>Systems</legend><div id="topic-systems" class="choice-grid"></div></fieldset></div>
+          <p class="hint">A topic may belong to several subjects and systems. This is the cross-subject integration layer.</p>
+          <button class="primary" type="submit">Add topic</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="subtopic-title">
+        <div class="section-heading"><h2 id="subtopic-title">4. Add subtopic</h2><span class="pill">Fine-grained</span></div>
+        <form id="subtopic-form">
+          <label for="subtopic-topic">Parent topic</label><select id="subtopic-topic" required></select>
+          <label for="subtopic-name">Subtopic name</label><input id="subtopic-name" required maxlength="160" placeholder="e.g. STEMI reperfusion strategy">
+          <label for="subtopic-description">Description <span class="muted">(optional)</span></label><textarea id="subtopic-description" rows="3" maxlength="20000"></textarea>
+          <button class="primary" type="submit">Add subtopic</button>
+        </form>
+      </section>
+
+      <section class="panel catalogue-panel" aria-labelledby="catalogue-title">
+        <div class="section-heading"><div><h2 id="catalogue-title">Catalogue</h2><p class="muted">Rename labels or archive topics without deleting referenced IDs.</p></div><button id="refresh-taxonomy" class="text-button" type="button">Refresh</button></div>
+        <label for="taxonomy-search">Find taxonomy</label><input id="taxonomy-search" type="search" placeholder="Search subject, system, topic, or subtopic">
+        <div id="catalogue" class="catalogue"><p class="empty">Loading taxonomy…</p></div>
+      </section>
+    </div>
+    <footer>NEETPG2027 <span>Subjects audit coverage. Systems integrate learning. Topics power retrieval.</span></footer>
+  </main>
+</div>
+</body>
+</html>
