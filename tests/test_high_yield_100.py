@@ -105,4 +105,20 @@ def test_high_yield_bank_imports_as_one_100_question_batch(tmp_path, monkeypatch
         assert detail.status_code == 200
         assert set(detail.json()["verification"].values()) == {"unverified"}
 
+        study = client.get("/api/study/queue?mode=unseen&limit=100")
+        assert study.status_code == 200, study.text
+        study_questions = study.json()["questions"]
+        assert len(study_questions) == 100
+        assert [item["id"] for item in study_questions] == [row["question_id"] for row in result["rows"]]
+        for item in study_questions:
+            assert item["answer_verification_status"] == "unverified"
+            assert "answer_explanation" not in item
+            assert "reference_text" not in item
+            assert "correct_option_ids" not in item
+            assert all("is_correct" not in option and "explanation" not in option for option in item["options"])
+        summary = client.get("/api/study/summary").json()
+        assert summary["eligible_questions"] == 100
+        assert summary["unseen_questions"] == 100
+        assert summary["total_attempts"] == 0
+
     app.state.engine.dispose()
