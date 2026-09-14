@@ -13,3 +13,7 @@ Database foreign keys are enabled for SQLite connections. Timestamps use timezon
 ## Not included
 
 No AI, external services, scraping, authentication, question generation, fake data, analytics, weakness detection, priority calculation, or revision algorithm is implemented.
+
+## Phase 3 import boundary
+
+`app/imports/schemas.py` defines strict input contracts; `service.py` separates preview, review, and commit; `api.py` owns HTTP and transaction boundaries. SQLite write transactions start with BEGIN IMMEDIATE. No schema change is required: Phase 2 audit tables retain raw input, normalized content, and timestamped review decisions. Enum mappings persist lowercase values to match existing Alembic constraints. See IMPORTS.md for duplicate and verification semantics.
