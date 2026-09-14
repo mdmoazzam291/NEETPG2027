@@ -90,8 +90,13 @@ def question_detail(question_id: int, session=Depends(database)):
     return {"id": question.id, "stem": question.stem, "question_type": question.question_type.value,
             "answer_explanation": question.answer_explanation, "reference_text": question.reference_text,
             "lifecycle_status": question.lifecycle_status.value,
-            "options": [{"position": o.position, "label": o.label, "text": o.text, "is_correct": o.is_correct}
+            "options": [{"id": o.id, "position": o.position, "label": o.label, "text": o.text, "is_correct": o.is_correct}
                         for o in sorted(question.options, key=lambda o: o.position)],
+            "media": [{"id": item.id, "question_option_id": item.question_option_id,
+                       "media_type": item.media_type.value, "alt_text": item.alt_text,
+                       "caption": item.caption, "content_hash": item.content_hash,
+                       "position": item.position, "content_url": f"/api/media/{item.id}/content"}
+                      for item in sorted(question.media, key=lambda item: (item.position, item.id))],
             "verification": {v.verification_aspect.value: v.status.value for v in question.verification_states},
             "occurrences": [{"id": o.id, "source_id": o.source_id, "external_id": o.source_identifier,
                              "exam_administration_id": o.exam_administration_id} for o in question.occurrences]}
