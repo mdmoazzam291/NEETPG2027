@@ -226,3 +226,14 @@ def test_phase1_data_survives_upgrade_and_version_is_persisted(tmp_path):
         assert connection.execute("PRAGMA foreign_key_check").fetchall() == []
     repeated = subprocess.run([sys.executable, "-m", "alembic", "upgrade", "head"], env=env, capture_output=True, text=True)
     assert repeated.returncode == 0, repeated.stderr
+
+
+def test_review_history_is_retained(client):
+    batch = preview(client, source(client), [question()])
+    assert review(client, batch, "reject").status_code == 200
+    result = review(client, batch, "create")
+    assert result.status_code == 200
+    audit = result.json()["rows"][0]["normalized_payload"]
+    assert [entry["action"] for entry in audit["review_history"]] == ["reject", "create"]
+    assert audit["review"]["action"] == "create"
+    assert commit(client, batch).status_code == 200

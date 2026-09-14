@@ -58,7 +58,7 @@ def preview(payload: PreviewInput, session=Depends(database)):
 @router.get("/imports")
 def batches(limit: int = Query(50, ge=1, le=200), offset: int = Query(0, ge=0), session=Depends(database)):
     return [{"id": batch.id, "status": batch.status.value, "input_name": batch.input_name,
-             "row_count": batch.row_count, "completed_at": batch.completed_at}
+             "row_count": batch.row_count, "completed_at": service.utc_timestamp(batch.completed_at)}
             for batch in session.scalars(select(ImportBatch).order_by(ImportBatch.id.desc()).offset(offset).limit(limit))]
 
 

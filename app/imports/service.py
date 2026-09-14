@@ -5,6 +5,7 @@ import io
 import json
 import unicodedata
 from difflib import SequenceMatcher
+from datetime import timezone
 
 from fastapi import HTTPException
 from pydantic import ValidationError
@@ -132,7 +133,7 @@ def preview(session, payload):
         try:
             data = validated(raw, payload.input_format, session)
             row.external_id = data.external_id
-            row.normalized_payload = dumps({"question": data.model_dump(), "review": None})
+            row.normalized_payload = dumps({"question": data.model_dump(), "review": None, "review_history": []})
             if data.external_id in seen_ids:
                 raise ValueError("external_id repeats within this batch")
             seen_ids.add(data.external_id)
@@ -169,6 +170,7 @@ def review(session, batch, row_id, decision):
             raise HTTPException(404, "target question not found")
         payload["target_fingerprint"] = question_fingerprint(question)
     payload["review"] = decision.model_dump() | {"reviewed_at": utcnow().isoformat()}
+    payload.setdefault("review_history", []).append(payload["review"])
     row.normalized_payload = dumps(payload)
     row.status = ImportRowStatus.REJECTED if decision.action == "reject" else ImportRowStatus.ACCEPTED
     recount(batch)
@@ -223,10 +225,18 @@ def commit(session, batch):
     return batch
 
 
+def utc_timestamp(value):
+    if value is None:
+        return None
+    if value.tzinfo is None:
+        value = value.replace(tzinfo=timezone.utc)
+    return value.astimezone(timezone.utc).isoformat()
+
+
 def batch_view(batch):
     return {"id": batch.id, "status": batch.status.value, "source_id": batch.source_id,
             "input_name": batch.input_name, "input_checksum": batch.input_checksum,
-            "schema_version": batch.schema_version, "completed_at": batch.completed_at,
+            "schema_version": batch.schema_version, "completed_at": utc_timestamp(batch.completed_at),
             "row_count": batch.row_count, "accepted_count": batch.accepted_count,
             "rejected_count": batch.rejected_count, "duplicate_count": batch.duplicate_count,
             "rows": [{"id": row.id, "row_number": row.row_number, "status": row.status.value,
