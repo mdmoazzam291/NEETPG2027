@@ -123,7 +123,7 @@ def preview(session, payload):
     raw_rows = parse(payload.content, payload.input_format)
     batch = ImportBatch(source_id=source.id, input_format=ImportFormat(payload.input_format),
                         input_name=payload.input_name, input_checksum=hashlib.sha256(payload.content.encode()).hexdigest(),
-                        schema_version="v1", row_count=len(raw_rows))
+                        schema_version="pyq-import-v1", row_count=len(raw_rows))
     session.add(batch)
     seen_ids, seen_content = set(), set()
     for number, raw in enumerate(raw_rows, 1):

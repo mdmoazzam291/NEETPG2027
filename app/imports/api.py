@@ -29,7 +29,7 @@ def get_batch(session, batch_id):
     batch = session.get(ImportBatch, batch_id)
     if batch is None:
         raise HTTPException(404, "batch not found")
-    if batch.schema_version != "v1" or any(row.normalized_payload and '"question"' not in row.normalized_payload for row in batch.rows):
+    if batch.schema_version != "pyq-import-v1":
         raise HTTPException(409, "unsupported legacy preview; create a new preview")
     return batch
 

@@ -7,7 +7,7 @@ A personal, local-first NEET PG 2027 study engine for an MBBS intern. Phases 1â€
 1. Create and activate a Python 3.11+ virtual environment.
 2. Install development dependencies: `python -m pip install -e '.[dev]'`.
 3. Configure an optional local database path with `NEETPG2027_DATABASE_URL=sqlite:///absolute/path/study.sqlite3`.
-4. Create the schema: `alembic upgrade head`.
+4. Create the default data directory (`mkdir -p instance`), then create the schema: `alembic upgrade head`.
 5. Start the app: `uvicorn app.main:app --reload`.
 6. Visit `/` or `/health`.
 

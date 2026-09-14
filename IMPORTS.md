@@ -58,4 +58,4 @@ Limits: 500 rows per batch; 2,000,000 characters of content; 20,000 characters p
 
 ## Validation
 
-CI runs pytest on Python 3.11 and 3.12 plus an Alembic upgrade/downgrade/upgrade round trip. Import integration tests use migration-created databases to catch ORM/migration mismatches, including the Phase 2 enum-value defect repaired here.
+CI runs pytest on Python 3.11 and 3.12 plus an Alembic upgrade/downgrade/upgrade round trip. Import integration tests use migration-created databases to catch ORM/migration mismatches, including the Phase 2 enum-value and unnamed foreign-key defects repaired here. SQLite migrations now run in an explicit transaction, check foreign-key integrity before commit, and preserve populated Phase 1 data. Audit schema version is `pyq-import-v1`; older placeholder previews must be recreated.

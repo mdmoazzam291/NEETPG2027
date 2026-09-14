@@ -207,3 +207,22 @@ def test_not_found_and_source_conflict(client):
     assert client.get("/api/imports?limit=999").status_code == 422
     assert client.get("/health").status_code == 200
     assert client.get("/docs").status_code == 200
+
+
+def test_phase1_data_survives_upgrade_and_version_is_persisted(tmp_path):
+    import sqlite3
+    path = tmp_path / "legacy.sqlite"
+    env = os.environ | {"NEETPG2027_DATABASE_URL": f"sqlite:///{path}"}
+    subprocess.run([sys.executable, "-m", "alembic", "upgrade", "20260910_0001"], env=env, check=True, capture_output=True)
+    with sqlite3.connect(path) as connection:
+        connection.execute("INSERT INTO questions (id, stem, lifecycle_status, created_at, updated_at) VALUES (1, 'Legacy synthetic', 'imported', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+        connection.execute("INSERT INTO question_occurrences (question_id, source, source_identifier, lifecycle_status, verification_status, created_at, updated_at) VALUES (1, 'Legacy source', 'old-1', 'imported', 'unverified', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+    result = subprocess.run([sys.executable, "-m", "alembic", "upgrade", "head"], env=env, capture_output=True, text=True)
+    assert result.returncode == 0, result.stderr
+    with sqlite3.connect(path) as connection:
+        assert connection.execute("SELECT version_num FROM alembic_version").fetchone() == ("20260911_0002",)
+        assert connection.execute("SELECT stem, question_type FROM questions").fetchone() == ("Legacy synthetic", "single_best_answer")
+        assert connection.execute("SELECT s.name FROM sources s JOIN question_occurrences o ON o.source_id=s.id").fetchone() == ("Legacy source",)
+        assert connection.execute("PRAGMA foreign_key_check").fetchall() == []
+    repeated = subprocess.run([sys.executable, "-m", "alembic", "upgrade", "head"], env=env, capture_output=True, text=True)
+    assert repeated.returncode == 0, repeated.stderr
