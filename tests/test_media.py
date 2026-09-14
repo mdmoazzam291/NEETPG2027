@@ -30,7 +30,11 @@ def client(tmp_path, monkeypatch):
 def create_question(client, namespace="media.one", external_id="m1"):
     source = client.post("/api/sources", json={"name": namespace, "external_namespace": namespace, "source_type": "dataset"})
     assert source.status_code == 201, source.text
-    row = {"external_id": external_id, "stem": f"Synthetic media question {external_id}: select Alpha.",
+    stems = {
+        "m1": "Synthetic cardiology media prompt: select Alpha.",
+        "m2": "A dermatology visual asks for the best labeled structure; choose Alpha.",
+    }
+    row = {"external_id": external_id, "stem": stems.get(external_id, f"Distinct synthetic visual prompt {external_id}: choose Alpha."),
            "options": [{"label": "A", "text": "Alpha", "is_correct": True},
                        {"label": "B", "text": "Beta", "is_correct": False}]}
     preview = client.post("/api/imports/preview", json={"source_id": source.json()["id"], "input_format": "json",
