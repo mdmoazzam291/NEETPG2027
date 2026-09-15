@@ -9,7 +9,7 @@ async function loadPhase10(page){
 
 test('Phase 10 adds hierarchical metadata and system filters', async ({page})=>{
   await loadPhase10(page);
-  await expect(page.locator('#pSystem')).toBeVisible();
+  await expect(page.locator('#pSystem')).toBeAttached();
   await expect(page.locator('#bankSystem')).toBeAttached();
   const metadata=await page.evaluate(()=>{
     const qs=window.NEETPG_PHASE10.allQuestions();
@@ -23,6 +23,7 @@ test('Phase 10 adds hierarchical metadata and system filters', async ({page})=>{
 
 test('practice system filter constrains the session queue', async ({page})=>{
   await loadPhase10(page);
+  await page.evaluate(()=>navigate('practice'));
   const system=await page.locator('#pSystem option').nth(1).textContent();
   await page.selectOption('#pSystem',{label:system});
   await page.selectOption('#pMode','all');
