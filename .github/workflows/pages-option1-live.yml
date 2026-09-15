@@ -1,4 +1,4 @@
-name: GitHub-only UI v2 Live
+name: GitHub-only UI v3 Supabase Live
 on:
   push:
     branches: [main]
@@ -19,10 +19,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout validated GitHub-only UI v2
+      - name: Checkout validated Supabase UI branch
         uses: actions/checkout@v4
         with:
-          ref: feature/github-only-ui-v2
+          ref: feature/supabase-auth-v1
       - name: Prepare static site
         run: |
           mkdir -p _site/data/high_yield_100 _site/assets
@@ -32,8 +32,11 @@ jobs:
           cp assets/app.css _site/assets/app.css
           cp assets/app.js _site/assets/app.js
           cp assets/neetpg-timer.js _site/assets/neetpg-timer.js
+          cp assets/supabase-config.js _site/assets/supabase-config.js
+          cp assets/auth-sync.js _site/assets/auth-sync.js
+          cp assets/auth-provider-guard.js _site/assets/auth-provider-guard.js
           cp data/high_yield_100/part*.json _site/data/high_yield_100/
-          sed -i 's#</body>#<script src="assets/neetpg-timer.js" defer></script></body>#' _site/index.html
+          sed -i 's#</body>#<script src="assets/supabase-config.js"></script><script src="assets/auth-sync.js" defer></script><script src="assets/auth-provider-guard.js" defer></script><script src="assets/neetpg-timer.js" defer></script></body>#' _site/index.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
