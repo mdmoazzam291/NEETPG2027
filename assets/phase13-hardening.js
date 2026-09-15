@@ -19,11 +19,11 @@
 
   function refreshCopy(){
     const footer = $('.sidebar-footer');
-    if (footer) footer.textContent = 'Local-first. Study data stays on this device offline; sign in to sync supported progress securely across devices.';
+    const footerText = 'Local-first. Study data stays on this device offline; sign in to sync supported progress securely across devices.';
+    if (footer && footer.textContent !== footerText) footer.textContent = footerText;
+    const calloutText = 'Local backup remains the recovery path. When signed in, supported progress, SRS, notes, bookmarks and sessions also sync through Supabase.';
     $$('.settings-grid .callout').forEach(el => {
-      if (/does not sync progress between devices/i.test(el.textContent || '')) {
-        el.textContent = 'Local backup remains the recovery path. When signed in, supported progress, SRS, notes, bookmarks and sessions also sync through Supabase.';
-      }
+      if (/does not sync progress between devices/i.test(el.textContent || '') && el.textContent !== calloutText) el.textContent = calloutText;
     });
   }
 
@@ -95,7 +95,7 @@
 
   function bindAccessibilityObservers(){
     applyAccessibility();
-    const observer = new MutationObserver(() => { applyAccessibility(); refreshCopy(); });
+    const observer = new MutationObserver(() => applyAccessibility());
     observer.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class', 'data-on'] });
   }
 
