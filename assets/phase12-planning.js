@@ -34,7 +34,7 @@ function dailyMix(count=profileGoal()){
     unseen:ranked.filter(q=>!(qState(q.external_id).attempts||0))
   };
   const duePressure=pools.due.length>=Math.max(5,Math.ceil(count*.5));
-  const quotas={due:Math.ceil(count*(duePressure?.5:.35)),incorrect:Math.ceil(count*.25),weak:Math.ceil(count*.25),unseen:Math.ceil(count*.15)};
+  const quotas={due:Math.ceil(count*(duePressure ? .5 : .35)),incorrect:Math.ceil(count*.25),weak:Math.ceil(count*.25),unseen:Math.ceil(count*.15)};
   const picked=[],seen=new Set(),composition={due:0,incorrect:0,weak:0,unseen:0,balanced:0},reasons={};
   const add=(name,limit)=>{for(const q of pools[name]){if(picked.length>=count||composition[name]>=limit)break;if(seen.has(q.external_id))continue;seen.add(q.external_id);picked.push(q);composition[name]++;reasons[q.external_id]=name}};
   add('due',quotas.due);add('incorrect',quotas.incorrect);add('weak',quotas.weak);add('unseen',quotas.unseen);
