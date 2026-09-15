@@ -7,7 +7,8 @@ async function loadPhase13(page){
 
 async function openNavItem(page, view){
   const item=page.locator(`.nav button[data-view="${view}"]`);
-  if(!(await item.isInViewport())){
+  const inViewport=await item.evaluate(el=>{const r=el.getBoundingClientRect();return r.width>0&&r.height>0&&r.bottom>0&&r.right>0&&r.top<innerHeight&&r.left<innerWidth});
+  if(!inViewport){
     await page.click('#menuBtn');
     await expect(page.locator('#sidebar')).toHaveClass(/open/);
   }
