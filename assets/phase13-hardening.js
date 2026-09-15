@@ -45,10 +45,12 @@
     $('#menuBtn')?.setAttribute('aria-controls', 'sidebar');
     $('#toast')?.setAttribute('role', 'status');
     $('#toast')?.setAttribute('aria-live', 'polite');
+    $('#v4SearchInput')?.setAttribute('aria-label', 'Search questions, topics and notes');
 
-    $$('.nav button[data-view], .v4-nav-item[data-view]').forEach(btn => {
+    $$('.nav button[data-view], .v4-nav-item[data-view], .v4-nav[data-v4-target]').forEach(btn => {
       if (btn.classList.contains('active')) btn.setAttribute('aria-current', 'page');
       else btn.removeAttribute('aria-current');
+      if (!btn.getAttribute('aria-label') && btn.dataset.v4Label) btn.setAttribute('aria-label', btn.dataset.v4Label);
     });
 
     $$('.modal-backdrop').forEach(backdrop => {
