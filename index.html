@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f544b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="NEETPG2027">
+  <title>NEETPG2027 Study Engine</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><strong>NEETPG2027</strong><small>GitHub-only study engine</small></div>
+    <nav class="nav">
+      <button class="active" data-view="dashboard">⌂ <span>Dashboard</span></button>
+      <button data-view="practice">◎ <span>Practice</span></button>
+      <button data-view="review">↻ <span>Review & SRS</span><span class="badge" id="navDue">0</span></button>
+      <button data-view="bank">▦ <span>Question Bank</span></button>
+      <button data-view="analytics">⌁ <span>Analytics</span></button>
+      <button data-view="settings">⚙ <span>Settings</span></button>
+    </nav>
+    <div class="sidebar-footer">Local-first. Your attempts, notes, SRS schedule and settings stay on this device unless you export a backup.</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="btn icon menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <h1 id="topTitle">Dashboard</h1>
+      <div class="spacer"></div>
+      <div class="top-actions">
+        <span class="tag hide-mobile" id="offlineBadge">Online</span>
+        <button class="btn icon" id="shortcutsBtn" title="Keyboard shortcuts">⌨</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="view active" id="view-dashboard">
+        <div class="page-head"><div><h2>Study cockpit</h2><p>One screen for what to do next, what is weak, and what is due.</p></div><button class="btn soft" id="refreshDashboard">Refresh</button></div>
+        <div class="grid stats">
+          <div class="card stat-card"><span class="stat-label">Questions</span><strong class="stat-number" id="statTotal">100</strong><span class="stat-note">available</span></div>
+          <div class="card stat-card"><span class="stat-label">Attempted</span><strong class="stat-number" id="statAttempted">0</strong><span class="stat-note" id="statCoverage">0% coverage</span></div>
+          <div class="card stat-card"><span class="stat-label">Accuracy</span><strong class="stat-number" id="statAccuracy">—</strong><span class="stat-note">all attempts</span></div>
+          <div class="card stat-card"><span class="stat-label">Due now</span><strong class="stat-number" id="statDue">0</strong><span class="stat-note">spaced review</span></div>
+          <div class="card stat-card"><span class="stat-label">Streak</span><strong class="stat-number" id="statStreak">0</strong><span class="stat-note">active days</span></div>
+          <div class="card stat-card"><span class="stat-label">Bookmarks</span><strong class="stat-number" id="statBookmarks">0</strong><span class="stat-note">saved questions</span></div>
+        </div>
+
+        <div class="card hero" style="margin-top:16px">
+          <h3>Recommended smart session</h3>
+          <p id="smartDescription">Building a queue from due reviews, previous mistakes, weak subjects and unseen high-yield questions.</p>
+          <div class="hero-row"><button class="btn primary" id="startSmart">Start smart session</button><div class="hero-mix" id="smartMix"></div></div>
+        </div>
+
+        <div class="grid two" style="margin-top:16px">
+          <div class="card"><div class="section-title" style="margin-top:0"><h3>Weak subjects</h3><button class="btn small" data-view-jump="analytics">Full analytics</button></div><div id="weakSubjects" class="bar-list"></div></div>
+          <div class="card"><h3>Last 7 days</h3><div id="activityChart" class="activity"></div><p class="muted small" id="activityCaption"></p></div>
+        </div>
+        <div class="grid two" style="margin-top:16px">
+          <div class="card"><h3>Today’s priorities</h3><div id="todayPlan" class="list"></div></div>
+          <div class="card"><h3>Recent activity</h3><div id="recentActivity" class="list"></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-practice">
+        <div class="page-head"><div><h2>Practice</h2><p>Build a targeted session or let the adaptive queue decide.</p></div></div>
+        <div class="card" id="practiceSetup">
+          <div class="section-title" style="margin-top:0"><h3>Session builder</h3><div class="chips" id="presetChips"><button class="chip" data-preset="rapid">Rapid 15</button><button class="chip" data-preset="inicet">INI-CET 25</button><button class="chip" data-preset="errors">Error drill</button><button class="chip" data-preset="grand">100 Q mock</button></div></div>
+          <div class="form-grid">
+            <div class="field"><label>Mode</label><select id="pMode"><option value="smart">Smart adaptive</option><option value="unseen">New / unseen</option><option value="due">Due review</option><option value="incorrect">Incorrect</option><option value="bookmarked">Bookmarked</option><option value="all">All questions</option></select></div>
+            <div class="field"><label>Subject</label><select id="pSubject"><option value="all">All subjects</option></select></div>
+            <div class="field"><label>Topic</label><select id="pTopic"><option value="all">All topics</option></select></div>
+            <div class="field"><label>Difficulty</label><select id="pDifficulty"><option value="all">Any</option><option value="1">Easy</option><option value="2">Medium</option><option value="3">Hard</option></select></div>
+            <div class="field"><label>Clinical</label><select id="pClinical"><option value="all">Any</option><option value="yes">Clinical only</option><option value="no">Non-clinical</option></select></div>
+            <div class="field"><label>Integrated</label><select id="pIntegrated"><option value="all">Any</option><option value="yes">Integrated only</option><option value="no">Single-subject</option></select></div>
+            <div class="field"><label>Questions</label><select id="pCount"><option>5</option><option>10</option><option selected>15</option><option>25</option><option>50</option><option>100</option></select></div>
+            <div class="field"><label>Feedback</label><select id="pFeedback"><option value="instant">Instant explanation</option><option value="exam">Exam mode, review later</option></select></div>
+            <div class="field"><label>Timer</label><select id="pTimer"><option value="off">Off</option><option value="question">Per question</option><option value="session">Whole session</option></select></div>
+            <div class="field"><label>Seconds / question</label><input id="pSeconds" type="number" min="10" max="600" value="60"></div>
+            <div class="field"><label>Order</label><select id="pOrder"><option value="adaptive">Adaptive priority</option><option value="random">Random</option><option value="weakest">Weakest first</option></select></div>
+            <div class="field"><label>Options</label><select id="pShuffle"><option value="default">Use preference</option><option value="yes">Shuffle options</option><option value="no">Keep original</option></select></div>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" id="startCustom">Start session</button><button class="btn" id="savePreset">Save as preset</button><select class="btn" id="savedPresets"><option value="">Saved presets…</option></select></div>
+        </div>
+
+        <div class="practice-shell hidden" id="practiceShell">
+          <div class="card question-card">
+            <div class="q-top"><span class="tag" id="qProgress">1 / 15</span><span class="tag" id="qSubject"></span><span class="tag" id="qTopic"></span><span class="tag" id="qDifficulty"></span><span class="spacer"></span><span class="tag" id="qTimer">00:00</span></div>
+            <div class="progress-track"><div class="progress-fill" id="qProgressFill"></div></div>
+            <h3 class="stem" id="qStem"></h3>
+            <div class="options" id="qOptions"></div>
+            <div class="q-actions">
+              <div class="q-tools"><button class="btn small" id="qBookmark">☆ Bookmark</button><button class="btn small" id="qFlag">⚑ Flag</button><button class="btn small" id="qEliminate">Eliminate mode</button><button class="btn small" id="qSkip">Skip</button></div>
+              <div class="confidence"><span class="small muted">Confidence</span><button data-confidence="1">1</button><button data-confidence="2">2</button><button data-confidence="3">3</button><button data-confidence="4">4</button><button data-confidence="5">5</button></div>
+              <button class="btn primary" id="qSubmit">Lock answer</button>
+            </div>
+            <div class="feedback hidden" id="qFeedback">
+              <div class="feedback-head"><span class="tag" id="feedbackTag"></span><h3 id="feedbackTitle"></h3></div>
+              <p id="feedbackExplanation"></p><p class="muted small" id="feedbackReference"></p>
+              <div class="form-grid" style="grid-template-columns:1fr 2fr;margin-top:12px">
+                <div class="field"><label>Mistake category</label><select id="mistakeCategory"><option value="">Not applicable / choose</option><option>Knowledge gap</option><option>Forgot fact</option><option>Confused options</option><option>Misread stem</option><option>Overthinking</option><option>Guessing</option><option>Time pressure</option><option>Calculation error</option><option>Other</option></select></div>
+                <div class="field"><label>One-line note</label><input id="attemptNote" placeholder="What should future-you remember?"></div>
+              </div>
+              <div class="note-box"><textarea id="questionNote" placeholder="Personal note for this question…"></textarea></div>
+              <div class="review-buttons"><button class="btn" data-rating="again">Again</button><button class="btn" data-rating="hard">Hard</button><button class="btn primary" data-rating="good">Good</button><button class="btn soft" data-rating="easy">Easy</button></div>
+              <div style="display:flex;justify-content:flex-end;margin-top:12px"><button class="btn primary" id="qNext">Next question</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card hidden session-summary" id="sessionSummary">
+          <div class="score-ring" id="scoreRing" style="--score:0deg"><strong id="summaryScore">0%</strong></div>
+          <h3>Session complete</h3><p class="muted" id="summaryText"></p>
+          <div class="chips" id="summaryChips" style="justify-content:center;margin:14px 0"></div>
+          <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap"><button class="btn primary" id="reviewSession">Review answers</button><button class="btn" id="newSession">New session</button></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-review">
+        <div class="page-head"><div><h2>Review & spaced repetition</h2><p>Due cards, persistent errors, notes and bookmarks in one retrieval queue.</p></div><button class="btn primary" id="startDue">Start due review</button></div>
+        <div class="grid stats" style="grid-template-columns:repeat(4,1fr)">
+          <div class="card stat-card"><span class="stat-label">Due</span><strong class="stat-number" id="reviewDue">0</strong></div>
+          <div class="card stat-card"><span class="stat-label">Incorrect</span><strong class="stat-number" id="reviewIncorrect">0</strong></div>
+          <div class="card stat-card"><span class="stat-label">Bookmarked</span><strong class="stat-number" id="reviewBookmarks">0</strong></div>
+          <div class="card stat-card"><span class="stat-label">Notes</span><strong class="stat-number" id="reviewNotes">0</strong></div>
+        </div>
+        <div class="grid two" style="margin-top:16px"><div class="card"><h3>Due now</h3><div id="dueList" class="list"></div></div><div class="card"><h3>Recent incorrect</h3><div id="wrongList" class="list"></div></div></div>
+        <div class="grid two" style="margin-top:16px"><div class="card"><h3>Bookmarks</h3><div id="bookmarkList" class="list"></div></div><div class="card"><h3>My notes</h3><div id="notesList" class="list"></div></div></div>
+      </section>
+
+      <section class="view" id="view-bank">
+        <div class="page-head"><div><h2>Question bank</h2><p>Search, filter, inspect, import and launch a session from any subset.</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><label class="btn file-btn">Import JSON<input type="file" id="customImport" accept="application/json,.json"></label><button class="btn primary" id="practiceFiltered">Practice filtered</button></div></div>
+        <div class="card">
+          <div class="bank-toolbar"><input id="bankSearch" placeholder="Search stem, subject or topic…"><select id="bankSubject"><option value="all">All subjects</option></select><select id="bankStatus"><option value="all">Any status</option><option value="unseen">Unseen</option><option value="correct">Correct</option><option value="incorrect">Incorrect</option><option value="bookmarked">Bookmarked</option><option value="due">Due</option></select><select id="bankDifficulty"><option value="all">Any difficulty</option><option value="1">Easy</option><option value="2">Medium</option><option value="3">Hard</option></select></div>
+          <div class="small muted" id="bankCount"></div>
+          <div style="overflow:auto"><table class="question-table"><thead><tr><th>Question</th><th>Subject</th><th>Topic</th><th>Status</th><th></th></tr></thead><tbody id="bankBody"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-analytics">
+        <div class="page-head"><div><h2>Analytics</h2><p>Find where marks are leaking, not just how many questions you solved.</p></div></div>
+        <div class="analytics-grid">
+          <div class="card"><h3>Accuracy by subject</h3><div id="subjectBars" class="bar-list"></div></div>
+          <div class="card"><h3>Error causes</h3><div id="mistakeBars" class="bar-list"></div></div>
+          <div class="card"><h3>Difficulty performance</h3><div id="difficultyBars" class="bar-list"></div></div>
+          <div class="card"><h3>Confidence calibration</h3><div id="confidenceBars" class="bar-list"></div></div>
+        </div>
+        <div class="grid two" style="margin-top:16px"><div class="card"><h3>What to revise next</h3><div id="nextTopics" class="list"></div></div><div class="card"><h3>Session history</h3><div id="sessionHistory" class="list"></div></div></div>
+      </section>
+
+      <section class="view" id="view-settings">
+        <div class="page-head"><div><h2>Settings</h2><p>Customize the study engine and control your local data.</p></div><button class="btn primary" id="saveSettings">Save settings</button></div>
+        <div class="settings-grid">
+          <div class="card"><h3>Appearance</h3><div class="form-grid" style="grid-template-columns:1fr 1fr"><div class="field"><label>Theme</label><select id="sTheme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></div><div class="field"><label>Accent</label><select id="sAccent"><option value="green">Clinical green</option><option value="blue">Blue</option><option value="purple">Purple</option><option value="amber">Amber</option></select></div><div class="field"><label>Density</label><select id="sDensity"><option value="comfortable">Comfortable</option><option value="compact">Compact</option></select></div><div class="field"><label>Font size</label><select id="sFont"><option value="15">Small</option><option value="16">Default</option><option value="17">Large</option><option value="18">Extra large</option></select></div></div></div>
+          <div class="card"><h3>Practice defaults</h3><div class="form-grid" style="grid-template-columns:1fr 1fr"><div class="field"><label>Default mode</label><select id="sDefaultMode"><option value="smart">Smart</option><option value="unseen">Unseen</option><option value="due">Due</option><option value="incorrect">Incorrect</option><option value="all">All</option></select></div><div class="field"><label>Default count</label><select id="sDefaultCount"><option>5</option><option>10</option><option>15</option><option>25</option><option>50</option></select></div></div><div class="switch-row"><div><strong>Shuffle answer options</strong><small>Randomize option order for each question.</small></div><button class="switch" id="sShuffle"></button></div><div class="switch-row"><div><strong>Show subject labels</strong><small>Hide them for more exam-like practice.</small></div><button class="switch" id="sLabels"></button></div><div class="switch-row"><div><strong>Auto-open explanation</strong><small>After locking an answer in instant mode.</small></div><button class="switch" id="sAutoExplain"></button></div></div>
+          <div class="card"><h3>Data backup</h3><p class="muted small">Export everything before clearing Safari data or switching devices.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" id="exportBackup">Export backup</button><label class="btn file-btn">Import backup<input type="file" id="importBackup" accept="application/json,.json"></label></div><div class="callout small" style="margin-top:14px">GitHub Pages does not sync progress between devices. Backup/restore is the portable sync path in this serverless version.</div></div>
+          <div class="card"><h3>Offline & app install</h3><p class="muted small">The service worker caches the interface and bundled question bank after first load.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" id="installPwa">Install app</button><button class="btn" id="cacheRefresh">Refresh offline cache</button></div><p class="small muted" id="installHint">On iPad Safari, use Share → Add to Home Screen if the install button is unavailable.</p></div>
+          <div class="card"><h3>Danger zone</h3><p class="muted small">This removes attempts, notes, bookmarks, custom questions, SRS schedule and local settings from this browser.</p><button class="btn danger" id="resetAll">Reset all local data</button></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="shortcutsModal"><div class="modal"><div class="modal-head"><h3>Keyboard shortcuts</h3><button class="btn icon" id="closeShortcuts">×</button></div><div class="list"><div class="list-item"><span class="kbd">1–4</span><div>Choose answer option</div></div><div class="list-item"><span class="kbd">Enter</span><div>Submit / next</div></div><div class="list-item"><span class="kbd">B</span><div>Toggle bookmark</div></div><div class="list-item"><span class="kbd">F</span><div>Toggle flag</div></div><div class="list-item"><span class="kbd">E</span><div>Toggle eliminate mode</div></div></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

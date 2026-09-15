@@ -1,12 +1,12 @@
 name: CI
 on:
   push:
-    branches: [main]
+    branches: [main, feature/phase13-production-hardening]
   pull_request:
 permissions:
   contents: read
 jobs:
-  test:
+  python:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -26,7 +26,8 @@ jobs:
           python -m alembic upgrade head
           python -m alembic downgrade base
           python -m alembic upgrade head
-  browser:
+
+  backend-browser:
     runs-on: ubuntu-latest
     env:
       NEETPG2027_DATABASE_URL: sqlite:///browser-ci.sqlite3
@@ -43,11 +44,36 @@ jobs:
       - run: python -m alembic upgrade head
       - run: npm install --no-save @playwright/test@1.55.1
       - run: npx playwright install --with-deps chromium
-      - run: npx playwright test
+      - run: npx playwright test --config=playwright.config.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: browser-test-results
+          name: backend-browser-test-results
+          path: |
+            playwright-report/
+            test-results/
+
+  static-browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm install --no-save @playwright/test@1.55.1
+      - run: npx playwright install --with-deps chromium
+      - name: Start static app
+        run: python -m http.server 4173 --bind 127.0.0.1 > /tmp/static-ci.log 2>&1 &
+      - name: Wait for static app
+        run: curl --retry 10 --retry-delay 1 --retry-connrefused -fsS http://127.0.0.1:4173/ > /dev/null
+      - run: npx playwright test --config=playwright.v2.config.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: static-browser-test-results
           path: |
             playwright-report/
             test-results/
