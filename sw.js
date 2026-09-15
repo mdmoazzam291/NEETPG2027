@@ -2,7 +2,7 @@ const RELEASE='2026-09-15-phase13-1';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[
-  './','./index.html','./manifest.webmanifest',
+  './','./index.html','./manifest.webmanifest','./assets/app-icon.svg',
   './assets/app.css','./assets/ui-v4.css','./assets/exam-v9.css','./assets/phase13.css',
   './assets/app.js','./assets/ui-v4-core-compat.js','./assets/neetpg-timer.js',
   './assets/supabase-config.js','./assets/phase13-preauth.js','./assets/auth-sync.js','./assets/auth-provider-guard.js',
