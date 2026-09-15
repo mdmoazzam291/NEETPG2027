@@ -1,5 +1,5 @@
-const CACHE='neetpg2027-v2-2026-09-15-supabase1';
-const ASSETS=['./','./index.html','./assets/app.css','./assets/app.js','./assets/neetpg-timer.js','./assets/supabase-config.js','./assets/auth-sync.js','./manifest.webmanifest','./data/high_yield_100/part01.json','./data/high_yield_100/part02.json','./data/high_yield_100/part03.json','./data/high_yield_100/part04.json'];
+const CACHE='neetpg2027-v2-2026-09-15-supabase2';
+const ASSETS=['./','./index.html','./assets/app.css','./assets/app.js','./assets/neetpg-timer.js','./assets/supabase-config.js','./assets/auth-sync.js','./assets/auth-provider-guard.js','./manifest.webmanifest','./data/high_yield_100/part01.json','./data/high_yield_100/part02.json','./data/high_yield_100/part03.json','./data/high_yield_100/part04.json'];
 async function prime(){const c=await caches.open(CACHE);await c.addAll(ASSETS)}
 self.addEventListener('install',e=>{e.waitUntil(prime().then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&k.startsWith('neetpg2027-')).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
