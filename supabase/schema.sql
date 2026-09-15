@@ -98,6 +98,11 @@ begin
 end;
 $$;
 
+-- The trigger may call this SECURITY DEFINER function, but browser roles must not.
+revoke all on function public.handle_new_user() from public;
+revoke all on function public.handle_new_user() from anon;
+revoke all on function public.handle_new_user() from authenticated;
+
 drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
 after insert on auth.users
