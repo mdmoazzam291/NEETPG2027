@@ -5,12 +5,12 @@ async function loadV4(page, {timer=false}={}) {
   if(timer) await page.addScriptTag({ url: '/assets/neetpg-timer.js' });
   await page.addScriptTag({ url: '/assets/ui-v4.js' });
   await page.addScriptTag({ url: '/assets/ui-v4-fixes.js' });
+  await expect(page.locator('body')).toHaveAttribute('data-v4ready','1');
 }
 
 test('premium dashboard renders reference-inspired study UI', async ({ page }) => {
   await page.goto('/');
   await loadV4(page);
-
   await expect(page.locator('.v4-brand-row')).toContainText('NEETPG2027');
   await expect(page.locator('.v4-nav')).toHaveCount(14);
   await expect(page.locator('#v4Greeting')).toContainText('Doctor');
