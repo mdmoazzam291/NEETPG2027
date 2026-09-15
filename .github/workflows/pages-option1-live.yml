@@ -31,7 +31,9 @@ jobs:
           cp sw.js _site/sw.js
           cp assets/app.css _site/assets/app.css
           cp assets/app.js _site/assets/app.js
+          cp assets/neetpg-timer.js _site/assets/neetpg-timer.js
           cp data/high_yield_100/part*.json _site/data/high_yield_100/
+          sed -i 's#</body>#<script src="assets/neetpg-timer.js" defer></script></body>#' _site/index.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
