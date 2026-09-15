@@ -1,127 +1,17 @@
 (() => {
   'use strict';
-
-  const SYSTEM_RULES = [
-    [/cardio|heart|vascular|hypertension|ecg|shock|aortic|coronary/i,'Cardiovascular'],
-    [/respir|pulmon|lung|asthma|copd|pleura|oxygen/i,'Respiratory'],
-    [/renal|kidney|neph|urinary|bladder|prostate/i,'Renal & Genitourinary'],
-    [/gastro|liver|hepatic|biliary|pancrea|bowel|colon|stomach|esoph|inguinal/i,'Gastrointestinal & Hepatobiliary'],
-    [/neuro|brain|cranial|cavernous|brachial|spinal|seiz|stroke|mening/i,'Nervous System'],
-    [/endocr|thyroid|adrenal|pituitary|diabet|insulin|calcium/i,'Endocrine'],
-    [/hemat|blood|anemia|leuk|lymph|coag|platelet|amyloid|myeloproliferative/i,'Hematology & Oncology'],
-    [/repro|obstet|gynec|pregnan|uter|ovary|test|breast/i,'Reproductive'],
-    [/musculo|bone|joint|fracture|ortho|rheum/i,'Musculoskeletal'],
-    [/skin|dermat|cutaneous/i,'Dermatology'],
-    [/eye|ophthal|retina|glaucoma/i,'Ophthalmology'],
-    [/ear|nose|throat|ent|laryn/i,'ENT'],
-    [/infection|micro|bacter|virus|fung|paras|tubercul|immun/i,'Infectious Disease & Immunology'],
-    [/metabol|enzyme|vitamin|nutrition|urea|purine|amino acid|hmp/i,'Metabolism & Nutrition']
-  ];
-
-  const inferSystem = q => {
-    if (q.system) return String(q.system).trim();
-    const hay = `${q.subject||''} ${q.topic||''} ${q.stem||''}`;
-    const hit = SYSTEM_RULES.find(([rx]) => rx.test(hay));
-    return hit ? hit[1] : 'General / Cross-system';
-  };
-
-  const enrich = q => {
-    q.system = inferSystem(q);
-    q.subtopic = String(q.subtopic || q.topic || 'General').trim();
-    q.verification_status = q.verification_status || (/medically unverified/i.test(q.reference_text||'') ? 'unverified' : 'unverified');
-    q.provenance = q.provenance || {
-      origin: q.source === 'custom' ? 'custom_import' : 'repository_authored',
-      source_kind: /not a recalled pyq/i.test(q.reference_text||'') ? 'original_exam_style' : 'unspecified',
-      content_version: q.content_version || 1,
-      reviewed_by: null,
-      reviewed_at: null
-    };
-    return q;
-  };
-
-  function optionList(values, label) {
-    return `<option value="all">All ${label}</option>` + values.map(v=>`<option>${escapeHtml(v)}</option>`).join('');
-  }
-
-  function installControls(){
-    const pTopic = document.querySelector('#pTopic');
-    if (pTopic && !document.querySelector('#pSystem')) {
-      const wrap=document.createElement('div'); wrap.className='field';
-      wrap.innerHTML='<label>System</label><select id="pSystem"><option value="all">All systems</option></select>';
-      pTopic.closest('.field').before(wrap);
-    }
-    const bankSubject=document.querySelector('#bankSubject');
-    if (bankSubject && !document.querySelector('#bankSystem')) {
-      const el=document.createElement('select'); el.id='bankSystem'; el.innerHTML='<option value="all">All systems</option>';
-      bankSubject.after(el);
-    }
-  }
-
-  function repopulateSystems(){
-    if (!window.app?.questions?.length) return;
-    app.questions.forEach(enrich);
-    const systems=[...new Set(app.questions.map(q=>q.system))].sort();
-    for(const id of ['pSystem','bankSystem']){
-      const el=document.querySelector(`#${id}`); if(!el) continue;
-      const cur=el.value; el.innerHTML=optionList(systems,'systems');
-      if([...el.options].some(o=>o.value===cur)) el.value=cur;
-    }
-  }
-
-  function updateDependentTopics(){
-    const sub=document.querySelector('#pSubject')?.value || 'all';
-    const sys=document.querySelector('#pSystem')?.value || 'all';
-    const el=document.querySelector('#pTopic'); if(!el) return;
-    const cur=el.value;
-    const topics=[...new Set(app.questions.filter(q=>(sub==='all'||q.subject===sub)&&(sys==='all'||q.system===sys)).map(q=>q.topic))].sort();
-    el.innerHTML=optionList(topics,'topics');
-    if([...el.options].some(o=>o.value===cur)) el.value=cur;
-  }
-
-  function patchCore(){
-    if(typeof window.sessionConfigFromForm==='function'){
-      const original=window.sessionConfigFromForm;
-      window.sessionConfigFromForm=function(){return {...original(),system:document.querySelector('#pSystem')?.value||'all'};};
-    }
-    if(typeof window.getFilteredQuestions==='function'){
-      const original=window.getFilteredQuestions;
-      window.getFilteredQuestions=function(cfg={}){let qs=original(cfg);if(cfg.system&&cfg.system!=='all')qs=qs.filter(q=>enrich(q).system===cfg.system);return qs;};
-    }
-    if(typeof window.builtInPreset==='function'){
-      const original=window.builtInPreset;
-      window.builtInPreset=function(name){return {...original(name),system:'all'};};
-    }
-    if(typeof window.setPracticeForm==='function'){
-      const original=window.setPracticeForm;
-      window.setPracticeForm=function(c){original(c);const el=document.querySelector('#pSystem');if(el)el.value=c.system||'all';updateDependentTopics();};
-    }
-    if(typeof window.bankFilter==='function'){
-      const original=window.bankFilter;
-      window.bankFilter=function(){
-        original();
-        const sys=document.querySelector('#bankSystem')?.value||'all';
-        if(sys==='all')return;
-        app.filteredBank=app.filteredBank.filter(q=>enrich(q).system===sys);
-        const ids=new Set(app.filteredBank.map(q=>q.external_id));
-        document.querySelectorAll('#bankBody tr').forEach(tr=>{const btn=tr.querySelector('[data-practice-q]');if(btn&&!ids.has(btn.dataset.practiceQ))tr.remove();});
-        const count=document.querySelector('#bankCount');if(count)count.textContent=`${app.filteredBank.length} of ${app.questions.length} questions`;
-      };
-    }
-  }
-
-  function boot(){
-    installControls(); patchCore();
-    const wait=setInterval(()=>{
-      if(!window.app?.questions?.length)return;
-      clearInterval(wait);repopulateSystems();updateDependentTopics();
-      document.querySelector('#pSubject')?.addEventListener('change',updateDependentTopics);
-      document.querySelector('#pSystem')?.addEventListener('change',updateDependentTopics);
-      document.querySelector('#bankSystem')?.addEventListener('input',()=>window.bankFilter?.());
-      window.bankFilter?.();
-      window.NEETPG_PHASE10={version:1,enrich,inferSystem,repopulateSystems};
-    },50);
-    setTimeout(()=>clearInterval(wait),10000);
-  }
-
+  const SYSTEM_RULES=[[/cardio|heart|vascular|hypertension|ecg|shock|aortic|coronary/i,'Cardiovascular'],[/respir|pulmon|lung|asthma|copd|pleura|oxygen/i,'Respiratory'],[/renal|kidney|neph|urinary|bladder|prostate/i,'Renal & Genitourinary'],[/gastro|liver|hepatic|biliary|pancrea|bowel|colon|stomach|esoph|inguinal/i,'Gastrointestinal & Hepatobiliary'],[/neuro|brain|cranial|cavernous|brachial|spinal|seiz|stroke|mening/i,'Nervous System'],[/endocr|thyroid|adrenal|pituitary|diabet|insulin|calcium/i,'Endocrine'],[/hemat|blood|anemia|leuk|lymph|coag|platelet|amyloid|myeloproliferative/i,'Hematology & Oncology'],[/repro|obstet|gynec|pregnan|uter|ovary|test|breast/i,'Reproductive'],[/musculo|bone|joint|fracture|ortho|rheum/i,'Musculoskeletal'],[/skin|dermat|cutaneous/i,'Dermatology'],[/eye|ophthal|retina|glaucoma/i,'Ophthalmology'],[/ear|nose|throat|ent|laryn/i,'ENT'],[/infection|micro|bacter|virus|fung|paras|tubercul|immun/i,'Infectious Disease & Immunology'],[/metabol|enzyme|vitamin|nutrition|urea|purine|amino acid|hmp/i,'Metabolism & Nutrition']];
+  const inferSystem=q=>{if(q.system)return String(q.system).trim();const hay=`${q.subject||''} ${q.topic||''} ${q.stem||''}`;const hit=SYSTEM_RULES.find(([rx])=>rx.test(hay));return hit?hit[1]:'General / Cross-system'};
+  const enrich=q=>{q.system=inferSystem(q);q.subtopic=String(q.subtopic||q.topic||'General').trim();q.verification_status=q.verification_status||'unverified';q.provenance=q.provenance||{origin:q.source==='custom'?'custom_import':'repository_authored',source_kind:/not a recalled pyq/i.test(q.reference_text||'')?'original_exam_style':'unspecified',content_version:Number(q.content_version||1),reviewed_by:null,reviewed_at:null};return q};
+  const allQuestions=()=>typeof window.getFilteredQuestions==='function'?window.getFilteredQuestions({mode:'all',order:'none'}).map(enrich):[];
+  const optionList=(values,label)=>`<option value="all">All ${label}</option>`+values.map(v=>`<option>${escapeHtml(v)}</option>`).join('');
+  function installControls(){const pTopic=document.querySelector('#pTopic');if(pTopic&&!document.querySelector('#pSystem')){const wrap=document.createElement('div');wrap.className='field';wrap.innerHTML='<label>System</label><select id="pSystem"><option value="all">All systems</option></select>';pTopic.closest('.field').before(wrap)}const bankSubject=document.querySelector('#bankSubject');if(bankSubject&&!document.querySelector('#bankSystem')){const el=document.createElement('select');el.id='bankSystem';el.innerHTML='<option value="all">All systems</option>';bankSubject.after(el)}}
+  function repopulateSystems(){const qs=allQuestions();if(!qs.length)return false;const systems=[...new Set(qs.map(q=>q.system))].sort();for(const id of ['pSystem','bankSystem']){const el=document.querySelector(`#${id}`);if(!el)continue;const cur=el.value;el.innerHTML=optionList(systems,'systems');if([...el.options].some(o=>o.value===cur))el.value=cur}return true}
+  function updateDependentTopics(){const sub=document.querySelector('#pSubject')?.value||'all',sys=document.querySelector('#pSystem')?.value||'all',el=document.querySelector('#pTopic');if(!el)return;const cur=el.value;const topics=[...new Set(allQuestions().filter(q=>(sub==='all'||q.subject===sub)&&(sys==='all'||q.system===sys)).map(q=>q.topic))].sort();el.innerHTML=optionList(topics,'topics');if([...el.options].some(o=>o.value===cur))el.value=cur}
+  let originalGet=null,originalBank=null;
+  function patchCore(){if(typeof window.sessionConfigFromForm==='function'){const original=window.sessionConfigFromForm;window.sessionConfigFromForm=function(){return{...original(),system:document.querySelector('#pSystem')?.value||'all'}}}if(typeof window.getFilteredQuestions==='function'){originalGet=window.getFilteredQuestions;window.getFilteredQuestions=function(cfg={}){let qs=originalGet(cfg).map(enrich);if(cfg.system&&cfg.system!=='all')qs=qs.filter(q=>q.system===cfg.system);return qs}}if(typeof window.builtInPreset==='function'){const original=window.builtInPreset;window.builtInPreset=function(name){return{...original(name),system:'all'}}}if(typeof window.setPracticeForm==='function'){const original=window.setPracticeForm;window.setPracticeForm=function(c){original(c);const el=document.querySelector('#pSystem');if(el)el.value=c.system||'all';updateDependentTopics()}}if(typeof window.bankFilter==='function'){originalBank=window.bankFilter;window.bankFilter=function(){originalBank();applyBankSystem()}}}
+  function applyBankSystem(){const sys=document.querySelector('#bankSystem')?.value||'all';if(sys==='all')return;const allowed=new Set(allQuestions().filter(q=>q.system===sys).map(q=>q.external_id));let visible=0;document.querySelectorAll('#bankBody tr').forEach(tr=>{const id=tr.querySelector('[data-practice-q]')?.dataset.practiceQ;const show=allowed.has(id);tr.hidden=!show;if(show)visible++});const count=document.querySelector('#bankCount');if(count)count.textContent=`${visible} questions in ${sys}`}
+  function filteredBankFromUi(){const term=document.querySelector('#bankSearch')?.value.trim().toLowerCase()||'',sub=document.querySelector('#bankSubject')?.value||'all',sys=document.querySelector('#bankSystem')?.value||'all',status=document.querySelector('#bankStatus')?.value||'all',diff=document.querySelector('#bankDifficulty')?.value||'all';return allQuestions().filter(q=>{const st=typeof stateFor==='function'?stateFor(q.external_id):{};if(term&&!`${q.stem} ${q.subject} ${q.system} ${q.topic} ${q.subtopic}`.toLowerCase().includes(term))return false;if(sub!=='all'&&q.subject!==sub)return false;if(sys!=='all'&&q.system!==sys)return false;if(diff!=='all'&&q.difficulty!==Number(diff))return false;if(status==='unseen'&&st.attempts)return false;if(status==='correct'&&st.lastCorrect!==true)return false;if(status==='incorrect'&&st.lastCorrect!==false)return false;if(status==='bookmarked'&&!st.bookmarked)return false;if(status==='due'&&!(st.dueAt&&st.dueAt<=Date.now()))return false;return true})}
+  function boot(){installControls();patchCore();const wait=setInterval(()=>{if(!repopulateSystems())return;clearInterval(wait);updateDependentTopics();document.querySelector('#pSubject')?.addEventListener('change',updateDependentTopics);document.querySelector('#pSystem')?.addEventListener('change',updateDependentTopics);document.querySelector('#bankSystem')?.addEventListener('input',()=>window.bankFilter?.());const practice=document.querySelector('#practiceFiltered');if(practice)practice.onclick=()=>{const qs=filteredBankFromUi();if(typeof buildSession==='function')buildSession(qs,{...builtInPreset('rapid'),mode:'filtered',count:Math.min(50,qs.length),order:'adaptive'})};window.bankFilter?.();window.NEETPG_PHASE10={version:1,enrich,inferSystem,allQuestions,repopulateSystems,filteredBankFromUi}},50);setTimeout(()=>clearInterval(wait),10000)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
