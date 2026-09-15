@@ -20,4 +20,4 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: python -m http.server 4173 --bind 127.0.0.1 > /tmp/pages-server.log 2>&1 &
       - run: curl --retry 10 --retry-delay 1 --retry-connrefused -fsS http://127.0.0.1:4173/ > /dev/null
-      - run: npx playwright test --config=playwright.pages.config.cjs
+      - run: npx playwright test tests/pages_smoke.spec.js --config=pages.playwright.config.js --reporter=line
