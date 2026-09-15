@@ -32,3 +32,20 @@ test('analytics panel renders documented readiness, pace split and revision effe
   await expect(page.locator('#v11Analytics')).toContainText('Coverage');
   await expect(page.locator('#v11Analytics')).toContainText('Revision');
 });
+
+test('exam review receives timing confidence and error overlay without changing exam scoring',async({page})=>{
+  await page.goto('/');
+  await page.evaluate(()=>{
+    window.NEETPG_EXAM9={state:{id:'exam-test',sections:[{questions:['hy100-001']}]}};
+    window.app.attempts.push({qid:'hy100-001',sessionId:'exam-test',correct:false,elapsed:74,confidence:4,ts:Date.now()});
+    const host=document.createElement('div');host.id='exam9Body';
+    host.innerHTML='<div class="exam9-review"><div class="exam9-review-card incorrect">Review</div></div>';
+    document.body.appendChild(host);
+  });
+  await page.addScriptTag({url:'/assets/phase11-exam-overlay.js'});
+  await page.waitForFunction(()=>window.NEETPG_PHASE11_EXAM);
+  await page.evaluate(()=>NEETPG_PHASE11_EXAM.apply());
+  await expect(page.locator('.phase11-exam-overlay')).toContainText('Incorrect');
+  await expect(page.locator('.phase11-exam-overlay')).toContainText('74s');
+  await expect(page.locator('.phase11-exam-overlay')).toContainText('confidence 4/5');
+});
