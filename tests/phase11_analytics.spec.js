@@ -35,9 +35,10 @@ test('analytics panel renders documented readiness, pace split and revision effe
 
 test('exam review receives timing confidence and error overlay without changing exam scoring',async({page})=>{
   await page.goto('/');
+  await page.waitForFunction(()=>typeof app!=='undefined'&&Array.isArray(app.attempts),{timeout:15000});
   await page.evaluate(()=>{
     window.NEETPG_EXAM9={state:{id:'exam-test',sections:[{questions:['hy100-001']}]}};
-    window.app.attempts.push({qid:'hy100-001',sessionId:'exam-test',correct:false,elapsed:74,confidence:4,ts:Date.now()});
+    app.attempts.push({qid:'hy100-001',sessionId:'exam-test',correct:false,elapsed:74,confidence:4,ts:Date.now()});
     const host=document.createElement('div');host.id='exam9Body';
     host.innerHTML='<div class="exam9-review"><div class="exam9-review-card incorrect">Review</div></div>';
     document.body.appendChild(host);
