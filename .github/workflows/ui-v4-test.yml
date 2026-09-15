@@ -1,7 +1,7 @@
-name: Premium UI v4 + Phase 9 Test
+name: Premium UI v4 + Phase 9/10 Test
 on:
   push:
-    branches: [feature/ui-v4-premium-dashboard, feature/phase9-exam-simulator]
+    branches: [feature/ui-v4-premium-dashboard, feature/phase9-exam-simulator, feature/phase10-taxonomy-verification]
   workflow_dispatch:
 jobs:
   smoke:
