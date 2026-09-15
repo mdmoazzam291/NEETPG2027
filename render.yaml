@@ -4,8 +4,7 @@ services:
     runtime: python
     branch: test/external-render
     buildCommand: python -m pip install -e .
-    preDeployCommand: mkdir -p instance && python -m alembic upgrade head
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    startCommand: mkdir -p instance && python -m alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     autoDeployTrigger: commit
     envVars:
