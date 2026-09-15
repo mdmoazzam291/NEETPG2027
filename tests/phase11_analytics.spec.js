@@ -1,7 +1,20 @@
 const {test,expect}=require('@playwright/test');
 
+async function waitForStudyEngine(page){
+  await page.waitForFunction(()=>{
+    try{
+      return typeof app!=='undefined' &&
+        app.db &&
+        Array.isArray(app.questions) && app.questions.length===100 &&
+        Array.isArray(app.attempts) &&
+        document.querySelector('#statTotal')?.textContent==='100';
+    }catch{return false;}
+  },{timeout:15000});
+}
+
 async function loadPhase11(page){
   await page.goto('/');
+  await waitForStudyEngine(page);
   await page.addScriptTag({url:'/assets/phase10-taxonomy.js'});
   await page.waitForFunction(()=>window.NEETPG_PHASE10,{timeout:15000});
   await page.addScriptTag({url:'/assets/phase11-analytics.js'});
@@ -35,7 +48,7 @@ test('analytics panel renders documented readiness, pace split and revision effe
 
 test('exam review receives timing confidence and error overlay without changing exam scoring',async({page})=>{
   await page.goto('/');
-  await page.waitForFunction(()=>typeof app!=='undefined'&&Array.isArray(app.attempts),{timeout:15000});
+  await waitForStudyEngine(page);
   await page.evaluate(()=>{
     window.NEETPG_EXAM9={state:{id:'exam-test',sections:[{questions:['hy100-001']}]}};
     app.attempts.push({qid:'hy100-001',sessionId:'exam-test',correct:false,elapsed:74,confidence:4,ts:Date.now()});
