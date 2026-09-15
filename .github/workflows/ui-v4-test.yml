@@ -1,0 +1,21 @@
+name: Premium UI v4 Test
+on:
+  push:
+    branches: [feature/ui-v4-premium-dashboard]
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm install --no-save @playwright/test@1.55.1
+      - run: npx playwright install --with-deps chromium
+      - run: python -m http.server 4173 --bind 127.0.0.1 > /tmp/ui-v4-static.log 2>&1 &
+      - run: curl --retry 10 --retry-delay 1 --retry-connrefused -fsS http://127.0.0.1:4173/ > /dev/null
+      - run: npx playwright test --config=playwright.v2.config.cjs
