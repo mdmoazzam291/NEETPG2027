@@ -5,6 +5,15 @@ async function loadPhase13(page){
   await page.addScriptTag({ url: '/assets/phase13-hardening.js' });
 }
 
+async function openNavItem(page, view){
+  const item=page.locator(`.nav button[data-view="${view}"]`);
+  if(!(await item.isInViewport())){
+    await page.click('#menuBtn');
+    await expect(page.locator('#sidebar')).toHaveClass(/open/);
+  }
+  await item.click();
+}
+
 test('Phase 13 iPad layout has accessible navigation, focus controls and touch targets', async ({ page }) => {
   await page.setViewportSize({ width: 834, height: 1194 });
   await page.goto('/');
@@ -14,7 +23,7 @@ test('Phase 13 iPad layout has accessible navigation, focus controls and touch t
   await expect(page.locator('#shortcutsBtn')).toHaveAttribute('aria-label', 'Keyboard shortcuts');
   await expect(page.locator('.nav button[data-view="dashboard"]')).toHaveAttribute('aria-current', 'page');
 
-  await page.click('[data-view="settings"]');
+  await openNavItem(page, 'settings');
   const sw = page.locator('#sShuffle');
   await expect(sw).toHaveAttribute('role', 'switch');
   await sw.focus();
