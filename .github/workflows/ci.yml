@@ -64,12 +64,15 @@ jobs:
         with:
           python-version: '3.12'
       - run: npm install --no-save @playwright/test@1.55.1
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium webkit
       - name: Start static app
         run: python -m http.server 4173 --bind 127.0.0.1 > /tmp/static-ci.log 2>&1 &
       - name: Wait for static app
         run: curl --retry 10 --retry-delay 1 --retry-connrefused -fsS http://127.0.0.1:4173/ > /dev/null
-      - run: npx playwright test --config=playwright.v2.config.cjs
+      - name: Chromium regression suite
+        run: npx playwright test --config=playwright.v2.config.cjs
+      - name: iPad WebKit regression
+        run: npx playwright test --config=playwright.ipad.config.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
