@@ -1,9 +1,15 @@
 const {test,expect}=require('@playwright/test');
 
-test('Phase 11 analytics exposes transparent subject/system/topic weakness and pace metrics',async({page})=>{
+async function loadPhase11(page){
   await page.goto('/');
+  await page.addScriptTag({url:'/assets/phase10-taxonomy.js'});
+  await page.waitForFunction(()=>window.NEETPG_PHASE10,{timeout:15000});
   await page.addScriptTag({url:'/assets/phase11-analytics.js'});
-  await page.waitForFunction(()=>window.NEETPG_PHASE11&&window.NEETPG_PHASE10,{timeout:15000});
+  await page.waitForFunction(()=>window.NEETPG_PHASE11,{timeout:15000});
+}
+
+test('Phase 11 analytics exposes transparent subject/system/topic weakness and pace metrics',async({page})=>{
+  await loadPhase11(page);
   const r=await page.evaluate(()=>({
     pace:NEETPG_PHASE11.paceAnalysis(),
     ready:NEETPG_PHASE11.readiness(),
@@ -19,9 +25,7 @@ test('Phase 11 analytics exposes transparent subject/system/topic weakness and p
 });
 
 test('analytics panel renders documented readiness, pace split and revision effectiveness',async({page})=>{
-  await page.goto('/');
-  await page.addScriptTag({url:'/assets/phase11-analytics.js'});
-  await page.waitForFunction(()=>window.NEETPG_PHASE11,{timeout:15000});
+  await loadPhase11(page);
   await page.evaluate(()=>NEETPG_PHASE11.panel());
   await expect(page.locator('#v11Analytics')).toContainText('Analytics Engine v2');
   await expect(page.locator('#v11Analytics')).toContainText('≤63s');
