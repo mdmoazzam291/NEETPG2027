@@ -1,11 +1,21 @@
 {
+  "id": "./",
   "name": "NEETPG2027 Study Engine",
   "short_name": "NEETPG2027",
-  "description": "Local-first NEET-PG and INI-CET practice, review, SRS and analytics.",
+  "description": "Local-first NEET-PG and INI-CET practice, review, SRS, exam simulation and analytics.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f4f7f6",
   "theme_color": "#0f544b",
-  "orientation": "any"
+  "orientation": "any",
+  "categories": ["education", "medical"],
+  "icons": [
+    {
+      "src": "assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
