@@ -1,36 +1,139 @@
-# Roadmap
+# NEETPG2027 Roadmap
+
+This roadmap tracks the project as it exists today. The repository now contains two complementary application paths:
+
+- **FastAPI/local backend path** for normalized imports, taxonomy, media and server-side study APIs.
+- **GitHub Pages study app** for the current day-to-day NEET-PG/INI-CET experience, with IndexedDB offline storage, Supabase authentication/cloud sync, adaptive practice, SRS, analytics and the premium UI.
 
 ## Completed: Phase 1 — database foundation
 
-Project configuration, SQLAlchemy entities, an initial reproducible Alembic migration, database integrity constraints/indexes, FastAPI startup and health check, tests, and documentation are present. No content is seeded.
+Project configuration, SQLAlchemy entities, Alembic migrations, database integrity constraints/indexes, FastAPI startup and health checks, tests and documentation are present.
 
-## Completed: Phase 2 — PYQ data foundation
+## Completed: Phase 2 — question/PYQ data foundation
 
-Normalized canonical question content, options, media references, examination administrations, sources, flexible taxonomy tags, verification states, and import audit records are present. Imported content is not seeded or automatically medically verified; duplicate candidates remain review-only.
+Canonical question content, answer options, media references, examination administrations, sources, taxonomy tags, verification states and import audit records are normalized. Imported material is not automatically medically verified.
 
 ## Completed: Phase 3 — controlled question imports
 
-CSV/JSON previews, per-row validation and audit records, duplicate review decisions, transactional/idempotent commit, source registration, question inspection, and CI are implemented. The ORM enum representation now matches migration-created databases. See IMPORTS.md. The responsive homepage provides source creation, file upload, duplicate comparison, review decisions, import confirmation, and saved-batch history.
+CSV/JSON preview, per-row validation, duplicate review, transactional/idempotent commit, source registration, question inspection and CI are implemented. The responsive import workspace supports upload/paste, duplicate comparison, review decisions, confirmation and saved-batch history. See `IMPORTS.md`.
 
-## Completed: Phase 3.5 — realistic 100-question import stress test
+## Completed: Phase 3.5 — 100-question realistic test bank
 
-A repository-authored bank of 100 original NEET-PG/INI-CET-style single-best-answer questions spans 19 MBBS subjects and is explicitly marked as non-PYQ, medically unverified test content. Regression coverage validates the versioned import contract and submits all 100 questions through the migrated Phase 3 preview/commit workflow as one atomic batch, including idempotent retry and persisted-question counts.
+A repository-authored bank of 100 original NEET-PG/INI-CET-style single-best-answer questions spans all 19 MBBS subjects. It is explicitly test content rather than copied PYQs. Regression tests validate import and browser use of the bank.
 
 ## Completed: Phase 4A — taxonomy administration
 
-A responsive local taxonomy workspace and API manage Subjects, Systems, many-to-many Topic relationships, and Subtopics using the existing normalized schema. Stable IDs can be created before question import, subject-system relationships are reusable, topic relationship sets can be edited, and topics/subtopics can be archived without deleting referenced IDs. API, browser, and import-integration tests cover the workflow. See TAXONOMY.md.
+Subjects, systems, topics and subtopics can be managed through the normalized taxonomy model. Stable IDs, many-to-many topic relationships and non-destructive archiving are supported. See `TAXONOMY.md`.
 
 ## Completed: Phase 4B — question image/media workflow
 
-A local media workspace and API attach validated raster images to canonical questions or individual answer options using the existing `question_media` schema. PNG, JPEG, and WebP files are MIME/magic checked, capped at 5 MiB, hashed with SHA-256, and stored content-addressed outside the Git repository. Duplicate attachment to one question is blocked, metadata can be corrected without destructive deletion, and question-detail responses expose media plus stable option IDs. See MEDIA.md.
+Validated PNG/JPEG/WebP media can be attached to questions/options with MIME/magic validation, file-size limits, SHA-256 content addressing and metadata management. See `MEDIA.md`.
 
-## Phase 5 — study interaction engine
+## Completed: Phase 5 — study interaction engine
 
-The `/study` workspace turns imported single-best-answer questions into an active-recall loop. Pre-answer API payloads intentionally omit correctness, option explanations, answer explanations, and references. The server calculates outcomes, then reveals the answer key and explanation only after an attempt is persisted. Every attempt records confidence and elapsed time; post-reveal reflections can record mistake category and notes. Unseen, latest-incorrect, bookmarked, and all-question queues are deterministic, recent history and summary metrics are available, and bookmarks are durable through a small Alembic migration. See STUDY.md.
+The FastAPI `/study` path provides server-scored SBA practice, attempt persistence, confidence, elapsed time, mistake categories, notes, bookmarks, deterministic queues, history and summary metrics. The GitHub Pages client also provides a full local-first practice loop.
 
-## Planned later phases
+## Completed: Phase 6 — GitHub-only offline study app
 
-1. Deterministic analytics and weakness scoring from Phase 5 attempt data.
-2. Revision scheduling and adaptive-but-explainable queue prioritization.
-3. Subject/system/topic study filters and richer session planning.
-4. Personal planning and other features only after the measurement loop is proven.
+The current static app includes:
+
+- Dashboard, Practice, Review & SRS, Question Bank, Analytics and Settings.
+- IndexedDB persistence for question state, attempts, sessions, notes and custom questions.
+- Unseen, due, incorrect, bookmarked, all and adaptive Smart queues.
+- Subject/topic/difficulty/clinical/integrated filters and configurable session planning.
+- Instant-feedback and exam-feedback modes.
+- Confidence tracking, mistake classification, notes, bookmarks, flags and elimination mode.
+- Spaced repetition with Again/Hard/Good/Easy scheduling.
+- Backup export/import and offline PWA caching.
+
+## Completed: Phase 7 — NEET-PG pacing timer
+
+The browser app supports a **63-second/question pacing target** together with the current **42-minute / 40-question section pace**. Crossing 63 seconds warns the learner but does not incorrectly hard-submit the question. Legacy per-question and whole-session timers remain available.
+
+## Completed: Phase 8 — authentication and cloud sync
+
+Supabase integration provides email/password authentication, Google OAuth support when the provider is enabled, profile settings, Row Level Security and per-user cloud storage for:
+
+- question state/SRS
+- attempts
+- completed study sessions
+- active-session resume state
+- preferences/profile data
+
+The app remains usable in guest/offline mode through IndexedDB and syncs when authenticated/online.
+
+## Completed: Phase 8.5 — premium dashboard UI v4
+
+The live GitHub Pages app now has the premium responsive dashboard with global search, quick-start sessions, readiness/XP/streak surfaces, study heatmap, weak-area views, timing/accuracy/confidence summaries, revision priorities, cloud-sync status and iPad/mobile responsive navigation. The browser suite currently validates the legacy study engine, timer, Supabase/RLS behavior and v4 interactions.
+
+---
+
+# Remaining roadmap
+
+## Phase 9 — full NEET-PG exam simulator
+
+**Highest-priority product gap.** Build the real examination interaction layer rather than only a practice-session wrapper.
+
+- 5 sections × 40 questions and 42 minutes/section.
+- 200-question Grand Test support once the bank is large enough.
+- Question palette with Answered, Unanswered, Marked for Review and Answered + Marked states.
+- Previous, Clear Response, Mark for Review & Next, Save & Next and explicit section transition controls.
+- Correct section locking/end-of-section behavior.
+- Crash/reload-safe active exam resume.
+- Detailed post-test review with time, confidence and error-type overlays.
+
+## Phase 10 — content expansion and medical verification
+
+The current 100-question bank is only a platform test set.
+
+- Expand to **500+ high-yield topics/questions first**, then thousands of reusable items.
+- Add medically reviewed/verified status and source/version provenance.
+- Add more image-based and integrated clinical questions.
+- Connect questions to Subject → System → Topic → Subtopic consistently.
+- Add a **System** filter to the static study app so the client matches the normalized taxonomy model.
+- Keep copyrighted PYQs out unless the project has lawful source rights; use original PYQ-pattern questions where appropriate.
+
+## Phase 11 — analytics and weakness engine v2
+
+The app already has useful analytics; this phase makes them deterministic and decision-oriented.
+
+- Subject, system and topic weakness scores with transparent formulas.
+- Speed × accuracy analysis and accuracy inside/outside the 63-second pace target.
+- Time-pressure, overthinking and confidence-miscalibration signatures.
+- Rolling performance trends and revision effectiveness.
+- Better readiness scoring with documented inputs rather than opaque percentile claims.
+- “Why this question?” explanation for Smart queue prioritization.
+
+## Phase 12 — planning and adaptive revision v2
+
+- Daily/weekly MCQ targets tied to the user profile.
+- Exam countdown and rolling study plan.
+- SRS workload calendar and overdue-load balancing.
+- Automatic daily mix across due, weak, incorrect and unseen material.
+- 15/30/60-minute study plans and interruption-friendly micro-sessions.
+- Optional reminders only after the underlying scheduling logic is reliable.
+
+## Phase 13 — production hardening and repository cleanup
+
+- Make `main` the single source of truth for the validated Pages app instead of deploying production from a long-lived feature branch.
+- Merge/reconcile the currently diverged UI/Supabase branch history and remove obsolete experimental deployment workflows after verification.
+- Add production smoke tests against the deployed Pages URL.
+- Add stronger sync-conflict tests, offline/online transition tests and active-session recovery tests.
+- Add accessibility checks, keyboard/touch regression tests and iPad-specific viewport tests.
+- Add proper PWA icons, install/update UX and service-worker release/version discipline.
+- Add explicit account export/delete controls and device/session security UX.
+
+## Phase 14 — optional intelligence layer
+
+Only after Phases 9–13 are stable:
+
+- AI-generated explanation variants constrained to verified source material.
+- AI error-pattern coaching from the learner’s own attempts.
+- Automatic cross-subject concept linking.
+- Question-generation assistance with mandatory human/medical verification before promotion into the trusted bank.
+
+---
+
+## Current next move
+
+**Phase 9 should be next:** upgrade the Practice screen into a true NEET-PG exam interface with question palette, section logic, Save & Next / Mark for Review controls and reliable active-session resume. In parallel, Phase 10 should expand the bank beyond the current 100 test questions so full 200-question mocks become meaningful.
