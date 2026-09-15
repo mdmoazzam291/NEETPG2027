@@ -23,6 +23,7 @@ test('Phase 13 iPad layout has accessible navigation, focus controls and touch t
   await expect(page.locator('#skipToContent')).toHaveCount(1);
   await expect(page.locator('#shortcutsBtn')).toHaveAttribute('aria-label', 'Keyboard shortcuts');
   await expect(page.locator('.nav button[data-view="dashboard"]')).toHaveAttribute('aria-current', 'page');
+  await expect(page.locator('#appUpdateBanner')).toHaveCount(1);
 
   await openNavItem(page, 'settings');
   const sw = page.locator('#sShuffle');
@@ -68,7 +69,7 @@ test('Phase 13 backup export and import restore local study progress', async ({ 
   await expect(page.locator('#statBookmarks')).not.toHaveText('0');
 });
 
-test('Phase 13 service worker keeps the bundled study app available offline', async ({ page, context }) => {
+test('Phase 13 service worker keeps the bundled study app available offline and recovers online', async ({ page, context }) => {
   await page.goto('/');
   await expect(page.locator('#statTotal')).toHaveText('100');
   await page.evaluate(() => navigator.serviceWorker?.ready);
@@ -79,7 +80,10 @@ test('Phase 13 service worker keeps the bundled study app available offline', as
   await page.reload({ waitUntil: 'domcontentloaded' });
   await expect(page.locator('#statTotal')).toHaveText('100');
   await expect(page.locator('#offlineBadge')).toHaveText('Offline');
+
   await context.setOffline(false);
+  await expect.poll(async () => page.evaluate(() => navigator.onLine), { timeout: 10000 }).toBe(true);
+  await expect(page.locator('#offlineBadge')).toHaveText('Online');
 });
 
 test('Phase 13 prevents initial cloud sync from deleting a remote active session', async ({ page }) => {
@@ -108,6 +112,17 @@ test('Phase 13 prevents initial cloud sync from deleting a remote active session
   expect(result.implicitDeletes).toBe(0);
   expect(result.explicitDeletes).toBe(1);
   expect(result.resumePayload).toBeNull();
+});
+
+test('Phase 13 cloud conflict policy is deterministic and deletion is explicitly guarded', async ({ request }) => {
+  const auth = await (await request.get('/assets/auth-sync.js')).text();
+  const guard = await (await request.get('/assets/phase13-preauth.js')).text();
+
+  expect(auth).toContain('ms(remote.updatedAt)>ms(local.updatedAt)');
+  expect(auth).toContain('if(localKeys.has(key))continue');
+  expect(auth).toContain("onConflict:'user_id,client_key'");
+  expect(guard).toContain('__NEETPG_ALLOW_ACTIVE_SESSION_DELETE__');
+  expect(guard).toContain('clearActiveSession');
 });
 
 test('Phase 13 manifest and service worker expose versioned install metadata', async ({ request }) => {
