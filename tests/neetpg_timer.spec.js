@@ -6,6 +6,7 @@ test('NEET-PG timer uses 63-second pace without hard auto-submit', async ({ page
 
   // The live deployment injects this enhancement after the core app script.
   await page.addScriptTag({ url: '/assets/neetpg-timer.js' });
+  await page.click('button[data-view="practice"]');
 
   await expect(page.locator('#pTimer option[value="neetpg"]')).toHaveCount(1);
   await page.selectOption('#pTimer', 'neetpg');
