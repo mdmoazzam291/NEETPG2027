@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 async function loadV4(page, {timer=false}={}) {
   await page.addStyleTag({ url: '/assets/ui-v4.css' });
+  await page.addScriptTag({ url: '/assets/ui-v4-core-compat.js' });
   if(timer) await page.addScriptTag({ url: '/assets/neetpg-timer.js' });
   await page.addScriptTag({ url: '/assets/ui-v4.js' });
   await page.addScriptTag({ url: '/assets/ui-v4-fixes.js' });
