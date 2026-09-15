@@ -1,0 +1,22 @@
+name: GitHub Pages Prototype Test
+on:
+  push:
+    branches: [test/option1-pages]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm install --no-save @playwright/test@1.55.1
+      - run: npx playwright install --with-deps chromium
+      - run: python -m http.server 4173 --bind 127.0.0.1 > /tmp/pages-server.log 2>&1 &
+      - run: npx playwright test tests/pages_smoke.spec.js --reporter=line
