@@ -28,13 +28,8 @@ Bulk question generation/expansion remains deferred. The surrounding infrastruct
 - provenance contract for origin, source kind, content version, reviewer and review timestamp
 - legacy items remain **unverified**; automation cannot self-certify medical correctness
 - dedicated Phase 10 browser tests plus full Python 3.11/3.12, migration and browser CI passed
-- validated Phase 10 layer deployed to GitHub Pages while preserving Phase 9, premium UI, Supabase, offline/PWA and timer behavior
 
----
-
-# Remaining roadmap
-
-## Phase 11 — analytics and weakness engine v2
+## Completed: Phase 11 — analytics and weakness engine v2
 
 - Subject, system and topic weakness scores with transparent formulas
 - speed × accuracy analysis and accuracy inside/outside the 63-second pace target
@@ -43,17 +38,26 @@ Bulk question generation/expansion remains deferred. The surrounding infrastruct
 - readiness scoring with documented inputs
 - “Why this question?” explanation for Smart queue prioritization
 - exam-review timing/confidence/error overlays
+- dedicated Phase 11 Playwright validation passed
 
-## Phase 12 — planning and adaptive revision v2
+## Completed: Phase 12 — planning and adaptive revision v2
 
-- Daily/weekly MCQ targets tied to the user profile
-- Exam countdown and rolling study plan
-- SRS workload calendar and overdue-load balancing
-- Automatic daily mix across due, weak, incorrect and unseen material
-- 15/30/60-minute study plans and interruption-friendly micro-sessions
-- Optional reminders only after scheduling logic is reliable
+- Daily/weekly MCQ targets tied to the user profile with local fallback
+- user-set exam countdown and rolling study plan without inventing an exam date
+- SRS workload calendar, daily review cap and overdue-load balancing
+- automatic daily mix across due, weak, incorrect, unseen and balanced adaptive material
+- 15/30/60-minute study plans plus interruption-friendly 5/10-minute micro-sessions
+- reminders remain off until scheduling history is sufficiently reliable
+- planner launches the existing practice engine rather than duplicating question logic
+- dedicated Phase 12 Playwright validation passed
+
+---
+
+# Deferred roadmap
 
 ## Phase 13 — production hardening and repository cleanup
+
+Not started. The user explicitly requested stopping after Phase 12.
 
 - Make `main` the single source of truth instead of deploying from long-lived feature branches
 - Reconcile branch history and obsolete deployment workflows
@@ -62,10 +66,10 @@ Bulk question generation/expansion remains deferred. The surrounding infrastruct
 
 ## Phase 14 — optional intelligence layer
 
-After Phases 9–13 are stable: source-constrained AI explanations, error-pattern coaching, cross-subject linking and medically reviewed question-generation assistance.
+Not started. After later approval: source-constrained AI explanations, error-pattern coaching, cross-subject linking and medically reviewed question-generation assistance.
 
 ---
 
-## Current next move
+## Current state
 
-**Phase 11 is next.** Phase 12 must not start until Phase 11 is completed and the requested 15-minute gap has elapsed. Stop after Phase 12.
+**Phases 1–12 are complete for the requested scope. Bulk question expansion remains intentionally skipped. Stop here. Do not start Phase 13 without a new explicit instruction from the user.**
