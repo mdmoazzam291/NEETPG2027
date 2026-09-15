@@ -1,0 +1,115 @@
+name: Apply review answers hotfix v2
+
+on:
+  push:
+    branches: [fix/review-answers-readonly]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/review-answers-readonly
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Patch review flow and regression test
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          app_path = Path('assets/app.js')
+          text = app_path.read_text()
+          if 'function startReviewSession(){' not in text:
+            new_render = r'''function renderQuestion(){
+             const s=app.session;if(!s||s.ended)return;
+             const q=currentQ(),st=stateFor(q.external_id);
+             s.selected=null;s.confidence=null;s.eliminateMode=false;s.rated=false;s.lastAttempt=null;s.currentStart=now();s.renderedOptions=displayedOptions(q);
+             $('#qProgress').textContent=`${s.pos+1} / ${s.questions.length}`;$('#qProgressFill').style.width=`${(s.pos+1)/s.questions.length*100}%`;$('#qSubject').textContent=q.subject;$('#qSubject').classList.toggle('hidden',!app.prefs.labels);$('#qTopic').textContent=q.topic;$('#qTopic').classList.toggle('hidden',!app.prefs.labels);$('#qDifficulty').textContent=difficultyName(q.difficulty);$('#qStem').textContent=q.stem;
+             $('#qOptions').innerHTML=s.renderedOptions.map(o=>`<button class="option" data-label="${escapeHtml(o.label)}"><span class="letter">${escapeHtml(o.label)}</span><span>${escapeHtml(o.text)}</span></button>`).join('');$$('#qOptions .option').forEach(b=>b.onclick=()=>selectOption(b));
+             $('#qBookmark').textContent=`${st.bookmarked?'★':'☆'} Bookmark`;$('#qFlag').textContent=`${st.flagged?'⚑':'⚐'} Flag`;$('#qEliminate').classList.remove('soft');$('#qEliminate').textContent='Eliminate mode';
+             $('#qFeedback').classList.add('hidden');$('#qSubmit').classList.remove('hidden');$('#qSubmit').disabled=false;$('#qSkip').classList.remove('hidden');$('#qEliminate').classList.remove('hidden');$('.confidence')?.classList.remove('hidden');$('#qFeedback .review-buttons')?.classList.remove('hidden');$('#qFeedback .form-grid')?.classList.remove('hidden');$('#qFeedback .note-box')?.classList.remove('hidden');$('#qNext').textContent='Next question';
+             $('#mistakeCategory').value='';$('#attemptNote').value='';$('#questionNote').value=st.note||'';$$('.confidence button').forEach(b=>b.classList.remove('active'));updateTimerLabel();
+             if(s.reviewOnly){
+               const review=s.reviewAnswers?.[s.pos]||null,correct=q.options.find(o=>o.is_correct),selected=review?.selected||null;
+               s.selected=selected;$$('#qOptions .option').forEach(b=>{b.disabled=true;if(b.dataset.label===correct?.label)b.classList.add('correct');else if(selected&&b.dataset.label===selected&&!review?.correct)b.classList.add('wrong');if(selected&&b.dataset.label===selected)b.classList.add('selected')});
+               $('#qSubmit').disabled=true;$('#qSubmit').classList.add('hidden');$('#qSkip').classList.add('hidden');$('#qEliminate').classList.add('hidden');$('.confidence')?.classList.add('hidden');$('#qFeedback .review-buttons')?.classList.add('hidden');$('#qFeedback .form-grid')?.classList.add('hidden');$('#qFeedback .note-box')?.classList.add('hidden');
+               $('#feedbackTag').textContent=review?.correct?'Correct':selected?'Incorrect':'Skipped';$('#feedbackTag').className=`tag ${review?.correct?'good':'bad'}`;$('#feedbackTitle').textContent=review?.correct?`Your answer: ${selected}`:`Your answer: ${selected||'Skipped'} · Correct: ${correct?.label||'—'}`;$('#feedbackExplanation').textContent=q.answer_explanation||'No explanation provided.';$('#feedbackReference').textContent=q.reference_text||'';$('#feedbackExplanation').classList.remove('hidden');$('#qFeedback').classList.remove('hidden');$('#qTimer').textContent='Review';$('#qNext').textContent=s.pos+1>=s.questions.length?'Back to summary':'Next answer';
+             }
+            }'''
+            text, n = re.subn(r"function renderQuestion\(\)\{.*?\}\nfunction selectOption", new_render + "\nfunction selectOption", text, count=1, flags=re.S)
+            assert n == 1, 'renderQuestion patch target not found'
+
+            old_next = re.search(r"async function nextQuestion\(fromExam=false\)\{.*?\}\nasync function finishSession", text, flags=re.S)
+            assert old_next, 'nextQuestion patch target not found'
+            new_next = r'''async function nextQuestion(fromExam=false){
+             const s=app.session;if(!s)return;
+             if(s.reviewOnly){if(s.pos+1>=s.questions.length){app.session=null;$('#practiceShell').classList.add('hidden');$('#practiceSetup').classList.add('hidden');$('#sessionSummary').classList.remove('hidden');return}s.pos++;renderQuestion();return}
+             if(!fromExam&&s.cfg.feedback==='instant'&&s.lastAttempt&&!s.rated){await applySrs(currentQ().external_id,s.lastAttempt.correct?'good':'again')}if(s.pos+1>=s.questions.length){await finishSession();return}s.pos++;renderQuestion()
+            }'''
+            text = text[:old_next.start()] + new_next + "\nasync function finishSession" + text[old_next.end():]
+
+            marker = 'function startTimer(){'
+            assert marker in text, 'startTimer marker not found'
+            review_fn = r'''function startReviewSession(){
+             const last=app.lastSession;if(!last?.questions?.length)return;
+             app.session={id:`review-${last.id||Date.now()}`,questions:[...last.questions],pos:0,cfg:{...last.cfg,feedback:'instant',timer:'off',shuffle:false},answers:[],startedAt:now(),currentStart:now(),selected:null,confidence:null,eliminateMode:false,rated:true,lastAttempt:null,timerId:null,ended:false,reviewOnly:true,reviewAnswers:[...(last.answers||[])]};
+             $('#practiceSetup').classList.add('hidden');$('#sessionSummary').classList.add('hidden');$('#practiceShell').classList.remove('hidden');navigate('practice');renderQuestion()
+            }
+            '''
+            text = text.replace(marker, review_fn + marker, 1)
+
+            old_handler = "$('#reviewSession').onclick=()=>{if(!app.lastSession)return;buildSession(app.lastSession.questions,{...app.lastSession.cfg,feedback:'instant',timer:'off',count:app.lastSession.questions.length})};"
+            assert old_handler in text, 'reviewSession handler target not found'
+            text = text.replace(old_handler, "$('#reviewSession').onclick=startReviewSession;", 1)
+            app_path.write_text(text)
+
+          test_path = Path('tests/github_only_v2.spec.js')
+          tests = test_path.read_text()
+          if "Review answers is read-only" not in tests:
+            tests += r'''
+
+test('Review answers is read-only and does not create new attempts', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button',{name:/Practice/}).first().click();
+  await page.locator('#pCount').selectOption('5');
+  await page.locator('#pMode').selectOption('unseen');
+  await page.locator('#startCustom').click();
+  for (let i=0;i<5;i++) {
+    await page.locator('#qOptions .option').first().click();
+    await page.locator('#qSubmit').click();
+    await expect(page.locator('#qFeedback')).toBeVisible();
+    await page.locator('#qNext').click();
+  }
+  await expect(page.locator('#sessionSummary')).toBeVisible();
+  const countAttempts = () => page.evaluate(() => new Promise((resolve,reject) => {
+    const req=indexedDB.open('neetpg2027-static-v2',1);
+    req.onerror=()=>reject(req.error);
+    req.onsuccess=()=>{const c=req.result.transaction('attempts','readonly').objectStore('attempts').count();c.onerror=()=>reject(c.error);c.onsuccess=()=>resolve(c.result);};
+  }));
+  const before=await countAttempts();
+  await page.locator('#reviewSession').click();
+  await expect(page.locator('#qProgress')).toContainText('1 / 5');
+  await expect(page.locator('#qFeedback')).toBeVisible();
+  await expect(page.locator('#qSubmit')).toBeHidden();
+  await expect(page.locator('#qOptions .option').first()).toBeDisabled();
+  for (let i=0;i<5;i++) await page.locator('#qNext').click();
+  await expect(page.locator('#sessionSummary')).toBeVisible();
+  expect(await countAttempts()).toBe(before);
+});
+'''
+            test_path.write_text(tests)
+          PY
+      - name: Commit hotfix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/app.js tests/github_only_v2.spec.js
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "fix: make review answers read-only"
+          git push origin HEAD:fix/review-answers-readonly
