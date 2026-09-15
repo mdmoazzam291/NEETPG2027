@@ -117,10 +117,14 @@
     try {
       const reg = await navigator.serviceWorker.getRegistration();
       if (!reg) return;
+      let reloadRequested = false;
       const showWaiting = worker => {
         if (!worker) return;
         banner.classList.remove('hidden');
-        $('#applyAppUpdate').onclick = () => worker.postMessage({ type: 'SKIP_WAITING' });
+        $('#applyAppUpdate').onclick = () => {
+          reloadRequested = true;
+          worker.postMessage({ type: 'SKIP_WAITING' });
+        };
       };
       if (reg.waiting) showWaiting(reg.waiting);
       reg.addEventListener('updatefound', () => {
@@ -131,7 +135,7 @@
       });
       let reloading = false;
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (reloading) return;
+        if (!reloadRequested || reloading) return;
         reloading = true;
         location.reload();
       });
