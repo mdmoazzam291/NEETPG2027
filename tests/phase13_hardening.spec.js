@@ -12,7 +12,7 @@ async function openNavItem(page, view){
     await page.click('#menuBtn');
     await expect(page.locator('#sidebar')).toHaveClass(/open/);
   }
-  await item.click();
+  await item.evaluate(el=>el.click());
 }
 
 test('Phase 13 iPad layout has accessible navigation, focus controls and touch targets', async ({ page }) => {
