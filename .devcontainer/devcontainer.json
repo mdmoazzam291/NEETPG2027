@@ -1,0 +1,18 @@
+{
+  "name": "NEETPG2027 FastAPI",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "postCreateCommand": "python -m pip install -e '.[dev]' && mkdir -p instance && python -m alembic upgrade head",
+  "postStartCommand": "nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 > /tmp/neetpg2027.log 2>&1 &",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "NEETPG2027 Study",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"]
+    }
+  }
+}
