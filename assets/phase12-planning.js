@@ -62,6 +62,6 @@ function panel(){
   host.querySelector('[data-p12-today]').onclick=()=>startToday();host.querySelectorAll('[data-p12-minutes]').forEach(b=>b.onclick=()=>startPlan(Number(b.dataset.p12Minutes)));host.querySelectorAll('[data-p12-micro]').forEach(b=>b.onclick=()=>startMicro(Number(b.dataset.p12Micro)));
   return true
 }
-function boot(){setTimeout(panel,900);document.addEventListener('click',e=>{if(e.target.closest('[data-view="dashboard"],[data-v4-target="dashboard"],#refreshDashboard))setTimeout(panel,120)});window.NEETPG_PHASE12={KEY,profileGoal,setDailyGoal,setExamDate,examCountdown,goalProgress,srsCalendar,balanceSrs,dailyMix,studyPlan,microSession,rollingPlan,reminderEligibility,startPlan,startToday,startMicro,panel}}
+function boot(){setTimeout(panel,900);document.addEventListener('click',e=>{if(e.target.closest('[data-view="dashboard"],[data-v4-target="dashboard"],#refreshDashboard'))setTimeout(panel,120)});window.NEETPG_PHASE12={KEY,profileGoal,setDailyGoal,setExamDate,examCountdown,goalProgress,srsCalendar,balanceSrs,dailyMix,studyPlan,microSession,rollingPlan,reminderEligibility,startPlan,startToday,startMicro,panel}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
