@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEETPG2027 · Browser Study Test</title>
+<style>
+:root{font-family:Inter,system-ui,sans-serif;color:#17211f;background:#f4f7f6}body{margin:0}header{padding:18px 22px;background:#123f3a;color:white;font-weight:800}.wrap{max-width:850px;margin:24px auto;padding:0 16px}.panel{background:white;border:1px solid #dce6e3;border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 4px 18px #0000000b}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.toolbar label{font-size:12px;font-weight:700}.toolbar select,.toolbar button{padding:10px;border-radius:9px;border:1px solid #b9cbc6;background:white}.toolbar button,.primary{background:#123f3a!important;color:white!important;border:none!important;font-weight:700}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#eef5f3;padding:12px;border-radius:10px;text-align:center}.q{font-size:21px;line-height:1.4}.option{display:block;width:100%;text-align:left;margin:9px 0;padding:13px;border:1px solid #ccd9d5;border-radius:10px;background:white}.option.selected{outline:2px solid #123f3a}.option.correct{background:#e7f7ed}.option.wrong{background:#fdeaea}.row{display:flex;gap:10px;justify-content:space-between;align-items:center}.muted{color:#667873}.hidden{display:none}.result{border-top:1px solid #e2e9e7;margin-top:14px;padding-top:14px}.small{font-size:13px}.pill{background:#e8f1ef;border-radius:999px;padding:5px 9px;font-size:12px}.danger{color:#9a3131}@media(max-width:650px){.stats{grid-template-columns:repeat(2,1fr)}.q{font-size:18px}}
+</style>
+</head>
+<body>
+<header>NEETPG2027 · GitHub-only prototype</header>
+<div class="wrap">
+<section class="panel">
+<div class="toolbar">
+<div><label>Mode</label><br><select id="mode"><option value="unseen">New / unseen</option><option value="incorrect">Retry incorrect</option><option value="bookmarked">Bookmarks</option><option value="all">All</option></select></div>
+<div><label>Questions</label><br><select id="size"><option>5</option><option>10</option><option selected>15</option><option>30</option></select></div>
+<button id="start">Start session</button>
+<button id="reset">Reset local progress</button>
+</div>
+<p class="muted small">This prototype stores attempts and bookmarks only in this browser using localStorage.</p>
+</section>
+<section class="stats" id="stats"></section>
+<section class="panel hidden" id="study">
+<div class="row"><span class="pill" id="progress"></span><button id="bookmark">☆ Bookmark</button></div>
+<h2 class="q" id="stem"></h2>
+<div id="options"></div>
+<div class="row"><button id="skip">Skip</button><button class="primary" id="submit">Lock answer</button></div>
+<div id="result" class="result hidden"><h3 id="resultTitle"></h3><p id="explanation"></p><p id="reference" class="muted small"></p><button class="primary" id="next">Next question →</button></div>
+</section>
+<section class="panel" id="empty"><strong>Ready.</strong><p class="muted">Start a session to test the browser-only version.</p></section>
+</div>
+<script>
+const files=['data/high_yield_100/part01.json','data/high_yield_100/part02.json','data/high_yield_100/part03.json','data/high_yield_100/part04.json'];
+const KEY='neetpg2027-static-progress-v1';
+let questions=[],queue=[],idx=0,selected=null;
+const state=()=>JSON.parse(localStorage.getItem(KEY)||'{"attempts":{},"bookmarks":[]}');
+const save=s=>localStorage.setItem(KEY,JSON.stringify(s));
+async function load(){const chunks=await Promise.all(files.map(f=>fetch(f).then(r=>{if(!r.ok)throw new Error(f+' '+r.status);return r.json()})));questions=chunks.flat();renderStats();}
+function renderStats(){const s=state(),vals=Object.values(s.attempts);const correct=vals.filter(x=>x.correct).length;document.querySelector('#stats').innerHTML=`<div class="stat"><b>${questions.length||100}</b><br><small>Total</small></div><div class="stat"><b>${vals.length}</b><br><small>Attempted</small></div><div class="stat"><b>${correct}</b><br><small>Correct</small></div><div class="stat"><b>${s.bookmarks.length}</b><br><small>Bookmarks</small></div>`;}
+function filtered(mode){const s=state();if(mode==='unseen')return questions.filter(q=>!s.attempts[q.external_id]);if(mode==='incorrect')return questions.filter(q=>s.attempts[q.external_id]&&!s.attempts[q.external_id].correct);if(mode==='bookmarked')return questions.filter(q=>s.bookmarks.includes(q.external_id));return questions.slice();}
+function start(){const mode=document.querySelector('#mode').value,n=+document.querySelector('#size').value;queue=filtered(mode).slice(0,n);idx=0;if(!queue.length){document.querySelector('#study').classList.add('hidden');document.querySelector('#empty').classList.remove('hidden');document.querySelector('#empty').innerHTML='<strong>No questions in this queue.</strong><p class="muted">Try another mode.</p>';return}document.querySelector('#empty').classList.add('hidden');document.querySelector('#study').classList.remove('hidden');show();}
+function show(){selected=null;const q=queue[idx],s=state();document.querySelector('#progress').textContent=`${idx+1} / ${queue.length}`;document.querySelector('#stem').textContent=q.stem;document.querySelector('#result').classList.add('hidden');document.querySelector('#submit').disabled=false;document.querySelector('#options').innerHTML=q.options.map(o=>`<button class="option" data-label="${o.label}"><b>${o.label}.</b> ${o.text}</button>`).join('');document.querySelectorAll('.option').forEach(b=>b.onclick=()=>{if(document.querySelector('#submit').disabled)return;selected=b.dataset.label;document.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')});document.querySelector('#bookmark').textContent=(s.bookmarks.includes(q.external_id)?'★':'☆')+' Bookmark';}
+function submit(){if(!selected)return;const q=queue[idx],correct=q.options.find(o=>o.is_correct),ok=selected===correct.label,s=state();s.attempts[q.external_id]={correct:ok,selected,at:new Date().toISOString()};save(s);document.querySelector('#submit').disabled=true;document.querySelectorAll('.option').forEach(b=>{const o=q.options.find(x=>x.label===b.dataset.label);if(o.is_correct)b.classList.add('correct');else if(b.dataset.label===selected)b.classList.add('wrong')});document.querySelector('#resultTitle').textContent=ok?'Correct ✓':`Incorrect · Correct answer: ${correct.label}`;document.querySelector('#explanation').textContent=q.answer_explanation;document.querySelector('#reference').textContent=q.reference_text;document.querySelector('#result').classList.remove('hidden');renderStats();}
+function bookmark(){const q=queue[idx],s=state(),i=s.bookmarks.indexOf(q.external_id);if(i>=0)s.bookmarks.splice(i,1);else s.bookmarks.push(q.external_id);save(s);show();renderStats();}
+function next(){if(idx+1>=queue.length){document.querySelector('#study').classList.add('hidden');document.querySelector('#empty').classList.remove('hidden');document.querySelector('#empty').innerHTML='<strong>Session complete.</strong><p class="muted">Start another session or retry incorrect questions.</p>';return}idx++;show();}
+document.querySelector('#start').onclick=start;document.querySelector('#submit').onclick=submit;document.querySelector('#bookmark').onclick=bookmark;document.querySelector('#next').onclick=next;document.querySelector('#skip').onclick=next;document.querySelector('#reset').onclick=()=>{localStorage.removeItem(KEY);renderStats()};
+load().catch(e=>{document.querySelector('#empty').innerHTML=`<strong class="danger">Could not load question files.</strong><p class="muted">${e.message}</p>`});
+</script>
+</body></html>
