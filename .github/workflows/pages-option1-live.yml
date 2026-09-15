@@ -1,4 +1,4 @@
-name: Option 1 GitHub Pages Live
+name: GitHub-only UI v2 Live
 on:
   push:
     branches: [main]
@@ -19,14 +19,18 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Option 1 branch
+      - name: Checkout validated GitHub-only UI v2
         uses: actions/checkout@v4
         with:
-          ref: test/option1-pages
+          ref: feature/github-only-ui-v2
       - name: Prepare static site
         run: |
-          mkdir -p _site/data/high_yield_100
+          mkdir -p _site/data/high_yield_100 _site/assets
           cp index.html _site/index.html
+          cp manifest.webmanifest _site/manifest.webmanifest
+          cp sw.js _site/sw.js
+          cp assets/app.css _site/assets/app.css
+          cp assets/app.js _site/assets/app.js
           cp data/high_yield_100/part*.json _site/data/high_yield_100/
       - name: Configure Pages
         uses: actions/configure-pages@v5
