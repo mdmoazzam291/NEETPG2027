@@ -1,9 +1,7 @@
-name: GitHub-only UI v4 + Phase 9-12 Live
+name: GitHub Pages Production
 on:
   push:
     branches: [main]
-    paths:
-      - '.github/workflows/pages-option1-live.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,10 +17,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout validated Phase 12 branch
+      - name: Checkout main
         uses: actions/checkout@v4
-        with:
-          ref: feature/phase10-taxonomy-verification
       - name: Prepare static site
         run: |
           mkdir -p _site/data/high_yield_100 _site/assets
