@@ -51,57 +51,71 @@ Bulk question generation/expansion remains deferred. The surrounding infrastruct
 - planner launches the existing practice engine rather than duplicating question logic
 - dedicated Phase 12 Playwright validation passed
 
----
-
-# Active roadmap
-
-## Phase 13 — production hardening and repository cleanup
-
-**Started.** Work is proceeding on `feature/phase13-production-hardening` and will only replace production after the consolidated test gate is green.
+## Completed: Phase 13 — production hardening and repository cleanup
 
 ### 13.1 Consolidate production source
 
-- [x] create a dedicated Phase 13 hardening branch from `main`
-- [x] begin moving the validated static app, Phase 9–12 modules, Supabase browser layer and regression tests onto the `main` lineage
-- [x] consolidate backend and static-app browser validation into the primary CI workflow
-- [ ] verify the consolidated branch with Python 3.11/3.12, migration, backend browser and static browser suites
-- [ ] promote the validated tree to `main`
-- [ ] change GitHub Pages deployment to checkout `main` only
+- [x] `main` is the single production source of truth
+- [x] validated Phase 9–12 frontend, Supabase browser layer, PWA and tests are on the `main` lineage
+- [x] primary CI covers Python 3.11/3.12, migration round trips, backend browser and static browser suites
+- [x] GitHub Pages checks out `main` only
+- [x] deployed production is followed by an automated live-site smoke test
 
 ### 13.2 Repository and workflow cleanup
 
-- [ ] inventory legacy deployment/test workflows and experimental branches
-- [ ] retire only workflows proven obsolete after the `main` deployment path is green
-- [ ] preserve historical branches until no required code is unique to them
+- [x] legacy deployment/test workflows and experimental branches inventoried in `PHASE13_OPERATIONS.md`
+- [x] only `ci.yml` and `pages-option1-live.yml` remain active on `main`
+- [x] CI push scope reduced to `main`; historical branches are retained as non-production reference points
+- [x] no historical branch was deleted during hardening
 
 ### 13.3 Production reliability
 
-- [ ] live GitHub Pages smoke test
-- [ ] Supabase sign-in/sign-out/sync regression
-- [ ] offline → online recovery and service-worker update behavior
-- [ ] interrupted practice/exam resume and recovery
-- [ ] backup/export/import verification
+- [x] live GitHub Pages smoke test
+- [x] Supabase guest/RLS plus authentication/sync UI regression coverage
+- [x] offline → online recovery and service-worker update behavior
+- [x] interrupted exam/practice cloud-session protection and recovery paths
+- [x] backup/export/reset/import restoration
+- [x] deterministic sync-conflict policy regression checks
 
 ### 13.4 iPad and accessibility
 
-- [ ] iPad Safari layout and touch-target regression
-- [ ] keyboard/focus navigation
-- [ ] screen-reader labels and accessibility audit
-- [ ] sidebar/mobile navigation regression
+- [x] iPad-sized WebKit regression in CI in addition to Chromium coverage
+- [x] 44 px touch targets and horizontal-overflow checks
+- [x] keyboard/focus navigation and keyboard-operable switches
+- [x] screen-reader semantics for navigation, dialogs, progress and status regions
+- [x] premium dashboard search/navigation labels and `aria-current`
+- [x] mobile/sidebar navigation regression
 
 ### 13.5 PWA and account hardening
 
-- [ ] release/cache version discipline and update notice
-- [ ] install/icon/offline fallback validation
-- [ ] sync-conflict and recovery tests
-- [ ] account export/delete and session/device controls where supported
+- [x] explicit release/cache version discipline
+- [x] controlled update-ready banner and user-accepted service-worker activation
+- [x] install/icon/offline fallback validation
+- [x] active-session deletion guard and sync-conflict recovery checks
+- [x] local data export plus normal and global sign-out/device-session controls
+- [x] full Auth-user deletion intentionally remains outside the public browser client because it requires a trusted privileged backend; no service-role credential is exposed
+
+Operational details and the historical branch inventory are recorded in `PHASE13_OPERATIONS.md`.
+
+---
+
+# Next roadmap
 
 ## Phase 14 — optional intelligence layer
 
-Not started. After Phase 13 is stable and separately approved: source-constrained AI explanations, error-pattern coaching, cross-subject linking and medically reviewed question-generation assistance.
+**Not started.** Begin only with explicit approval after Phase 13. Candidate work:
+
+- source-constrained AI explanation variants
+- personalized error-pattern coaching
+- automatic cross-subject concept linking
+- “why am I getting this wrong?” analysis
+- AI-assisted note generation
+- medically reviewed question-generation assistance
+
+The AI layer must not replace the deterministic study engine, SRS, analytics, provenance or medical-review controls.
 
 ---
 
 ## Current state
 
-**Phases 1–12 are complete. Phase 13 is active. Bulk question expansion remains intentionally skipped. Phase 14 is not started.**
+**Phases 1–13 are complete. Phase 14 is not started. Bulk question expansion remains intentionally skipped.**
