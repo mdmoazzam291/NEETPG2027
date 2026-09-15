@@ -16,16 +16,13 @@ function apply(){
   if(!review)return false;
   const e=window.NEETPG_EXAM9?.state, ids=examQuestionIds();
   review.querySelectorAll('.exam9-review-card').forEach((card,i)=>{
-    if(card.querySelector('.phase11-exam-overlay'))return;
     const a=latestAttempt(ids[i],e?.id), sec=Number(a?.elapsed||a?.elapsed_seconds||0), conf=a?.confidence;
     const result=card.classList.contains('correct')?'Correct':card.classList.contains('skipped')?'Skipped':'Incorrect';
     const pace=sec?`${sec}s · ${sec<=PACE?'within 63s pace':'over 63s pace'}`:'timing not captured';
     const confidence=conf?`confidence ${conf}/5`:'confidence not captured in exam mode';
-    const el=document.createElement('div');
-    el.className='phase11-exam-overlay';
-    el.style.cssText='margin-top:8px;padding:8px 10px;border-radius:10px;background:rgba(15,118,110,.08);font-size:12px';
+    let el=card.querySelector('.phase11-exam-overlay');
+    if(!el){el=document.createElement('div');el.className='phase11-exam-overlay';el.style.cssText='margin-top:8px;padding:8px 10px;border-radius:10px;background:rgba(15,118,110,.08);font-size:12px';card.appendChild(el)}
     el.textContent=`Analytics: ${result} · ${pace} · ${confidence}`;
-    card.appendChild(el);
   });
   return true;
 }
