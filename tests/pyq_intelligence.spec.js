@@ -14,10 +14,12 @@ test('PYQ Intelligence summarizes 2021-2026 recall bank', async ({page})=>{
   const data=await page.evaluate(()=>({
     pyqs:NEETPG_PYQ.pyqQuestions().length,
     years:[...new Set(NEETPG_PYQ.pyqQuestions().map(q=>q.exam_year))].sort(),
+    yearCounts:Object.fromEntries([2021,2022,2023,2024,2025,2026].map(y=>[y,NEETPG_PYQ.pyqQuestions().filter(q=>q.exam_year===y).length])),
     repeats:NEETPG_PYQ.repeatRows().map(r=>({key:r.key,count:r.count,years:r.years}))
   }));
   expect(data.pyqs).toBe(405);
   expect(data.years).toEqual([2021,2022,2023,2024,2025,2026]);
+  expect(data.yearCounts).toEqual({'2021':20,'2022':20,'2023':20,'2024':185,'2025':140,'2026':20});
   expect(data.repeats.length).toBeGreaterThanOrEqual(3);
   expect(data.repeats).toEqual(expect.arrayContaining([
     {key:'saphenous-nerve-gsv',count:2,years:[2021,2022]},
