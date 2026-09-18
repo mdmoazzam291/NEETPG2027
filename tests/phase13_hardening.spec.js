@@ -46,7 +46,9 @@ test('Phase 13 iPad layout has accessible navigation, focus controls and touch t
 
 test('Phase 13 backup export and import restore local study progress', async ({ page }) => {
   await page.goto('/');
-  await page.click('[data-view="practice"]');
+  await expect.poll(async()=>Number(await page.locator('#statTotal').textContent())).toBe(405);
+  await page.getByRole('button',{name:/Practice/}).first().click();
+  await expect(page.getByText('Session builder')).toBeVisible();
   await page.selectOption('#pCount', '5');
   await page.click('#startCustom');
   await page.locator('#qOptions .option').first().click();
