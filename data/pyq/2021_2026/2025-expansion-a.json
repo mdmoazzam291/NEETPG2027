@@ -1,0 +1,2042 @@
+[
+  {
+    "external_id": "neetpg-2025-021",
+    "stem": "Which structure does NOT traverse the jugular foramen?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Glossopharyngeal nerve",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Vagus nerve",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Accessory nerve",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hypoglossal nerve",
+        "is_correct": true
+      }
+    ],
+    "answer_explanation": "CN IX, X and XI pass through the jugular foramen; CN XII passes through the hypoglossal canal.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Nervous System; Topic: Skull foramina; Subtopic: Jugular foramen contents. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Skull foramina",
+    "subtopic": "Jugular foramen contents",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "jugular-foramen-cn9-10-11",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-022",
+    "stem": "The ductus arteriosus develops predominantly from which embryologic aortic arch?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Left fourth arch",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Left sixth arch",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Right sixth arch",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Right fourth arch",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The proximal left sixth aortic arch persists as the left pulmonary artery and its distal part forms the ductus arteriosus.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Cardiovascular; Topic: Embryology; Subtopic: Aortic arch derivatives. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Cardiovascular",
+    "topic": "Embryology",
+    "subtopic": "Aortic arch derivatives",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ductus-left-sixth-arch",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-023",
+    "stem": "Which fiber type is NOT a functional component of the vagus nerve?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "General visceral afferent",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "General visceral efferent",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Special visceral efferent",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "General somatic efferent",
+        "is_correct": true
+      }
+    ],
+    "answer_explanation": "The vagus carries visceral afferent/efferent and branchial motor fibers, but not general somatic efferent fibers.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Nervous System; Topic: Cranial nerves; Subtopic: Vagus functional components. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Cranial nerves",
+    "subtopic": "Vagus functional components",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "vagus-no-gse",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-024",
+    "stem": "Meralgia paresthetica results from entrapment of which nerve?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Femoral nerve",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Lateral femoral cutaneous nerve",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Obturator nerve",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Ilioinguinal nerve",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Compression of the lateral femoral cutaneous nerve causes burning or numbness over the anterolateral thigh.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Nervous System; Topic: Lower limb nerves; Subtopic: Meralgia paresthetica. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Lower limb nerves",
+    "subtopic": "Meralgia paresthetica",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "meralgia-lfcn",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-025",
+    "stem": "Transitional epithelium (urothelium) normally lines which structure?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Esophagus",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Trachea",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ureter",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "Jejunum",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Urothelium lines the renal pelvis, ureters, urinary bladder and proximal urethra.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Renal & Genitourinary; Topic: Histology; Subtopic: Transitional epithelium. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Renal & Genitourinary",
+    "topic": "Histology",
+    "subtopic": "Transitional epithelium",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "urothelium-ureter",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-026",
+    "stem": "Which muscle originates from the supraglenoid tubercle of the scapula?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Long head of biceps brachii",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Short head of biceps brachii",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Long head of triceps",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Coracobrachialis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The tendon of the long head of biceps arises from the supraglenoid tubercle and superior labrum.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Musculoskeletal; Topic: Upper limb anatomy; Subtopic: Biceps long-head origin. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Musculoskeletal",
+    "topic": "Upper limb anatomy",
+    "subtopic": "Biceps long-head origin",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "biceps-supraglenoid",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-027",
+    "stem": "The anterior belly of the digastric muscle is supplied by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Facial nerve",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Nerve to mylohyoid",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Glossopharyngeal nerve",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hypoglossal nerve",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The anterior belly is a first-arch muscle supplied by the nerve to mylohyoid, a branch of V3.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Nervous System; Topic: Head and neck anatomy; Subtopic: Digastric innervation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Head and neck anatomy",
+    "subtopic": "Digastric innervation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "digastric-mylohyoid",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-028",
+    "stem": "Injury to the marginal mandibular branch of the facial nerve most directly weakens movements of the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Lower lip",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Upper eyelid",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Tongue",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Soft palate",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The marginal mandibular branch supplies lower-lip depressors such as depressor anguli oris.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Nervous System; Topic: Facial nerve; Subtopic: Marginal mandibular branch. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Facial nerve",
+    "subtopic": "Marginal mandibular branch",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "marginal-mandibular-lower-lip",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/anatomy/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-029",
+    "stem": "A pulmonary embolus blocks perfusion to a ventilated lung region. The local V/Q ratio tends toward:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Zero",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "One",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Infinity",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "0.5",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Ventilation without perfusion creates alveolar dead space, so V/Q approaches infinity.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Respiratory; Topic: Ventilation-perfusion; Subtopic: Pulmonary embolism V/Q. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Respiratory",
+    "topic": "Ventilation-perfusion",
+    "subtopic": "Pulmonary embolism V/Q",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pe-vq-infinity",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-030",
+    "stem": "During days 21–25 of a typical 28-day cycle, the expected hormonal pattern is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "High estrogen and progesterone with suppressed LH/FSH",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Low estrogen and progesterone with high LH",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "High LH with low progesterone",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Low progesterone with high FSH",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The mid-luteal phase has high progesterone and substantial estrogen, which suppress pituitary gonadotropins.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Reproductive; Topic: Menstrual cycle; Subtopic: Luteal hormonal profile. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Reproductive",
+    "topic": "Menstrual cycle",
+    "subtopic": "Luteal hormonal profile",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "luteal-estrogen-progesterone",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-031",
+    "stem": "Hyperprolactinemia commonly causes amenorrhea by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Increasing GnRH pulsatility",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Suppressing hypothalamic GnRH secretion",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Directly increasing LH secretion",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Stimulating ovarian androgen production",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Excess prolactin suppresses GnRH, reducing LH/FSH secretion and impairing ovulation.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Endocrine; Topic: Pituitary physiology; Subtopic: Hyperprolactinemia and GnRH. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Endocrine",
+    "topic": "Pituitary physiology",
+    "subtopic": "Hyperprolactinemia and GnRH",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "prolactin-suppresses-gnrh",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-032",
+    "stem": "The primary early acid-base response to rapid ascent to high altitude is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Respiratory acidosis",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Metabolic acidosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Respiratory alkalosis",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "Metabolic alkalosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Hypoxemia stimulates hyperventilation, lowering PaCO2 and causing respiratory alkalosis.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Respiratory; Topic: High-altitude physiology; Subtopic: Acute respiratory alkalosis. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Physiology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Respiratory",
+    "topic": "High-altitude physiology",
+    "subtopic": "Acute respiratory alkalosis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "altitude-respiratory-alkalosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Physiology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-033",
+    "stem": "Hyperpigmentation in primary adrenal insufficiency is driven mainly by increased:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "ACTH",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Aldosterone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Cortisol",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Renin",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Low cortisol removes feedback inhibition, increasing POMC-derived ACTH and melanocortin activity.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Endocrine; Topic: Adrenal physiology; Subtopic: Addison hyperpigmentation. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Physiology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Endocrine",
+    "topic": "Adrenal physiology",
+    "subtopic": "Addison hyperpigmentation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "addison-acth-hyperpigmentation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Physiology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-034",
+    "stem": "Acute high-altitude cerebral edema is promoted by hypoxemia-induced:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cerebral vasoconstriction",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Cerebral vasodilation with increased capillary pressure",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Reduced cerebral blood flow",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Systemic alkalosis causing brain dehydration",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Hypoxemia increases cerebral blood flow and vascular permeability, contributing to vasogenic edema.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Nervous System; Topic: High-altitude illness; Subtopic: Cerebral edema mechanism. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Physiology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Physiology",
+    "system": "Nervous System",
+    "topic": "High-altitude illness",
+    "subtopic": "Cerebral edema mechanism",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hace-cerebral-vasodilation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Physiology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-035",
+    "stem": "Vitamin C deficiency impairs collagen maturation primarily by reducing activity of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Prolyl hydroxylase",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Tyrosinase",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Alkaline phosphatase",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Glucose-6-phosphatase",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Ascorbate is required for hydroxylation of proline and lysine residues during collagen synthesis.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Vitamins; Subtopic: Scurvy collagen defect. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Vitamins",
+    "subtopic": "Scurvy collagen defect",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "scurvy-prolyl-hydroxylase",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-036",
+    "stem": "Orange tonsils with extremely low HDL cholesterol are classically associated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Tangier disease",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Familial hypercholesterolemia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Abetalipoproteinemia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Type I hyperlipoproteinemia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Tangier disease from ABCA1 dysfunction causes profound HDL deficiency and cholesterol deposition in reticuloendothelial tissues, including orange tonsils.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Lipoprotein disorders; Subtopic: Tangier disease. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Lipoprotein disorders",
+    "subtopic": "Tangier disease",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "tangier-orange-tonsils",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-037",
+    "stem": "Marked hyperphenylalaninemia despite normal phenylalanine hydroxylase activity suggests deficiency of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Tetrahydrobiopterin",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Thiamine",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Pyridoxine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Biotin",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "BH4 is an essential cofactor for phenylalanine hydroxylase; its deficiency can mimic phenylketonuria.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Amino acid metabolism; Subtopic: BH4 deficiency. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Amino acid metabolism",
+    "subtopic": "BH4 deficiency",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "bh4-hyperphenylalanine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-038",
+    "stem": "After several days of complete fasting, the brain increasingly derives energy from:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ketone bodies",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Free fatty acids directly",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Muscle glycogen",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Dietary glucose",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "During prolonged starvation, hepatic ketogenesis supplies ketone bodies that substantially replace glucose as brain fuel.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Fasting metabolism; Subtopic: Brain fuel in starvation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Fasting metabolism",
+    "subtopic": "Brain fuel in starvation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "starvation-brain-ketones",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-039",
+    "stem": "Vitamin B12 deficiency with elevated homocysteine impairs regeneration of which amino acid?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Methionine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Tyrosine",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Glutamate",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Alanine",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Methionine synthase requires methylcobalamin to remethylate homocysteine to methionine.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: One-carbon metabolism; Subtopic: B12 and methionine synthase. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "One-carbon metabolism",
+    "subtopic": "B12 and methionine synthase",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "b12-methionine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-040",
+    "stem": "Deficiency of hexosaminidase A causes accumulation of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "GM2 ganglioside",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Sphingomyelin",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Glucocerebroside",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "GM1 ganglioside",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Tay-Sachs disease results from HEXA deficiency with lysosomal accumulation of GM2 ganglioside.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Nervous System; Topic: Lysosomal storage disorders; Subtopic: Tay-Sachs disease. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Nervous System",
+    "topic": "Lysosomal storage disorders",
+    "subtopic": "Tay-Sachs disease",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "tay-sachs-gm2",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-041",
+    "stem": "Insertion of a single nucleotide near the beginning of a coding sequence most commonly causes:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "A frameshift altering downstream codons",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "No change in protein sequence",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Only one amino-acid substitution",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Deletion of the promoter",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A non-triplet insertion shifts the reading frame and changes downstream codons, often producing a premature stop.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: General / Cross-system; Topic: Molecular genetics; Subtopic: Frameshift mutation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "General / Cross-system",
+    "topic": "Molecular genetics",
+    "subtopic": "Frameshift mutation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "frameshift-insertion",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-042",
+    "stem": "Xeroderma pigmentosum is caused by defective repair of UV-induced DNA damage through:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Nucleotide excision repair",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Mismatch repair",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Base excision repair",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Non-homologous end joining",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Nucleotide excision repair removes bulky UV-induced pyrimidine dimers; failure causes xeroderma pigmentosum.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Dermatology; Topic: DNA repair; Subtopic: Xeroderma pigmentosum. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Biochemistry",
+    "system": "Dermatology",
+    "topic": "DNA repair",
+    "subtopic": "Xeroderma pigmentosum",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "xp-nucleotide-excision",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-043",
+    "stem": "Marked LDL elevation with relatively normal triglycerides is characteristic of which Fredrickson phenotype?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Type I",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Type IIa",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Type III",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Type IV",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Type IIa hyperlipoproteinemia is dominated by elevated LDL cholesterol without major triglyceride elevation.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Lipoprotein disorders; Subtopic: Type IIa hyperlipoproteinemia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Lipoprotein disorders",
+    "subtopic": "Type IIa hyperlipoproteinemia",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "familial-hyperchol-type2a",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-044",
+    "stem": "Which disorder follows mitochondrial inheritance?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Kearns-Sayre syndrome",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Achondroplasia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Cystic fibrosis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Williams syndrome",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Kearns-Sayre syndrome is a mitochondrial cytopathy caused by large mtDNA deletions.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: General / Cross-system; Topic: Mitochondrial genetics; Subtopic: Kearns-Sayre syndrome. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "General / Cross-system",
+    "topic": "Mitochondrial genetics",
+    "subtopic": "Kearns-Sayre syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "kearns-sayre-mitochondrial",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-045",
+    "stem": "Follicular lymphoma is classically associated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "t(14;18) involving BCL2",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "t(8;14) involving MYC",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "t(11;14) involving CCND1",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "t(9;22) involving BCR-ABL1",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Follicular lymphoma commonly has t(14;18), causing BCL2 overexpression and impaired apoptosis.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Hematology & Oncology; Topic: Lymphoma; Subtopic: Follicular lymphoma translocation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Hematology & Oncology",
+    "topic": "Lymphoma",
+    "subtopic": "Follicular lymphoma translocation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "follicular-lymphoma-t1418",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-046",
+    "stem": "A painless homogeneous testicular mass without hemorrhage or necrosis in an adult most strongly suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Seminoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Choriocarcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Yolk sac tumor",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Embryonal carcinoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Seminoma is typically a homogeneous gray-white testicular tumor and often lacks hemorrhage or necrosis.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Reproductive; Topic: Testicular tumors; Subtopic: Seminoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Reproductive",
+    "topic": "Testicular tumors",
+    "subtopic": "Seminoma",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "seminoma-homogeneous-testis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-047",
+    "stem": "The preferred technique for rapidly quantifying multiple CD surface markers on individual cells is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Flow cytometry",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Western blot",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "ELISA",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Gram stain",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Flow cytometry uses fluorescent antibodies to phenotype and quantify cell-surface or intracellular markers at single-cell resolution.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Hematology & Oncology; Topic: Laboratory methods; Subtopic: Flow cytometry. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Hematology & Oncology",
+    "topic": "Laboratory methods",
+    "subtopic": "Flow cytometry",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "flow-cytometry-cd-markers",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-048",
+    "stem": "A suprasellar tumor in a child containing 'wet keratin' is most characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Craniopharyngioma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pituitary adenoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Medulloblastoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Ependymoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Adamantinomatous craniopharyngioma commonly contains wet keratin and calcification.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Nervous System; Topic: Sellar tumors; Subtopic: Craniopharyngioma pathology. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Nervous System",
+    "topic": "Sellar tumors",
+    "subtopic": "Craniopharyngioma pathology",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "craniopharyngioma-wet-keratin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-049",
+    "stem": "A thyroid tumor with amyloid stroma and neuroendocrine markers is most likely:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Medullary thyroid carcinoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Papillary thyroid carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Follicular thyroid carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Anaplastic carcinoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Medullary thyroid carcinoma arises from parafollicular C cells, expresses neuroendocrine markers and deposits calcitonin-derived amyloid.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Endocrine; Topic: Thyroid tumors; Subtopic: Medullary thyroid carcinoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Endocrine",
+    "topic": "Thyroid tumors",
+    "subtopic": "Medullary thyroid carcinoma",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "medullary-thyroid-amyloid",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-050",
+    "stem": "A major viral etiologic factor for squamous carcinoma of the oropharyngeal/base-of-tongue region is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "High-risk HPV",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "CMV",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "HCV",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Parvovirus B19",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "High-risk HPV, especially HPV-16, is strongly associated with oropharyngeal squamous-cell carcinoma.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Infectious Disease & Immunology; Topic: Oncogenic viruses; Subtopic: HPV-associated oropharyngeal cancer. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Oncogenic viruses",
+    "subtopic": "HPV-associated oropharyngeal cancer",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hpv-oropharyngeal-scc",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-051",
+    "stem": "Which pair represents caspase-dependent forms of programmed cell death?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Apoptosis and pyroptosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Necrosis and ferroptosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Necroptosis and ferroptosis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Autolysis and necrosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Apoptosis uses executioner caspases, while pyroptosis uses inflammatory caspases such as caspase-1/4/5.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: General / Cross-system; Topic: Cell injury; Subtopic: Caspase-mediated cell death. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "General / Cross-system",
+    "topic": "Cell injury",
+    "subtopic": "Caspase-mediated cell death",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "caspase-apoptosis-pyroptosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/pathology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-052",
+    "stem": "A cerebellopontine-angle tumor showing Antoni A and Antoni B areas is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Schwannoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Meningioma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ependymoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Medulloblastoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Schwannomas characteristically display hypercellular Antoni A and hypocellular Antoni B areas.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Nervous System; Topic: Peripheral nerve tumors; Subtopic: Vestibular schwannoma. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pathology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Nervous System",
+    "topic": "Peripheral nerve tumors",
+    "subtopic": "Vestibular schwannoma",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "schwannoma-antoni-ab",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pathology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-053",
+    "stem": "A well-circumscribed benign hepatic lesion with a central stellate scar most strongly suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Focal nodular hyperplasia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Hepatocellular carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Metastasis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Regenerative nodule",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Focal nodular hyperplasia is a benign hyperplastic lesion often characterized by a central stellate scar.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Gastrointestinal & Hepatobiliary; Topic: Liver lesions; Subtopic: Focal nodular hyperplasia. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pathology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Liver lesions",
+    "subtopic": "Focal nodular hyperplasia",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "fnh-central-scar",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pathology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-054",
+    "stem": "Recurrent disseminated gonococcal infections should prompt evaluation for deficiency of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Terminal complement components C5-C9",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "C1 esterase inhibitor",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "IgE",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Myeloperoxidase only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Deficiency of the membrane attack complex markedly increases susceptibility to recurrent Neisseria infections.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Infectious Disease & Immunology; Topic: Immunodeficiency; Subtopic: Terminal complement deficiency. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pathology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Immunodeficiency",
+    "subtopic": "Terminal complement deficiency",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "terminal-complement-neisseria",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pathology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-055",
+    "stem": "Salt craving, diffuse hyperpigmentation, hyperkalemia and metabolic acidosis most strongly indicate:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Primary adrenal insufficiency",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Primary hyperaldosteronism",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Pheochromocytoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Cushing syndrome",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Primary adrenal failure causes cortisol and aldosterone deficiency with ACTH elevation, salt wasting and hyperkalemia.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Endocrine; Topic: Adrenal disorders; Subtopic: Addison disease. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Endocrine",
+    "topic": "Adrenal disorders",
+    "subtopic": "Addison disease",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "addison-primary-adrenal",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-056",
+    "stem": "For severe ARDS requiring mechanical ventilation, the lung-protective strategy includes:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Low tidal volume with adequate PEEP",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "High tidal volume and low PEEP",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "High tidal volume without PEEP",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Routine hyperventilation to alkalosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "ARDS ventilation uses low tidal volumes based on predicted body weight and appropriate PEEP to limit ventilator-induced lung injury.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Respiratory; Topic: ARDS; Subtopic: Lung-protective ventilation. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "ARDS",
+    "subtopic": "Lung-protective ventilation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ards-low-tidal-peep",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-057",
+    "stem": "In suspected acromegaly, failure of growth hormone to suppress after an oral glucose load supports the diagnosis because normal glucose should:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Suppress GH secretion",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Increase GH secretion markedly",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Have no effect on GH",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Suppress IGF-1 immediately to zero",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Oral glucose normally suppresses GH; failure of suppression is a classic biochemical feature of acromegaly.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Endocrine; Topic: Pituitary disorders; Subtopic: Acromegaly testing. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Endocrine",
+    "topic": "Pituitary disorders",
+    "subtopic": "Acromegaly testing",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "acromegaly-ogtt-gh",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-058",
+    "stem": "Anti-Scl-70 antibodies in systemic sclerosis are especially associated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Interstitial lung disease",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Isolated nephrotic syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Autoimmune hemolysis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Myasthenia gravis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Anti-topoisomerase I (Scl-70) is associated with diffuse systemic sclerosis and pulmonary fibrosis/ILD.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Infectious Disease & Immunology; Topic: Systemic sclerosis; Subtopic: Anti-Scl-70. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Systemic sclerosis",
+    "subtopic": "Anti-Scl-70",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "scl70-ild",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-059",
+    "stem": "Hemosiderin-laden macrophages in sputum or lung tissue ('heart failure cells') indicate chronic:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pulmonary venous congestion",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Right-to-left shunting",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Pulmonary embolism only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pleural fibrosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Chronic left-sided heart failure elevates pulmonary venous pressure, causing microhemorrhage and hemosiderin-laden macrophages.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Cardiovascular; Topic: Heart failure pathology; Subtopic: Heart failure cells. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Cardiovascular",
+    "topic": "Heart failure pathology",
+    "subtopic": "Heart failure cells",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hf-hemosiderin-macrophages",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-060",
+    "stem": "The serum anion gap is conventionally calculated as:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Na − (Cl + HCO3)",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Cl − (Na + HCO3)",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Na + K + Cl",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "HCO3 − Cl",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The commonly used anion gap formula is sodium minus the sum of chloride and bicarbonate.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: General / Cross-system; Topic: Acid-base disorders; Subtopic: Anion gap calculation. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "General / Cross-system",
+    "topic": "Acid-base disorders",
+    "subtopic": "Anion gap calculation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "anion-gap-formula",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]
