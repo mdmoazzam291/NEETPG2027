@@ -1,0 +1,2297 @@
+[
+  {
+    "external_id": "neetpg-2024-111",
+    "stem": "Hypotension, tachycardia and echocardiographic diastolic chamber collapse in a patient with pericardial effusion require urgent:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pericardiocentesis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Exercise testing",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Oral diuretics only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Elective Holter monitoring",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Hemodynamic compromise from cardiac tamponade requires urgent drainage of the pericardial space.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Cardiovascular; Topic: Pericardial disease; Subtopic: Cardiac tamponade management. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Cardiovascular",
+    "topic": "Pericardial disease",
+    "subtopic": "Cardiac tamponade management",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "tamponade-pericardiocentesis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-112",
+    "stem": "Ipsilateral facial weakness and abducens palsy with contralateral hemiparesis localize to which pontine syndrome?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Foville syndrome",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Wallenberg syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Weber syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Brown-Sequard syndrome",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A dorsal/medial pontine lesion involving the abducens/facial structures and corticospinal tract can produce a Foville-pattern crossed deficit.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Nervous System; Topic: Brainstem syndromes; Subtopic: Foville syndrome. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Nervous System",
+    "topic": "Brainstem syndromes",
+    "subtopic": "Foville syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "foville-pontine-syndrome",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-113",
+    "stem": "A PR interval of 0.21 seconds with every P wave followed by QRS is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "First-degree AV block",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Second-degree Mobitz II block",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Complete heart block",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Atrial flutter",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "First-degree AV block is defined by a PR interval greater than 200 ms with 1:1 AV conduction.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Cardiovascular; Topic: ECG interpretation; Subtopic: First-degree AV block. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Cardiovascular",
+    "topic": "ECG interpretation",
+    "subtopic": "First-degree AV block",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "first-degree-av-block",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-114",
+    "stem": "The triad of chronic sinusitis, bronchiectasis and situs inversus defines:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Kartagener syndrome",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Goodpasture syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Marfan syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Young syndrome only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Kartagener syndrome is a form of primary ciliary dyskinesia with situs inversus, chronic sinusitis and bronchiectasis.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Respiratory; Topic: Ciliary disorders; Subtopic: Kartagener syndrome. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "Ciliary disorders",
+    "subtopic": "Kartagener syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "kartagener-triad",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-115",
+    "stem": "A family history of cerebellar tumors and clear-cell renal carcinoma suggests mutation of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "VHL",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "APC",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "RB1",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "NF1",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Von Hippel-Lindau disease predisposes to hemangioblastomas and clear-cell RCC through VHL tumor-suppressor loss.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Hematology & Oncology; Topic: Cancer syndromes; Subtopic: Von Hippel-Lindau syndrome. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Hematology & Oncology",
+    "topic": "Cancer syndromes",
+    "subtopic": "Von Hippel-Lindau syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "vhl-hemangioblastoma-rcc",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-116",
+    "stem": "Myasthenia gravis accompanied by an anterior mediastinal mass most strongly suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Thymoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Teratoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Bronchogenic cyst",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Esophageal duplication cyst",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Thymic hyperplasia and thymoma are strongly associated with myasthenia gravis; a discrete anterior mediastinal mass suggests thymoma.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Nervous System; Topic: Myasthenia gravis; Subtopic: Thymoma association. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Nervous System",
+    "topic": "Myasthenia gravis",
+    "subtopic": "Thymoma association",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mg-thymoma",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-117",
+    "stem": "Stage 3 type 1 diabetes is characterized by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Clinical symptomatic hyperglycemia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Multiple autoantibodies with normoglycemia only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Single autoantibody without dysglycemia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "No beta-cell loss",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Stage 3 type 1 diabetes is overt clinical disease with hyperglycemia and typical symptoms or metabolic decompensation.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Endocrine; Topic: Type 1 diabetes; Subtopic: Staging of type 1 diabetes. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Endocrine",
+    "topic": "Type 1 diabetes",
+    "subtopic": "Staging of type 1 diabetes",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "type1dm-stage3-symptomatic",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-118",
+    "stem": "The leading direct cause of death in advanced idiopathic pulmonary fibrosis is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Respiratory failure",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Hyperthyroidism",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Acute appendicitis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Nephrotic syndrome",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Progressive fibrotic lung disease and acute exacerbations ultimately commonly lead to respiratory failure.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Respiratory; Topic: Interstitial lung disease; Subtopic: IPF mortality. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "Interstitial lung disease",
+    "subtopic": "IPF mortality",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ipf-respiratory-failure",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-119",
+    "stem": "Bilateral enlarged kidneys containing numerous cysts in an adult with hypertension and hematuria suggest:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Autosomal dominant polycystic kidney disease",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Simple unilateral renal cyst",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Wilms tumor",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Renal infarction",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "ADPKD commonly causes bilateral renal cysts, hypertension, hematuria and progressive kidney dysfunction.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Renal & Genitourinary; Topic: Cystic kidney disease; Subtopic: ADPKD. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Renal & Genitourinary",
+    "topic": "Cystic kidney disease",
+    "subtopic": "ADPKD",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "adpkd-bilateral-cysts",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-120",
+    "stem": "Salmon-colored columnar mucosa extending above the gastroesophageal junction is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Barrett esophagus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Esophageal candidiasis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Achalasia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Mallory-Weiss tear",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Barrett esophagus is intestinal metaplasia of distal esophageal squamous epithelium due to chronic reflux.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Gastrointestinal & Hepatobiliary; Topic: GERD complications; Subtopic: Barrett esophagus. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "GERD complications",
+    "subtopic": "Barrett esophagus",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "barrett-esophagus",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-121",
+    "stem": "The most widely used serologic screening test for celiac disease is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "IgA anti-tissue transglutaminase",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "p-ANCA",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "ASCA",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Anti-dsDNA",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "IgA anti-tTG is highly useful for celiac screening, with total IgA checked when deficiency is a concern.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Gastrointestinal & Hepatobiliary; Topic: Celiac disease; Subtopic: Celiac serology. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Celiac disease",
+    "subtopic": "Celiac serology",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "celiac-anti-ttg",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-122",
+    "stem": "Low ferritin, low transferrin saturation and increased TIBC are classic for:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Iron deficiency anemia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Anemia of chronic inflammation",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Hemolytic anemia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Aplastic anemia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Iron deficiency depletes stores and serum iron while increasing transferrin/TIBC.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Hematology & Oncology; Topic: Anemia; Subtopic: Iron deficiency profile. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Hematology & Oncology",
+    "topic": "Anemia",
+    "subtopic": "Iron deficiency profile",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ida-low-ferritin-high-tibc",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-123",
+    "stem": "Severe encephalitic illness after consumption of raw date-palm sap in South Asia raises concern for:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Nipah virus infection",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Zika virus infection",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Dengue only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Yellow fever",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Nipah virus outbreaks in Bangladesh and nearby regions have been linked to raw date-palm sap contaminated by fruit bats.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Infectious Disease & Immunology; Topic: Emerging viral infections; Subtopic: Nipah virus. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Emerging viral infections",
+    "subtopic": "Nipah virus",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nipah-date-palm-sap",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-124",
+    "stem": "A rapid y descent in the JVP with a pericardial knock favors:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Constrictive pericarditis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Cardiac tamponade",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Severe tricuspid stenosis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Complete heart block",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Constrictive pericarditis permits rapid early filling followed by abrupt limitation, producing a prominent y descent.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Cardiovascular; Topic: Pericardial disease; Subtopic: Constrictive pericarditis JVP. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Cardiovascular",
+    "topic": "Pericardial disease",
+    "subtopic": "Constrictive pericarditis JVP",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "constrictive-pericarditis-rapid-y",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-125",
+    "stem": "Which maneuver typically increases the murmur of hypertrophic obstructive cardiomyopathy?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Valsalva strain",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Squatting",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Passive leg raise",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sustained handgrip in every case",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Reduced preload during Valsalva increases dynamic LV outflow obstruction and accentuates the HOCM murmur.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Cardiovascular; Topic: Cardiomyopathy; Subtopic: HOCM murmur maneuvers. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Cardiovascular",
+    "topic": "Cardiomyopathy",
+    "subtopic": "HOCM murmur maneuvers",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hocm-valsalva",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/internal-medicine/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-126",
+    "stem": "Acute Stanford type A aortic dissection requires definitive:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Urgent surgical repair",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Observation alone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Long-term aspirin only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Elective stress testing",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Type A dissection involves the ascending aorta and generally requires emergency surgery after stabilization.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Cardiovascular; Topic: Aortic disease; Subtopic: Type A aortic dissection. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Cardiovascular",
+    "topic": "Aortic disease",
+    "subtopic": "Type A aortic dissection",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "typea-dissection-surgery",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-127",
+    "stem": "A large suspicious lower-lip lesion where complete removal would cause major deformity should first undergo:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Incisional biopsy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Wide excision without diagnosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Fine-needle aspiration of the lip surface only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "No tissue diagnosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "For a large lesion where complete excision would be mutilating, incisional biopsy establishes histology before definitive treatment.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Dermatology; Topic: Oncologic diagnosis; Subtopic: Incisional biopsy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Dermatology",
+    "topic": "Oncologic diagnosis",
+    "subtopic": "Incisional biopsy",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "large-lip-lesion-incisional-biopsy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-128",
+    "stem": "Around day 2-3 after a skin graft is placed, vascular continuity begins mainly through:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Inosculation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Plasmatic imbibition only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Keratinization",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Lymphatic embolization",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "After initial plasmatic imbibition, graft and recipient capillaries connect by inosculation before full revascularization develops.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Dermatology; Topic: Skin grafts; Subtopic: Inosculation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Dermatology",
+    "topic": "Skin grafts",
+    "subtopic": "Inosculation",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "skin-graft-inosculation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-129",
+    "stem": "The standard complete fundoplication for refractory GERD is the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Nissen 360-degree fundoplication",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Whipple procedure",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Heller myotomy alone",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Billroth II",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Nissen fundoplication wraps the gastric fundus 360 degrees around the distal esophagus to reinforce the LES.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Gastrointestinal & Hepatobiliary; Topic: Antireflux surgery; Subtopic: Nissen fundoplication. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Antireflux surgery",
+    "subtopic": "Nissen fundoplication",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nissen-fundoplication",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-130",
+    "stem": "Fecal discharge from the umbilicus in an infant most strongly suggests persistence of the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Vitelline duct",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Urachus",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Round ligament",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Umbilical vein only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A patent omphalomesenteric/vitelline duct connects ileum to the umbilicus and can discharge enteric material.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Gastrointestinal & Hepatobiliary; Topic: Congenital anomalies; Subtopic: Patent vitelline duct. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Congenital anomalies",
+    "subtopic": "Patent vitelline duct",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "patent-vitelline-duct-fecal",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-131",
+    "stem": "Extensive terminal-ileal resection predisposes especially to deficiency of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Vitamin B12",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vitamin C",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Vitamin K only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Thiamine",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The terminal ileum is the site of intrinsic-factor-bound vitamin B12 absorption; substantial resection can cause megaloblastic anemia and neurologic disease.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Gastrointestinal & Hepatobiliary; Topic: Short bowel consequences; Subtopic: Ileal B12 malabsorption. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Short bowel consequences",
+    "subtopic": "Ileal B12 malabsorption",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "terminal-ileum-b12",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-132",
+    "stem": "A massive anterior goiter may make which emergency airway procedure technically difficult?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Tracheostomy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Laryngeal mask insertion",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Oropharyngeal airway placement",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Nasogastric tube insertion",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A large goiter can obscure or displace the trachea and complicate anterior surgical access for tracheostomy.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Respiratory; Topic: Airway procedures; Subtopic: Goiter and tracheostomy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Respiratory",
+    "topic": "Airway procedures",
+    "subtopic": "Goiter and tracheostomy",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "goiter-tracheostomy-difficult",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-133",
+    "stem": "The most important adjuvant-treatment trigger after oral-cancer resection with neck dissection is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Extranodal extension of nodal disease",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "A clean margin with no nodes",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Age under 40 alone",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Small superficial ulceration only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Extranodal extension and positive margins are major high-risk features often prompting postoperative concurrent chemoradiation.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Hematology & Oncology; Topic: Head and neck oncology; Subtopic: Extranodal extension. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Hematology & Oncology",
+    "topic": "Head and neck oncology",
+    "subtopic": "Extranodal extension",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "oral-cancer-extranodal-extension",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-134",
+    "stem": "Acute scrotal pain with an ischemic, twisted spermatic cord at exploration is treated by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Detorsion and bilateral orchiopexy if the testis is viable",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Observation only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Antibiotics alone",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Immediate vasectomy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Testicular torsion is a surgical emergency; the contralateral testis is also fixed because the predisposing anatomy is often bilateral.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Reproductive; Topic: Acute scrotum; Subtopic: Testicular torsion. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Reproductive",
+    "topic": "Acute scrotum",
+    "subtopic": "Testicular torsion",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "testicular-torsion-orchiopexy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-135",
+    "stem": "A clean full-thickness burn wound after excision is commonly resurfaced with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Split-thickness skin graft",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Only petroleum jelly indefinitely",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Mucosal graft",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Bone graft",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Split-thickness skin grafting is commonly used to cover large excised burn wounds when the wound bed is suitable.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Dermatology; Topic: Burns; Subtopic: Skin graft coverage. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Dermatology",
+    "topic": "Burns",
+    "subtopic": "Skin graft coverage",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "burn-split-thickness-graft",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-136",
+    "stem": "Primary repair of an uncomplicated cleft lip is classically timed around:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "3 months of age using the rule of tens",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Birth in every infant",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "2 years of age",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "After permanent teeth erupt",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Traditional timing follows the rule of tens: roughly 10 weeks age, 10 pounds weight and hemoglobin about 10 g/dL.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Reproductive; Topic: Cleft anomalies; Subtopic: Cleft lip timing. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Reproductive",
+    "topic": "Cleft anomalies",
+    "subtopic": "Cleft lip timing",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cleft-lip-rule-of-tens",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/surgery/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-137",
+    "stem": "The most common site of impaction of an esophageal foreign body is the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cricopharyngeal narrowing",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Gastroesophageal junction only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Mid-stomach",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pylorus",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The upper esophageal sphincter/cricopharyngeal region is the commonest site for esophageal foreign-body impaction.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Gastrointestinal & Hepatobiliary; Topic: Foreign bodies; Subtopic: Esophageal foreign body. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Foreign bodies",
+    "subtopic": "Esophageal foreign body",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "esophageal-fb-cricopharyngeus",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-138",
+    "stem": "Diffuse pancreatic calcifications on a plain abdominal radiograph strongly support:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Chronic calcific pancreatitis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Acute appendicitis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ulcerative colitis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Uncomplicated hepatitis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pancreatic parenchymal calcification is a classic finding of chronic pancreatitis.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Gastrointestinal & Hepatobiliary; Topic: Pancreatic disease; Subtopic: Chronic calcific pancreatitis. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Pancreatic disease",
+    "subtopic": "Chronic calcific pancreatitis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "chronic-pancreatitis-calcifications",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-139",
+    "stem": "A staghorn urinary calculus associated with recurrent Proteus infection is usually composed mainly of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Magnesium ammonium phosphate",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Uric acid",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Cystine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pure calcium oxalate monohydrate",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Urease-positive organisms alkalinize urine and promote struvite, or magnesium ammonium phosphate, stones.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Renal & Genitourinary; Topic: Urolithiasis; Subtopic: Struvite stones. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "Renal & Genitourinary",
+    "topic": "Urolithiasis",
+    "subtopic": "Struvite stones",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "proteus-struvite",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-140",
+    "stem": "At term, if the first twin is breech and the second twin cephalic, the usual recommended mode of delivery is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cesarean delivery",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vaginal delivery of both in all cases",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Vacuum for first twin",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "External version of both twins",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A non-cephalic presenting first twin at term generally favors cesarean delivery because of increased fetal risk.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Multiple pregnancy; Subtopic: Twin delivery. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Multiple pregnancy",
+    "subtopic": "Twin delivery",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "first-twin-breech-cesarean",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-141",
+    "stem": "For vacuum delivery, the cup should be placed over the flexion point approximately:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "3 cm anterior to the posterior fontanelle",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "3 cm posterior to the anterior fontanelle",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Directly over the anterior fontanelle",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Over the fetal ear",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Correct flexion-point placement promotes flexion and descent and reduces cup detachments and scalp injury.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Operative vaginal delivery; Subtopic: Vacuum cup placement. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Operative vaginal delivery",
+    "subtopic": "Vacuum cup placement",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "vacuum-flexion-point",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-142",
+    "stem": "Which is NOT by itself an absolute contraindication to external cephalic version?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Primigravidity",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Placenta previa",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Major fetal compromise",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "A contraindication to vaginal delivery",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Being a primigravida alone does not absolutely prohibit ECV, though success may be lower than in multiparous patients.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Malpresentation; Subtopic: External cephalic version. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Malpresentation",
+    "subtopic": "External cephalic version",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ecv-primigravida-not-contra",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-143",
+    "stem": "A woman with marked cervical elongation who desires uterine preservation may undergo:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Manchester-Fothergill operation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Wertheim hysterectomy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Burch colposuspension",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Le Fort colpocleisis only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Manchester-Fothergill surgery shortens an elongated cervix with pelvic-floor repair while preserving the uterine body.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Pelvic organ prolapse; Subtopic: Manchester-Fothergill procedure. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Pelvic organ prolapse",
+    "subtopic": "Manchester-Fothergill procedure",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "fothergill-cervical-elongation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-144",
+    "stem": "A pregnant woman with an IUD in situ wishes to continue the pregnancy and the strings are visible. The preferred step is generally to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Remove the IUD gently",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Leave it in place in every case",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Terminate the pregnancy automatically",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Cut the strings and push the IUD upward",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "When strings are visible, early removal reduces risks such as miscarriage, infection and preterm birth compared with leaving the IUD in place.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Contraception complications; Subtopic: IUD in pregnancy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Contraception complications",
+    "subtopic": "IUD in pregnancy",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pregnancy-iud-visible-remove",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-145",
+    "stem": "Female sterilization is commonly performed on the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Isthmic portion of the fallopian tube",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Fimbrial end only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Uterine fundus",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Ovarian ligament",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Many tubal ligation techniques target the isthmic or isthmic-ampullary portion where the tube is accessible and uniform.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Sterilization; Subtopic: Tubectomy site. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Sterilization",
+    "subtopic": "Tubectomy site",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "tubectomy-isthmus",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-146",
+    "stem": "A pregnant patient with acute DVT is usually treated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Low-molecular-weight heparin",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Warfarin throughout pregnancy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Aspirin alone",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "No anticoagulation",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "LMWH is preferred for treatment of venous thromboembolism during pregnancy because it does not cross the placenta.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Hematology & Oncology; Topic: Pregnancy complications; Subtopic: DVT in pregnancy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Hematology & Oncology",
+    "topic": "Pregnancy complications",
+    "subtopic": "DVT in pregnancy",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pregnancy-dvt-lmwh",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-147",
+    "stem": "During magnesium sulfate therapy for eclampsia, which finding should prompt withholding further doses and urgent reassessment?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Marked oliguria",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Normal patellar reflexes",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Respiratory rate 18/min",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Urine output 50 mL/hour",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Magnesium is renally cleared; oliguria increases toxicity risk, along with loss of reflexes and respiratory depression.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Eclampsia; Subtopic: Magnesium toxicity monitoring. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Eclampsia",
+    "subtopic": "Magnesium toxicity monitoring",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mgs04-oliguria-stop",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-148",
+    "stem": "Near term, a pregnant patient with a mechanical heart valve on warfarin is commonly transitioned to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Heparin-based anticoagulation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "No anticoagulation",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Aspirin monotherapy",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Clopidogrel only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Peripartum management commonly uses heparin because of its shorter controllable effect and avoidance of fetal warfarin exposure.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Cardiovascular; Topic: Pregnancy anticoagulation; Subtopic: Mechanical valve near delivery. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Cardiovascular",
+    "topic": "Pregnancy anticoagulation",
+    "subtopic": "Mechanical valve near delivery",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "prosthetic-valve-pregnancy-heparin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-149",
+    "stem": "A postplacental IUCD can be inserted:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Immediately after placental delivery or within 48 hours postpartum",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Only after 6 months",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Never after vaginal delivery",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Only before labor starts",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Postpartum IUCD insertion can be done immediately postplacentally or within the first 48 hours, with later insertion generally deferred until after the postpartum interval.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Contraception; Subtopic: Postpartum IUCD. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Contraception",
+    "subtopic": "Postpartum IUCD",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pp-iucd-within48h",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-150",
+    "stem": "A first-degree perineal tear involves:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Vaginal mucosa and perineal skin only",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Anal sphincter complex",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Rectal mucosa",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Deep perineal muscles with sphincter",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "First-degree tears are limited to skin and vaginal mucosa without perineal muscle involvement.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Obstetric trauma; Subtopic: Perineal tear grading. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Obstetric trauma",
+    "subtopic": "Perineal tear grading",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "first-degree-perineal-tear",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/obstetrics-and-gynecology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-151",
+    "stem": "When diphtheria is strongly suspected clinically, the immediate specific treatment is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Diphtheria antitoxin without waiting for culture confirmation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Wait for culture before any therapy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Only oral rehydration",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Steroids alone",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Antitoxin neutralizes circulating toxin and should be given promptly when clinical suspicion is high, together with antibiotics and isolation.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: Respiratory; Topic: Diphtheria; Subtopic: Diphtheria antitoxin. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "Respiratory",
+    "topic": "Diphtheria",
+    "subtopic": "Diphtheria antitoxin",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "diphtheria-antitoxin-early",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-152",
+    "stem": "A close household contact of a diphtheria case should receive:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Antibiotic chemoprophylaxis regardless of immunization status",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "No action if previously vaccinated",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Only vitamin A",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Antitoxin routinely without assessment",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Close contacts receive antimicrobial prophylaxis and vaccination status is updated as indicated.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: Infectious Disease & Immunology; Topic: Diphtheria; Subtopic: Contact prophylaxis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Diphtheria",
+    "subtopic": "Contact prophylaxis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "diphtheria-contact-prophylaxis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-153",
+    "stem": "Hirschsprung disease results from absence of ganglion cells in the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Submucosal and myenteric plexuses",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Mucosal epithelium only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Serosa only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Muscularis mucosae only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Failure of neural-crest migration causes aganglionosis of Meissner and Auerbach plexuses in the affected distal bowel.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: Gastrointestinal & Hepatobiliary; Topic: Congenital GI disease; Subtopic: Hirschsprung disease. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pediatrics",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Congenital GI disease",
+    "subtopic": "Hirschsprung disease",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hirschsprung-aganglionosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-154",
+    "stem": "A floppy infant with macroglossia and marked cardiomegaly most strongly suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pompe disease",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Tay-Sachs disease",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Phenylketonuria",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Galactosemia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Infantile Pompe disease causes lysosomal glycogen accumulation with hypertrophic cardiomyopathy, hypotonia and macroglossia.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: Cardiovascular; Topic: Glycogen storage diseases; Subtopic: Pompe disease. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pediatrics",
+    "system": "Cardiovascular",
+    "topic": "Glycogen storage diseases",
+    "subtopic": "Pompe disease",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pompe-cardiomegaly-hypotonia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-155",
+    "stem": "A wheel-like virus seen on electron microscopy in an infant with watery diarrhea is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Rotavirus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Norovirus",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Adenovirus",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Astrovirus",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Rotavirus has a wheel-like morphology and is an important cause of severe gastroenteritis in young children.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: Gastrointestinal & Hepatobiliary; Topic: Viral gastroenteritis; Subtopic: Rotavirus morphology. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Viral gastroenteritis",
+    "subtopic": "Rotavirus morphology",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "rotavirus-wheel-em",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]
