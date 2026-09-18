@@ -4,8 +4,8 @@ This directory is the first production-facing slice of the 10-year PYQ project.
 
 ## Current seed
 
-- 60 normalized recall-derived questions
-- 10 questions from each exam year: 2021, 2022, 2023, 2024, 2025 and 2026
+- 120 normalized recall-derived questions
+- 20 questions from each exam year: 2021, 2022, 2023, 2024, 2025 and 2026
 - every row includes Subject → System → Topic → Subtopic
 - every row includes `exam_year`, `exam_session`, `repeat_key`, provenance and verification state
 - questions are independently normalized/paraphrased from public memory-recall sources; exact official wording is not claimed
@@ -15,7 +15,7 @@ This directory is the first production-facing slice of the 10-year PYQ project.
 
 `repeat_key` groups the same underlying tested concept across exam years. A repeat count is the number of distinct NEET-PG years in which that concept appears in this dataset, not the number of websites reproducing the same recall.
 
-Examples in the initial seed:
+Examples already detected:
 
 - `marfan-fbn1`: 2025, 2026
 - `opioid-toxicity-naloxone`: 2022, 2026
