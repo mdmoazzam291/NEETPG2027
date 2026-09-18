@@ -498,5 +498,505 @@
       "reviewed_by": null,
       "reviewed_at": null
     }
+  },
+  {
+    "external_id": "neetpg-2025-011",
+    "stem": "A patient with type 2 diabetes remains above glycemic target on metformin and insulin and also has symptomatic heart failure. Which add-on class has a major heart-failure benefit?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "SGLT2 inhibitor",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pioglitazone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Sulfonylurea",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Alpha-glucosidase inhibitor",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "SGLT2 inhibitors reduce heart-failure hospitalization and are preferred glucose-lowering agents in patients with type 2 diabetes and heart failure when appropriate.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Endocrine; Topic: Diabetes pharmacotherapy; Subtopic: SGLT2 inhibitor in heart failure. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Endocrine",
+    "topic": "Diabetes pharmacotherapy",
+    "subtopic": "SGLT2 inhibitor in heart failure",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "sglt2-heart-failure",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-012",
+    "stem": "Forced eversion of the ankle most commonly threatens which ligament complex?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Deltoid ligament",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Anterior talofibular ligament",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Calcaneofibular ligament",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Posterior talofibular ligament",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The strong medial deltoid ligament resists eversion and can be injured by forced eversion.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Orthopaedics; System: Musculoskeletal; Topic: Ankle injuries; Subtopic: Deltoid ligament. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Orthopaedics",
+    "system": "Musculoskeletal",
+    "topic": "Ankle injuries",
+    "subtopic": "Deltoid ligament",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ankle-eversion-deltoid",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-013",
+    "stem": "A cerebral vessel with amyloid deposition in its wall is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cerebral amyloid angiopathy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Multiple sclerosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Tuberculoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Berry aneurysm",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Cerebral amyloid angiopathy results from amyloid deposition in small-to-medium cortical and leptomeningeal vessels and predisposes to lobar hemorrhage.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Nervous System; Topic: Cerebrovascular pathology; Subtopic: Cerebral amyloid angiopathy. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Nervous System",
+    "topic": "Cerebrovascular pathology",
+    "subtopic": "Cerebral amyloid angiopathy",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cerebral-amyloid-angiopathy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-014",
+    "stem": "Which condition commonly causes chronic respiratory acidosis due to alveolar hypoventilation?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "COPD",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Panic attack",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Early salicylate toxicity",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Diabetic ketoacidosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Advanced COPD can produce chronic CO2 retention and a compensated respiratory acidosis.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Respiratory; Topic: Acid-base disorders; Subtopic: COPD respiratory acidosis. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "Acid-base disorders",
+    "subtopic": "COPD respiratory acidosis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "copd-respiratory-acidosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-015",
+    "stem": "Which urinary abnormality increases the risk of calcium-containing renal stones?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hypercalciuria",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "High urinary citrate",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Very low urinary calcium",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Markedly alkaline urine in every case",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Hypercalciuria is an important risk factor for calcium oxalate and calcium phosphate stone formation.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Renal & Genitourinary; Topic: Nephrolithiasis; Subtopic: Hypercalciuria. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Renal & Genitourinary",
+    "topic": "Nephrolithiasis",
+    "subtopic": "Hypercalciuria",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "renal-stone-hypercalciuria",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-016",
+    "stem": "A black, dry, sharply demarcated ischemic toe without purulent discharge is most consistent with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dry gangrene",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Wet gangrene",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Cellulitis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Erysipelas",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Dry gangrene results from ischemic coagulative necrosis and is typically dry, shrunken and well demarcated.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Cardiovascular; Topic: Peripheral ischemia; Subtopic: Dry gangrene. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Cardiovascular",
+    "topic": "Peripheral ischemia",
+    "subtopic": "Dry gangrene",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "dry-gangrene",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-017",
+    "stem": "A child with an ongoing febrile seizure should receive which rapid-acting benzodiazepine as an acute abortive treatment when IV access is available?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Diazepam",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Valproate only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Phenobarbital only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Carbamazepine",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A benzodiazepine such as IV diazepam is appropriate for aborting a prolonged febrile seizure; route and agent vary by access and protocol.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Pediatrics; System: Nervous System; Topic: Febrile seizures; Subtopic: Acute benzodiazepine therapy. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "Nervous System",
+    "topic": "Febrile seizures",
+    "subtopic": "Acute benzodiazepine therapy",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "febrile-seizure-benzodiazepine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-018",
+    "stem": "Which VMAT2 inhibitor is used to treat tardive dyskinesia?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Valbenazine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Propranolol",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Trihexyphenidyl",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Buspirone",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Valbenazine is a VMAT2 inhibitor approved for tardive dyskinesia.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Psychiatry; System: Nervous System; Topic: Antipsychotic adverse effects; Subtopic: Tardive dyskinesia treatment. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Psychiatry",
+    "system": "Nervous System",
+    "topic": "Antipsychotic adverse effects",
+    "subtopic": "Tardive dyskinesia treatment",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "tardive-dyskinesia-valbenazine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-019",
+    "stem": "Antipsychotic-induced akathisia is commonly treated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Propranolol",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Donepezil",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Fluoxetine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Levodopa",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A beta blocker, especially propranolol, is commonly used for akathisia.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Psychiatry; System: Nervous System; Topic: Antipsychotic adverse effects; Subtopic: Akathisia treatment. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Psychiatry",
+    "system": "Nervous System",
+    "topic": "Antipsychotic adverse effects",
+    "subtopic": "Akathisia treatment",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "akathisia-propranolol",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-020",
+    "stem": "Bundles of abnormal Auer rods ('faggot cells') are classically associated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Acute promyelocytic leukemia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Chronic lymphocytic leukemia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Multiple myeloma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Aplastic anemia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "APL (AML with PML-RARA) can show promyelocytes packed with Auer rods, producing characteristic faggot cells.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Hematology & Oncology; Topic: Acute myeloid leukemia; Subtopic: APL faggot cells. Source: https://meducate.in/neet-pg-2025-recall-questions/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Hematology & Oncology",
+    "topic": "Acute myeloid leukemia",
+    "subtopic": "APL faggot cells",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "apl-faggot-cells",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://meducate.in/neet-pg-2025-recall-questions/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
   }
 ]
