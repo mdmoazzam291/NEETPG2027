@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByText('Study cockpit')).toBeVisible();
-  await expect(page.locator('#statTotal')).toHaveText(/220/);
+  await expect(page.locator('#statTotal')).toHaveText(/505/);
   await page.getByRole('button',{name:/Practice/}).first().click();
   await expect(page.getByText('Session builder')).toBeVisible();
   await page.locator('#pCount').selectOption('5');
@@ -21,9 +21,9 @@ test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ pag
 test('Question bank, analytics and settings render', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button',{name:/Question Bank/}).click();
-  await expect(page.locator('#bankCount')).toContainText('220');
+  await expect(page.locator('#bankCount')).toContainText('505');
   await page.locator('#bankSearch').fill('cavernous');
-  await expect(page.locator('#bankCount')).toContainText('1 of 220');
+  await expect(page.locator('#bankCount')).toContainText('1 of 505');
   await page.getByRole('button',{name:/Analytics/}).click();
   await expect(page.getByText('Accuracy by subject')).toBeVisible();
   await page.getByRole('button',{name:/Settings/}).click();
@@ -72,7 +72,13 @@ test('2021-2026 PYQ seed has taxonomy, year and repeat metadata', async ({ page 
   await page.goto('/');
   const result = await page.evaluate(async () => {
     const years = [2021,2022,2023,2024,2025,2026];
-    const groups = await Promise.all(years.map(y => fetch(`data/pyq/2021_2026/${y}.json`).then(r => r.json())));
+    const files = [
+      '2021.json','2022.json','2023.json',
+      '2024.json','2024-expansion-a.json','2024-expansion-b.json','2024-expansion-c.json','2024-expansion-d.json',
+      '2025.json','2025-expansion-a.json','2025-expansion-b.json','2025-expansion-c.json',
+      '2026.json'
+    ];
+    const groups = await Promise.all(files.map(name => fetch(`data/pyq/2021_2026/${name}`).then(r => r.json())));
     const items = groups.flat();
     const repeatYears = new Map();
     for (const q of items) {
@@ -89,7 +95,7 @@ test('2021-2026 PYQ seed has taxonomy, year and repeat metadata', async ({ page 
     };
   });
 
-  expect(result.count).toBe(120);
+  expect(result.count).toBe(405);
   expect(result.years).toEqual([2021,2022,2023,2024,2025,2026]);
   expect(result.taxonomyComplete).toBeTruthy();
   expect(result.provenanceComplete).toBeTruthy();

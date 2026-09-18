@@ -4,8 +4,8 @@ This directory is the first production-facing slice of the 10-year PYQ project.
 
 ## Current seed
 
-- 120 normalized recall-derived questions
-- 20 questions from each exam year: 2021, 2022, 2023, 2024, 2025 and 2026
+- 405 normalized recall-derived questions
+- year counts: 2021 = 20, 2022 = 20, 2023 = 20, 2024 = 185, 2025 = 140, 2026 = 20
 - every row includes Subject → System → Topic → Subtopic
 - every row includes `exam_year`, `exam_session`, `repeat_key`, provenance and verification state
 - questions are independently normalized/paraphrased from public memory-recall sources; exact official wording is not claimed
@@ -24,16 +24,12 @@ This is deliberately concept-level recurrence. Small wording changes or differen
 
 ## Expansion order
 
-Expand each year toward the fullest defensible recall set in this order:
+Expansion is source-backed and proceeds toward the fullest defensible recall set. Current priority state:
 
-1. 2026
-2. 2025
-3. 2024, preserving shift/session metadata
-4. 2023
-5. 2022
-6. 2021
-
-Then continue the ten-year project with 2020, 2019, 2018 and 2017.
+1. 2025 substantially expanded to 140 normalized recalls.
+2. 2024 substantially expanded to 185 normalized recalls, preserving shift/session metadata where sources support it.
+3. 2026, 2023, 2022 and 2021 remain at 20-item high-confidence seeds.
+4. Continue the ten-year project with 2020, 2019, 2018 and 2017 after the recent-year sets are reviewed/expanded.
 
 ## Quality rule
 

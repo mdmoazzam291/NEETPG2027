@@ -10,16 +10,16 @@ Database foundation, normalized question/PYQ data, controlled imports, the 100-q
 
 - section-locked 40-question / 42-minute NEET-PG flow
 - 5-section / 200-question engine support when ≥200 unique questions exist
-- current-bank simulation for the existing 100-question platform bank
+- current-bank simulation for the expanded bundled study bank
 - question palette states, Save & Next, Mark for Review & Next, Clear Response
 - permanent section locking, automatic timeout and reload-safe active-exam resume
 - post-test review and result summary
 
-Full 200-question mocks are now content-unlocked on the PYQ expansion branch because the bundled bank has grown beyond 200 unique questions. Simulator behavior remains separate from any future NEET-PG 2027 pattern update.
+Full 200-question mocks are content-unlocked because the bundled bank now contains 505 unique questions. Simulator behavior remains separate from any future NEET-PG 2027 pattern update.
 
 ## Completed: Phase 10 — content infrastructure and medical verification
 
-Bulk synthetic question generation remains deferred. Source-backed PYQ expansion has now begun; the surrounding infrastructure remains complete:
+Bulk synthetic question generation remains deferred. Source-backed PYQ expansion is active; the surrounding infrastructure remains complete:
 
 - browser-compatible `Subject → System → Topic → Subtopic` metadata contract
 - deterministic system inference for legacy platform items and conservative topic→subtopic fallback
@@ -118,4 +118,4 @@ The AI layer must not replace the deterministic study engine, SRS, analytics, pr
 
 ## Current state
 
-**Phases 1–13 are complete. Phase 14 is not started. Source-backed NEET-PG PYQ expansion is active on the 2017–2026 ingest branch, with 120 normalized 2021–2026 recalls added to the existing 100-item bank.**
+**Phases 1–13 are complete. Phase 14 is not started. Source-backed NEET-PG PYQ expansion now contains 405 normalized 2021–2026 recalls alongside the existing 100 repository-authored items, for a 505-question bundled bank. The 2024 and 2025 recall sets are the first substantially expanded years.**

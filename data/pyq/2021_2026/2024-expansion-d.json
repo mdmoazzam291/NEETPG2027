@@ -1,0 +1,1532 @@
+[
+  {
+    "external_id": "neetpg-2024-156",
+    "stem": "The initial IV adenosine dose for a stable child with paroxysmal SVT is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "0.1 mg/kg rapid bolus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "1 mg/kg infusion",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "10 mg/kg slow infusion",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "0.01 mg/kg oral dose",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pediatric SVT is initially treated with adenosine 0.1 mg/kg by rapid IV/IO bolus when vagal maneuvers fail and the child is stable.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: Cardiovascular; Topic: Pediatric arrhythmia; Subtopic: Adenosine dose. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "Cardiovascular",
+    "topic": "Pediatric arrhythmia",
+    "subtopic": "Adenosine dose",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pediatric-svt-adenosine-01",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-157",
+    "stem": "Recurrent severe infections with marked lymphopenia and adenosine-deaminase deficiency indicate:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Severe combined immunodeficiency",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "X-linked agammaglobulinemia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Chronic granulomatous disease",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Selective IgA deficiency",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "ADA deficiency causes accumulation of toxic purine metabolites and a form of autosomal-recessive SCID affecting cellular and humoral immunity.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: Infectious Disease & Immunology; Topic: Primary immunodeficiency; Subtopic: ADA-deficient SCID. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pediatrics",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Primary immunodeficiency",
+    "subtopic": "ADA-deficient SCID",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ada-scid",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-158",
+    "stem": "Hydrocephalus, intracranial calcifications and chorioretinitis are the classic congenital triad of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Toxoplasmosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Rubella",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Syphilis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "HSV-2",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Congenital toxoplasmosis classically causes hydrocephalus, diffuse intracranial calcifications and chorioretinitis.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: Infectious Disease & Immunology; Topic: Congenital infections; Subtopic: Congenital toxoplasmosis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Congenital infections",
+    "subtopic": "Congenital toxoplasmosis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "toxoplasmosis-hydrocephalus-chorioretinitis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-159",
+    "stem": "Which practice should be avoided in routine immediate essential newborn care?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Early bathing immediately after birth",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Immediate drying",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Skin-to-skin thermal care",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Early breastfeeding",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Bathing should be delayed to reduce hypothermia risk; newborns should be dried, kept warm and breastfed early.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: General / Cross-system; Topic: Essential newborn care; Subtopic: Delayed bathing. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "General / Cross-system",
+    "topic": "Essential newborn care",
+    "subtopic": "Delayed bathing",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "newborn-delay-bath",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pediatrics/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-160",
+    "stem": "A lesion compressing the optic chiasm classically produces:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Bitemporal hemianopia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Right monocular blindness",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Left homonymous hemianopia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Central scotoma only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Crossing nasal retinal fibers are damaged at the chiasm, causing loss of temporal visual fields in both eyes.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Visual pathways; Subtopic: Bitemporal hemianopia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Visual pathways",
+    "subtopic": "Bitemporal hemianopia",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "optic-chiasm-bitemporal",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-161",
+    "stem": "Progressive night blindness with peripheral visual-field loss and bone-spicule pigmentation suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Retinitis pigmentosa",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Central serous chorioretinopathy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Optic neuritis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Acute angle closure",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Retinitis pigmentosa is an inherited retinal dystrophy beginning with rod dysfunction, nyctalopia and peripheral field constriction.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Retinal dystrophy; Subtopic: Retinitis pigmentosa. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Retinal dystrophy",
+    "subtopic": "Retinitis pigmentosa",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "retinitis-pigmentosa-nyctalopia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-162",
+    "stem": "During the Worth four-dot test with a red filter over the right eye, seeing only three green dots indicates:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Suppression of the right eye",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Suppression of the left eye",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Normal binocular fusion",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Right homonymous hemianopia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Three green dots are perceived through the left eye, indicating suppression of input from the right eye.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Strabismus testing; Subtopic: Worth four-dot test. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Strabismus testing",
+    "subtopic": "Worth four-dot test",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "worth4dot-right-suppression",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-163",
+    "stem": "Gradual painless visual decline several years after otherwise successful cataract surgery most commonly results from:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Posterior capsular opacification",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Acute endophthalmitis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Retinal artery occlusion",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Lens-induced uveitis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Posterior capsular opacification is a common late complication of cataract surgery and is treated with Nd:YAG capsulotomy when visually significant.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Cataract surgery complications; Subtopic: Posterior capsular opacification. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Cataract surgery complications",
+    "subtopic": "Posterior capsular opacification",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pco-after-cataract",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-164",
+    "stem": "A painful red eye with a fixed mid-dilated pupil and very high intraocular pressure requires urgent therapy aimed first at:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Rapidly lowering intraocular pressure",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Observation until the next day",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Immediate cataract extraction in all patients",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Topical steroid alone",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Acute angle closure is an ophthalmic emergency; pressure is lowered with systemic/topical agents before definitive laser peripheral iridotomy when appropriate.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Glaucoma; Subtopic: Acute angle closure management. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Glaucoma",
+    "subtopic": "Acute angle closure management",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "acute-angle-closure-lower-iop",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-165",
+    "stem": "Photophobia, circumcorneal congestion and anterior-chamber cells or hypopyon are typical of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Acute anterior uveitis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Open-angle glaucoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Subconjunctival hemorrhage",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Posterior vitreous detachment",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Anterior uveitis commonly causes pain, photophobia, ciliary congestion and inflammatory cells in the anterior chamber.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Uveitis; Subtopic: Acute anterior uveitis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Uveitis",
+    "subtopic": "Acute anterior uveitis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "anterior-uveitis-photophobia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-166",
+    "stem": "Herbert pits at the superior limbus are a sequela of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Trachoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Herpes zoster ophthalmicus",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Keratoconus",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Retinitis pigmentosa",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Herbert pits are small limbal depressions left by healed trachomatous follicles.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Conjunctival infection; Subtopic: Trachoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Conjunctival infection",
+    "subtopic": "Trachoma",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "trachoma-herbert-pits",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-167",
+    "stem": "Which laryngeal muscle tenses the vocal cords to raise pitch?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cricothyroid",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Posterior cricoarytenoid",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Lateral cricoarytenoid",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Thyroarytenoid only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Cricothyroid lengthens and tenses the vocal folds and is supplied by the external branch of the superior laryngeal nerve.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Respiratory; Topic: Laryngeal anatomy; Subtopic: Cricothyroid function. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "ENT",
+    "system": "Respiratory",
+    "topic": "Laryngeal anatomy",
+    "subtopic": "Cricothyroid function",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cricothyroid-high-pitch",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-168",
+    "stem": "In right vestibular neuritis, a rapid head turn to the right typically produces:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "A corrective catch-up saccade",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "No corrective eye movement",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "A fixed dilated pupil",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Vertical gaze palsy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A deficient right vestibulo-ocular reflex makes the eyes move with the head, followed by a corrective saccade back to the target.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Nervous System; Topic: Vestibular disorders; Subtopic: Head impulse test. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "ENT",
+    "system": "Nervous System",
+    "topic": "Vestibular disorders",
+    "subtopic": "Head impulse test",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "vestibular-neuritis-head-impulse",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-169",
+    "stem": "Conductive hearing loss with pulsatile tinnitus and a positive Phelps sign suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Glomus jugulare paraganglioma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Acoustic neuroma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Otosclerosis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Ménière disease",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Jugulotympanic paragangliomas are hypervascular and can cause pulsatile tinnitus; Phelps sign describes absent carotid crest on CT in glomus jugulare tumors.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Nervous System; Topic: Temporal bone tumors; Subtopic: Glomus jugulare. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "ENT",
+    "system": "Nervous System",
+    "topic": "Temporal bone tumors",
+    "subtopic": "Glomus jugulare",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "glomus-jugulare-phelps",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-170",
+    "stem": "A delayed septal perforation with crusting after nasal-septal surgery most classically follows:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Submucous resection/septoplasty injury",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Tonsillectomy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Myringotomy",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Parotidectomy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Bilateral mucoperichondrial injury or hematoma after septal surgery can compromise cartilage and cause perforation.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Respiratory; Topic: Nasal surgery complications; Subtopic: Septal perforation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "ENT",
+    "system": "Respiratory",
+    "topic": "Nasal surgery complications",
+    "subtopic": "Septal perforation",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "septal-surgery-perforation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-171",
+    "stem": "In an adolescent male with recurrent epistaxis and suspected juvenile nasopharyngeal angiofibroma, the preferred initial imaging is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Contrast-enhanced CT or MRI rather than biopsy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Blind punch biopsy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Plain skull X-ray only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Barium swallow",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "JNA is highly vascular, so diagnosis is made by characteristic imaging and biopsy is generally avoided because of bleeding risk.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Respiratory; Topic: Nasal tumors; Subtopic: JNA imaging. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "ENT",
+    "system": "Respiratory",
+    "topic": "Nasal tumors",
+    "subtopic": "JNA imaging",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "jna-contrast-imaging-no-biopsy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-172",
+    "stem": "A Carhart notch on pure-tone audiometry is associated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Otosclerosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Presbycusis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Acoustic neuroma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Otitis externa",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Otosclerosis causes conductive hearing loss with an apparent bone-conduction dip around 2 kHz called the Carhart notch.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Nervous System; Topic: Audiology; Subtopic: Otosclerosis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "ENT",
+    "system": "Nervous System",
+    "topic": "Audiology",
+    "subtopic": "Otosclerosis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "otosclerosis-carhart-notch",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-173",
+    "stem": "An uncomplicated nondisplaced fracture at the base of the fifth metatarsal is often immobilized for approximately:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "6-8 weeks",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "24 hours",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "6 months in every case",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "No protection at all",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Healing commonly takes several weeks; immobilization and weight-bearing strategy depend on the fracture zone and displacement.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Orthopaedics; System: Musculoskeletal; Topic: Foot fractures; Subtopic: Fifth metatarsal fracture. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/orthopaedics/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Orthopaedics",
+    "system": "Musculoskeletal",
+    "topic": "Foot fractures",
+    "subtopic": "Fifth metatarsal fracture",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "fifth-metatarsal-6to8weeks",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/orthopaedics/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-174",
+    "stem": "Rigid compression plating with absolute stability promotes:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Primary bone healing with minimal callus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Only exuberant secondary callus",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "No osteonal remodeling",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Fibrous nonunion by design",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Absolute stability minimizes interfragmentary strain and permits direct/primary bone healing with little visible callus.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Orthopaedics; System: Musculoskeletal; Topic: Fracture healing; Subtopic: Primary bone healing. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Orthopaedics",
+    "system": "Musculoskeletal",
+    "topic": "Fracture healing",
+    "subtopic": "Primary bone healing",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "compression-plate-primary-healing",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-175",
+    "stem": "A diaphyseal small-round-blue-cell bone tumor in an adolescent is classically associated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "t(11;22) EWSR1-FLI1",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "t(15;17) PML-RARA",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "t(9;22) BCR-ABL1",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "t(14;18) BCL2",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Ewing sarcoma commonly carries t(11;22), producing an EWSR1-FLI1 fusion.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Orthopaedics; System: Musculoskeletal; Topic: Bone tumors; Subtopic: Ewing sarcoma. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Orthopaedics",
+    "system": "Musculoskeletal",
+    "topic": "Bone tumors",
+    "subtopic": "Ewing sarcoma",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ewing-t1122",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-176",
+    "stem": "Activity-related pain and swelling at the tibial tubercle in an adolescent athlete most strongly suggest:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Osgood-Schlatter disease",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Septic arthritis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Slipped capital femoral epiphysis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Achilles rupture",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Osgood-Schlatter disease is traction apophysitis of the tibial tubercle at the patellar-tendon insertion.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Orthopaedics; System: Musculoskeletal; Topic: Pediatric orthopaedics; Subtopic: Osgood-Schlatter disease. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/orthopaedics/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Orthopaedics",
+    "system": "Musculoskeletal",
+    "topic": "Pediatric orthopaedics",
+    "subtopic": "Osgood-Schlatter disease",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "osgood-schlatter-tibial-tubercle",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/orthopaedics/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-177",
+    "stem": "Which leprosy pole usually has a negative lepromin test?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Lepromatous leprosy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Tuberculoid leprosy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Indeterminate leprosy always strongly positive",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pure neuritic leprosy always strongly positive",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Lepromatous disease reflects poor cell-mediated immunity to M. leprae and is typically lepromin negative.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Dermatology; System: Dermatology; Topic: Leprosy; Subtopic: Lepromin test. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/dermatology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Dermatology",
+    "system": "Dermatology",
+    "topic": "Leprosy",
+    "subtopic": "Lepromin test",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "lepromatous-lepromin-negative",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/dermatology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-178",
+    "stem": "Saw-toothed rete ridges, Civatte bodies and a band-like lymphocytic infiltrate characterize:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Lichen planus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Psoriasis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Pemphigus vulgaris",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Tinea corporis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Lichen planus shows interface dermatitis with hypergranulosis, saw-toothing and apoptotic keratinocytes (Civatte bodies).",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Dermatology; System: Dermatology; Topic: Papulosquamous disorders; Subtopic: Lichen planus histology. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/dermatology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Dermatology",
+    "system": "Dermatology",
+    "topic": "Papulosquamous disorders",
+    "subtopic": "Lichen planus histology",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "lichen-planus-sawtooth",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/dermatology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-179",
+    "stem": "Alternating orthokeratosis and parakeratosis in both vertical and horizontal directions is a classic clue to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pityriasis rubra pilaris",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Psoriasis only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Lichen simplex chronicus",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pemphigoid",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pityriasis rubra pilaris classically shows checkerboard alternating ortho- and parakeratosis.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Dermatology; System: Dermatology; Topic: Papulosquamous disorders; Subtopic: Pityriasis rubra pilaris. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/dermatology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Dermatology",
+    "system": "Dermatology",
+    "topic": "Papulosquamous disorders",
+    "subtopic": "Pityriasis rubra pilaris",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "prp-checkerboard-keratosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/dermatology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-180",
+    "stem": "Severe nodulocystic acne with scarring is most effectively treated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Oral isotretinoin",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Topical emollient alone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Oral acyclovir",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Dapsone in every patient",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Systemic isotretinoin is the most effective therapy for severe nodulocystic or scarring acne when appropriate and safely monitored.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Dermatology; System: Dermatology; Topic: Acne; Subtopic: Nodulocystic acne. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/dermatology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Dermatology",
+    "system": "Dermatology",
+    "topic": "Acne",
+    "subtopic": "Nodulocystic acne",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nodulocystic-acne-isotretinoin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/dermatology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-181",
+    "stem": "Recurrent sexual arousal from wearing clothing conventionally associated with another gender, causing distress or impairment, is termed:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Transvestic disorder",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Gender dysphoria automatically",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Voyeuristic disorder",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Frotteuristic disorder",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Transvestic disorder refers to recurrent arousal from cross-dressing when it causes clinically significant distress or impairment.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Psychiatry; System: Nervous System; Topic: Paraphilic disorders; Subtopic: Transvestic disorder. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/psychiatry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Psychiatry",
+    "system": "Nervous System",
+    "topic": "Paraphilic disorders",
+    "subtopic": "Transvestic disorder",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "transvestic-disorder",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/psychiatry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-182",
+    "stem": "Charm, repeated rule violations, aggression, deceitfulness and disregard for others' rights in an adult suggest:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Antisocial personality disorder",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Avoidant personality disorder",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Dependent personality disorder",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Obsessive-compulsive personality disorder",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Antisocial personality disorder features pervasive disregard for social norms and the rights of others, with evidence of conduct problems before age 15.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Psychiatry; System: Nervous System; Topic: Personality disorders; Subtopic: Antisocial personality disorder. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/psychiatry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Psychiatry",
+    "system": "Nervous System",
+    "topic": "Personality disorders",
+    "subtopic": "Antisocial personality disorder",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "antisocial-personality",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/psychiatry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-183",
+    "stem": "Persistent preoccupation with an imagined or slight physical defect despite reassurance is treated primarily with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "CBT and an SSRI",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Antipsychotic monotherapy in every case",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Repeated cosmetic surgery",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Benzodiazepine alone",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Body dysmorphic disorder is commonly treated with cognitive-behavioral therapy and serotonin-reuptake inhibitors.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Psychiatry; System: Nervous System; Topic: Obsessive-compulsive related disorders; Subtopic: Body dysmorphic disorder. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/psychiatry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Psychiatry",
+    "system": "Nervous System",
+    "topic": "Obsessive-compulsive related disorders",
+    "subtopic": "Body dysmorphic disorder",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "bdd-cbt-ssri",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/psychiatry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-184",
+    "stem": "A crescent-shaped extra-axial collection on CT several weeks after minor head trauma in an elderly patient is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Chronic subdural hematoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Epidural hematoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Subarachnoid hemorrhage",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Intraparenchymal abscess",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Bridging-vein bleeding can evolve into a chronic crescentic subdural collection, especially in older adults.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Radiology; System: Nervous System; Topic: Neuroimaging; Subtopic: Chronic subdural hematoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/radiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Radiology",
+    "system": "Nervous System",
+    "topic": "Neuroimaging",
+    "subtopic": "Chronic subdural hematoma",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "chronic-sdh-crescent",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/radiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-185",
+    "stem": "An ovarian lesion that is T1 hyperintense, does not suppress on fat-saturated images and shows T2 shading is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Endometrioma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Dermoid cyst",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Simple follicular cyst",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hydrosalpinx",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Blood products in an endometrioma cause high T1 signal and progressive T2 shading, unlike fat-containing dermoids that suppress on fat-saturated sequences.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Radiology; System: Reproductive; Topic: Gynecologic imaging; Subtopic: Endometrioma MRI. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Radiology",
+    "system": "Reproductive",
+    "topic": "Gynecologic imaging",
+    "subtopic": "Endometrioma MRI",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "endometrioma-t1-t2-shading",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]

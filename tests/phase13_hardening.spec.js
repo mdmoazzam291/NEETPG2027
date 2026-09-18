@@ -71,7 +71,7 @@ test('Phase 13 backup export and import restore local study progress', async ({ 
 
 test('Phase 13 service worker keeps the bundled study app available offline and recovers online', async ({ page, context }) => {
   await page.goto('/');
-  await expect.poll(async()=>Number(await page.locator('#statTotal').textContent())).toBeGreaterThanOrEqual(160);
+  await expect.poll(async()=>Number(await page.locator('#statTotal').textContent())).toBeGreaterThanOrEqual(505);
   const total=Number(await page.locator('#statTotal').textContent());
   await page.evaluate(() => navigator.serviceWorker?.ready);
   await page.reload();
@@ -132,6 +132,6 @@ test('Phase 13 manifest and service worker expose versioned install metadata', a
   expect(manifest.icons?.length).toBeGreaterThan(0);
   expect(manifest.icons[0].src).toContain('app-icon.svg');
   const sw = await (await request.get('/sw.js')).text();
-  expect(sw).toContain("RELEASE='2026-09-18-pyq-2'");
+  expect(sw).toContain("RELEASE='2026-09-18-pyq-3'");
   expect(sw).toContain("type==='SKIP_WAITING'");
 });

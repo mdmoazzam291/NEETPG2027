@@ -1,4 +1,4 @@
-const BUNDLED_FILES=['data/high_yield_100/part01.json','data/high_yield_100/part02.json','data/high_yield_100/part03.json','data/high_yield_100/part04.json','data/pyq/2021_2026/2021.json','data/pyq/2021_2026/2022.json','data/pyq/2021_2026/2023.json','data/pyq/2021_2026/2024.json','data/pyq/2021_2026/2025.json','data/pyq/2021_2026/2026.json'];
+const BUNDLED_FILES=['data/high_yield_100/part01.json','data/high_yield_100/part02.json','data/high_yield_100/part03.json','data/high_yield_100/part04.json','data/pyq/2021_2026/2021.json','data/pyq/2021_2026/2022.json','data/pyq/2021_2026/2023.json','data/pyq/2021_2026/2024.json','data/pyq/2021_2026/2024-expansion-a.json','data/pyq/2021_2026/2024-expansion-b.json','data/pyq/2021_2026/2024-expansion-c.json','data/pyq/2021_2026/2024-expansion-d.json','data/pyq/2021_2026/2025.json','data/pyq/2021_2026/2025-expansion-a.json','data/pyq/2021_2026/2025-expansion-b.json','data/pyq/2021_2026/2025-expansion-c.json','data/pyq/2021_2026/2026.json'];
 const DB_NAME='neetpg2027-static-v2';
 const DB_VERSION=1;
 const SETTINGS_KEY='neetpg2027-v2-settings';
