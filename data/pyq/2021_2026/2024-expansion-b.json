@@ -1,0 +1,2297 @@
+[
+  {
+    "external_id": "neetpg-2024-066",
+    "stem": "Which osmotic diuretic is commonly used to rapidly reduce intracranial pressure from cerebral edema?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Mannitol",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Spironolactone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Hydrochlorothiazide",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Amiloride",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Mannitol raises plasma osmolality and draws water out of brain tissue when the blood-brain barrier is sufficiently intact.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: Diuretics; Subtopic: Cerebral edema. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/4/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Diuretics",
+    "subtopic": "Cerebral edema",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cerebral-edema-mannitol",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/4/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-067",
+    "stem": "Mydriasis, diaphoresis, severe hypertension, tachycardia and agitation are most consistent with intoxication by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cocaine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Morphine",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Heroin",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Organophosphate",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Cocaine produces a sympathomimetic toxidrome with adrenergic excess, hyperthermia and mydriasis.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: Toxicology; Subtopic: Cocaine intoxication. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/4/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Toxicology",
+    "subtopic": "Cocaine intoxication",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cocaine-sympathomimetic",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/4/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-068",
+    "stem": "Caffeine promotes wakefulness primarily through:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Adenosine-receptor antagonism",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Direct GABA-A agonism",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Muscarinic blockade",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Dopamine depletion",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "At typical stimulant doses, caffeine blocks adenosine receptors, reducing sleep pressure and increasing alertness.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: CNS stimulants; Subtopic: Caffeine mechanism. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "CNS stimulants",
+    "subtopic": "Caffeine mechanism",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "caffeine-adenosine-antagonist",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-069",
+    "stem": "Excessive topical use of the eutectic lidocaine-prilocaine mixture can cause:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Methemoglobinemia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Malignant hyperthermia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Severe hyperkalemia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Acute pancreatitis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Prilocaine metabolites can oxidize hemoglobin, making methemoglobinemia a recognized adverse effect of EMLA.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: General / Cross-system; Topic: Local anesthetics; Subtopic: EMLA toxicity. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "General / Cross-system",
+    "topic": "Local anesthetics",
+    "subtopic": "EMLA toxicity",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "emla-methemoglobinemia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-070",
+    "stem": "Methotrexate ultimately reduces synthesis of which pyrimidine nucleotide through folate depletion?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "dTMP",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "CMP",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "UMP only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "dGTP",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "DHFR inhibition reduces tetrahydrofolate availability and thereby impairs thymidylate synthesis.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Metabolism & Nutrition; Topic: Antimetabolites; Subtopic: Methotrexate nucleotide effect. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Metabolism & Nutrition",
+    "topic": "Antimetabolites",
+    "subtopic": "Methotrexate nucleotide effect",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "methotrexate-dtmp",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-071",
+    "stem": "Which beta-1 selective blocker has proven mortality benefit in chronic HFrEF?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Bisoprolol",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Propranolol",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Pindolol",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Esmolol",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Bisoprolol is one of the evidence-based beta blockers associated with improved survival in HFrEF.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Cardiovascular; Topic: Heart failure drugs; Subtopic: Evidence-based beta blocker. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Cardiovascular",
+    "topic": "Heart failure drugs",
+    "subtopic": "Evidence-based beta blocker",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hfrEF-bisoprolol",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-072",
+    "stem": "Aprepitant prevents chemotherapy-induced nausea and vomiting by blocking:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "NK1 receptors",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "D2 receptors only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "5-HT1A receptors",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "H1 receptors",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Aprepitant antagonizes substance-P neurokinin-1 receptors and is especially useful for delayed chemotherapy-induced emesis.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Gastrointestinal & Hepatobiliary; Topic: Antiemetics; Subtopic: Aprepitant. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Antiemetics",
+    "subtopic": "Aprepitant",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "aprepitant-nk1",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-073",
+    "stem": "Phenobarbital exerts its principal antiseizure action by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Enhancing GABA-A receptor-mediated inhibition",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Blocking NMDA receptors selectively",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Activating nicotinic receptors",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Inhibiting monoamine oxidase",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Barbiturates enhance GABA-A channel function, classically prolonging chloride-channel opening.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: Antiseizure drugs; Subtopic: Phenobarbital mechanism. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Antiseizure drugs",
+    "subtopic": "Phenobarbital mechanism",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "phenobarbital-gabaa",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-074",
+    "stem": "The toxic metabolite chiefly responsible for optic injury in methanol poisoning is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Formic acid",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Oxalic acid",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Acetaldehyde",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hippuric acid",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Methanol is metabolized to formaldehyde and then formic acid, which causes metabolic acidosis and retinal/optic toxicity.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: Toxicology; Subtopic: Methanol toxicity. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Toxicology",
+    "subtopic": "Methanol toxicity",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "methanol-formic-acid",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-075",
+    "stem": "The selective culture medium commonly used to isolate pathogenic Neisseria from genital specimens is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Thayer-Martin medium",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "TCBS agar",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Lowenstein-Jensen medium",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sabouraud agar",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Modified Thayer-Martin is a selective chocolate-based medium containing antibiotics that suppress competing flora.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Reproductive; Topic: Systemic bacteriology; Subtopic: Gonococcal culture. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Reproductive",
+    "topic": "Systemic bacteriology",
+    "subtopic": "Gonococcal culture",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "gonococcus-thayer-martin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-076",
+    "stem": "A contact-lens wearer who rinses lenses with tap water develops severe keratitis. Which organism is a classic cause?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Acanthamoeba",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Balantidium coli",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Giardia lamblia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Toxoplasma gondii",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Acanthamoeba keratitis is strongly associated with contact-lens contamination by tap water or poor lens hygiene.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Ophthalmology; Topic: Parasitology; Subtopic: Acanthamoeba keratitis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Ophthalmology",
+    "topic": "Parasitology",
+    "subtopic": "Acanthamoeba keratitis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "acanthamoeba-contact-lens",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-077",
+    "stem": "Ovoid budding yeast in a bloodstream infection associated with a central venous catheter most strongly suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Candida species",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pseudomonas aeruginosa",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Staphylococcus epidermidis only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Aspergillus hyphae",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Candida can form catheter-associated biofilms and cause candidemia, especially in critically ill patients.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Mycology; Subtopic: Catheter candidemia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Mycology",
+    "subtopic": "Catheter candidemia",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "candida-cvc",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-078",
+    "stem": "A mycetoma with pale granules containing branching gram-positive filamentous organisms is most consistent with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Actinomycetoma due to Nocardia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Eumycetoma due to Madurella",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Tinea pedis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sporotrichosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Nocardia can cause actinomycetoma with branching filamentous bacteria and pale granules.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Dermatology; Topic: Systemic bacteriology; Subtopic: Actinomycetoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Dermatology",
+    "topic": "Systemic bacteriology",
+    "subtopic": "Actinomycetoma",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nocardia-actinomycetoma",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-079",
+    "stem": "A child with chronic hemolytic anemia develops sudden severe reticulocytopenic anemia after a viral illness. Which virus is classic?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Parvovirus B19",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "CMV",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "EBV",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "HSV-2",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Parvovirus B19 infects erythroid precursors and can cause transient aplastic crisis in chronic hemolytic disorders.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Hematology & Oncology; Topic: Virology; Subtopic: Aplastic crisis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Hematology & Oncology",
+    "topic": "Virology",
+    "subtopic": "Aplastic crisis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "parvovirus-b19-aplastic-crisis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-080",
+    "stem": "Moth-eaten alopecia, condylomata lata and a generalized nonpruritic rash are typical of infection with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Treponema pallidum",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Haemophilus ducreyi",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "HSV-2",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Candida albicans",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "These are classic findings of secondary syphilis caused by Treponema pallidum.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Dermatology; Topic: Sexually transmitted infections; Subtopic: Secondary syphilis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Dermatology",
+    "topic": "Sexually transmitted infections",
+    "subtopic": "Secondary syphilis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "secondary-syphilis-motheaten",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-081",
+    "stem": "Pear-shaped motile organisms seen on a vaginal wet mount indicate:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Trichomonas vaginalis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Candida albicans",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Gardnerella vaginalis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Chlamydia trachomatis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Trichomonas trophozoites are motile, flagellated and classically pear-shaped on wet mount.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Reproductive; Topic: Parasitology; Subtopic: Trichomoniasis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Reproductive",
+    "topic": "Parasitology",
+    "subtopic": "Trichomoniasis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "trichomonas-pear-motile",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-082",
+    "stem": "Painful grouped genital vesicles are most commonly caused by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Herpes simplex virus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Treponema pallidum",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Haemophilus ducreyi only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Klebsiella granulomatis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Genital herpes typically presents with painful grouped vesicles or ulcers caused by HSV-2 or HSV-1.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Reproductive; Topic: Virology; Subtopic: Genital herpes. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Reproductive",
+    "topic": "Virology",
+    "subtopic": "Genital herpes",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "genital-herpes-hsv",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-083",
+    "stem": "Bloody diarrhea after seafood exposure with a positive Kanagawa phenomenon suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Vibrio parahaemolyticus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vibrio cholerae",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Campylobacter jejuni",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Shigella dysenteriae",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "V. parahaemolyticus is a halophilic seafood-associated pathogen; Kanagawa positivity reflects thermostable direct hemolysin.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Gastrointestinal & Hepatobiliary; Topic: Enteric bacteriology; Subtopic: Vibrio parahaemolyticus. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Enteric bacteriology",
+    "subtopic": "Vibrio parahaemolyticus",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "vibrio-parahaemolyticus-kanagawa",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-084",
+    "stem": "The fungal disease historically called 'desert rheumatism' is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Coccidioidomycosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Histoplasmosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Blastomycosis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Cryptococcosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Coccidioides infection in arid regions can cause fever, arthralgia and erythema nodosum, giving rise to the term desert rheumatism.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Respiratory; Topic: Mycology; Subtopic: Coccidioidomycosis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Respiratory",
+    "topic": "Mycology",
+    "subtopic": "Coccidioidomycosis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "coccidioides-desert-rheumatism",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-085",
+    "stem": "A coagulase-negative staphylococcus causing cystitis in a young woman and resistant to novobiocin is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Staphylococcus saprophyticus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Staphylococcus epidermidis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Staphylococcus lugdunensis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Staphylococcus aureus",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "S. saprophyticus is an important cause of uncomplicated UTI in young women and is novobiocin resistant.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Renal & Genitourinary; Topic: Systemic bacteriology; Subtopic: Staphylococcus saprophyticus. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Renal & Genitourinary",
+    "topic": "Systemic bacteriology",
+    "subtopic": "Staphylococcus saprophyticus",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "s-saprophyticus-novobiocin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-086",
+    "stem": "In the E. coli serotype O157:H7, the H antigen refers to the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Flagellar antigen",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Capsular antigen",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Somatic LPS antigen",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Fimbrial toxin antigen",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "H antigens are flagellar proteins; O antigens are somatic lipopolysaccharide antigens.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Gastrointestinal & Hepatobiliary; Topic: Bacterial antigens; Subtopic: E. coli H antigen. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Bacterial antigens",
+    "subtopic": "E. coli H antigen",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ecoli-h-flagellar",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-087",
+    "stem": "Chronic lower-limb lymphedema with circulating sheathed microfilariae most strongly suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Wuchereria bancrofti",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Loa loa",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Onchocerca volvulus",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Dracunculus medinensis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Wuchereria bancrofti is a major cause of lymphatic filariasis and elephantiasis.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Parasitology; Subtopic: Lymphatic filariasis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Parasitology",
+    "subtopic": "Lymphatic filariasis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "wuchereria-bancrofti",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-088",
+    "stem": "During the first week of suspected enteric fever, the highest-yield routine microbiologic test is usually:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Blood culture",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Widal test alone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Stool culture only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Urine microscopy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Bacteremia is prominent early in typhoid fever, making blood culture particularly useful in the first week.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Gastrointestinal & Hepatobiliary; Topic: Enteric fever; Subtopic: Typhoid diagnosis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Enteric fever",
+    "subtopic": "Typhoid diagnosis",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "typhoid-blood-culture",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-089",
+    "stem": "Recurrent invasive meningococcal disease should prompt testing for deficiency of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Terminal complement components",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Factor VIII",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "IgE",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "C1 esterase inhibitor only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Deficiency of C5-C9 predisposes strongly to recurrent Neisseria infections.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Immunology; Subtopic: Complement and Neisseria. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Immunology",
+    "subtopic": "Complement and Neisseria",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "terminal-complement-meningococcus",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-090",
+    "stem": "Maternal mortality ratio is expressed as maternal deaths per:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "100,000 live births",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "1,000 total pregnancies",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "100,000 women of reproductive age",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "1,000 total population",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "MMR uses live births as the denominator and is conventionally reported per 100,000 live births.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Maternal health indicators; Subtopic: Maternal mortality ratio. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Maternal health indicators",
+    "subtopic": "Maternal mortality ratio",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mmr-per-100k-livebirths",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-091",
+    "stem": "Which vaccines can tolerate freezing better and are commonly placed lower in an ice-lined refrigerator than freeze-sensitive vaccines?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "OPV and lyophilized vaccines",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Hepatitis B and pentavalent",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "DPT and Td",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "All vaccines equally",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Freeze-sensitive adsorbed vaccines such as DPT, pentavalent and HepB are protected from the coldest zones; OPV and lyophilized vaccines tolerate freezing better.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Cold chain; Subtopic: ILR vaccine placement. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Cold chain",
+    "subtopic": "ILR vaccine placement",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ilr-opv-freeze-tolerant",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-092",
+    "stem": "Which sequence best represents the disaster-management cycle?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Mitigation → impact → response → rehabilitation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Response → impact → mitigation → rehabilitation",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Impact → mitigation → rehabilitation → response",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Rehabilitation → response → impact → mitigation",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Preparedness/mitigation precede impact; response follows the event, then recovery and rehabilitation.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Disaster management; Subtopic: Disaster cycle. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Disaster management",
+    "subtopic": "Disaster cycle",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "disaster-cycle-mitigation-response-rehab",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-093",
+    "stem": "After awareness and motivation in a basic health-education sequence, the desired next step is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Action",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Denial",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Regression",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Isolation",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Health education aims to progress from awareness to motivation and finally adoption of appropriate action.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Health education; Subtopic: Behavior change. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Health education",
+    "subtopic": "Behavior change",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "health-education-awareness-action",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-094",
+    "stem": "Epidemic dropsy from mustard-oil adulteration is classically due to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Argemone oil",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Cottonseed oil",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Mineral oil",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Linseed oil",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Argemone mexicana oil adulteration causes epidemic dropsy through toxic sanguinarine alkaloids.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Food adulteration; Subtopic: Epidemic dropsy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Food adulteration",
+    "subtopic": "Epidemic dropsy",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "argemone-epidemic-dropsy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-095",
+    "stem": "If an infectious disease has a maximum incubation period of 14 days, a quarantine period is generally based on:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "The maximum incubation period",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Half the incubation period",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "The generation time only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "The prodromal period only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Quarantine is commonly set for the maximum incubation period after the last relevant exposure.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Communicable disease control; Subtopic: Quarantine duration. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Communicable disease control",
+    "subtopic": "Quarantine duration",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "quarantine-max-incubation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-096",
+    "stem": "The interval from infection of a host until that host becomes infectious is called the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Latent period",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Incubation period",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Prodromal period",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Serial interval",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The latent period ends when infectiousness begins, while the incubation period ends when symptoms begin.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Epidemiology; Subtopic: Latent period. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Epidemiology",
+    "subtopic": "Latent period",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "latent-period-infectiousness",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-097",
+    "stem": "In demography, birth rate minus death rate represents the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Natural increase",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Dependency ratio",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Net reproduction rate",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sex ratio",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Natural increase is the excess of births over deaths, excluding migration.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Demography; Subtopic: Natural increase. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Demography",
+    "subtopic": "Natural increase",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "birth-minus-death-natural-increase",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/community-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-098",
+    "stem": "Which component is NOT included in the Physical Quality of Life Index?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Per-capita income",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Infant mortality",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Life expectancy at age one",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Basic literacy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "PQLI uses infant mortality, life expectancy at age one and literacy, not income or GNP.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Health indicators; Subtopic: PQLI. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Health indicators",
+    "subtopic": "PQLI",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pqli-excludes-income",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-099",
+    "stem": "Nine early neonatal deaths among 500 live births correspond to an early neonatal mortality rate of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "18 per 1,000 live births",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "9 per 1,000 live births",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "1.8 per 1,000 live births",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "180 per 1,000 live births",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "9 divided by 500 multiplied by 1,000 equals 18 per 1,000 live births.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Mortality indicators; Subtopic: Early neonatal mortality. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Mortality indicators",
+    "subtopic": "Early neonatal mortality",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "early-neonatal-rate-18",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-100",
+    "stem": "The vector of visceral leishmaniasis in India is the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Sandfly",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Anopheles mosquito",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Rat flea",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Body louse",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Phlebotomus argentipes is the principal vector of kala-azar in the Indian subcontinent.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: Infectious Disease & Immunology; Topic: Vector-borne disease; Subtopic: Kala-azar vector. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Vector-borne disease",
+    "subtopic": "Kala-azar vector",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "kalaazar-sandfly",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-101",
+    "stem": "Adipocere formation represents postmortem:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Saponification of body fat",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Desiccation of tissues",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Calcification of muscle",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Complete protein hydrolysis only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "In moist anaerobic conditions, hydrolysis and hydrogenation of body fats create the waxy substance adipocere.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: General / Cross-system; Topic: Postmortem changes; Subtopic: Adipocere. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "General / Cross-system",
+    "topic": "Postmortem changes",
+    "subtopic": "Adipocere",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "adipocere-saponification",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-102",
+    "stem": "In a routine medicolegal road-traffic death, the autopsy is conducted on requisition from the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Investigating police officer or competent authority",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Defense lawyer",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Treating nurse",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Family alone",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A medicolegal autopsy is performed under lawful requisition, commonly from the investigating police authority in such cases.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: General / Cross-system; Topic: Medicolegal autopsy; Subtopic: Autopsy requisition. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "General / Cross-system",
+    "topic": "Medicolegal autopsy",
+    "subtopic": "Autopsy requisition",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "rta-autopsy-investigating-officer",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-103",
+    "stem": "A child born after the biological father's death is termed a:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Posthumous child",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Supposititious child",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Illegitimate child by definition",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Foundling",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A posthumous child is born after the death of a parent, classically the father.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: General / Cross-system; Topic: Forensic terminology; Subtopic: Posthumous child. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/forensic-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "General / Cross-system",
+    "topic": "Forensic terminology",
+    "subtopic": "Posthumous child",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "posthumous-child",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/forensic-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-104",
+    "stem": "An 'in camera' trial in a sexual-offence case means:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Proceedings are closed to the general public",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "The trial is livestreamed",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Only video evidence is allowed",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "The proceeding occurs outdoors",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "In-camera proceedings restrict public access to protect privacy and dignity.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: General / Cross-system; Topic: Medical law; Subtopic: In-camera proceedings. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "General / Cross-system",
+    "topic": "Medical law",
+    "subtopic": "In-camera proceedings",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "in-camera-closed-court",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-105",
+    "stem": "The classic order of appearance of rigor mortis is generally described as:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Head and neck downward to the lower limbs",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Lower limbs upward to the face",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Simultaneous in every muscle",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Only axial muscles are affected",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "By Nysten's law, rigor typically appears first in smaller muscles of face/jaw and progresses downward.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: General / Cross-system; Topic: Postmortem changes; Subtopic: Rigor mortis sequence. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "General / Cross-system",
+    "topic": "Postmortem changes",
+    "subtopic": "Rigor mortis sequence",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "rigor-head-to-foot",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-106",
+    "stem": "Heating a suspected blood stain with glacial acetic acid to form brown rhombic hemin crystals describes:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Teichmann test",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Takayama test",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Florence test",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Barberio test",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Teichmann's test produces hemin chloride crystals after heating blood with glacial acetic acid and halide.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: Hematology & Oncology; Topic: Forensic laboratory tests; Subtopic: Teichmann test. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/forensic-medicine/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "Hematology & Oncology",
+    "topic": "Forensic laboratory tests",
+    "subtopic": "Teichmann test",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "teichmann-hemin-crystals",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/forensic-medicine/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-107",
+    "stem": "Dry mouth, hot flushed skin, mydriasis, delirium and tachycardia are typical of poisoning with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Datura/anticholinergic alkaloids",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Organophosphates",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Opioids",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Barbiturates",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Datura contains atropine-like tropane alkaloids that produce an antimuscarinic toxidrome.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: Nervous System; Topic: Toxicology; Subtopic: Datura poisoning. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "Nervous System",
+    "topic": "Toxicology",
+    "subtopic": "Datura poisoning",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "datura-anticholinergic",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-108",
+    "stem": "Diatoms used as supportive evidence in drowning are notable for having a cell wall rich in:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Silica",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Calcium oxalate",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Keratin",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Chitin only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Diatoms are microscopic algae with siliceous frustules that can resist acid digestion.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: Respiratory; Topic: Drowning; Subtopic: Diatom test. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "Respiratory",
+    "topic": "Drowning",
+    "subtopic": "Diatom test",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "diatoms-silica",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-109",
+    "stem": "Yellow needle-shaped spermine picrate crystals from a seminal stain are produced by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Barberio test",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Teichmann test",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Takayama test",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Benzidine test",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Barberio's test detects spermine by forming yellow spermine picrate crystals.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: Reproductive; Topic: Forensic laboratory tests; Subtopic: Barberio test. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "Reproductive",
+    "topic": "Forensic laboratory tests",
+    "subtopic": "Barberio test",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "barberio-spermine-picrate",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-110",
+    "stem": "Two conceptions occurring at different times during an existing pregnancy describe:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Superfetation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Superfecundation",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Posthumous birth",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Atavism",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Superfetation refers to a second conception during an established pregnancy, producing fetuses of different gestational ages.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: Reproductive; Topic: Forensic obstetrics; Subtopic: Superfetation. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "Reproductive",
+    "topic": "Forensic obstetrics",
+    "subtopic": "Superfetation",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "superfetation-different-ages",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]
