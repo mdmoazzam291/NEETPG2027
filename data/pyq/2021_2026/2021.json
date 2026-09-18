@@ -1,0 +1,502 @@
+[
+  {
+    "external_id": "neetpg-2021-001",
+    "stem": "A lesion involving the posterior part of the dominant superior temporal gyrus most characteristically produces which language deficit?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Broca aphasia",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Wernicke aphasia",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Conduction aphasia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Dysarthria",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The dominant posterior superior temporal region contains Wernicke area; injury causes fluent speech with impaired comprehension.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Nervous System; Topic: Aphasia; Subtopic: Wernicke aphasia. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Nervous System",
+    "topic": "Aphasia",
+    "subtopic": "Wernicke aphasia",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "wernicke-aphasia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2021-002",
+    "stem": "Tocilizumab primarily blocks signaling through which target?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "TNF-alpha",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "IL-6 receptor",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "IL-1 receptor",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "CD20",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Tocilizumab is a monoclonal antibody against the interleukin-6 receptor.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Infectious Disease & Immunology; Topic: Biologics; Subtopic: IL-6 receptor blockade. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Biologics",
+    "subtopic": "IL-6 receptor blockade",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "tocilizumab-il6r",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2021-003",
+    "stem": "The classic antimetabolite action of methotrexate is inhibition of which enzyme?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dihydrofolate reductase",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Thymidylate synthase",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Xanthine oxidase",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Topoisomerase II",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Methotrexate inhibits dihydrofolate reductase, reducing tetrahydrofolate-dependent nucleotide synthesis.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Metabolism & Nutrition; Topic: Antimetabolites; Subtopic: Methotrexate mechanism. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Metabolism & Nutrition",
+    "topic": "Antimetabolites",
+    "subtopic": "Methotrexate mechanism",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "methotrexate-dhfr",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2021-004",
+    "stem": "Damage to the dominant inferior frontal gyrus is most likely to cause:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Fluent aphasia",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Broca aphasia",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Pure alexia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Prosopagnosia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Broca area lies in the dominant inferior frontal gyrus; lesions cause nonfluent expressive aphasia.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Nervous System; Topic: Aphasia; Subtopic: Broca aphasia. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Nervous System",
+    "topic": "Aphasia",
+    "subtopic": "Broca aphasia",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "broca-aphasia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2021-005",
+    "stem": "A woman with chronic hypertension plans pregnancy. Which antihypertensive class should be stopped because of fetal toxicity?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "ACE inhibitors",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Labetalol",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Nifedipine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Methyldopa",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "ACE inhibitors are fetotoxic and contraindicated during pregnancy.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Cardiovascular; Topic: Hypertension in pregnancy; Subtopic: ACE inhibitor fetotoxicity. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Cardiovascular",
+    "topic": "Hypertension in pregnancy",
+    "subtopic": "ACE inhibitor fetotoxicity",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "acei-pregnancy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2021-006",
+    "stem": "Several people develop abrupt vomiting a few hours after eating cream-filled pastries. Which organism is the classic cause?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Staphylococcus aureus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Salmonella Typhi",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Clostridioides difficile",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Campylobacter jejuni",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Preformed heat-stable enterotoxin from Staphylococcus aureus causes rapid-onset vomiting after foods such as cream pastries.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Gastrointestinal & Hepatobiliary; Topic: Food poisoning; Subtopic: Staphylococcal enterotoxin. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Food poisoning",
+    "subtopic": "Staphylococcal enterotoxin",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "staph-food-poisoning",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2021-007",
+    "stem": "Which antitubercular drug can reduce the effectiveness of combined oral contraceptive pills through hepatic enzyme induction?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ethambutol",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Rifampicin",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Pyrazinamide",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Streptomycin",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Rifampicin is a potent CYP enzyme inducer and can lower contraceptive steroid concentrations.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Infectious Disease & Immunology; Topic: Tuberculosis drugs; Subtopic: Rifampicin enzyme induction. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Tuberculosis drugs",
+    "subtopic": "Rifampicin enzyme induction",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "rifampicin-ocp",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2021-008",
+    "stem": "Chronic swelling of an upper limb after axillary lymph-node dissection for breast cancer is primarily due to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Venous thrombosis",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Lymphatic obstruction",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Arterial insufficiency",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Cellulitis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Axillary surgery may interrupt lymphatic drainage and produce secondary lymphedema.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Reproductive; Topic: Breast surgery complications; Subtopic: Post-mastectomy lymphedema. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "Reproductive",
+    "topic": "Breast surgery complications",
+    "subtopic": "Post-mastectomy lymphedema",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "postmastectomy-lymphedema",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2021-009",
+    "stem": "Mallory-Denk bodies in alcoholic liver disease are composed mainly of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Type IV collagen",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Keratin intermediate filaments",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Amyloid A protein",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Actin microfilaments",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Mallory-Denk bodies contain damaged cytokeratin intermediate filaments, especially keratins 8 and 18.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Gastrointestinal & Hepatobiliary; Topic: Alcoholic liver disease; Subtopic: Mallory-Denk bodies. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Alcoholic liver disease",
+    "subtopic": "Mallory-Denk bodies",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mallory-bodies-keratin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2021-010",
+    "stem": "Which mismatch-repair disorder is classically associated with hereditary nonpolyposis colorectal cancer?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Familial adenomatous polyposis",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Lynch syndrome",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Peutz-Jeghers syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Cowden syndrome",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Lynch syndrome results from germline defects in DNA mismatch-repair genes and causes microsatellite instability.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Gastrointestinal & Hepatobiliary; Topic: Hereditary colorectal cancer; Subtopic: Mismatch repair deficiency. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Hereditary colorectal cancer",
+    "subtopic": "Mismatch repair deficiency",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "lynch-mismatch-repair",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]
