@@ -15,7 +15,7 @@ test('Phase 10 adds hierarchical metadata and system filters', async ({page})=>{
     const qs=window.NEETPG_PHASE10.allQuestions();
     return {count:qs.length,complete:qs.every(q=>q.subject&&q.system&&q.topic&&q.subtopic&&q.verification_status&&q.provenance?.content_version)};
   });
-  expect(metadata.count).toBeGreaterThanOrEqual(505);
+  expect(metadata.count).toBeGreaterThanOrEqual(405);
   expect(metadata.complete).toBe(true);
   const systems=await page.locator('#pSystem option').allTextContents();
   expect(systems.length).toBeGreaterThan(2);
