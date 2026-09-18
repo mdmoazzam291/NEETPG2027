@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByText('Study cockpit')).toBeVisible();
-  await expect(page.locator('#statTotal')).toHaveText(/160/);
+  await expect(page.locator('#statTotal')).toHaveText(/220/);
   await page.getByRole('button',{name:/Practice/}).first().click();
   await expect(page.getByText('Session builder')).toBeVisible();
   await page.locator('#pCount').selectOption('5');
@@ -21,9 +21,9 @@ test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ pag
 test('Question bank, analytics and settings render', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button',{name:/Question Bank/}).click();
-  await expect(page.locator('#bankCount')).toContainText('160');
+  await expect(page.locator('#bankCount')).toContainText('220');
   await page.locator('#bankSearch').fill('cavernous');
-  await expect(page.locator('#bankCount')).toContainText('1 of 160');
+  await expect(page.locator('#bankCount')).toContainText('1 of 220');
   await page.getByRole('button',{name:/Analytics/}).click();
   await expect(page.getByText('Accuracy by subject')).toBeVisible();
   await page.getByRole('button',{name:/Settings/}).click();
@@ -89,7 +89,7 @@ test('2021-2026 PYQ seed has taxonomy, year and repeat metadata', async ({ page 
     };
   });
 
-  expect(result.count).toBe(60);
+  expect(result.count).toBe(120);
   expect(result.years).toEqual([2021,2022,2023,2024,2025,2026]);
   expect(result.taxonomyComplete).toBeTruthy();
   expect(result.provenanceComplete).toBeTruthy();
