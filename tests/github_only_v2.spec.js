@@ -22,7 +22,7 @@ test('Question bank, analytics and settings render', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button',{name:/Question Bank/}).click();
   await expect(page.locator('#bankCount')).toContainText('405');
-  await page.locator('#bankSearch').fill('pegvisomant');
+  await page.locator('#bankSearch').fill('Brown-Sequard');
   await expect(page.locator('#bankCount')).toContainText('1 of 405');
   await page.getByRole('button',{name:/Analytics/}).click();
   await expect(page.getByText('Accuracy by subject')).toBeVisible();
@@ -107,6 +107,7 @@ test('2021-2026 PYQ seed has taxonomy, year and repeat metadata', async ({ page 
 
 test('original hy100 bank is no longer loaded', async ({ page }) => {
   await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0)).toBe(405);
   const result=await page.evaluate(()=>({
     total:app.questions.length,
     legacy:app.questions.filter(q=>String(q.external_id||'').startsWith('hy100-')).length,
