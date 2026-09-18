@@ -84,7 +84,7 @@ test('2021-2026 PYQ seed has taxonomy, year and repeat metadata', async ({ page 
       count: items.length,
       years: [...new Set(items.map(q => q.exam_year))].sort(),
       taxonomyComplete: items.every(q => q.subject && q.system && q.topic && q.subtopic),
-      provenanceComplete: items.every(q => q.pyq_status === 'memory_based_recall' && q.verification_status === 'unverified' && q.provenance?.source_url),
+      provenanceComplete: items.every(q => ['memory_based_recall','memory_based_topic_reconstruction'].includes(q.pyq_status) && q.verification_status === 'unverified' && q.provenance?.source_url && q.provenance?.content_version),
       repeated: [...repeatYears.entries()].filter(([,ys]) => ys.size >= 2).map(([key,ys]) => [key, [...ys].sort()])
     };
   });
