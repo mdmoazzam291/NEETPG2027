@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByText('Study cockpit')).toBeVisible();
-  await expect(page.locator('#statTotal')).toHaveText(/505/);
+  await expect(page.locator('#statTotal')).toHaveText(/405/);
   await page.getByRole('button',{name:/Practice/}).first().click();
   await expect(page.getByText('Session builder')).toBeVisible();
   await page.locator('#pCount').selectOption('5');
@@ -21,9 +21,9 @@ test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ pag
 test('Question bank, analytics and settings render', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button',{name:/Question Bank/}).click();
-  await expect(page.locator('#bankCount')).toContainText('505');
-  await page.locator('#bankSearch').fill('cavernous');
-  await expect(page.locator('#bankCount')).toContainText('1 of 505');
+  await expect(page.locator('#bankCount')).toContainText('405');
+  await page.locator('#bankSearch').fill('pegvisomant');
+  await expect(page.locator('#bankCount')).toContainText('1 of 405');
   await page.getByRole('button',{name:/Analytics/}).click();
   await expect(page.getByText('Accuracy by subject')).toBeVisible();
   await page.getByRole('button',{name:/Settings/}).click();
@@ -103,4 +103,14 @@ test('2021-2026 PYQ seed has taxonomy, year and repeat metadata', async ({ page 
     ['marfan-fbn1',[2025,2026]],
     ['opioid-toxicity-naloxone',[2022,2026]]
   ]));
+});
+
+test('original hy100 bank is no longer loaded', async ({ page }) => {
+  await page.goto('/');
+  const result=await page.evaluate(()=>({
+    total:app.questions.length,
+    legacy:app.questions.filter(q=>String(q.external_id||'').startsWith('hy100-')).length,
+    pyq:app.questions.filter(q=>q.exam_year>=2021&&q.exam_year<=2026).length
+  }));
+  expect(result).toEqual({total:405,legacy:0,pyq:405});
 });
