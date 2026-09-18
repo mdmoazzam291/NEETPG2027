@@ -28,10 +28,9 @@ The homepage now supports source creation, CSV/JSON file upload (or pasted conte
 
 ## GitHub Pages study bank
 
-The current GitHub Pages study bank bundles **505 questions**:
+The current GitHub Pages study bank bundles **405 questions**:
 
-- 100 repository-authored exam-style items
-- 405 normalized NEET-PG recall-derived items
+- 405 normalized NEET-PG recall-derived items only
 - recall counts: 2021 = 20, 2022 = 20, 2023 = 20, 2024 = 185, 2025 = 140, 2026 = 20
 
 Each PYQ carries `Subject → System → Topic → Subtopic`, exam year/session, source provenance, verification state and a `repeat_key` used to detect concept recurrence across distinct exam years.
