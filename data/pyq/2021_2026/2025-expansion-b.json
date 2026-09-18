@@ -1072,50 +1072,50 @@
   },
   {
     "external_id": "neetpg-2025-082",
-    "stem": "Recurrent invasive Neisseria infections are especially associated with deficiency of:",
+    "stem": "An intravenous urogram is performed by:",
     "question_type": "single_best_answer",
     "options": [
       {
         "label": "A",
-        "text": "C5-C9",
+        "text": "Intravenous iodinated contrast followed by timed radiographs",
         "is_correct": true
       },
       {
         "label": "B",
-        "text": "C1 inhibitor",
+        "text": "Retrograde ureteric contrast injection only",
         "is_correct": false
       },
       {
         "label": "C",
-        "text": "IgA alone",
+        "text": "Percutaneous puncture of the renal pelvis",
         "is_correct": false
       },
       {
         "label": "D",
-        "text": "Properdin only in every case",
+        "text": "A noncontrast abdominal radiograph only",
         "is_correct": false
       }
     ],
-    "answer_explanation": "The terminal complement membrane-attack complex is crucial for killing Neisseria species.",
-    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Immunology; Subtopic: Terminal complement deficiency. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
-    "difficulty": 2,
-    "is_clinical": true,
+    "answer_explanation": "In IV urography, iodinated contrast is injected intravenously and serial radiographs track renal excretion through the collecting systems, ureters and bladder.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Radiology; System: Renal & Genitourinary; Topic: Contrast studies; Subtopic: Intravenous urography. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/radiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
     "is_integrated": true,
-    "subject": "Microbiology",
-    "system": "Infectious Disease & Immunology",
-    "topic": "Immunology",
-    "subtopic": "Terminal complement deficiency",
+    "subject": "Radiology",
+    "system": "Renal & Genitourinary",
+    "topic": "Contrast studies",
+    "subtopic": "Intravenous urography",
     "exam": "NEET-PG",
     "exam_year": 2025,
     "exam_session": "single",
     "pyq_status": "memory_based_recall",
-    "repeat_key": "terminal-complement-neisseria",
+    "repeat_key": "ivu-iv-contrast-timed-films",
     "verification_status": "unverified",
     "content_version": 1,
     "provenance": {
       "origin": "public_memory_recall_normalized",
       "source_kind": "memory_based_recall",
-      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/radiology/",
       "content_version": 1,
       "reviewed_by": null,
       "reviewed_at": null
