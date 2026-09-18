@@ -1,0 +1,2297 @@
+[
+  {
+    "external_id": "neetpg-2024-021",
+    "stem": "Which artery is palpated just posterior to the medial malleolus?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Posterior tibial artery",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Anterior tibial artery",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Dorsalis pedis artery",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Fibular artery",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The posterior tibial artery passes behind the medial malleolus within the tarsal tunnel and can be palpated there.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Cardiovascular; Topic: Lower limb vessels; Subtopic: Posterior tibial pulse. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Cardiovascular",
+    "topic": "Lower limb vessels",
+    "subtopic": "Posterior tibial pulse",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "posterior-tibial-behind-malleolus",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-022",
+    "stem": "The most common congenital diaphragmatic hernia occurs through the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Posterolateral Bochdalek region",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Esophageal hiatus",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Central tendon",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Anterior Morgagni region",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Bochdalek hernia is the commonest congenital diaphragmatic hernia and usually occurs posterolaterally, more often on the left.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Respiratory; Topic: Embryology; Subtopic: Congenital diaphragmatic hernia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Respiratory",
+    "topic": "Embryology",
+    "subtopic": "Congenital diaphragmatic hernia",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cdh-bochdalek-posterolateral",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-023",
+    "stem": "Which lingual papillae normally lack taste buds?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Filiform",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Fungiform",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Circumvallate",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Foliate",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Filiform papillae are keratinized mechanical papillae and do not contain taste buds.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Gastrointestinal & Hepatobiliary; Topic: Oral anatomy; Subtopic: Tongue papillae. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Oral anatomy",
+    "subtopic": "Tongue papillae",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "filiform-no-tastebuds",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-024",
+    "stem": "The gag reflex primarily depends on which cranial nerve pair?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "IX afferent and X efferent",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "V afferent and VII efferent",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "VIII afferent and IX efferent",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "XI afferent and XII efferent",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The sensory limb is mainly glossopharyngeal and the motor limb mainly vagal.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Nervous System; Topic: Cranial nerves; Subtopic: Gag reflex. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Cranial nerves",
+    "subtopic": "Gag reflex",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "gag-reflex-cn9-cn10",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-025",
+    "stem": "Foot dorsiflexion weakness with sensory change over the dorsum of the foot most strongly localizes to which root?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "L5",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "L2",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "L3",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "S2",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "L5 is strongly associated with great-toe and ankle dorsiflexion and sensation over the dorsum of the foot.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Nervous System; Topic: Spinal roots; Subtopic: L5 radiculopathy. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Spinal roots",
+    "subtopic": "L5 radiculopathy",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "l5-dorsiflexion",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-026",
+    "stem": "The external covering of an omphalocele includes:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Amnion",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Only skin",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Only peritoneum",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pleura",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Omphalocele is covered by a sac composed of amnion externally and peritoneum internally with Wharton jelly between.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Gastrointestinal & Hepatobiliary; Topic: Embryology; Subtopic: Omphalocele covering. Source: https://edurev.in/p/410113/NEET-PG-2024-Shift-2. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Anatomy",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Embryology",
+    "subtopic": "Omphalocele covering",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-2",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "omphalocele-amnion",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://edurev.in/p/410113/NEET-PG-2024-Shift-2",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-027",
+    "stem": "A physeal fracture threatens longitudinal bone growth because it damages the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Epiphyseal plate",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Diaphyseal cortex",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Articular cartilage only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Periosteum only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Longitudinal growth occurs at the epiphyseal growth plate, so injury can cause growth arrest or deformity.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Anatomy; System: Musculoskeletal; Topic: Bone growth; Subtopic: Epiphyseal plate injury. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Musculoskeletal",
+    "topic": "Bone growth",
+    "subtopic": "Epiphyseal plate injury",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "epiphyseal-plate-linear-growth",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/anatomy/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-028",
+    "stem": "Immediately after ovulation, the human oocyte is usually a:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Secondary oocyte arrested in metaphase II",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Primary oocyte arrested in prophase I",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Secondary oocyte arrested in prophase I",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Mature ovum after completing meiosis II",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Ovulation releases a secondary oocyte arrested in metaphase II; meiosis II completes only after fertilization.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Reproductive; Topic: Reproductive physiology; Subtopic: Oocyte meiotic arrest. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Reproductive",
+    "topic": "Reproductive physiology",
+    "subtopic": "Oocyte meiotic arrest",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "oocyte-metaphase2",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-029",
+    "stem": "The major block to polyspermy after sperm-oocyte fusion is produced by the:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cortical reaction",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Capacitation",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Acrosome reaction",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sperm hyperactivation",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Cortical granule release modifies the zona pellucida and prevents additional sperm entry.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Reproductive; Topic: Fertilization; Subtopic: Cortical reaction. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Reproductive",
+    "topic": "Fertilization",
+    "subtopic": "Cortical reaction",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "polyspermy-cortical-reaction",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-030",
+    "stem": "Which mechanoreceptor is best specialized for high-frequency vibration?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pacinian corpuscle",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Merkel disc",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ruffini ending",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Free nerve ending",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pacinian corpuscles are rapidly adapting receptors especially sensitive to high-frequency vibration and deep pressure.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Nervous System; Topic: Somatosensation; Subtopic: Pacinian corpuscle. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Nervous System",
+    "topic": "Somatosensation",
+    "subtopic": "Pacinian corpuscle",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pacinian-vibration",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-031",
+    "stem": "A lesion of dominant Brodmann area 22 classically produces:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Receptive aphasia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Expressive aphasia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Pure motor dysarthria",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Prosopagnosia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Dominant posterior superior temporal cortex corresponds to Wernicke area and mediates language comprehension.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Nervous System; Topic: Higher functions; Subtopic: Wernicke area. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Nervous System",
+    "topic": "Higher functions",
+    "subtopic": "Wernicke area",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "brodmann22-receptive-aphasia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-032",
+    "stem": "Sour taste transduction is mediated importantly by which proton-sensitive channel?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "OTOP1",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "T1R2",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "T1R3",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "ENaC only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "OTOP1 is a proton-selective channel important in sour taste detection.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Nervous System; Topic: Taste; Subtopic: Sour taste receptor. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Nervous System",
+    "topic": "Taste",
+    "subtopic": "Sour taste receptor",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "sour-taste-otop1",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-033",
+    "stem": "Which sequence correctly describes neuromuscular transmission?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Presynaptic Ca entry → acetylcholine release → end-plate cation channels open",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "ACh release → presynaptic Ca entry → Na channels close",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "End-plate Na entry → ACh synthesis → Ca leaves terminal",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "K efflux → ACh breakdown → vesicle fusion",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Nerve-terminal depolarization opens voltage-gated calcium channels, triggering ACh release, which then activates nicotinic receptors at the end plate.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Nervous System; Topic: Neuromuscular junction; Subtopic: Neuromuscular transmission sequence. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Nervous System",
+    "topic": "Neuromuscular junction",
+    "subtopic": "Neuromuscular transmission sequence",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nmj-ca-ach-endplate",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-034",
+    "stem": "Pain from normally innocuous warm water touching sunburned skin is an example of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Allodynia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Analgesia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Paresthesia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Anesthesia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Allodynia is pain caused by a stimulus that normally would not be painful.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Nervous System; Topic: Pain physiology; Subtopic: Allodynia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Nervous System",
+    "topic": "Pain physiology",
+    "subtopic": "Allodynia",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "sunburn-allodynia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-035",
+    "stem": "Phantom limb pain is partly explained by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cortical reorganization of neighboring sensory representations",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Complete absence of cortical activity",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Only spinal-cord transection",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Loss of all thalamic input",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "After amputation, adjacent cortical representations can invade the deafferented limb area, contributing to phantom sensations and pain.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Physiology; System: Nervous System; Topic: Neuroplasticity; Subtopic: Phantom limb pain. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Nervous System",
+    "topic": "Neuroplasticity",
+    "subtopic": "Phantom limb pain",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "phantom-limb-cortical-remap",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/physiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-036",
+    "stem": "Ultraviolet-induced pyrimidine dimers are normally repaired mainly by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Nucleotide excision repair",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Mismatch repair",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Homologous recombination only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Direct photoreactivation in humans",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "NER removes bulky DNA lesions such as UV-induced pyrimidine dimers; defects cause xeroderma pigmentosum.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Dermatology; Topic: DNA repair; Subtopic: Nucleotide excision repair. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Biochemistry",
+    "system": "Dermatology",
+    "topic": "DNA repair",
+    "subtopic": "Nucleotide excision repair",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "uv-nucleotide-excision",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-037",
+    "stem": "Which PCR method is designed to detect several targets in one reaction?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Multiplex PCR",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Nested PCR only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Southern blot",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sanger sequencing",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Multiplex PCR uses multiple primer pairs to amplify several targets simultaneously.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: General / Cross-system; Topic: Molecular diagnostics; Subtopic: Multiplex PCR. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/biochemistry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "General / Cross-system",
+    "topic": "Molecular diagnostics",
+    "subtopic": "Multiplex PCR",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "multiplex-pcr",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/biochemistry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-038",
+    "stem": "Some patients with cystathionine beta-synthase deficiency improve with supplementation of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pyridoxine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vitamin C",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Biotin",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Vitamin K",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A subset of classic homocystinuria is pyridoxine-responsive because vitamin B6 is a cofactor for cystathionine beta-synthase.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Amino acid disorders; Subtopic: Homocystinuria treatment. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Amino acid disorders",
+    "subtopic": "Homocystinuria treatment",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "homocystinuria-b6",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-039",
+    "stem": "A neonate with vomiting, jaundice and cataracts from classic galactosemia has deficiency of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Galactose-1-phosphate uridyltransferase",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Galactokinase only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Aldolase B",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Fructokinase",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Classic galactosemia is due to GALT deficiency and causes systemic toxicity after milk exposure.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Carbohydrate metabolism; Subtopic: Classic galactosemia. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Carbohydrate metabolism",
+    "subtopic": "Classic galactosemia",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "galactosemia-galt",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-040",
+    "stem": "Tendon xanthomas with markedly elevated LDL cholesterol are most typical of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Familial hypercholesterolemia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Tangier disease",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Abetalipoproteinemia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Familial chylomicronemia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Familial hypercholesterolemia causes very high LDL and tendon xanthomas, often from LDL-receptor pathway defects.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Lipid disorders; Subtopic: Familial hypercholesterolemia. Source: https://edurev.in/p/410113/NEET-PG-2024-Shift-2. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Lipid disorders",
+    "subtopic": "Familial hypercholesterolemia",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-2",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "fh-tendon-xanthomas",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://edurev.in/p/410113/NEET-PG-2024-Shift-2",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-041",
+    "stem": "The classic molecular defect in many cases of familial hypercholesterolemia is impaired:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "LDL receptor function",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Lipoprotein lipase function",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "LCAT activity",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "ApoA-I synthesis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Loss-of-function variants in the LDL receptor are the classic cause of autosomal-dominant familial hypercholesterolemia.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Lipid disorders; Subtopic: LDL receptor defect. Source: https://edurev.in/p/410113/NEET-PG-2024-Shift-2. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Lipid disorders",
+    "subtopic": "LDL receptor defect",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-2",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "fh-ldlr-defect",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://edurev.in/p/410113/NEET-PG-2024-Shift-2",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-042",
+    "stem": "Sudden death in a young athlete with marked asymmetric septal hypertrophy is most consistent with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hypertrophic cardiomyopathy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Dilated cardiomyopathy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Restrictive cardiomyopathy",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Viral myocarditis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Hypertrophic cardiomyopathy is a major inherited cause of sudden cardiac death in young athletes.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Cardiovascular; Topic: Cardiomyopathy; Subtopic: Hypertrophic cardiomyopathy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Cardiovascular",
+    "topic": "Cardiomyopathy",
+    "subtopic": "Hypertrophic cardiomyopathy",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hcm-athlete-sudden-death",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-043",
+    "stem": "Which statement best describes type 3 von Willebrand disease?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "It causes severe quantitative vWF deficiency and low factor VIII",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "It is usually the mildest form",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "It is an acquired platelet disorder only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "It has normal vWF levels with isolated thrombocytosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Type 3 is the severe quantitative deficiency form and may markedly lower factor VIII because vWF stabilizes factor VIII.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Hematology & Oncology; Topic: Bleeding disorders; Subtopic: von Willebrand disease type 3. Source: https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Hematology & Oncology",
+    "topic": "Bleeding disorders",
+    "subtopic": "von Willebrand disease type 3",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "vwd-type3-severe",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://collegedunia.com/articles/e-501-neet-pg-2024-question-paper-with-solutions-pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-044",
+    "stem": "Panacinar emphysema, especially with basilar predominance at a young age, suggests deficiency of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Alpha-1 antitrypsin",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Surfactant protein B",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ceruloplasmin",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Factor VIII",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Alpha-1 antitrypsin deficiency causes unopposed elastase activity and classically panacinar emphysema.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Respiratory; Topic: Emphysema; Subtopic: Alpha-1 antitrypsin deficiency. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Respiratory",
+    "topic": "Emphysema",
+    "subtopic": "Alpha-1 antitrypsin deficiency",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "aat-panacinar-emphysema",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-045",
+    "stem": "A renal cortical tumor with clear cells and hematuria is most likely:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Clear-cell renal cell carcinoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Wilms tumor",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Oncocytoma only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Collecting-duct carcinoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Clear-cell RCC is the most common renal-cell carcinoma and often presents with hematuria, flank symptoms or an incidental mass.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Renal & Genitourinary; Topic: Renal tumors; Subtopic: Clear-cell RCC. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Renal & Genitourinary",
+    "topic": "Renal tumors",
+    "subtopic": "Clear-cell RCC",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "clear-cell-rcc",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-046",
+    "stem": "Intracellular paired helical filaments in Alzheimer disease are composed mainly of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hyperphosphorylated tau",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Amyloid-beta in extracellular plaques",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Alpha-synuclein",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "TDP-43 only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Neurofibrillary tangles are intracellular aggregates of hyperphosphorylated tau.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Nervous System; Topic: Neurodegeneration; Subtopic: Alzheimer neurofibrillary tangles. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Nervous System",
+    "topic": "Neurodegeneration",
+    "subtopic": "Alzheimer neurofibrillary tangles",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "alzheimer-tau",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-047",
+    "stem": "A pheochromocytoma is classically associated with which inherited syndrome?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "MEN 2A",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "MEN 1 only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Peutz-Jeghers syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Lynch syndrome",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pheochromocytoma is a recognized component of MEN2 syndromes caused by RET mutations.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Endocrine; Topic: Adrenal tumors; Subtopic: Pheochromocytoma syndromes. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Endocrine",
+    "topic": "Adrenal tumors",
+    "subtopic": "Pheochromocytoma syndromes",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pheochromocytoma-men2",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-048",
+    "stem": "An intraocular tumor in a child showing Flexner-Wintersteiner rosettes is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Retinoblastoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Medulloblastoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Neuroblastoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Ependymoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Flexner-Wintersteiner rosettes are characteristic of retinoblastoma.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Ophthalmology; Topic: Pediatric tumors; Subtopic: Retinoblastoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Ophthalmology",
+    "topic": "Pediatric tumors",
+    "subtopic": "Retinoblastoma",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "retinoblastoma-flexner-wintersteiner",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-049",
+    "stem": "A patient with an M-spike and lytic bone disease most commonly has which plasma-cell disorder?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Multiple myeloma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Waldenström macroglobulinemia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Hodgkin lymphoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Aplastic anemia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Multiple myeloma is a clonal plasma-cell neoplasm associated with monoclonal immunoglobulin, anemia, renal injury, hypercalcemia and bone lesions.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Hematology & Oncology; Topic: Plasma cell disorders; Subtopic: Multiple myeloma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Hematology & Oncology",
+    "topic": "Plasma cell disorders",
+    "subtopic": "Multiple myeloma",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "multiple-myeloma-m-spike",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-050",
+    "stem": "A large irregular breast mass with malignant duct-forming cells infiltrating stroma is most consistent with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Invasive ductal carcinoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Fibroadenoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Intraductal papilloma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Fat necrosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Invasive carcinoma of no special type, historically called invasive ductal carcinoma, is the commonest invasive breast carcinoma.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pathology; System: Reproductive; Topic: Breast pathology; Subtopic: Invasive breast carcinoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Reproductive",
+    "topic": "Breast pathology",
+    "subtopic": "Invasive breast carcinoma",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "invasive-ductal-breast",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pathology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-051",
+    "stem": "Which drug is appropriate for hypertension in a recurrent calcium-stone former because it lowers urinary calcium?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hydrochlorothiazide",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Furosemide",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Mannitol",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Acetazolamide",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Thiazides increase distal tubular calcium reabsorption and reduce urinary calcium excretion.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Renal & Genitourinary; Topic: Diuretics; Subtopic: Thiazide in calcium stones. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Renal & Genitourinary",
+    "topic": "Diuretics",
+    "subtopic": "Thiazide in calcium stones",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "thiazide-hypocalciuria-stones",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-052",
+    "stem": "For overactive bladder in a patient with dementia, a beta-3 agonist avoids additional anticholinergic burden. Which drug fits?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Mirabegron",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Oxybutynin",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Tolterodine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Atropine",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Mirabegron activates beta-3 receptors in detrusor muscle and avoids central anticholinergic effects.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Renal & Genitourinary; Topic: Overactive bladder; Subtopic: Mirabegron in dementia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Renal & Genitourinary",
+    "topic": "Overactive bladder",
+    "subtopic": "Mirabegron in dementia",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mirabegron-dementia-oab",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-053",
+    "stem": "A lidocaine loading dose is determined primarily by the drug's:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Volume of distribution",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Clearance only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Elimination half-life only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Renal excretion fraction only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Loading dose is proportional to target concentration and volume of distribution, adjusted for bioavailability when relevant.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: General / Cross-system; Topic: Pharmacokinetics; Subtopic: Loading dose. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "General / Cross-system",
+    "topic": "Pharmacokinetics",
+    "subtopic": "Loading dose",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "loading-dose-vd",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-054",
+    "stem": "Abrupt withdrawal of which antihypertensive may cause rebound hypertension?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Clonidine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Amlodipine",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Hydrochlorothiazide",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Telmisartan",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Sudden clonidine withdrawal can cause sympathetic overactivity and severe rebound hypertension.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Cardiovascular; Topic: Antihypertensives; Subtopic: Clonidine withdrawal. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Cardiovascular",
+    "topic": "Antihypertensives",
+    "subtopic": "Clonidine withdrawal",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "clonidine-rebound-hypertension",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-055",
+    "stem": "Flushing, hyperuricemia, hyperglycemia and hepatotoxicity are classic adverse effects of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Niacin",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Ezetimibe",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Fenofibrate",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "PCSK9 inhibitor",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Niacin commonly causes prostaglandin-mediated flushing and may worsen gout, glucose tolerance and liver enzymes.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Metabolism & Nutrition; Topic: Lipid-lowering drugs; Subtopic: Niacin adverse effects. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Metabolism & Nutrition",
+    "topic": "Lipid-lowering drugs",
+    "subtopic": "Niacin adverse effects",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "niacin-flushing-gout",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-056",
+    "stem": "Combining erythromycin with which older antihistamine markedly increases torsades risk?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Astemizole",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Cetirizine",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Fexofenadine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Desloratadine",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "CYP inhibition by macrolides can raise concentrations of older QT-prolonging antihistamines such as astemizole.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Cardiovascular; Topic: Drug interactions; Subtopic: QT prolongation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Cardiovascular",
+    "topic": "Drug interactions",
+    "subtopic": "QT prolongation",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "erythromycin-astemizole-torsades",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-057",
+    "stem": "The preferred first-line medication for significant alcohol withdrawal is generally a:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Benzodiazepine such as lorazepam",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Disulfiram",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Naltrexone only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Buspirone",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Benzodiazepines reduce withdrawal severity and prevent seizures and delirium tremens.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: Substance withdrawal; Subtopic: Alcohol withdrawal. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Substance withdrawal",
+    "subtopic": "Alcohol withdrawal",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "alcohol-withdrawal-benzodiazepine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/2/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-058",
+    "stem": "Diphenoxylate is combined with atropine mainly to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Discourage abuse at high doses",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Increase opioid euphoria",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Improve renal elimination",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Reverse constipation",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Atropine produces unpleasant anticholinergic effects if excessive tablets are taken, deterring diphenoxylate abuse.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Gastrointestinal & Hepatobiliary; Topic: Antidiarrheals; Subtopic: Diphenoxylate-atropine. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Antidiarrheals",
+    "subtopic": "Diphenoxylate-atropine",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "diphenoxylate-atropine-abuse",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-059",
+    "stem": "High-anion-gap acidosis with hypocalcemia after ingestion is a classic clue to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ethylene glycol poisoning",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Isopropanol poisoning",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Opioid overdose",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Carbon monoxide poisoning",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Ethylene glycol is metabolized to organic acids including oxalate, causing severe acidosis and hypocalcemia.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: General / Cross-system; Topic: Toxicology; Subtopic: Ethylene glycol poisoning. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "General / Cross-system",
+    "topic": "Toxicology",
+    "subtopic": "Ethylene glycol poisoning",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ethylene-glycol-hypocalcemia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-060",
+    "stem": "Initial dose-finding and safety work in human volunteers is primarily a feature of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Phase I trials",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Phase III trials",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Phase IV surveillance",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Meta-analysis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Phase I studies emphasize safety, pharmacokinetics and dose range, often in healthy volunteers.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: General / Cross-system; Topic: Clinical trials; Subtopic: Phase I trials. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "General / Cross-system",
+    "topic": "Clinical trials",
+    "subtopic": "Phase I trials",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "phase1-dose-safety",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-061",
+    "stem": "Which medication is commonly used for maintenance treatment of opioid-use disorder?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Buprenorphine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Naloxone alone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Disulfiram",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Flumazenil",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Buprenorphine is a partial mu-opioid agonist used for maintenance treatment of opioid-use disorder.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: Substance-use pharmacotherapy; Subtopic: Opioid maintenance. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Substance-use pharmacotherapy",
+    "subtopic": "Opioid maintenance",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "opioid-maintenance-buprenorphine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-062",
+    "stem": "Reactivation of herpes zoster is a recognized complication particularly associated with which myeloma drug?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Bortezomib",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Iron sucrose",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Methotrexate in all doses",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hydroxyurea",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Proteasome inhibitor therapy with bortezomib increases herpes-zoster risk, so antiviral prophylaxis is often used.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Hematology & Oncology; Topic: Anticancer drugs; Subtopic: Bortezomib adverse effects. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Hematology & Oncology",
+    "topic": "Anticancer drugs",
+    "subtopic": "Bortezomib adverse effects",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "bortezomib-zoster",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-063",
+    "stem": "Which selective norepinephrine reuptake inhibitor is approved for ADHD?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Atomoxetine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Methylphenidate",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Modafinil",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Haloperidol",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Atomoxetine selectively inhibits norepinephrine reuptake and is a non-stimulant option for ADHD.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: Psychopharmacology; Subtopic: Atomoxetine. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Psychopharmacology",
+    "subtopic": "Atomoxetine",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "atomoxetine-adhd",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/3/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-064",
+    "stem": "Serotonin toxicity with hyperreflexia and agitation can be treated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cyproheptadine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Dantrolene",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Naloxone",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Leucovorin",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Cyproheptadine is a serotonin antagonist used in moderate or severe serotonin syndrome alongside supportive care.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: Toxicology; Subtopic: Serotonin syndrome. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/4/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Toxicology",
+    "subtopic": "Serotonin syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "serotonin-syndrome-cyproheptadine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/4/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2024-065",
+    "stem": "The chelator used for significant acute iron poisoning is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Deferoxamine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Dimercaprol",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Penicillamine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "EDTA",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Deferoxamine binds ferric iron to form ferrioxamine, which can be excreted.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: General / Cross-system; Topic: Toxicology; Subtopic: Iron poisoning antidote. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/4/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "General / Cross-system",
+    "topic": "Toxicology",
+    "subtopic": "Iron poisoning antidote",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "mixed-shifts",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "iron-poisoning-deferoxamine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/pharmacology/page/4/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]
