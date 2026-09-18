@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Prepare static site
         run: |
-          mkdir -p _site/data/high_yield_100 _site/data/pyq/2021_2026 _site/assets
+          mkdir -p _site/data/pyq/2021_2026 _site/assets
           cp index.html _site/index.html
           cp manifest.webmanifest _site/manifest.webmanifest
           cp sw.js _site/sw.js
@@ -46,7 +46,6 @@ jobs:
           cp assets/phase11-exam-overlay.js _site/assets/phase11-exam-overlay.js
           cp assets/phase12-planning.js _site/assets/phase12-planning.js
           cp assets/phase13-hardening.js _site/assets/phase13-hardening.js
-          cp data/high_yield_100/part*.json _site/data/high_yield_100/
           cp data/pyq/2021_2026/*.json _site/data/pyq/2021_2026/
           sed -i 's#</head>#<link rel="icon" href="assets/app-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/ui-v4.css"><link rel="stylesheet" href="assets/exam-v9.css"><link rel="stylesheet" href="assets/phase13.css"></head>#' _site/index.html
           sed -i 's#</body>#<script src="assets/supabase-config.js"></script><script src="assets/phase13-preauth.js"></script><script src="assets/ui-v4-core-compat.js"></script><script src="assets/auth-sync.js" defer></script><script src="assets/auth-provider-guard.js" defer></script><script src="assets/neetpg-timer.js" defer></script><script src="assets/ui-v4.js" defer></script><script src="assets/ui-v4-fixes.js" defer></script><script src="assets/exam-v9.js" defer></script><script src="assets/phase10-taxonomy.js" defer></script><script src="assets/pyq-metadata.js" defer></script><script src="assets/phase11-analytics.js" defer></script><script src="assets/phase11-exam-overlay.js" defer></script><script src="assets/phase12-planning.js" defer></script><script src="assets/phase13-hardening.js" defer></script></body>#' _site/index.html

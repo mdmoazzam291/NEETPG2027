@@ -1,4 +1,4 @@
-const RELEASE='2026-09-18-pyq-3';
+const RELEASE='2026-09-18-pyq-4';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[
@@ -8,7 +8,6 @@ const ASSETS=[
   './assets/supabase-config.js','./assets/phase13-preauth.js','./assets/auth-sync.js','./assets/auth-provider-guard.js',
   './assets/ui-v4.js','./assets/ui-v4-fixes.js','./assets/exam-v9.js','./assets/phase10-taxonomy.js','./assets/pyq-metadata.js',
   './assets/phase11-analytics.js','./assets/phase11-exam-overlay.js','./assets/phase12-planning.js','./assets/phase13-hardening.js',
-  './data/high_yield_100/part01.json','./data/high_yield_100/part02.json','./data/high_yield_100/part03.json','./data/high_yield_100/part04.json',
   './data/pyq/2021_2026/2021.json','./data/pyq/2021_2026/2022.json','./data/pyq/2021_2026/2023.json','./data/pyq/2021_2026/2024.json','./data/pyq/2021_2026/2024-expansion-a.json','./data/pyq/2021_2026/2024-expansion-b.json','./data/pyq/2021_2026/2024-expansion-c.json','./data/pyq/2021_2026/2024-expansion-d.json','./data/pyq/2021_2026/2025.json','./data/pyq/2021_2026/2025-expansion-a.json','./data/pyq/2021_2026/2025-expansion-b.json','./data/pyq/2021_2026/2025-expansion-c.json','./data/pyq/2021_2026/2026.json'
 ];
 

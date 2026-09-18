@@ -5,7 +5,7 @@ async function waitForStudyEngine(page){
     try{
       return typeof app!=='undefined' &&
         app.db &&
-        Array.isArray(app.questions) && app.questions.length>=505 &&
+        Array.isArray(app.questions) && app.questions.length>=405 &&
         Array.isArray(app.attempts) &&
         Number(document.querySelector('#statTotal')?.textContent||0)===app.questions.length;
     }catch{return false;}
@@ -50,8 +50,8 @@ test('exam review receives timing confidence and error overlay without changing 
   await page.goto('/');
   await waitForStudyEngine(page);
   await page.evaluate(()=>{
-    window.NEETPG_EXAM9={state:{id:'exam-test',sections:[{questions:['hy100-001']}]}};
-    app.attempts.push({qid:'hy100-001',sessionId:'exam-test',correct:false,elapsed:74,confidence:4,ts:Date.now()});
+    window.NEETPG_EXAM9={state:{id:'exam-test',sections:[{questions:['neetpg-2026-001']}]}};
+    app.attempts.push({qid:'neetpg-2026-001',sessionId:'exam-test',correct:false,elapsed:74,confidence:4,ts:Date.now()});
     const host=document.createElement('div');host.id='exam9Body';
     host.innerHTML='<div class="exam9-review"><div class="exam9-review-card incorrect">Review</div></div>';
     document.body.appendChild(host);

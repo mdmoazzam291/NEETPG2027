@@ -4,7 +4,7 @@ The repository contains a FastAPI/local backend for normalized imports/taxonomy/
 
 ## Completed: Phases 1–8.5
 
-Database foundation, normalized question/PYQ data, controlled imports, the 100-question realistic platform bank, taxonomy administration, media workflow, study interaction engine, offline/PWA study app, NEET-PG pacing timer, Supabase authentication/cloud sync and premium dashboard UI v4 are implemented and regression-tested.
+Database foundation, normalized question/PYQ data, controlled imports, taxonomy administration, media workflow, study interaction engine, offline/PWA study app, NEET-PG pacing timer, Supabase authentication/cloud sync and premium dashboard UI v4 are implemented and regression-tested. The original 100-question synthetic/platform bank has been retired from the active study app.
 
 ## Completed: Phase 9 — NEET-PG exam simulator
 
@@ -15,7 +15,7 @@ Database foundation, normalized question/PYQ data, controlled imports, the 100-q
 - permanent section locking, automatic timeout and reload-safe active-exam resume
 - post-test review and result summary
 
-Full 200-question mocks are content-unlocked because the bundled bank now contains 505 unique questions. Simulator behavior remains separate from any future NEET-PG 2027 pattern update.
+Full 200-question mocks remain content-unlocked because the active PYQ bank contains 405 unique questions. Simulator behavior remains separate from any future NEET-PG 2027 pattern update.
 
 ## Completed: Phase 10 — content infrastructure and medical verification
 
@@ -118,4 +118,4 @@ The AI layer must not replace the deterministic study engine, SRS, analytics, pr
 
 ## Current state
 
-**Phases 1–13 are complete. Phase 14 is not started. Source-backed NEET-PG PYQ expansion now contains 405 normalized 2021–2026 recalls alongside the existing 100 repository-authored items, for a 505-question bundled bank. The 2024 and 2025 recall sets are the first substantially expanded years.**
+**Phases 1–13 are complete. Phase 14 is not started. The active study bank now contains only the 405 normalized 2021–2026 NEET-PG recall-derived questions. The original 100 repository-authored items are no longer loaded or deployed. The 2024 and 2025 recall sets are the first substantially expanded years.**
