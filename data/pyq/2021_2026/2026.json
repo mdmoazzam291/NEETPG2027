@@ -498,5 +498,505 @@
       "reviewed_by": null,
       "reviewed_at": null
     }
+  },
+  {
+    "external_id": "neetpg-2026-011",
+    "stem": "Attributable risk is calculated as:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Incidence in exposed − incidence in unexposed",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Incidence in unexposed ÷ incidence in exposed",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Prevalence × sensitivity",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Odds exposed ÷ odds unexposed",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Attributable risk is the absolute excess incidence among the exposed: Ie − Iu.",
+    "reference_text": "NEET-PG 2026 memory-based recall, independently normalized/paraphrased for study use; Subject: PSM; System: General / Cross-system; Topic: Epidemiology; Subtopic: Attributable risk. Source: https://vidyamandir.com/studyhub/neet-pg-exam-analysis/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Epidemiology",
+    "subtopic": "Attributable risk",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "attributable-risk-formula",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://vidyamandir.com/studyhub/neet-pg-exam-analysis/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2026-012",
+    "stem": "In monopolar electrosurgery, electrical current travels:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "From active electrode through the patient to a return pad",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Only between two tips of a bipolar forceps",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Only through the instrument without entering tissue",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "From return pad directly to generator without tissue current",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Monopolar electrosurgery uses an active electrode at the operative site and a dispersive return electrode elsewhere on the patient.",
+    "reference_text": "NEET-PG 2026 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: General / Cross-system; Topic: Electrosurgery; Subtopic: Monopolar circuit. Source: https://vidyamandir.com/studyhub/neet-pg-exam-analysis/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "General / Cross-system",
+    "topic": "Electrosurgery",
+    "subtopic": "Monopolar circuit",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "monopolar-electrosurgery",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://vidyamandir.com/studyhub/neet-pg-exam-analysis/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2026-013",
+    "stem": "For suspected Lisfranc injury in a stable patient, the best initial radiographic study is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Weight-bearing foot radiographs",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Skull X-ray",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Non-contrast head CT",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Bone scan as first test",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Weight-bearing AP, lateral and oblique foot radiographs can reveal subtle tarsometatarsal malalignment in Lisfranc injury.",
+    "reference_text": "NEET-PG 2026 memory-based recall, independently normalized/paraphrased for study use; Subject: Orthopaedics; System: Musculoskeletal; Topic: Foot trauma; Subtopic: Lisfranc imaging. Source: https://vidyamandir.com/studyhub/neet-pg-exam-analysis/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Orthopaedics",
+    "system": "Musculoskeletal",
+    "topic": "Foot trauma",
+    "subtopic": "Lisfranc imaging",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "lisfranc-weightbearing-xray",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://vidyamandir.com/studyhub/neet-pg-exam-analysis/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2026-014",
+    "stem": "Case-fatality rate is best expressed as:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Deaths from a disease ÷ diagnosed cases of that disease × 100",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "All deaths ÷ total population × 1000",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "New cases ÷ person-time",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Existing cases ÷ population",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Case-fatality measures disease severity by relating deaths from the condition to the number of diagnosed cases over a specified period.",
+    "reference_text": "NEET-PG 2026 reported recall-topic reconstruction, independently normalized/paraphrased for study use; Subject: PSM; System: General / Cross-system; Topic: Epidemiology; Subtopic: Case-fatality rate. Source: https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Epidemiology",
+    "subtopic": "Case-fatality rate",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_topic_reconstruction",
+    "repeat_key": "case-fatality-rate",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_topic_reconstruction",
+      "source_url": "https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2026-015",
+    "stem": "Free gas under the diaphragm on an erect chest radiograph in a patient with acute abdomen most strongly suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Perforated hollow viscus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Acute pancreatitis without perforation",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Simple constipation",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Uncomplicated renal colic",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Subdiaphragmatic free intraperitoneal gas is a classic radiographic sign of gastrointestinal perforation.",
+    "reference_text": "NEET-PG 2026 reported recall-topic reconstruction, independently normalized/paraphrased for study use; Subject: Radiology; System: Gastrointestinal & Hepatobiliary; Topic: Acute abdomen imaging; Subtopic: Pneumoperitoneum. Source: https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Radiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Acute abdomen imaging",
+    "subtopic": "Pneumoperitoneum",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_topic_reconstruction",
+    "repeat_key": "pneumoperitoneum-perforation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_topic_reconstruction",
+      "source_url": "https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2026-016",
+    "stem": "A diffusely enlarged globular uterus with asymmetric myometrial thickening and small myometrial cysts is most suggestive of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Adenomyosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Endometrial polyp",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ovarian torsion",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Cervical ectropion",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Adenomyosis commonly produces a bulky globular uterus, heterogeneous myometrium and small myometrial cysts on imaging.",
+    "reference_text": "NEET-PG 2026 reported recall-topic reconstruction, independently normalized/paraphrased for study use; Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Benign uterine disease; Subtopic: Adenomyosis imaging. Source: https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Benign uterine disease",
+    "subtopic": "Adenomyosis imaging",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_topic_reconstruction",
+    "repeat_key": "adenomyosis-imaging",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_topic_reconstruction",
+      "source_url": "https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2026-017",
+    "stem": "A well-circumscribed uterine mass with a whorled appearance is most consistent with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Leiomyoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Adenomyosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Endometrial carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hydrosalpinx",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Uterine leiomyomas are benign smooth-muscle tumors classically showing a whorled cut surface and well-defined mass appearance.",
+    "reference_text": "NEET-PG 2026 reported recall-topic reconstruction, independently normalized/paraphrased for study use; Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Benign uterine tumors; Subtopic: Leiomyoma. Source: https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Benign uterine tumors",
+    "subtopic": "Leiomyoma",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_topic_reconstruction",
+    "repeat_key": "uterine-leiomyoma-whorled",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_topic_reconstruction",
+      "source_url": "https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2026-018",
+    "stem": "Cervical carcinoma with parametrial invasion but no extension to the pelvic wall is FIGO stage:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "IB",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "IIA",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "IIB",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "IIIB",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Parametrial involvement without pelvic-wall extension is stage IIB in the conventional FIGO cervical cancer staging used in exams.",
+    "reference_text": "NEET-PG 2026 reported recall-topic reconstruction, independently normalized/paraphrased for study use; Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Cervical cancer; Subtopic: FIGO stage IIB. Source: https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Cervical cancer",
+    "subtopic": "FIGO stage IIB",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_topic_reconstruction",
+    "repeat_key": "cervix-stage-iib-parametrium",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_topic_reconstruction",
+      "source_url": "https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2026-019",
+    "stem": "After ovulation induction, a woman develops enlarged ovaries, ascites, hemoconcentration and dyspnea. The most likely diagnosis is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ovarian hyperstimulation syndrome",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Ruptured ectopic pregnancy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Endometriosis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pelvic inflammatory disease",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "OHSS is an iatrogenic complication of ovarian stimulation characterized by increased vascular permeability, enlarged ovaries and third-space fluid shifts.",
+    "reference_text": "NEET-PG 2026 reported recall-topic reconstruction, independently normalized/paraphrased for study use; Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Infertility treatment complications; Subtopic: Ovarian hyperstimulation syndrome. Source: https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Infertility treatment complications",
+    "subtopic": "Ovarian hyperstimulation syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_topic_reconstruction",
+    "repeat_key": "ohss-ovulation-induction",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_topic_reconstruction",
+      "source_url": "https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2026-020",
+    "stem": "A screening test with very few false-negative results primarily has high:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Sensitivity",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Specificity",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Positive predictive value only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Likelihood ratio negative above 1",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "High sensitivity means the test identifies most people who truly have the disease, minimizing false negatives.",
+    "reference_text": "NEET-PG 2026 reported recall-topic reconstruction, independently normalized/paraphrased for study use; Subject: PSM; System: General / Cross-system; Topic: Screening tests; Subtopic: Sensitivity. Source: https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Screening tests",
+    "subtopic": "Sensitivity",
+    "exam": "NEET-PG",
+    "exam_year": 2026,
+    "exam_session": "single",
+    "pyq_status": "memory_based_topic_reconstruction",
+    "repeat_key": "screening-sensitivity",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_topic_reconstruction",
+      "source_url": "https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
   }
 ]
