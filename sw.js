@@ -8,12 +8,23 @@ const ASSETS=[
   './assets/supabase-config.js','./assets/phase13-preauth.js','./assets/auth-sync.js','./assets/auth-provider-guard.js',
   './assets/ui-v4.js','./assets/ui-v4-fixes.js','./assets/exam-v9.js','./assets/phase10-taxonomy.js','./assets/pyq-metadata.js',
   './assets/phase11-analytics.js','./assets/phase11-exam-overlay.js','./assets/phase12-planning.js','./assets/phase13-hardening.js',
-  './data/pyq/2021_2026/2021.json','./data/pyq/2021_2026/2022.json','./data/pyq/2021_2026/2023.json','./data/pyq/2021_2026/2024.json','./data/pyq/2021_2026/2024-expansion-a.json','./data/pyq/2021_2026/2024-expansion-b.json','./data/pyq/2021_2026/2024-expansion-c.json','./data/pyq/2021_2026/2024-expansion-d.json','./data/pyq/2021_2026/2025.json','./data/pyq/2021_2026/2025-expansion-a.json','./data/pyq/2021_2026/2025-expansion-b.json','./data/pyq/2021_2026/2025-expansion-c.json','./data/pyq/2021_2026/2026.json'
+  './data/pyq/manifest.json'
 ];
 
 async function prime(){
   const cache=await caches.open(CACHE);
   await cache.addAll(ASSETS);
+  try{
+    const manifestResponse=await fetch('./data/pyq/manifest.json',{cache:'no-store'});
+    if(manifestResponse.ok){
+      const manifest=await manifestResponse.clone().json();
+      const files=Array.isArray(manifest)?manifest:manifest.files;
+      await cache.put('./data/pyq/manifest.json',manifestResponse);
+      if(Array.isArray(files)&&files.length){
+        await cache.addAll(files.map(f=>`./${String(f).replace(/^\\.\\//,'')}`));
+      }
+    }
+  }catch(e){console.warn('Question bundle pre-cache skipped',e)}
 }
 
 self.addEventListener('install',event=>{
