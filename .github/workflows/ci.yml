@@ -65,6 +65,8 @@ jobs:
           python-version: '3.12'
       - run: npm install --no-save @playwright/test@1.55.1
       - run: npx playwright install --with-deps chromium webkit
+      - name: Generate question manifest
+        run: python scripts/generate_question_manifest.py
       - name: Start static app
         run: python -m http.server 4173 --bind 127.0.0.1 > /tmp/static-ci.log 2>&1 &
       - name: Wait for static app
