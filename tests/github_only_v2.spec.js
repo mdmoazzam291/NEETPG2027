@@ -123,3 +123,21 @@ test('original hy100 bank is no longer loaded', async ({ page }) => {
   }));
   expect(result).toEqual({total:405,legacy:0,pyq:405});
 });
+
+
+test('generated question manifest loads every discovered PYQ bundle', async ({ page }) => {
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0)).toBeGreaterThan(0);
+  const result=await page.evaluate(async()=>{
+    const manifest=await fetch('data/pyq/manifest.json',{cache:'no-store'}).then(r=>r.json());
+    const files=manifest.files||[];
+    const groups=await Promise.all(files.map(file=>fetch(file).then(r=>r.json())));
+    return {
+      manifestFiles:files.length,
+      manifestQuestions:groups.flat().length,
+      loadedQuestions:app.questions.length
+    };
+  });
+  expect(result.manifestFiles).toBeGreaterThan(0);
+  expect(result.loadedQuestions).toBe(result.manifestQuestions);
+});
