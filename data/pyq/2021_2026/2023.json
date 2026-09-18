@@ -1,0 +1,1022 @@
+[
+  {
+    "external_id": "neetpg-2023-001",
+    "stem": "A patient from Delhi has acute fever, arthralgia, petechiae and severe thrombocytopenia with prolonged bleeding time but normal clotting time. What is the most likely diagnosis?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dengue",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Malaria",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Scrub typhus",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Enteric fever",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Dengue commonly causes fever, myalgia/arthralgia, rash or petechiae and thrombocytopenia.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Virology; Subtopic: Dengue. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Virology",
+    "subtopic": "Dengue",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "dengue-thrombocytopenia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-002",
+    "stem": "Which finding is typical of Trichomonas vaginalis on a fresh wet mount?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cysts with four nuclei",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Twitching motility of trophozoites",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Acid-fast oocysts",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Budding yeast with pseudohyphae",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Trichomonas exists as motile trophozoites and shows characteristic jerky/twitching motility on wet mount.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Reproductive; Topic: Parasitology; Subtopic: Trichomoniasis microscopy. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Reproductive",
+    "topic": "Parasitology",
+    "subtopic": "Trichomoniasis microscopy",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "trichomonas-twitching",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-003",
+    "stem": "A chronic skin ulcer from western Rajasthan shows intracellular organisms with a nucleus and kinetoplast. Which agent is most likely?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Leishmania tropica",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Babesia microti",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Trypanosoma cruzi",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Histoplasma capsulatum",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Cutaneous leishmaniasis in the Old World can be caused by Leishmania tropica; amastigotes show a nucleus and kinetoplast.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Dermatology; Topic: Parasitology; Subtopic: Cutaneous leishmaniasis. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Dermatology",
+    "topic": "Parasitology",
+    "subtopic": "Cutaneous leishmaniasis",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "leishmania-tropica",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-004",
+    "stem": "Large cells with classic 'owl-eye' intranuclear inclusions most strongly suggest infection with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cytomegalovirus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Epstein-Barr virus",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "HSV-2",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Toxoplasma gondii",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "CMV produces enlarged cytomegalic cells with prominent owl-eye intranuclear inclusions.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Virology; Subtopic: CMV inclusions. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Virology",
+    "subtopic": "CMV inclusions",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cmv-owl-eye",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-005",
+    "stem": "Chronic infection with Clonorchis sinensis increases the risk of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cholangiocarcinoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Hepatocellular carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Gastric adenocarcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Bladder carcinoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Clonorchis is a liver fluke associated with chronic biliary inflammation and cholangiocarcinoma.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Gastrointestinal & Hepatobiliary; Topic: Parasitology; Subtopic: Clonorchis complication. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Parasitology",
+    "subtopic": "Clonorchis complication",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "clonorchis-cholangiocarcinoma",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-006",
+    "stem": "An HIV-positive patient with poor treatment adherence has progressive dyspnea; GMS stain of respiratory material shows dark crescent-shaped cysts. The likely organism is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pneumocystis jirovecii",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Histoplasma capsulatum",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Coccidioides immitis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Paracoccidioides brasiliensis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pneumocystis jirovecii is highlighted by silver stains and causes opportunistic pneumonia in immunocompromised patients.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Respiratory; Topic: Mycology; Subtopic: Pneumocystis pneumonia. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Respiratory",
+    "topic": "Mycology",
+    "subtopic": "Pneumocystis pneumonia",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pneumocystis-gms",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-007",
+    "stem": "A sewage worker develops fever, jaundice and conjunctival suffusion. Which test is classically used for leptospirosis confirmation?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Widal test",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Microscopic agglutination test",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Weil-Felix test",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Paul-Bunnell test",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The microscopic agglutination test is a reference serologic test for leptospirosis.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Systemic bacteriology; Subtopic: Leptospirosis diagnosis. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Systemic bacteriology",
+    "subtopic": "Leptospirosis diagnosis",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "leptospirosis-mat",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-008",
+    "stem": "A commonly used laboratory method for diagnosing rotavirus gastroenteritis is detection of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Viral antigen in stool",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Viral antigen in blood",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Serum IgG only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Organisms by light microscopy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Rotavirus antigen can be detected directly in stool using immunoassays.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Gastrointestinal & Hepatobiliary; Topic: Virology; Subtopic: Rotavirus diagnosis. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Virology",
+    "subtopic": "Rotavirus diagnosis",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "rotavirus-stool-antigen",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-009",
+    "stem": "A malaria rapid diagnostic test is positive for HRP-2 antigen. Which species is most strongly indicated?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Plasmodium falciparum",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Plasmodium vivax",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Plasmodium malariae",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Plasmodium ovale",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Histidine-rich protein 2 is a commonly used P. falciparum-specific antigen in malaria rapid tests.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Parasitology; Subtopic: Falciparum rapid antigen. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Parasitology",
+    "subtopic": "Falciparum rapid antigen",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "malaria-hrp2",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-010",
+    "stem": "A pleomorphic gram-negative coccobacillus causing meningitis shows satellitism around Staphylococcus aureus on blood agar. Which organism is this?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Haemophilus influenzae",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Neisseria meningitidis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Listeria monocytogenes",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Streptococcus pneumoniae",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "H. influenzae requires X and V factors; V factor released by S. aureus supports satellitism.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Nervous System; Topic: Systemic bacteriology; Subtopic: Haemophilus influenzae. Source: https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Nervous System",
+    "topic": "Systemic bacteriology",
+    "subtopic": "Haemophilus influenzae",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "h-influenzae-satellitism",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://firstranker.com/fr/frdA250525A081024/neet-pg-2023-question-paper-with-solutions",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-011",
+    "stem": "A painless violaceous skin lesion in an HIV-positive patient is most suggestive of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Kaposi sarcoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Basal cell carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Squamous cell carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Dermatofibroma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Kaposi sarcoma is an HHV-8-associated vascular tumor producing red-purple lesions, especially in advanced HIV infection.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Dermatology; Topic: HIV-associated malignancy; Subtopic: Kaposi sarcoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Dermatology",
+    "topic": "HIV-associated malignancy",
+    "subtopic": "Kaposi sarcoma",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "kaposi-hhv8",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-012",
+    "stem": "Claviceps purpurea produces which toxic compounds?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ergot alkaloids",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Aflatoxins",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ochratoxin",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sanguinarine",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Claviceps species contaminate grains and produce ergot alkaloids that can cause vasospasm and neurotoxicity.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Mycology; Subtopic: Ergot alkaloids. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Mycology",
+    "subtopic": "Ergot alkaloids",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "claviceps-ergot",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-013",
+    "stem": "An intrinsic error in development that produces a primary structural defect of an organ is termed:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Malformation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Disruption",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Deformation",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sequence",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A malformation results from an intrinsically abnormal developmental process, unlike disruption or deformation.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: General / Cross-system; Topic: Developmental pathology; Subtopic: Malformation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "General / Cross-system",
+    "topic": "Developmental pathology",
+    "subtopic": "Malformation",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "malformation-definition",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-014",
+    "stem": "Precocious puberty with café-au-lait macules and polyostotic fibrous dysplasia is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "McCune-Albright syndrome",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Turner syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Noonan syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "MEN2",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "McCune-Albright syndrome combines fibrous dysplasia, café-au-lait pigmentation and endocrine hyperfunction such as precocious puberty.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Pediatrics; System: Endocrine; Topic: Genetic syndromes; Subtopic: McCune-Albright syndrome. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pediatrics",
+    "system": "Endocrine",
+    "topic": "Genetic syndromes",
+    "subtopic": "McCune-Albright syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mccune-albright-fibrous-dysplasia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-015",
+    "stem": "Which electrolyte abnormality may occur after transfusion of older stored red-cell units because of the storage lesion?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hyperkalemia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Hypercalcemia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Severe hypernatremia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hyperphosphatemia only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Potassium leaks out of stored erythrocytes over time, so large or rapid transfusions can cause hyperkalemia.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Hematology & Oncology; Topic: Transfusion medicine; Subtopic: Storage lesion hyperkalemia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Hematology & Oncology",
+    "topic": "Transfusion medicine",
+    "subtopic": "Storage lesion hyperkalemia",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "stored-blood-hyperkalemia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-016",
+    "stem": "A child with severe dehydration from acute diarrhea should initially receive:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Intravenous isotonic fluid resuscitation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Antidiarrheal drugs only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Oral antibiotics only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "No fluid until stool culture",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Severe dehydration requires rapid IV isotonic fluid therapy; ORS is crucial once oral therapy is feasible.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Pediatrics; System: General / Cross-system; Topic: Dehydration; Subtopic: Severe dehydration management. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "General / Cross-system",
+    "topic": "Dehydration",
+    "subtopic": "Severe dehydration management",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "severe-dehydration-iv-fluids",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-017",
+    "stem": "Under normal physiological conditions, which substance has essentially zero renal clearance because it is completely reabsorbed?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Glucose",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Inulin",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Creatinine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "PAH",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Filtered glucose is normally completely reabsorbed below the transport maximum, giving an approximate clearance of zero.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Physiology; System: Renal & Genitourinary; Topic: Renal clearance; Subtopic: Glucose clearance. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Renal & Genitourinary",
+    "topic": "Renal clearance",
+    "subtopic": "Glucose clearance",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "glucose-zero-clearance",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-018",
+    "stem": "Which membrane transport process occurs only in living cells because it requires metabolic energy?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Simple diffusion",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Osmosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Active transport",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "Filtration",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Active transport depends directly or indirectly on cellular energy and functioning membrane proteins.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Physiology; System: General / Cross-system; Topic: Membrane transport; Subtopic: Active transport. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "General / Cross-system",
+    "topic": "Membrane transport",
+    "subtopic": "Active transport",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "active-transport-living-cells",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-019",
+    "stem": "Neoadjuvant chemotherapy is least routinely used as a standard strategy in which malignancy?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Differentiated thyroid carcinoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Breast carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Esophageal carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Selected lung carcinoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Differentiated thyroid cancer is primarily managed surgically, with radioactive iodine and thyroid-suppressive therapy as indicated rather than routine neoadjuvant cytotoxic chemotherapy.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Endocrine; Topic: Cancer therapy; Subtopic: Thyroid cancer systemic therapy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "Endocrine",
+    "topic": "Cancer therapy",
+    "subtopic": "Thyroid cancer systemic therapy",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "thyroid-cancer-no-neoadjuvant",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2023-020",
+    "stem": "A patient using inhaled corticosteroids for asthma develops removable white plaques in the mouth. The most likely diagnosis is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Oral candidiasis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Oral hairy leukoplakia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Aphthous ulcers",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Lichen planus",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Local steroid deposition can predispose to oropharyngeal candidiasis; rinsing the mouth after inhalation reduces risk.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Respiratory; Topic: Asthma therapy adverse effects; Subtopic: Inhaled steroid candidiasis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "Asthma therapy adverse effects",
+    "subtopic": "Inhaled steroid candidiasis",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ics-oral-candidiasis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  }
+]

@@ -1,0 +1,229 @@
+{
+  "dataset_id": "neetpg-pyq-recalls-2017-2026",
+  "scope": {
+    "exam": "NEET-PG",
+    "years": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "definition": "Ten exam years inclusive: 2017 through 2026"
+  },
+  "provenance_policy": {
+    "canonical_label": "memory_based_recall",
+    "official_question_paper": false,
+    "note": "NBEMS historically does not provide a conventional complete public question paper for these CBT administrations. Treat public PYQ banks as recalled/reconstructed unless a row is explicitly tied to an official disclosure.",
+    "import_rule": "Preserve source URL and year/session on every occurrence. Do not mark content/answer/taxonomy verified solely because it imported successfully."
+  },
+  "years": [
+    {
+      "year": 2017,
+      "sources": [
+        {
+          "name": "Prepp NEET PG 2017 memory-based paper",
+          "url": "https://prepp.in/neet-pg-exam/question-paper-2017",
+          "source_type": "memory_based_recall_index",
+          "priority": 1
+        },
+        {
+          "name": "Collegedunia NEET PG 2017 solved recall paper",
+          "url": "https://collegedunia.com/articles/e-501-neet-pg-2017-question-paper-with-answer-key-pdfs-january-8",
+          "source_type": "memory_based_recall",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "sources": [
+        {
+          "name": "Prepp NEET PG 2018 memory-based paper",
+          "url": "https://prepp.in/neet-pg-exam/question-paper-2018",
+          "source_type": "memory_based_recall_index",
+          "priority": 1
+        },
+        {
+          "name": "MedicoApps NEET PG 2018 recall paper description",
+          "url": "https://medicoapps.org/neet-pg-2018-paper-download-pdf/",
+          "source_type": "memory_based_recall_secondary",
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "sources": [
+        {
+          "name": "Prepp NEET PG 2019 memory-based PDF",
+          "url": "https://cdn-images.prepp.in/public/image/neet-pg-2019-question-paper-pdf-jan-06-2019-1781084495.pdf",
+          "source_type": "memory_based_recall_pdf",
+          "priority": 1
+        },
+        {
+          "name": "Notopedia NEET PG 2019 memory-based questions",
+          "url": "https://www.notopedia.com/pdfjs-2.10.377-dist/web/index-pdf.php?url=https%3A%2F%2Fnotopedia-uploads.s3.us-east-2.amazonaws.com%2Fcategory_upload_pdf%2F33-73-594-pdf-202106161136426869.pdf",
+          "source_type": "memory_based_recall_pdf",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "sources": [
+        {
+          "name": "NEETPGAI 2020 recalled PYQ index",
+          "url": "https://neetpgai.com/previous-year-questions/2020",
+          "source_type": "memory_based_recall_reviewed",
+          "priority": 1,
+          "reported_questions": 284
+        },
+        {
+          "name": "AglaSem NEET PG 2020 memory-based paper",
+          "url": "https://admission.aglasem.com/neet-pg-2020-question-paper/",
+          "source_type": "memory_based_recall_index",
+          "priority": 2
+        },
+        {
+          "name": "Prepp NEET PG 2020 memory-based paper",
+          "url": "https://prepp.in/neet-pg-exam/question-paper-2020",
+          "source_type": "memory_based_recall_index",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "sources": [
+        {
+          "name": "Shiksha NEET PG 2021 memory-based paper",
+          "url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+          "source_type": "memory_based_recall",
+          "priority": 1
+        },
+        {
+          "name": "Collegedunia NEET PG 2021 memory-based paper",
+          "url": "https://collegedunia.com/articles/e-501-neet-pg-2021-question-paper-with-answer-key-pdf-september-11",
+          "source_type": "memory_based_recall",
+          "priority": 2
+        },
+        {
+          "name": "Prepp NEET PG 2021 memory-based paper",
+          "url": "https://prepp.in/neet-pg-exam/question-paper-2021",
+          "source_type": "memory_based_recall_index",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "sources": [
+        {
+          "name": "CollegeDekho NEET PG 2022 recall questions",
+          "url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+          "source_type": "memory_based_recall",
+          "priority": 1
+        },
+        {
+          "name": "Shiksha NEET PG 2022 memory-based paper",
+          "url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2022-question-paper-with-answer-key-solution-pdf-download-blogId-91359",
+          "source_type": "memory_based_recall",
+          "priority": 2
+        },
+        {
+          "name": "Prepp NEET PG 2022 memory-based paper",
+          "url": "https://prepp.in/neet-pg-exam/question-paper-2022",
+          "source_type": "memory_based_recall_index",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "sources": [
+        {
+          "name": "Shiksha NEET PG 2023 memory-based paper",
+          "url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2023-question-paper-with-answer-key-solutions-pdf-download-blogId-117419",
+          "source_type": "memory_based_recall",
+          "priority": 1
+        },
+        {
+          "name": "Prepp NEET PG 2023 memory-based paper",
+          "url": "https://prepp.in/neet-pg-exam/question-paper-2023",
+          "source_type": "memory_based_recall_index",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "sources": [
+        {
+          "name": "Shiksha NEET PG 2024 Shift 1 & 2 recall questions",
+          "url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2024-question-paper-with-answer-key-solutions-shift-1-2-pdf-download-blogId-174655",
+          "source_type": "memory_based_recall",
+          "priority": 1
+        },
+        {
+          "name": "Prepp NEET PG 2024 memory-based paper",
+          "url": "https://prepp.in/neet-pg-exam/question-paper-2024",
+          "source_type": "memory_based_recall_index",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "sources": [
+        {
+          "name": "NEETPGAI 2025 recalled PYQ index",
+          "url": "https://neetpgai.com/previous-year-questions/2025",
+          "source_type": "memory_based_recall_reviewed",
+          "priority": 1,
+          "reported_questions": 260
+        },
+        {
+          "name": "Shiksha NEET PG 2025 memory-based paper",
+          "url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+          "source_type": "memory_based_recall",
+          "priority": 2
+        },
+        {
+          "name": "Careers360 NEET PG memory-based papers",
+          "url": "https://medicine.careers360.com/articles/neet-pg-question-paper",
+          "source_type": "memory_based_recall_index",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "sources": [
+        {
+          "name": "Careers360 NEET PG 2026 memory-based questions with solutions",
+          "url": "https://medicine.careers360.com/articles/neet-pg-2026-question-paper-memory-based-with-solutions",
+          "source_type": "memory_based_recall",
+          "priority": 1
+        },
+        {
+          "name": "Prepp NEET PG year-wise question paper index including 2026",
+          "url": "https://prepp.in/neet-pg-exam/question-paper",
+          "source_type": "memory_based_recall_index",
+          "priority": 2
+        },
+        {
+          "name": "Jagran Josh NEET PG 2026 analysis and recalled topics",
+          "url": "https://www.jagranjosh.com/news/neet-pg-2026-question-paper-analysis-difficulty-level-and-memory-based-questions-186957",
+          "source_type": "memory_based_recall_analysis",
+          "priority": 3
+        }
+      ]
+    }
+  ]
+}

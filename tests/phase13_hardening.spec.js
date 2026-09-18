@@ -71,14 +71,15 @@ test('Phase 13 backup export and import restore local study progress', async ({ 
 
 test('Phase 13 service worker keeps the bundled study app available offline and recovers online', async ({ page, context }) => {
   await page.goto('/');
-  await expect(page.locator('#statTotal')).toHaveText('100');
+  await expect.poll(async()=>Number(await page.locator('#statTotal').textContent())).toBeGreaterThanOrEqual(160);
+  const total=Number(await page.locator('#statTotal').textContent());
   await page.evaluate(() => navigator.serviceWorker?.ready);
   await page.reload();
   await expect.poll(async () => page.evaluate(() => Boolean(navigator.serviceWorker?.controller)), { timeout: 10000 }).toBe(true);
 
   await context.setOffline(true);
   await page.reload({ waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#statTotal')).toHaveText('100');
+  await expect(page.locator('#statTotal')).toHaveText(String(total));
   await expect(page.locator('#offlineBadge')).toHaveText('Offline');
 
   await context.setOffline(false);
@@ -131,6 +132,6 @@ test('Phase 13 manifest and service worker expose versioned install metadata', a
   expect(manifest.icons?.length).toBeGreaterThan(0);
   expect(manifest.icons[0].src).toContain('app-icon.svg');
   const sw = await (await request.get('/sw.js')).text();
-  expect(sw).toContain("RELEASE='2026-09-15-phase13-1'");
+  expect(sw).toContain("RELEASE='2026-09-18-pyq-2'");
   expect(sw).toContain("type==='SKIP_WAITING'");
 });

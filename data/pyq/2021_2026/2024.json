@@ -1,0 +1,1022 @@
+[
+  {
+    "external_id": "neetpg-2024-001",
+    "stem": "In ARDS, IL-8 contributes most directly by promoting:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Neutrophil recruitment",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Surfactant synthesis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Eosinophil degranulation",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Platelet aggregation",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "IL-8 is a potent neutrophil chemoattractant and contributes to neutrophil-rich lung injury in ARDS.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Respiratory; Topic: ARDS; Subtopic: IL-8 and neutrophils. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "ARDS",
+    "subtopic": "IL-8 and neutrophils",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ards-il8-neutrophils",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-002",
+    "stem": "Which measurement is the most definitive biochemical assessment of body copper overload in suspected Wilson disease when diagnosis remains uncertain?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Quantitative hepatic copper",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Serum ferritin",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Serum transferrin saturation",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Urine porphobilinogen",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Quantitative hepatic copper from liver tissue can provide strong diagnostic evidence for Wilson disease in selected uncertain cases.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Gastrointestinal & Hepatobiliary; Topic: Wilson disease; Subtopic: Hepatic copper. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Wilson disease",
+    "subtopic": "Hepatic copper",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "wilson-hepatic-copper",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-003",
+    "stem": "Which primary lung carcinoma most characteristically expresses TTF-1?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Adenocarcinoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Squamous cell carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Typical carcinoid",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Mesothelioma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "TTF-1 is commonly expressed in pulmonary adenocarcinoma and small-cell carcinoma; among these options adenocarcinoma is the best answer.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Respiratory; Topic: Lung tumors; Subtopic: TTF-1. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Respiratory",
+    "topic": "Lung tumors",
+    "subtopic": "TTF-1",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "lung-adenoca-ttf1",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-004",
+    "stem": "Which vitamin commonly requires long-term replacement after total gastrectomy because intrinsic-factor production is lost?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Vitamin B12",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vitamin C",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Vitamin K",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Vitamin E",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Loss of parietal cells and intrinsic factor after total gastrectomy impairs cobalamin absorption.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Gastrointestinal & Hepatobiliary; Topic: Post-gastrectomy care; Subtopic: Vitamin B12 replacement. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Post-gastrectomy care",
+    "subtopic": "Vitamin B12 replacement",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "gastrectomy-b12",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-005",
+    "stem": "A B-cell lymphoma phenotype includes surface immunoglobulin positivity and CD10/CD19 expression without TdT. Which diagnosis best fits?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Burkitt lymphoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "B-ALL",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Anaplastic large-cell lymphoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hodgkin lymphoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Burkitt lymphoma is a mature B-cell lymphoma, typically CD10 and CD19 positive with surface immunoglobulin and TdT negative.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Hematology & Oncology; Topic: Lymphoma; Subtopic: Burkitt immunophenotype. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Hematology & Oncology",
+    "topic": "Lymphoma",
+    "subtopic": "Burkitt immunophenotype",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "burkitt-immunophenotype",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-006",
+    "stem": "The most common driver alteration in conventional papillary thyroid carcinoma is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "BRAF V600E",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "BCR-ABL1",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "JAK2 V617F",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "ALK rearrangement",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "BRAF V600E is a common molecular alteration in conventional papillary thyroid carcinoma.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Endocrine; Topic: Thyroid carcinoma; Subtopic: BRAF V600E. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Endocrine",
+    "topic": "Thyroid carcinoma",
+    "subtopic": "BRAF V600E",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ptc-braf-v600e",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-007",
+    "stem": "Cervical carcinoma extending to the pelvic wall and/or causing hydronephrosis is FIGO stage:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "IIA",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "IIB",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "IIIB",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "IVA",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pelvic wall involvement and hydronephrosis/nonfunctioning kidney define FIGO stage IIIB in the traditional staging framework used in exams.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Cervical cancer; Subtopic: FIGO stage IIIB. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Cervical cancer",
+    "subtopic": "FIGO stage IIIB",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cervix-iiib-hydronephrosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-008",
+    "stem": "What does JSSK stand for in Indian public-health programs?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Janani Shishu Suraksha Karyakram",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Janani Swasthya Suraksha Kendra",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Joint Safe Surgery Karyakram",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Jeevan Shishu Seva Kosh",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "JSSK stands for Janani Shishu Suraksha Karyakram.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: PSM; System: General / Cross-system; Topic: National health programs; Subtopic: JSSK. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "National health programs",
+    "subtopic": "JSSK",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "jssk-full-form",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-009",
+    "stem": "The 'water-lily sign' is classically associated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hydatid cyst",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Amoebic liver abscess",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Simple renal cyst",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Bronchogenic cyst",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Detached endocyst membranes floating within a hydatid cyst can create the water-lily sign.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Radiology; System: Gastrointestinal & Hepatobiliary; Topic: Hydatid disease; Subtopic: Water-lily sign. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Radiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Hydatid disease",
+    "subtopic": "Water-lily sign",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hydatid-water-lily",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-010",
+    "stem": "Broad-based budding yeast in tissue is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Blastomyces dermatitidis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Cryptococcus neoformans",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Histoplasma capsulatum",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Candida albicans",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Blastomyces classically appears as thick-walled yeast with broad-based budding.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Respiratory; Topic: Mycology; Subtopic: Blastomycosis morphology. Source: https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Respiratory",
+    "topic": "Mycology",
+    "subtopic": "Blastomycosis morphology",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "shift-1",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "blastomyces-broad-based-budding",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-question-paper-2024-live-updates-memory-based-recall-questions-with-answer-key-56134/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-011",
+    "stem": "MRI shows a ring-enhancing brain lesion with an eccentric scolex in a patient from an endemic region. Which serologic test can support the diagnosis?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "EITB for cysticercosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Widal test",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Weil-Felix test",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "VDRL",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Enzyme-linked immunoelectrotransfer blot (EITB) can support the diagnosis of neurocysticercosis when interpreted with imaging and clinical context.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Nervous System; Topic: Neurocysticercosis; Subtopic: EITB serology. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Nervous System",
+    "topic": "Neurocysticercosis",
+    "subtopic": "EITB serology",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "neurocysticercosis-eitb",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-012",
+    "stem": "Fever, foul-smelling sputum and a cavitary lung lesion with an air-fluid level most strongly indicate:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Lung abscess",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pleural effusion",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Pneumothorax",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pericardial effusion",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A lung abscess classically produces fever, putrid sputum and a thick-walled cavity containing an air-fluid level.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Respiratory; Topic: Suppurative lung disease; Subtopic: Lung abscess. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "Suppurative lung disease",
+    "subtopic": "Lung abscess",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "lung-abscess-air-fluid",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-013",
+    "stem": "Infertility with a thin-walled tubular fluid-filled adnexal structure on transvaginal ultrasound is most consistent with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hydrosalpinx",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Endometrioma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Dermoid cyst",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Tubo-ovarian abscess",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Hydrosalpinx is a distended fluid-filled fallopian tube and is an important tubal cause of infertility.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Tubal pathology; Subtopic: Hydrosalpinx. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Tubal pathology",
+    "subtopic": "Hydrosalpinx",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hydrosalpinx-ultrasound",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-014",
+    "stem": "A horizontal fracture through a vertebral body extending into the posterior elements after high-energy trauma is a:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Chance fracture",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Compression fracture",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Jefferson fracture",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hangman fracture",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A Chance fracture is a flexion-distraction injury traversing the vertebral body and posterior elements, classically associated with lap-belt trauma.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Orthopaedics; System: Musculoskeletal; Topic: Spinal trauma; Subtopic: Chance fracture. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Orthopaedics",
+    "system": "Musculoskeletal",
+    "topic": "Spinal trauma",
+    "subtopic": "Chance fracture",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "chance-fracture",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-015",
+    "stem": "A child with growth failure and visual symptoms has a calcified cystic-and-solid suprasellar mass. The most likely diagnosis is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Craniopharyngioma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pituitary microadenoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Optic neuritis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Meningioma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Craniopharyngioma commonly presents in children as a suprasellar cystic mass with calcification and endocrine/visual effects.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Radiology; System: Nervous System; Topic: Sellar masses; Subtopic: Craniopharyngioma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Radiology",
+    "system": "Nervous System",
+    "topic": "Sellar masses",
+    "subtopic": "Craniopharyngioma",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "craniopharyngioma-calcified-suprasellar",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-016",
+    "stem": "A child with posterior urethral valves and obstructive urinary symptoms is definitively treated, when feasible, by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Endoscopic valve ablation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Long-term observation alone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Radical cystectomy",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Nephrectomy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Endoscopic ablation of the obstructing valves is standard definitive treatment after stabilization and drainage as needed.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Renal & Genitourinary; Topic: Pediatric urology; Subtopic: Posterior urethral valve ablation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Renal & Genitourinary",
+    "topic": "Pediatric urology",
+    "subtopic": "Posterior urethral valve ablation",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "puv-endoscopic-ablation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-017",
+    "stem": "MRCP shows a congenital fusiform cystic dilation of the extrahepatic bile duct without an obstructing stone. The diagnosis is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Choledochal cyst",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Primary sclerosing cholangitis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Gallbladder hydrops",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Cholangiocarcinoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A type I choledochal cyst classically causes fusiform dilation of the extrahepatic common bile duct.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Radiology; System: Gastrointestinal & Hepatobiliary; Topic: Biliary congenital anomalies; Subtopic: Choledochal cyst. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Radiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Biliary congenital anomalies",
+    "subtopic": "Choledochal cyst",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "choledochal-cyst",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-018",
+    "stem": "A well-defined anterior mediastinal mass containing fat, soft tissue and calcification is most suggestive of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Mature teratoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Bronchogenic cyst",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Thymic hyperplasia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Esophageal duplication cyst",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Mature mediastinal teratomas commonly contain multiple tissue types including fat and calcification.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Radiology; System: Respiratory; Topic: Mediastinal masses; Subtopic: Mature teratoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Radiology",
+    "system": "Respiratory",
+    "topic": "Mediastinal masses",
+    "subtopic": "Mature teratoma",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mediastinal-teratoma",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-019",
+    "stem": "A commonly used target negative pressure for standard negative-pressure wound therapy is approximately:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "−25 mmHg",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "−60 mmHg",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "−125 mmHg",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "−250 mmHg",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Continuous negative pressure around −125 mmHg is a commonly used conventional setting, adjusted according to wound and patient factors.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Dermatology; Topic: Wound care; Subtopic: Negative-pressure wound therapy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Dermatology",
+    "topic": "Wound care",
+    "subtopic": "Negative-pressure wound therapy",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "npwt-minus125",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2024-020",
+    "stem": "Chronic painful swelling with recurrent pus discharge in the natal cleft of a long-distance driver is most likely:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pilonidal sinus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Anal fissure",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Perianal fistula",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hidradenitis of axilla",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pilonidal disease commonly affects the natal cleft and may present as a chronic draining sinus.",
+    "reference_text": "NEET-PG 2024 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Dermatology; Topic: Pilonidal disease; Subtopic: Pilonidal sinus. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2024/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Dermatology",
+    "topic": "Pilonidal disease",
+    "subtopic": "Pilonidal sinus",
+    "exam": "NEET-PG",
+    "exam_year": 2024,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pilonidal-sinus",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2024/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  }
+]

@@ -1,0 +1,1022 @@
+[
+  {
+    "external_id": "neetpg-2021-001",
+    "stem": "A lesion involving the posterior part of the dominant superior temporal gyrus most characteristically produces which language deficit?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Broca aphasia",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Wernicke aphasia",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Conduction aphasia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Dysarthria",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The dominant posterior superior temporal region contains Wernicke area; injury causes fluent speech with impaired comprehension.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Nervous System; Topic: Aphasia; Subtopic: Wernicke aphasia. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Nervous System",
+    "topic": "Aphasia",
+    "subtopic": "Wernicke aphasia",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "wernicke-aphasia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-002",
+    "stem": "Tocilizumab primarily blocks signaling through which target?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "TNF-alpha",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "IL-6 receptor",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "IL-1 receptor",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "CD20",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Tocilizumab is a monoclonal antibody against the interleukin-6 receptor.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Infectious Disease & Immunology; Topic: Biologics; Subtopic: IL-6 receptor blockade. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Biologics",
+    "subtopic": "IL-6 receptor blockade",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "tocilizumab-il6r",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-003",
+    "stem": "The classic antimetabolite action of methotrexate is inhibition of which enzyme?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dihydrofolate reductase",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Thymidylate synthase",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Xanthine oxidase",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Topoisomerase II",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Methotrexate inhibits dihydrofolate reductase, reducing tetrahydrofolate-dependent nucleotide synthesis.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Metabolism & Nutrition; Topic: Antimetabolites; Subtopic: Methotrexate mechanism. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Metabolism & Nutrition",
+    "topic": "Antimetabolites",
+    "subtopic": "Methotrexate mechanism",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "methotrexate-dhfr",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-004",
+    "stem": "Damage to the dominant inferior frontal gyrus is most likely to cause:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Fluent aphasia",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Broca aphasia",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Pure alexia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Prosopagnosia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Broca area lies in the dominant inferior frontal gyrus; lesions cause nonfluent expressive aphasia.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Nervous System; Topic: Aphasia; Subtopic: Broca aphasia. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Nervous System",
+    "topic": "Aphasia",
+    "subtopic": "Broca aphasia",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "broca-aphasia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-005",
+    "stem": "A woman with chronic hypertension plans pregnancy. Which antihypertensive class should be stopped because of fetal toxicity?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "ACE inhibitors",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Labetalol",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Nifedipine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Methyldopa",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "ACE inhibitors are fetotoxic and contraindicated during pregnancy.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Cardiovascular; Topic: Hypertension in pregnancy; Subtopic: ACE inhibitor fetotoxicity. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Cardiovascular",
+    "topic": "Hypertension in pregnancy",
+    "subtopic": "ACE inhibitor fetotoxicity",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "acei-pregnancy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-006",
+    "stem": "Several people develop abrupt vomiting a few hours after eating cream-filled pastries. Which organism is the classic cause?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Staphylococcus aureus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Salmonella Typhi",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Clostridioides difficile",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Campylobacter jejuni",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Preformed heat-stable enterotoxin from Staphylococcus aureus causes rapid-onset vomiting after foods such as cream pastries.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Gastrointestinal & Hepatobiliary; Topic: Food poisoning; Subtopic: Staphylococcal enterotoxin. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Food poisoning",
+    "subtopic": "Staphylococcal enterotoxin",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "staph-food-poisoning",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-007",
+    "stem": "Which antitubercular drug can reduce the effectiveness of combined oral contraceptive pills through hepatic enzyme induction?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ethambutol",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Rifampicin",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Pyrazinamide",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Streptomycin",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Rifampicin is a potent CYP enzyme inducer and can lower contraceptive steroid concentrations.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Infectious Disease & Immunology; Topic: Tuberculosis drugs; Subtopic: Rifampicin enzyme induction. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Tuberculosis drugs",
+    "subtopic": "Rifampicin enzyme induction",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "rifampicin-ocp",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-008",
+    "stem": "Chronic swelling of an upper limb after axillary lymph-node dissection for breast cancer is primarily due to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Venous thrombosis",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Lymphatic obstruction",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Arterial insufficiency",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Cellulitis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Axillary surgery may interrupt lymphatic drainage and produce secondary lymphedema.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Reproductive; Topic: Breast surgery complications; Subtopic: Post-mastectomy lymphedema. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "Reproductive",
+    "topic": "Breast surgery complications",
+    "subtopic": "Post-mastectomy lymphedema",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "postmastectomy-lymphedema",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-009",
+    "stem": "Mallory-Denk bodies in alcoholic liver disease are composed mainly of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Type IV collagen",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Keratin intermediate filaments",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Amyloid A protein",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Actin microfilaments",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Mallory-Denk bodies contain damaged cytokeratin intermediate filaments, especially keratins 8 and 18.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Gastrointestinal & Hepatobiliary; Topic: Alcoholic liver disease; Subtopic: Mallory-Denk bodies. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Alcoholic liver disease",
+    "subtopic": "Mallory-Denk bodies",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mallory-bodies-keratin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-010",
+    "stem": "Which mismatch-repair disorder is classically associated with hereditary nonpolyposis colorectal cancer?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Familial adenomatous polyposis",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Lynch syndrome",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Peutz-Jeghers syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Cowden syndrome",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Lynch syndrome results from germline defects in DNA mismatch-repair genes and causes microsatellite instability.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Gastrointestinal & Hepatobiliary; Topic: Hereditary colorectal cancer; Subtopic: Mismatch repair deficiency. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Hereditary colorectal cancer",
+    "subtopic": "Mismatch repair deficiency",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "lynch-mismatch-repair",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2021-question-paper-with-answer-key-pdf-download-blogId-68613",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-011",
+    "stem": "The pen test used during hand examination primarily assesses function of which nerve?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Median nerve",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Radial nerve",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ulnar nerve",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Axillary nerve",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The pen test assesses palmar abduction of the thumb by abductor pollicis brevis, a median-nerve muscle.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Anatomy; System: Nervous System; Topic: Peripheral nerve examination; Subtopic: Median nerve pen test. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Peripheral nerve examination",
+    "subtopic": "Median nerve pen test",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "median-nerve-pen-test",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-012",
+    "stem": "Loss of elbow flexion and forearm supination with sensory loss over the lateral forearm most strongly indicates injury to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Median nerve",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Radial nerve",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Musculocutaneous nerve",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "Ulnar nerve",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The musculocutaneous nerve supplies biceps and brachialis and continues as the lateral cutaneous nerve of the forearm.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Anatomy; System: Nervous System; Topic: Upper limb nerves; Subtopic: Musculocutaneous nerve injury. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Upper limb nerves",
+    "subtopic": "Musculocutaneous nerve injury",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "musculocutaneous-lateral-forearm",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-013",
+    "stem": "Which fetal vessel carries deoxygenated blood from the fetus back to the placenta?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Umbilical vein",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Umbilical arteries",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Ductus venosus",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Inferior vena cava",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The paired umbilical arteries carry deoxygenated fetal blood to the placenta; the umbilical vein returns oxygenated blood to the fetus.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Anatomy; System: Cardiovascular; Topic: Fetal circulation; Subtopic: Umbilical arteries. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Cardiovascular",
+    "topic": "Fetal circulation",
+    "subtopic": "Umbilical arteries",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "fetal-umbilical-arteries",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-014",
+    "stem": "Which ligament provides a shelf that helps prevent inferior displacement of the spleen?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Phrenocolic ligament",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Falciform ligament",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Hepatoduodenal ligament",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Ligamentum venosum",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The left phrenocolic ligament supports the inferior pole of the spleen and acts as a suspensory shelf.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Anatomy; System: Gastrointestinal & Hepatobiliary; Topic: Spleen; Subtopic: Phrenocolic ligament. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Spleen",
+    "subtopic": "Phrenocolic ligament",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "spleen-phrenocolic-ligament",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-015",
+    "stem": "The afferent limb of the gag reflex is carried mainly by which cranial nerve?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Facial nerve",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Glossopharyngeal nerve",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Vagus nerve",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hypoglossal nerve",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "CN IX provides the principal sensory afferent limb of the gag reflex; CN X provides the main efferent response.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Anatomy; System: Nervous System; Topic: Cranial nerves; Subtopic: Gag reflex afferent limb. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Cranial nerves",
+    "subtopic": "Gag reflex afferent limb",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "gag-reflex-cn9",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-016",
+    "stem": "After harvesting the great saphenous vein for CABG, a patient develops numbness over the medial leg and foot. Which nerve was most likely injured?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Sural nerve",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Saphenous nerve",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Superficial fibular nerve",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Tibial nerve",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The saphenous nerve accompanies the great saphenous vein along the medial leg and can be injured during vein harvest.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Anatomy; System: Nervous System; Topic: Lower limb nerves; Subtopic: Saphenous nerve injury. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Anatomy",
+    "system": "Nervous System",
+    "topic": "Lower limb nerves",
+    "subtopic": "Saphenous nerve injury",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "saphenous-nerve-gsv",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-017",
+    "stem": "A prominent or giant 'a' wave in the JVP is classically seen in:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Tricuspid stenosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Tricuspid regurgitation",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Mitral regurgitation",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Atrial fibrillation",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Right atrial contraction against an obstructed tricuspid valve produces prominent a waves.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Cardiovascular; Topic: Jugular venous pulse; Subtopic: Prominent a wave. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Cardiovascular",
+    "topic": "Jugular venous pulse",
+    "subtopic": "Prominent a wave",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "tricuspid-stenosis-a-wave",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-018",
+    "stem": "Beta-2 adrenergic receptors signal predominantly through which pathway?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Gs → adenylyl cyclase → cAMP",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Gq → phospholipase C → IP3",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Gi → reduced cAMP",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Receptor tyrosine kinase",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Beta-2 receptors are Gs-coupled and increase intracellular cAMP through adenylyl cyclase.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Physiology; System: Cardiovascular; Topic: Adrenergic receptors; Subtopic: Beta-2 signaling. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Cardiovascular",
+    "topic": "Adrenergic receptors",
+    "subtopic": "Beta-2 signaling",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "beta2-gs-camp",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-019",
+    "stem": "Glucose absorption from the intestinal lumen during oral rehydration therapy occurs primarily through:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "GLUT1",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "SGLT1",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "SGLT2",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "GLUT4",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "SGLT1 cotransports sodium and glucose across the apical membrane of enterocytes, the physiological basis of ORS.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Physiology; System: Gastrointestinal & Hepatobiliary; Topic: Intestinal transport; Subtopic: SGLT1. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Physiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Intestinal transport",
+    "subtopic": "SGLT1",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ors-sglt1",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  },
+  {
+    "external_id": "neetpg-2021-020",
+    "stem": "A fluid compartment contains approximately Na 10 mEq/L, K 140 mEq/L and low chloride. Which compartment is being described?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Plasma",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Interstitial fluid",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Intracellular fluid",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "Transcellular fluid",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Intracellular fluid is potassium-rich and sodium-poor compared with extracellular fluid.",
+    "reference_text": "NEET-PG 2021 memory-based recall, independently normalized/paraphrased for study use; Subject: Physiology; System: General / Cross-system; Topic: Body fluid compartments; Subtopic: Intracellular electrolyte composition. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2021/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "General / Cross-system",
+    "topic": "Body fluid compartments",
+    "subtopic": "Intracellular electrolyte composition",
+    "exam": "NEET-PG",
+    "exam_year": 2021,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "icf-high-potassium",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2021/",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "content_version": 1
+    }
+  }
+]

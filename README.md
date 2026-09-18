@@ -1,6 +1,6 @@
 # NEETPG2027 Study Engine
 
-A personal, local-first NEET PG 2027 study engine for an MBBS intern. Phases 1–3 provide a reliable database, a minimal web application foundation, and normalized storage and an audited CSV/JSON question import API; they do **not** include seeded medical content, analytics, recommendations, scheduling logic, AI, authentication, or a dashboard.
+A personal, local-first NEET PG 2027 study engine for an MBBS intern. The project now includes the normalized backend/import pipeline plus a production GitHub Pages study app with offline practice, SRS, analytics, planning, exam simulation, provenance-aware content governance, and an expanding source-backed PYQ layer.
 
 ## Run locally
 
@@ -24,3 +24,18 @@ Phase 3 adds source registration, preview validation, duplicate review, and atom
 ## Import and review interface
 
 The homepage now supports source creation, CSV/JSON file upload (or pasted content), row validation, paginated review, duplicate comparison and linking, explicit final confirmation, and reopening saved batches. A synthetic sample is available from the page. The layout adapts to tablets and phones. See [IMPORTS.md](IMPORTS.md) for the file format.
+
+
+## GitHub Pages study bank
+
+The current PYQ expansion branch bundles **220 questions**:
+
+- 100 repository-authored exam-style items
+- 120 normalized NEET-PG recall-derived items
+- 20 recalled/reconstructed items for each year from 2021 through 2026
+
+Each PYQ carries `Subject → System → Topic → Subtopic`, exam year/session, source provenance, verification state and a `repeat_key` used to detect concept recurrence across distinct exam years.
+
+The **PYQ Intelligence** view summarizes year coverage, cross-year repeats, subject/system distribution and a year×subject matrix, and can launch recent-year or repeated-concept drills directly.
+
+Public NEET-PG PYQ material is treated as memory-based/reconstructed unless explicitly supported otherwise. Source ingestion does not automatically mark medical content as verified.
