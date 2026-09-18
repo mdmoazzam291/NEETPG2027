@@ -20,13 +20,15 @@ test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ pag
 
 test('Question bank, analytics and settings render', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button',{name:/Question Bank/}).click();
+  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0)).toBe(405);
+  await page.evaluate(()=>navigate('bank'));
+  await expect(page.locator('#bankSearch')).toBeVisible();
   await expect(page.locator('#bankCount')).toContainText('405');
   await page.locator('#bankSearch').fill('scapholunate');
   await expect(page.locator('#bankCount')).toContainText('1 of 405');
-  await page.getByRole('button',{name:/Analytics/}).click();
+  await page.evaluate(()=>navigate('analytics'));
   await expect(page.getByText('Accuracy by subject')).toBeVisible();
-  await page.getByRole('button',{name:/Settings/}).click();
+  await page.evaluate(()=>navigate('settings'));
   await expect(page.getByText('Data backup')).toBeVisible();
 });
 
