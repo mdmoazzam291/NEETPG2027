@@ -1,0 +1,2042 @@
+[
+  {
+    "external_id": "neetpg-2025-101",
+    "stem": "Bone pain, increasing hat size, warm enlarged bones and markedly elevated alkaline phosphatase with normal calcium are classic for:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Paget disease of bone",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Osteomalacia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Primary hyperparathyroidism",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Osteogenesis imperfecta",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Paget disease causes high bone turnover with elevated ALP while serum calcium and phosphate are often normal.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Musculoskeletal; Topic: Metabolic bone disease; Subtopic: Paget disease. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Musculoskeletal",
+    "topic": "Metabolic bone disease",
+    "subtopic": "Paget disease",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "paget-high-alp",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-102",
+    "stem": "In rheumatoid arthritis, anti-CCP positivity is associated histologically with synovium showing:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pannus formation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Tophaceous urate deposits",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Calcium pyrophosphate crystals",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Caseating granulomas",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Chronic proliferative synovitis forms an invasive pannus that erodes cartilage and bone in rheumatoid arthritis.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Musculoskeletal; Topic: Rheumatology; Subtopic: Rheumatoid pannus. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Musculoskeletal",
+    "topic": "Rheumatology",
+    "subtopic": "Rheumatoid pannus",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ra-pannus",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-103",
+    "stem": "A patient presents 2 hours after onset of a disabling ischemic stroke; noncontrast CT shows no hemorrhage. If no contraindication is present, an appropriate reperfusion therapy is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Intravenous thrombolysis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Immediate long-term warfarin loading",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "No treatment until 24 hours",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Routine IV heparin for all patients",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Eligible patients presenting within the thrombolysis time window may receive IV thrombolytic therapy after intracranial hemorrhage is excluded.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Nervous System; Topic: Stroke; Subtopic: Acute ischemic stroke thrombolysis. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Nervous System",
+    "topic": "Stroke",
+    "subtopic": "Acute ischemic stroke thrombolysis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ischemic-stroke-iv-thrombolysis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-104",
+    "stem": "The most common pattern of diabetic peripheral neuropathy is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Distal symmetric sensorimotor polyneuropathy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Isolated bilateral facial neuropathy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Acute pure motor neuropathy",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Mononeuritis of only the vagus nerve",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Diabetic neuropathy most often presents as a length-dependent distal symmetric polyneuropathy beginning in the feet.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Nervous System; Topic: Diabetic complications; Subtopic: Distal symmetric neuropathy. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Nervous System",
+    "topic": "Diabetic complications",
+    "subtopic": "Distal symmetric neuropathy",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "diabetic-distal-polyneuropathy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-105",
+    "stem": "Which is NOT routinely part of the initial treatment of diabetic ketoacidosis with severe hyperglycemia and volume depletion?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "3% hypertonic saline",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "0.9% isotonic saline",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "IV insulin after potassium assessment",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Serial potassium monitoring",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Initial DKA treatment uses isotonic fluid, insulin and careful potassium management; hypertonic saline is not routine treatment for dilutional hyponatremia.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Endocrine; Topic: Diabetic emergencies; Subtopic: DKA initial management. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Endocrine",
+    "topic": "Diabetic emergencies",
+    "subtopic": "DKA initial management",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "dka-no-hypertonic-saline",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-106",
+    "stem": "A hemodynamically stable postoperative patient has new dyspnea, tachycardia and hemoptysis with high suspicion for pulmonary embolism. The preferred diagnostic test is usually:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "CT pulmonary angiography",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Plain chest radiograph alone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "D-dimer as definitive test",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Bronchoscopy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "CT pulmonary angiography is the standard first-line imaging test for suspected PE in many stable patients without contraindication to contrast.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Respiratory; Topic: Pulmonary embolism; Subtopic: CT pulmonary angiography. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "Pulmonary embolism",
+    "subtopic": "CT pulmonary angiography",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pe-ctpa",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-107",
+    "stem": "Which jugular venous pulse component disappears in atrial fibrillation?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "a wave",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "v wave",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "y descent",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "x descent",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The a wave represents coordinated right atrial contraction and is absent when atrial contraction is disorganized in atrial fibrillation.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Cardiovascular; Topic: Jugular venous pulse; Subtopic: Absent a wave in AF. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Cardiovascular",
+    "topic": "Jugular venous pulse",
+    "subtopic": "Absent a wave in AF",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "af-absent-a-wave",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-108",
+    "stem": "Rhomboid-shaped crystals showing weak positive birefringence indicate:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Calcium pyrophosphate deposition disease",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Gout",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Rheumatoid arthritis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Septic arthritis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "CPPD crystals are rhomboid and weakly positively birefringent, unlike needle-shaped negatively birefringent monosodium urate.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Musculoskeletal; Topic: Crystal arthropathy; Subtopic: Pseudogout. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Musculoskeletal",
+    "topic": "Crystal arthropathy",
+    "subtopic": "Pseudogout",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cppd-positive-birefringence",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-109",
+    "stem": "A patient with recurrent nocturnal asthma symptoms despite short-acting bronchodilators should generally have controller therapy escalated to include:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "An inhaled corticosteroid-containing regimen",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Only more frequent SABA",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Long-term oral antibiotics",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "No anti-inflammatory therapy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Persistent or nocturnal symptoms require ICS-containing controller therapy; combination ICS/LABA is commonly used depending on severity and regimen.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Respiratory; Topic: Asthma; Subtopic: Controller escalation. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "Asthma",
+    "subtopic": "Controller escalation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "asthma-ics-laba",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Medicine.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-110",
+    "stem": "Fever, jaundice, acute kidney injury and conjunctival suffusion in a sewage worker most strongly suggest:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Leptospirosis (Weil disease)",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Enteric fever",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Brucellosis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Dengue without warning signs",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Severe leptospirosis can produce jaundice, renal failure and conjunctival suffusion, particularly after contaminated-water exposure.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Infectious Disease & Immunology; Topic: Leptospirosis; Subtopic: Weil disease. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Leptospirosis",
+    "subtopic": "Weil disease",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "weil-disease",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-111",
+    "stem": "A stab wound to the abdomen with generalized guarding and peritonitis requires:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Urgent exploratory laparotomy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Observation alone",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Elective colonoscopy",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Only diagnostic peritoneal lavage despite frank peritonitis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Penetrating abdominal trauma with clear peritoneal signs is an indication for urgent operative exploration.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Gastrointestinal & Hepatobiliary; Topic: Trauma surgery; Subtopic: Penetrating abdominal trauma. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Trauma surgery",
+    "subtopic": "Penetrating abdominal trauma",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "stab-peritonitis-laparotomy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-112",
+    "stem": "Long-standing chronic venous insufficiency can produce:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Stasis eczema and lipodermatosclerosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Dry gangrene from arterial occlusion only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "No skin changes",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Isolated petechiae without edema",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Venous hypertension commonly causes edema, hemosiderin pigmentation, stasis dermatitis and lipodermatosclerosis.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Cardiovascular; Topic: Venous disease; Subtopic: Chronic venous insufficiency skin changes. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Cardiovascular",
+    "topic": "Venous disease",
+    "subtopic": "Chronic venous insufficiency skin changes",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "venous-lipodermatosclerosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-113",
+    "stem": "After high-energy trauma, prolonged unconsciousness with a relatively unrevealing CT but petechial hemorrhages in the corpus callosum suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Diffuse axonal injury",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Epidural hematoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Chronic subdural hematoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Brain abscess",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Diffuse axonal injury results from shearing forces and classically involves the gray-white junction and corpus callosum; CT may be initially subtle.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Nervous System; Topic: Head injury; Subtopic: Diffuse axonal injury. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "Nervous System",
+    "topic": "Head injury",
+    "subtopic": "Diffuse axonal injury",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "dai-corpus-callosum",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-114",
+    "stem": "A painless obstructive jaundice with a palpable nontender gallbladder most strongly suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Malignant distal biliary obstruction",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Acute calculous cholecystitis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Hemolytic jaundice",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Viral hepatitis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Courvoisier sign suggests malignant obstruction, often from pancreatic-head or distal biliary malignancy, rather than chronic gallstone disease.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Gastrointestinal & Hepatobiliary; Topic: Obstructive jaundice; Subtopic: Courvoisier sign. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Obstructive jaundice",
+    "subtopic": "Courvoisier sign",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "courvoisier-malignant-obstruction",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-115",
+    "stem": "Progressive phimosis with a white, scarred prepuce in a child is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Balanitis xerotica obliterans",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Paraphimosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Hypospadias",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Epispadias",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Balanitis xerotica obliterans (male genital lichen sclerosus) causes whitening, sclerosis and progressive pathological phimosis.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Renal & Genitourinary; Topic: Pediatric urology; Subtopic: Balanitis xerotica obliterans. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Renal & Genitourinary",
+    "topic": "Pediatric urology",
+    "subtopic": "Balanitis xerotica obliterans",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "bxo-phimosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Surgery.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-116",
+    "stem": "A circumferential full-thickness limb burn causing vascular compromise is treated urgently with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Escharotomy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Simple dressing only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Immediate amputation",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Needle fasciocentesis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Escharotomy releases constricting inelastic burn eschar and restores distal perfusion when vascular compromise is present.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: Dermatology; Topic: Burns; Subtopic: Escharotomy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/surgery/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "Dermatology",
+    "topic": "Burns",
+    "subtopic": "Escharotomy",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "circumferential-burn-escharotomy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/surgery/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-117",
+    "stem": "Polypropylene (Prolene) suture is best described as:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Nonabsorbable monofilament",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Absorbable braided multifilament",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Natural collagen suture",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Rapidly absorbable monofilament",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Polypropylene is a synthetic nonabsorbable monofilament with low tissue reactivity.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Surgery; System: General / Cross-system; Topic: Suture materials; Subtopic: Polypropylene suture. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/surgery/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Surgery",
+    "system": "General / Cross-system",
+    "topic": "Suture materials",
+    "subtopic": "Polypropylene suture",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "polypropylene-monofilament",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/surgery/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-118",
+    "stem": "When overt umbilical-cord prolapse occurs in active labor and vaginal birth is not imminent, immediate management includes:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Relieve cord compression while preparing emergency cesarean delivery",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Apply fundal pressure",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Administer oxytocin to speed contractions",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Wait for spontaneous resolution",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The presenting part should be elevated to reduce cord compression, with urgent cesarean delivery when rapid vaginal delivery is not feasible.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Obstetric emergencies; Subtopic: Cord prolapse. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Obstetric emergencies",
+    "subtopic": "Cord prolapse",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cord-prolapse-emergency-cs",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-119",
+    "stem": "During a trial of labor after cesarean, sudden fetal bradycardia with maternal tachycardia should prompt:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Urgent cesarean evaluation for possible uterine rupture",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Routine oxytocin augmentation",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Discharge if pain is absent",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Forceps at a high fetal station",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Abrupt fetal heart-rate abnormality during TOLAC is an important warning sign of uterine rupture and warrants urgent operative assessment.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Labor after cesarean; Subtopic: Suspected uterine rupture. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Labor after cesarean",
+    "subtopic": "Suspected uterine rupture",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "tolac-bradycardia-emergency-cs",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-120",
+    "stem": "A 46-year-old with abnormal uterine bleeding and markedly thickened endometrium should generally undergo:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Endometrial sampling",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Observation alone indefinitely",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Empiric antibiotics only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Immediate chemotherapy without tissue diagnosis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Endometrial sampling is indicated in women 45 years or older with abnormal uterine bleeding to exclude hyperplasia or malignancy.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Abnormal uterine bleeding; Subtopic: Endometrial biopsy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Abnormal uterine bleeding",
+    "subtopic": "Endometrial biopsy",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "aub-age45-endometrial-biopsy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-121",
+    "stem": "The first-line positional maneuver for shoulder dystocia is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "McRoberts maneuver",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Zavanelli maneuver",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Internal podalic version",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Fundal pressure",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "McRoberts positioning with suprapubic pressure is a standard initial response to shoulder dystocia; fundal pressure should be avoided.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Obstetric emergencies; Subtopic: Shoulder dystocia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Obstetric emergencies",
+    "subtopic": "Shoulder dystocia",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "shoulder-dystocia-mcroberts",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-122",
+    "stem": "Secondary amenorrhea with elevated FSH and very low AMH in a woman younger than 40 most strongly suggests:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Premature ovarian insufficiency",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "PCOS",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Hyperprolactinemia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Functional hypothalamic amenorrhea",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Ovarian reserve is markedly reduced in premature ovarian insufficiency, producing low AMH and hypergonadotropic hypogonadism.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Amenorrhea; Subtopic: Premature ovarian insufficiency. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Amenorrhea",
+    "subtopic": "Premature ovarian insufficiency",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "poi-high-fsh-low-amh",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-123",
+    "stem": "During mediolateral episiotomy repair, the usual tissue approximation sequence is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Vaginal mucosa → perineal muscle → skin",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Skin → muscle → mucosa",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Muscle → skin → mucosa",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Skin only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Repair proceeds from the vaginal mucosa to deeper perineal muscles and finally the skin.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Obstetric procedures; Subtopic: Episiotomy repair. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Obstetric procedures",
+    "subtopic": "Episiotomy repair",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "episiotomy-mucosa-muscle-skin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-124",
+    "stem": "The most accurate ultrasound parameter for dating an early first-trimester pregnancy is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Crown-rump length",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Femur length",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Abdominal circumference",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Biparietal diameter after 30 weeks",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Crown-rump length is the most accurate standard ultrasound measure for gestational dating in the first trimester.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Antenatal care; Subtopic: First-trimester dating. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Antenatal care",
+    "subtopic": "First-trimester dating",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pregnancy-dating-crl",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-125",
+    "stem": "Painless postmenopausal bleeding should be treated as requiring evaluation for:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Endometrial malignancy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Physiologic ovulatory bleeding",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Mittelschmerz",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Normal adolescence",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Postmenopausal bleeding warrants prompt evaluation because endometrial carcinoma must be excluded.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Obstetrics & Gynaecology; System: Reproductive; Topic: Gynecologic oncology; Subtopic: Postmenopausal bleeding. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Obstetrics & Gynaecology",
+    "system": "Reproductive",
+    "topic": "Gynecologic oncology",
+    "subtopic": "Postmenopausal bleeding",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "postmenopausal-bleeding-endometrium",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/obstetrics-and-gynecology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-126",
+    "stem": "A febrile child whose chest radiograph shows a focal dense opacity limited to one lobe most likely has:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Lobar consolidation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pneumothorax",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Pleural air-fluid level",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Diffuse interstitial edema",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Focal lobar air-space opacity in a child with fever and cough is consistent with lobar pneumonia/consolidation.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pediatrics; System: Respiratory; Topic: Pneumonia; Subtopic: Lobar consolidation. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pediatrics.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "Respiratory",
+    "topic": "Pneumonia",
+    "subtopic": "Lobar consolidation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pediatric-lobar-consolidation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pediatrics.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-127",
+    "stem": "A painless, slowly enlarging superotemporal orbital-rim mass present since childhood is most likely a:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dermoid cyst",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Retinoblastoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Dacryocystocele",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Orbital cellulitis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Congenital dermoid cysts commonly occur near frontozygomatic sutures in the superotemporal orbit.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Orbital lesions; Subtopic: Orbital dermoid. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Orbital lesions",
+    "subtopic": "Orbital dermoid",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "orbital-dermoid-superotemporal",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-128",
+    "stem": "Corneal guttata progressing to stromal edema and bullous keratopathy is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Fuchs endothelial corneal dystrophy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Keratoconus",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Herpes simplex keratitis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Band keratopathy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Fuchs dystrophy causes endothelial cell loss, guttata and eventually corneal edema and bullous keratopathy.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Corneal disease; Subtopic: Fuchs endothelial dystrophy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Corneal disease",
+    "subtopic": "Fuchs endothelial dystrophy",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "fuchs-guttata-bullous",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-129",
+    "stem": "Flaky white material on the anterior lens capsule and pupillary margin in an elderly patient is typical of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Pseudoexfoliation syndrome",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pigment dispersion syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Persistent pupillary membrane",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Anterior uveitis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pseudoexfoliation deposits characteristic fibrillar material on the lens capsule and other anterior-segment structures.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Glaucoma risk disorders; Subtopic: Pseudoexfoliation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Glaucoma risk disorders",
+    "subtopic": "Pseudoexfoliation",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pseudoexfoliation-lens",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-130",
+    "stem": "Intrastromal corneal ring segments such as Intacs are used primarily for:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Keratoconus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Acute angle-closure glaucoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Retinal detachment",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Optic neuritis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Intrastromal rings can regularize corneal shape in selected patients with keratoconus or ectasia.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Corneal ectasia; Subtopic: Keratoconus treatment. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Corneal ectasia",
+    "subtopic": "Keratoconus treatment",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "keratoconus-intacs",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-131",
+    "stem": "The most common sinus source of orbital cellulitis is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ethmoid sinusitis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Sphenoid sinusitis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Frontal sinusitis only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Maxillary sinusitis exclusively",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The thin lamina papyracea makes spread from the ethmoid sinuses to the orbit particularly common.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Ophthalmology; System: Ophthalmology; Topic: Orbital infection; Subtopic: Orbital cellulitis etiology. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Ophthalmology",
+    "system": "Ophthalmology",
+    "topic": "Orbital infection",
+    "subtopic": "Orbital cellulitis etiology",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "orbital-cellulitis-ethmoid",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ophthalmology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-132",
+    "stem": "An extensive laryngeal squamous carcinoma involving both vocal cords, subglottis and thyroid cartilage is most appropriately treated surgically with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Total laryngectomy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Simple polypectomy",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Tonsillectomy",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Myringotomy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Advanced destructive transglottic disease not suitable for organ-preserving treatment may require total laryngectomy.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Respiratory; Topic: Laryngeal malignancy; Subtopic: Total laryngectomy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "ENT",
+    "system": "Respiratory",
+    "topic": "Laryngeal malignancy",
+    "subtopic": "Total laryngectomy",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "advanced-larynx-total-laryngectomy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-133",
+    "stem": "A teenage boy with recurrent epistaxis and a nasopharyngeal mass causing anterior bowing of the posterior maxillary wall most likely has:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Juvenile nasopharyngeal angiofibroma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Antrochoanal polyp",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Rhinosporidiosis",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Nasopharyngeal cyst",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "JNA occurs almost exclusively in adolescent males and can produce the Holman-Miller sign by bowing the posterior maxillary wall.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Respiratory; Topic: Nasal tumors; Subtopic: Juvenile nasopharyngeal angiofibroma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "ENT",
+    "system": "Respiratory",
+    "topic": "Nasal tumors",
+    "subtopic": "Juvenile nasopharyngeal angiofibroma",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "jna-holman-miller",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-134",
+    "stem": "An audiogram showing normal bone-conduction thresholds with an air-bone gap indicates:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Conductive hearing loss",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Sensorineural hearing loss",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Central auditory agnosia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Normal hearing",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "An air-bone gap with preserved bone conduction is the audiometric signature of conductive hearing loss.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Nervous System; Topic: Audiology; Subtopic: Conductive hearing loss. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "ENT",
+    "system": "Nervous System",
+    "topic": "Audiology",
+    "subtopic": "Conductive hearing loss",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "air-bone-gap-conductive",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-135",
+    "stem": "Which instrument is specifically used for closed reduction of a displaced nasal bone fracture?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Walsham forceps",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Luc forceps",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Tilley forceps",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Jobson-Horne probe",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Walsham forceps are designed for manipulation and reduction of fractured nasal bones.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Musculoskeletal; Topic: Nasal trauma; Subtopic: Walsham forceps. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "ENT",
+    "system": "Musculoskeletal",
+    "topic": "Nasal trauma",
+    "subtopic": "Walsham forceps",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nasal-fracture-walsham",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-136",
+    "stem": "A dry central tympanic-membrane perforation with conductive hearing loss is definitively repaired by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Myringoplasty",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Modified radical mastoidectomy in every case",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Cochlear implantation",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Stapedectomy",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Myringoplasty closes a tympanic-membrane perforation when middle-ear disease is otherwise controlled.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: ENT; System: Nervous System; Topic: Chronic otitis media; Subtopic: Myringoplasty. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "ENT",
+    "system": "Nervous System",
+    "topic": "Chronic otitis media",
+    "subtopic": "Myringoplasty",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "central-perforation-myringoplasty",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/ent/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-137",
+    "stem": "Severe pain out of proportion to injury, pain with passive stretch and sensory deficit after a tibial fracture requires:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Immediate fasciotomy",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Observation until pulses disappear",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Only opioid analgesia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Elective casting",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "These are classic warning signs of acute compartment syndrome, which is a surgical emergency requiring fasciotomy.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Orthopaedics; System: Musculoskeletal; Topic: Trauma; Subtopic: Acute compartment syndrome. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/orthopaedics/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 3,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Orthopaedics",
+    "system": "Musculoskeletal",
+    "topic": "Trauma",
+    "subtopic": "Acute compartment syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "compartment-syndrome-fasciotomy",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/orthopaedics/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-138",
+    "stem": "A stable congenital hypopigmented patch present since birth that becomes more conspicuous under Wood lamp is most consistent with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Nevus depigmentosus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vitiligo",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Nevus anemicus",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Tinea versicolor",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Nevus depigmentosus is a congenital, usually nonprogressive hypopigmented mosaic lesion.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Dermatology; System: Dermatology; Topic: Pigment disorders; Subtopic: Nevus depigmentosus. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Dermatology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Dermatology",
+    "system": "Dermatology",
+    "topic": "Pigment disorders",
+    "subtopic": "Nevus depigmentosus",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nevus-depigmentosus",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Dermatology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-139",
+    "stem": "A pervasive pattern of perfectionism, excessive orderliness and need for control without true obsessions is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Obsessive-compulsive personality disorder",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Obsessive-compulsive disorder",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Borderline personality disorder",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Schizotypal personality disorder",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "OCPD is an ego-syntonic personality pattern dominated by rigidity, perfectionism and control.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Psychiatry; System: Nervous System; Topic: Personality disorders; Subtopic: OCPD. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/psychiatry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Psychiatry",
+    "system": "Nervous System",
+    "topic": "Personality disorders",
+    "subtopic": "OCPD",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ocpd-perfectionism",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/psychiatry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-140",
+    "stem": "Unexpected travel away from home with amnesia for the journey or identity is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dissociative fugue",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Delirium tremens",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Mania",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Somatic symptom disorder",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Dissociative fugue involves purposeful travel or wandering with autobiographical amnesia.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Psychiatry; System: Nervous System; Topic: Dissociative disorders; Subtopic: Dissociative fugue. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/psychiatry/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Psychiatry",
+    "system": "Nervous System",
+    "topic": "Dissociative disorders",
+    "subtopic": "Dissociative fugue",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "dissociative-fugue",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/psychiatry/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]
