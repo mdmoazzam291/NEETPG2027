@@ -1,0 +1,2042 @@
+[
+  {
+    "external_id": "neetpg-2025-061",
+    "stem": "Which drug is classically used for preoperative alpha blockade in pheochromocytoma?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Phenoxybenzamine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Propranolol",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Clonidine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Adenosine",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Phenoxybenzamine is a long-acting irreversible alpha blocker traditionally used to prepare patients with pheochromocytoma before surgery.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Endocrine; Topic: Adrenergic drugs; Subtopic: Pheochromocytoma alpha blockade. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Endocrine",
+    "topic": "Adrenergic drugs",
+    "subtopic": "Pheochromocytoma alpha blockade",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pheo-phenoxybenzamine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-062",
+    "stem": "Amiodarone exerts its class III antiarrhythmic effect mainly by prolonging which phase of the ventricular action potential?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Phase 0",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Phase 1",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Phase 2",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Phase 3",
+        "is_correct": true
+      }
+    ],
+    "answer_explanation": "Its dominant class III action is potassium-channel blockade, prolonging phase 3 repolarization and the action-potential duration.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Cardiovascular; Topic: Antiarrhythmics; Subtopic: Amiodarone phase 3. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Cardiovascular",
+    "topic": "Antiarrhythmics",
+    "subtopic": "Amiodarone phase 3",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "amiodarone-phase3",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-063",
+    "stem": "Pegloticase lowers uric acid by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Oxidizing uric acid to allantoin",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Blocking xanthine oxidase",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Inhibiting URAT1",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Increasing purine synthesis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pegloticase is a pegylated uricase that converts uric acid to the more soluble allantoin.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Metabolism & Nutrition; Topic: Gout drugs; Subtopic: Pegloticase mechanism. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Metabolism & Nutrition",
+    "topic": "Gout drugs",
+    "subtopic": "Pegloticase mechanism",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pegloticase-uricase",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-064",
+    "stem": "For pharmacologic thromboprophylaxis after cesarean delivery in a high-risk patient, the commonly preferred agent is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Low-molecular-weight heparin",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Warfarin immediately in all patients",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Clopidogrel",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Aspirin alone",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "LMWH is commonly used for obstetric venous-thromboembolism prophylaxis when pharmacologic prophylaxis is indicated.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Hematology & Oncology; Topic: Anticoagulants; Subtopic: Obstetric VTE prophylaxis. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Hematology & Oncology",
+    "topic": "Anticoagulants",
+    "subtopic": "Obstetric VTE prophylaxis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "obstetric-vte-lmwh",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-065",
+    "stem": "The total initial loading dose in the classic Pritchard magnesium-sulfate regimen is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "4 g",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "10 g",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "14 g",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "20 g",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The classic loading regimen combines 4 g IV with 10 g IM, totaling 14 g.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Reproductive; Topic: Eclampsia therapy; Subtopic: Pritchard loading dose. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Reproductive",
+    "topic": "Eclampsia therapy",
+    "subtopic": "Pritchard loading dose",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pritchard-14g",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-066",
+    "stem": "Which oral drug may be used for prophylaxis of recurrent paroxysmal supraventricular tachycardia in an appropriate patient?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Verapamil",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Adenosine",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Atropine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Digoxin loading only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A nondihydropyridine calcium-channel blocker such as verapamil can be used for prevention in selected patients; adenosine is primarily for acute termination.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Cardiovascular; Topic: Antiarrhythmics; Subtopic: PSVT prophylaxis. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Cardiovascular",
+    "topic": "Antiarrhythmics",
+    "subtopic": "PSVT prophylaxis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "psvt-verapamil",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-067",
+    "stem": "Which beta blocker is a well-established option for migraine prevention?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Propranolol",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Esmolol",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Sotalol",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Timolol eye drops only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Propranolol is widely used for migraine prophylaxis when not contraindicated.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Nervous System; Topic: Migraine drugs; Subtopic: Migraine prophylaxis. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Migraine drugs",
+    "subtopic": "Migraine prophylaxis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "migraine-propranolol",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-068",
+    "stem": "Anemia of chronic kidney disease due to inadequate erythropoietin production can be treated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Darbepoetin alfa",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Filgrastim",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Desmopressin",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Tranexamic acid",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Darbepoetin alfa is an erythropoiesis-stimulating agent used in selected patients with CKD-associated anemia.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Renal & Genitourinary; Topic: Hematopoietic drugs; Subtopic: CKD anemia therapy. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Renal & Genitourinary",
+    "topic": "Hematopoietic drugs",
+    "subtopic": "CKD anemia therapy",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ckd-darbepoetin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-069",
+    "stem": "Benralizumab used in severe eosinophilic asthma binds:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "IL-5 receptor alpha",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "IL-4 receptor only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "IgE directly",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "TNF-alpha",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Benralizumab targets IL-5 receptor alpha on eosinophils and basophils, promoting antibody-dependent depletion.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Respiratory; Topic: Biologic asthma therapy; Subtopic: Benralizumab target. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Respiratory",
+    "topic": "Biologic asthma therapy",
+    "subtopic": "Benralizumab target",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "benralizumab-il5ra",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-070",
+    "stem": "Which prokinetic drug can increase lower-esophageal-sphincter tone and accelerate gastric emptying?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Metoclopramide",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pantoprazole",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Vonoprazan",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sucralfate",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Metoclopramide is a dopamine D2 antagonist with prokinetic effects that enhance gastric emptying and LES tone.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Gastrointestinal & Hepatobiliary; Topic: Prokinetics; Subtopic: Metoclopramide. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Prokinetics",
+    "subtopic": "Metoclopramide",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "metoclopramide-prokinetic",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-071",
+    "stem": "A standard chemoprophylaxis option for close contacts of meningococcal meningitis is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Rifampicin",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Ethambutol",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Metronidazole",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Isoniazid",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Rifampicin is one accepted option for eradication of nasopharyngeal meningococcal carriage in close contacts.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Pharmacology; System: Infectious Disease & Immunology; Topic: Antimicrobials; Subtopic: Meningococcal prophylaxis. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pharmacology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Antimicrobials",
+    "subtopic": "Meningococcal prophylaxis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "meningococcus-rifampicin",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Pharmacology.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-072",
+    "stem": "The specific antidotal therapy for malignant hyperthermia is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dantrolene",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Atropine",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Neostigmine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Flumazenil",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Dantrolene inhibits ryanodine-receptor-mediated calcium release from skeletal muscle and is lifesaving in malignant hyperthermia.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anaesthesiology; System: Musculoskeletal; Topic: Anaesthetic emergencies; Subtopic: Malignant hyperthermia. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Anaesthesia.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Anaesthesiology",
+    "system": "Musculoskeletal",
+    "topic": "Anaesthetic emergencies",
+    "subtopic": "Malignant hyperthermia",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "malignant-hyperthermia-dantrolene",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Anaesthesia.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-073",
+    "stem": "Which neuromuscular blocker is particularly associated with histamine release causing flushing and hypotension?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Atracurium",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vecuronium",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Pancuronium",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Rocuronium",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Atracurium can cause dose-related histamine release with erythema, bronchospasm or hypotension.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Anaesthesiology; System: Cardiovascular; Topic: Neuromuscular blockers; Subtopic: Atracurium histamine release. Source: https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Anaesthesia.pdf. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Anaesthesiology",
+    "system": "Cardiovascular",
+    "topic": "Neuromuscular blockers",
+    "subtopic": "Atracurium histamine release",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "atracurium-histamine",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.doctutorials.com/wp-content/uploads/2025/09/NEET-PG-PYQ-2025-Anaesthesia.pdf",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-074",
+    "stem": "Black grains from a chronic foot mycetoma most strongly suggest infection by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dematiaceous fungi causing eumycetoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Dermatophytes only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Candida albicans",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Malassezia furfur",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Black-grain eumycetoma is classically caused by pigmented dematiaceous fungi such as Madurella species.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Dermatology; Topic: Mycology; Subtopic: Black-grain mycetoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Dermatology",
+    "topic": "Mycology",
+    "subtopic": "Black-grain mycetoma",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "black-grain-eumycetoma",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-075",
+    "stem": "The adhesive-cellophane-tape test is classically used to diagnose:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Enterobius vermicularis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Ascaris lumbricoides",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Taenia solium",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Strongyloides stercoralis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pinworm eggs are collected from the perianal region with adhesive tape, usually early in the morning.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Gastrointestinal & Hepatobiliary; Topic: Parasitology; Subtopic: Enterobiasis diagnosis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Parasitology",
+    "subtopic": "Enterobiasis diagnosis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "enterobius-tape-test",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-076",
+    "stem": "A branching filamentous bacterium that is weakly acid-fast is most consistent with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Nocardia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Actinomyces",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Clostridium",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Listeria",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Nocardia species are aerobic branching gram-positive organisms with partial acid-fastness due to mycolic acids.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Systemic bacteriology; Subtopic: Nocardia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Systemic bacteriology",
+    "subtopic": "Nocardia",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nocardia-weak-acid-fast",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-077",
+    "stem": "Group A Streptococcus adheres to pharyngeal epithelium partly through:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Lipoteichoic acid",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Flagella",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Spores",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Lipid A",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Lipoteichoic acid and associated surface proteins promote adherence of S. pyogenes to epithelial fibronectin.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Respiratory; Topic: Streptococci; Subtopic: GAS adherence. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Respiratory",
+    "topic": "Streptococci",
+    "subtopic": "GAS adherence",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "gas-lipoteichoic-acid",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-078",
+    "stem": "Inflammatory diarrhea after consumption of unpasteurized milk is classically associated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Campylobacter jejuni",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vibrio cholerae",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Clostridium botulinum",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Staphylococcus epidermidis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Campylobacter is commonly acquired from poultry or unpasteurized milk and causes inflammatory, sometimes bloody diarrhea.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Gastrointestinal & Hepatobiliary; Topic: Enteric infections; Subtopic: Campylobacter jejuni. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Enteric infections",
+    "subtopic": "Campylobacter jejuni",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "campylobacter-raw-milk",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-079",
+    "stem": "Tuberculate macroconidia in the mold phase are characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Histoplasma capsulatum",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Candida albicans",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Cryptococcus neoformans",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pneumocystis jirovecii",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Histoplasma produces distinctive tuberculate macroconidia in culture.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Respiratory; Topic: Mycology; Subtopic: Histoplasma morphology. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Respiratory",
+    "topic": "Mycology",
+    "subtopic": "Histoplasma morphology",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "histoplasma-tuberculate-macroconidia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-080",
+    "stem": "Septate hyphae with acute-angle dichotomous branching suggest:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Aspergillus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Mucor",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Candida",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Histoplasma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Aspergillus typically shows narrow septate hyphae branching at acute angles.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Respiratory; Topic: Mycology; Subtopic: Aspergillus morphology. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Respiratory",
+    "topic": "Mycology",
+    "subtopic": "Aspergillus morphology",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "aspergillus-acute-angle",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-081",
+    "stem": "Multinucleated giant cells with intranuclear inclusions on a Tzanck smear are characteristic of infection by:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Herpes simplex virus",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Adenovirus",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "EBV",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hepatitis B virus",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Herpesviruses such as HSV can produce multinucleated giant cells and Cowdry-type intranuclear inclusions.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Dermatology; Topic: Virology; Subtopic: HSV Tzanck smear. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Dermatology",
+    "topic": "Virology",
+    "subtopic": "HSV Tzanck smear",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hsv-tzanck",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-082",
+    "stem": "Recurrent invasive Neisseria infections are especially associated with deficiency of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "C5-C9",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "C1 inhibitor",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "IgA alone",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Properdin only in every case",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The terminal complement membrane-attack complex is crucial for killing Neisseria species.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Immunology; Subtopic: Terminal complement deficiency. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Immunology",
+    "subtopic": "Terminal complement deficiency",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "terminal-complement-neisseria",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-083",
+    "stem": "A painless ulcer with marked edema and a black eschar in an exposed animal worker should raise suspicion for:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cutaneous anthrax",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Chancroid",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ecthyma gangrenosum",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Herpes zoster",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Cutaneous anthrax classically evolves from a papule to a painless ulcer with a black eschar and surrounding edema.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Microbiology; System: Dermatology; Topic: Zoonoses; Subtopic: Cutaneous anthrax. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Dermatology",
+    "topic": "Zoonoses",
+    "subtopic": "Cutaneous anthrax",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "anthrax-black-eschar",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/microbiology/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-084",
+    "stem": "Routine reporting of diagnosed cases from hospitals to health authorities without active case-finding is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Passive surveillance",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Active surveillance",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Sentinel surveillance only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Syndromic surveillance",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Passive surveillance relies on routine reports submitted by healthcare facilities rather than active search by public-health staff.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Surveillance; Subtopic: Passive surveillance. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Surveillance",
+    "subtopic": "Passive surveillance",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "passive-surveillance",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-085",
+    "stem": "Under commonly taught NUHM planning norms, one Urban Primary Health Centre is generally planned for about:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "10,000 urban poor",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "25,000 urban poor",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "50,000 urban population",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "500,000 urban population",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A commonly cited NUHM norm is approximately one UPHC per 50,000 urban population, with adjustments for vulnerable areas.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: National health programs; Subtopic: NUHM UPHC norm. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "National health programs",
+    "subtopic": "NUHM UPHC norm",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nuhm-uphc-50000",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-086",
+    "stem": "Which mosquito larva lacks a respiratory siphon and rests roughly parallel to the water surface?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Anopheles",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Culex",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Aedes",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Mansonia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Anopheles larvae lack a siphon and characteristically lie parallel to the water surface.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: Infectious Disease & Immunology; Topic: Vector biology; Subtopic: Anopheles larva. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Vector biology",
+    "subtopic": "Anopheles larva",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "anopheles-larva-no-siphon",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-087",
+    "stem": "Screening appears to improve survival time from diagnosis without changing the time of death. This is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Lead-time bias",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Recall bias",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Berkson bias",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Confounding by indication",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Earlier diagnosis makes measured survival from diagnosis longer even when actual mortality is unchanged.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Screening; Subtopic: Lead-time bias. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Screening",
+    "subtopic": "Lead-time bias",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "lead-time-bias",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-088",
+    "stem": "In a de facto census, individuals are enumerated according to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Where they are physically present at the time of census",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Their permanent legal domicile only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Their place of birth",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Their workplace regardless of residence",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "The de facto method counts people at the location where they are found at the reference time.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Demography; Subtopic: De facto census. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Demography",
+    "subtopic": "De facto census",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "de-facto-census",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-089",
+    "stem": "The Nalgonda technique for defluoridation of drinking water prominently uses:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Alum and lime",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Charcoal and iodine",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Bleaching powder alone",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Zeolite and chlorine gas",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Nalgonda defluoridation uses alum with lime and related treatment steps to reduce excess fluoride.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Environmental health; Subtopic: Nalgonda technique. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Environmental health",
+    "subtopic": "Nalgonda technique",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "nalgonda-alum-lime",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-090",
+    "stem": "For endemic skeletal fluorosis, an appropriate public-health measure is to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Provide a low-fluoride water source",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Add fluoride supplements",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Increase high-fluoride groundwater intake",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Avoid all calcium in diet",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Prevention centers on reducing fluoride exposure, particularly by using safe low-fluoride drinking water.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: Musculoskeletal; Topic: Environmental health; Subtopic: Fluorosis prevention. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "Musculoskeletal",
+    "topic": "Environmental health",
+    "subtopic": "Fluorosis prevention",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "fluorosis-safe-water",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-091",
+    "stem": "To compare the mean hemoglobin level between two independent groups, the usual parametric test is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Unpaired t-test",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Paired t-test",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Chi-square test",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "McNemar test",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "An independent-samples or unpaired t-test compares means between two unrelated groups when assumptions are satisfied.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: Biostatistics; Subtopic: Unpaired t-test. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "Biostatistics",
+    "subtopic": "Unpaired t-test",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "unpaired-t-test",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-092",
+    "stem": "Which Indian program provides integrated nutrition, health and preschool services to children under 6 years?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Integrated Child Development Services",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Mid-Day Meal only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Janani Suraksha Yojana",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "RNTCP",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "ICDS delivers supplementary nutrition, growth monitoring, preschool education and linked maternal-child services through Anganwadi centers.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: General / Cross-system; Topic: National health programs; Subtopic: ICDS. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "General / Cross-system",
+    "topic": "National health programs",
+    "subtopic": "ICDS",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "icds-under-six",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-093",
+    "stem": "The commonly taught weekly IFA tablet for adolescents under WIFS contains:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "100 mg elemental iron + 500 micrograms folic acid",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "10 mg iron + 50 micrograms folate",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "500 mg iron + 5 mg folate",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "60 mg iron with no folate",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "WIFS traditionally uses a weekly tablet containing 100 mg elemental iron and 500 micrograms folic acid for adolescents.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: PSM; System: Hematology & Oncology; Topic: National nutrition programs; Subtopic: WIFS composition. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "PSM",
+    "system": "Hematology & Oncology",
+    "topic": "National nutrition programs",
+    "subtopic": "WIFS composition",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "wifs-ifa-100-500",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/community-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-094",
+    "stem": "For sexual activity involving a person younger than 18 years, consent is legally invalid for purposes of POCSO because the person is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "A child under the Act",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Competent to consent if no injury is present",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Competent if parents agree",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Exempt from the Act after puberty",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "POCSO defines a child as any person below 18 years, so purported consent does not negate the offense.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: General / Cross-system; Topic: Sexual offences; Subtopic: POCSO age of consent. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "General / Cross-system",
+    "topic": "Sexual offences",
+    "subtopic": "POCSO age of consent",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pocso-under18-consent",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-095",
+    "stem": "Severe gastroenteritis with garlic odor and later rice-water-like stools is a classic toxicology clue for:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Arsenic poisoning",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Opioid poisoning",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Carbon monoxide poisoning",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Methanol poisoning",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Acute arsenic poisoning can mimic severe cholera-like gastroenteritis and may be associated with a garlic odor.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: Gastrointestinal & Hepatobiliary; Topic: Toxicology; Subtopic: Arsenic poisoning. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Toxicology",
+    "subtopic": "Arsenic poisoning",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "arsenic-garlic-ricewater",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-096",
+    "stem": "Manual compression of the neck producing grouped bruises and nail scratches is termed:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Throttling",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Garroting",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Smothering",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Choking",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Throttling is manual strangulation, often leaving fingertip bruises and crescentic nail abrasions.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: Respiratory; Topic: Asphyxial deaths; Subtopic: Throttling. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "Respiratory",
+    "topic": "Asphyxial deaths",
+    "subtopic": "Throttling",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "throttling-manual-strangulation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-097",
+    "stem": "The Protection of Children from Sexual Offences Act applies to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "All persons below 18 years",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Girls below 16 years only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Girls below 18 years only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "All persons below 21 years",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "POCSO is gender-neutral and defines a child as any person below 18 years.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: General / Cross-system; Topic: Medical law; Subtopic: POCSO coverage. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Forensic Medicine",
+    "system": "General / Cross-system",
+    "topic": "Medical law",
+    "subtopic": "POCSO coverage",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "pocso-child-below18",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-098",
+    "stem": "When an accused claims psychosis at the time of an alleged homicide, an appropriate medico-legal step is to:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Arrange formal psychiatric assessment of criminal responsibility",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Declare the person not guilty immediately",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Sentence the person without evaluation",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Ignore the mental-state claim",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Criminal responsibility in the setting of alleged mental illness requires structured forensic psychiatric evaluation; diagnosis alone does not decide legal insanity.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Forensic Medicine; System: Nervous System; Topic: Forensic psychiatry; Subtopic: Criminal responsibility assessment. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Forensic Medicine",
+    "system": "Nervous System",
+    "topic": "Forensic psychiatry",
+    "subtopic": "Criminal responsibility assessment",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "forensic-insanity-evaluation",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/forensic-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-099",
+    "stem": "For suspected early axial spondyloarthritis with inflammatory back pain and normal plain radiographs, the most useful next imaging study is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "MRI of the sacroiliac joints",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Repeat lumbar X-ray immediately",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Bone densitometry",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Skull CT",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "MRI can detect active sacroiliitis before structural changes become visible on plain radiography.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Musculoskeletal; Topic: Spondyloarthritis; Subtopic: Early ankylosing spondylitis imaging. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Musculoskeletal",
+    "topic": "Spondyloarthritis",
+    "subtopic": "Early ankylosing spondylitis imaging",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "axspa-mri-si",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-100",
+    "stem": "Jaundice, splenomegaly, a family history of similar disease and increased MCHC most strongly suggest:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hereditary spherocytosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Iron deficiency anemia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Thalassemia major",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Aplastic anemia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Hereditary spherocytosis often causes hemolysis, splenomegaly and elevated MCHC due to dehydrated spherocytes.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use. Subject: Medicine; System: Hematology & Oncology; Topic: Hemolytic anemia; Subtopic: Hereditary spherocytosis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Medicine",
+    "system": "Hematology & Oncology",
+    "topic": "Hemolytic anemia",
+    "subtopic": "Hereditary spherocytosis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hereditary-spherocytosis-high-mchc",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2025/internal-medicine/",
+      "content_version": 1,
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]
