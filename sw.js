@@ -21,7 +21,7 @@ async function prime(){
       const files=Array.isArray(manifest)?manifest:manifest.files;
       await cache.put('./data/pyq/manifest.json',manifestResponse);
       if(Array.isArray(files)&&files.length){
-        await cache.addAll(files.map(f=>`./${String(f).replace(/^\\.\\//,'')}`));
+        await cache.addAll(files.map(f=>`./${String(f)}`));
       }
     }
   }catch(e){console.warn('Question bundle pre-cache skipped',e)}
