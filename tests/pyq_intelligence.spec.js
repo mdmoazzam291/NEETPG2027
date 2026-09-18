@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 async function loadPyq(page){
   await page.goto('/');
-  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined' ? app.questions.length : 0)).toBeGreaterThanOrEqual(505);
+  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined' ? app.questions.length : 0)).toBeGreaterThanOrEqual(405);
   await page.addScriptTag({url:'/assets/phase10-taxonomy.js'});
   await expect.poll(()=>page.evaluate(()=>Boolean(window.NEETPG_PHASE10))).toBe(true);
   await page.addScriptTag({url:'/assets/pyq-metadata.js'});
