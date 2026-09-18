@@ -5,7 +5,7 @@ async function waitForStudyEngine(page){
     try{
       return typeof app!=='undefined' &&
         app.db &&
-        Array.isArray(app.questions) && app.questions.length>=160 &&
+        Array.isArray(app.questions) && app.questions.length>=505 &&
         Array.isArray(app.attempts) &&
         Number(document.querySelector('#statTotal')?.textContent||0)===app.questions.length;
     }catch{return false;}
