@@ -180,7 +180,7 @@
   }
 
   function barRows(entries, max, limit=20) {
-    const denom = Math.max(1, max || ...entries.map(([,n])=>n));
+    const denom = Math.max(1, max || Math.max(0, ...entries.map(([,n])=>n)));
     return entries.slice(0,limit).map(([label,n]) =>
       `<div class="bar-row"><span title="${esc(label)}">${esc(label)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(3,Math.round(n/denom*100))}%"></div></div><strong>${n}</strong></div>`
     ).join('') || '<div class="empty">No PYQ data yet.</div>';
