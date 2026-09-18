@@ -35,6 +35,8 @@ The current GitHub Pages study bank bundles **405 questions**:
 
 Each PYQ carries `Subject → System → Topic → Subtopic`, exam year/session, source provenance, verification state and a `repeat_key` used to detect concept recurrence across distinct exam years.
 
+Question bundles are discovered through `data/pyq/manifest.json`, which CI and GitHub Pages regenerate automatically from valid JSON bundles under `data/pyq/`. The Question Bank renders the complete matching set rather than truncating at 200 rows, so newly added bundles appear without another frontend filename or display-limit change.
+
 The **PYQ Intelligence** view summarizes year coverage, cross-year repeats, subject/system distribution and a year×subject matrix, and can launch recent-year or repeated-concept drills directly.
 
 Public NEET-PG PYQ material is treated as memory-based/reconstructed unless explicitly supported otherwise. Source ingestion does not automatically mark medical content as verified.
