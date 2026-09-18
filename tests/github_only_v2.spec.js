@@ -22,7 +22,7 @@ test('Question bank, analytics and settings render', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button',{name:/Question Bank/}).click();
   await expect(page.locator('#bankCount')).toContainText('405');
-  await page.locator('#bankSearch').fill('Brown-Sequard');
+  await page.locator('#bankSearch').fill('scapholunate');
   await expect(page.locator('#bankCount')).toContainText('1 of 405');
   await page.getByRole('button',{name:/Analytics/}).click();
   await expect(page.getByText('Accuracy by subject')).toBeVisible();
