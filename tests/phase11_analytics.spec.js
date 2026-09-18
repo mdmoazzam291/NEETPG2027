@@ -5,9 +5,9 @@ async function waitForStudyEngine(page){
     try{
       return typeof app!=='undefined' &&
         app.db &&
-        Array.isArray(app.questions) && app.questions.length===100 &&
+        Array.isArray(app.questions) && app.questions.length>=160 &&
         Array.isArray(app.attempts) &&
-        document.querySelector('#statTotal')?.textContent==='100';
+        Number(document.querySelector('#statTotal')?.textContent||0)===app.questions.length;
     }catch{return false;}
   },{timeout:15000});
 }
