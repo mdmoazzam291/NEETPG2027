@@ -1,0 +1,502 @@
+[
+  {
+    "external_id": "neetpg-2022-001",
+    "stem": "An infant has epileptic spasms and an EEG showing hypsarrhythmia. Which therapy is classically used?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "ACTH",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Ethosuximide",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Carbamazepine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Levetiracetam",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Infantile spasms with hypsarrhythmia are classically treated with ACTH; vigabatrin is especially important with tuberous sclerosis.",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Pediatrics; System: Nervous System; Topic: Infantile spasms; Subtopic: Hypsarrhythmia and ACTH. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pediatrics",
+    "system": "Nervous System",
+    "topic": "Infantile spasms",
+    "subtopic": "Hypsarrhythmia and ACTH",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "infantile-spasms-acth",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2022-002",
+    "stem": "A patient presents with opioid toxicity and respiratory depression. Which drug gives rapid receptor-level reversal?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Flumazenil",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Naloxone",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Naltrexone depot",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Atropine",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Naloxone is a rapid-acting opioid antagonist used for acute opioid overdose.",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Nervous System; Topic: Toxicology; Subtopic: Opioid overdose antidote. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Nervous System",
+    "topic": "Toxicology",
+    "subtopic": "Opioid overdose antidote",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "opioid-toxicity-naloxone",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2022-003",
+    "stem": "Which antidote replenishes glutathione in significant paracetamol poisoning?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "N-acetylcysteine",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pralidoxime",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Fomepizole",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Methylene blue",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "N-acetylcysteine restores glutathione and detoxifies the reactive paracetamol metabolite NAPQI.",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Gastrointestinal & Hepatobiliary; Topic: Toxicology; Subtopic: Paracetamol poisoning antidote. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Toxicology",
+    "subtopic": "Paracetamol poisoning antidote",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "paracetamol-nac",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2022-004",
+    "stem": "Nail pitting is a classic nail finding in:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Psoriasis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Lichen planus",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Tinea versicolor",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Pemphigus vulgaris",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Psoriasis commonly produces nail pitting due to involvement of the nail matrix.",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Dermatology; System: Dermatology; Topic: Psoriasis; Subtopic: Nail pitting. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Dermatology",
+    "system": "Dermatology",
+    "topic": "Psoriasis",
+    "subtopic": "Nail pitting",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "psoriasis-nail-pitting",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2022-005",
+    "stem": "Painful skin necrosis occurring shortly after starting warfarin is linked to an early fall in:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Protein C",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Antithrombin III",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Factor VIII",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Plasminogen",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Warfarin rapidly reduces protein C, creating a transient hypercoagulable state that can cause skin necrosis.",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Hematology & Oncology; Topic: Anticoagulants; Subtopic: Warfarin skin necrosis. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Hematology & Oncology",
+    "topic": "Anticoagulants",
+    "subtopic": "Warfarin skin necrosis",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "warfarin-skin-necrosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2022-006",
+    "stem": "Asthma, nasal polyps and hypersensitivity to aspirin together form:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Samter triad",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Kartagener syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Churg-Strauss triad",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Goodpasture syndrome",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Aspirin-exacerbated respiratory disease, also called Samter triad, combines asthma, nasal polyposis and COX-1 inhibitor sensitivity.",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Respiratory; Topic: Asthma; Subtopic: Aspirin-exacerbated respiratory disease. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "Asthma",
+    "subtopic": "Aspirin-exacerbated respiratory disease",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "samter-triad",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2022-007",
+    "stem": "Prominent U waves on ECG are most strongly associated with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hyperkalemia",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Hypokalemia",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "Hypercalcemia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hypermagnesemia",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Hypokalemia can produce flattened T waves, ST depression and prominent U waves.",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Cardiovascular; Topic: Electrolyte ECG changes; Subtopic: Hypokalemia. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Cardiovascular",
+    "topic": "Electrolyte ECG changes",
+    "subtopic": "Hypokalemia",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "hypokalemia-u-wave",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2022-008",
+    "stem": "McArdle disease is caused by deficiency of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Muscle glycogen phosphorylase",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Lysosomal acid alpha-glucosidase",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Glucose-6-phosphatase",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Branching enzyme",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "McArdle disease is glycogen storage disease type V due to deficiency of skeletal-muscle glycogen phosphorylase (myophosphorylase).",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Biochemistry; System: Metabolism & Nutrition; Topic: Glycogen storage diseases; Subtopic: McArdle disease. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Biochemistry",
+    "system": "Metabolism & Nutrition",
+    "topic": "Glycogen storage diseases",
+    "subtopic": "McArdle disease",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mcardle-myophosphorylase",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2022-009",
+    "stem": "Cystic fibrosis is inherited most commonly as:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Autosomal dominant",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Autosomal recessive",
+        "is_correct": true
+      },
+      {
+        "label": "C",
+        "text": "X-linked recessive",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Mitochondrial",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Pathogenic variants in CFTR cause an autosomal recessive disorder.",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Pediatrics; System: Respiratory; Topic: Cystic fibrosis; Subtopic: Inheritance. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pediatrics",
+    "system": "Respiratory",
+    "topic": "Cystic fibrosis",
+    "subtopic": "Inheritance",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cystic-fibrosis-ar",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2022-010",
+    "stem": "The translocation t(15;17) is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Acute promyelocytic leukemia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Chronic myeloid leukemia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Burkitt lymphoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Follicular lymphoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "APL is driven by the PML-RARA fusion generated by t(15;17).",
+    "reference_text": "NEET-PG 2022 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Hematology & Oncology; Topic: Acute myeloid leukemia; Subtopic: APL translocation. Source: https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pathology",
+    "system": "Hematology & Oncology",
+    "topic": "Acute myeloid leukemia",
+    "subtopic": "APL translocation",
+    "exam": "NEET-PG",
+    "exam_year": 2022,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "apl-t1517",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.collegedekho.com/news/neet-pg-2022-question-paper-26760/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]
