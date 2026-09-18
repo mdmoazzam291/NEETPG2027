@@ -1,0 +1,502 @@
+[
+  {
+    "external_id": "neetpg-2025-001",
+    "stem": "Which symptom combination most strongly points toward Sjogren syndrome?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dry eyes with dry mouth",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Hemoptysis with hearing loss",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ptosis with diplopia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Photosensitivity with oral ulcers only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Sjogren syndrome causes autoimmune destruction of lacrimal and salivary glands, producing keratoconjunctivitis sicca and xerostomia.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Infectious Disease & Immunology; Topic: Connective tissue disease; Subtopic: Sjogren syndrome. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Connective tissue disease",
+    "subtopic": "Sjogren syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "sjogren-sicca",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-002",
+    "stem": "A slowly enlarging pulsatile upper-neck mass that splays the carotid bifurcation is most consistent with:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Carotid body tumor",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Branchial cyst",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Thyroglossal cyst",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Laryngocele",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A carotid body paraganglioma is a vascular pulsatile mass at the carotid bifurcation.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Cardiovascular; Topic: Neck masses; Subtopic: Carotid body tumor. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "Cardiovascular",
+    "topic": "Neck masses",
+    "subtopic": "Carotid body tumor",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "carotid-body-tumor",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-003",
+    "stem": "The most common distant metastatic site for breast carcinoma is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Bone",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Brain",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Skin",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Spleen",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Bone is the most common site of distant metastasis from breast cancer.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Reproductive; Topic: Breast cancer; Subtopic: Metastatic spread. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "Reproductive",
+    "topic": "Breast cancer",
+    "subtopic": "Metastatic spread",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "breast-metastasis-bone",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-004",
+    "stem": "Which laboratory abnormality most commonly supports the diagnosis of acute pancreatitis?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Elevated serum lipase",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Low alkaline phosphatase",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Low serum amylase",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "High troponin I",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Serum lipase is typically elevated in acute pancreatitis and has greater diagnostic specificity than amylase.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Gastrointestinal & Hepatobiliary; Topic: Pancreatitis; Subtopic: Serum lipase. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Pancreatitis",
+    "subtopic": "Serum lipase",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "acute-pancreatitis-lipase",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-005",
+    "stem": "Which physical feature is classically associated with Cushing syndrome?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Moon facies",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Mask-like facies",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Kayser-Fleischer ring",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Malar rash",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Cortisol excess commonly causes rounded moon facies, central adiposity and dorsocervical fat accumulation.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Endocrine; Topic: Cushing syndrome; Subtopic: Moon facies. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Endocrine",
+    "topic": "Cushing syndrome",
+    "subtopic": "Moon facies",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "cushing-moon-facies",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-006",
+    "stem": "An intensely pruritic grouped eruption on extensor elbows and knees in a patient with gluten sensitivity is most likely:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Dermatitis herpetiformis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Pemphigus vulgaris",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Erythema nodosum",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Tinea corporis",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Dermatitis herpetiformis is strongly associated with celiac disease and classically affects extensor surfaces.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Dermatology; System: Dermatology; Topic: Autoimmune blistering disease; Subtopic: Dermatitis herpetiformis. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Dermatology",
+    "system": "Dermatology",
+    "topic": "Autoimmune blistering disease",
+    "subtopic": "Dermatitis herpetiformis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "dermatitis-herpetiformis-celiac",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-007",
+    "stem": "A tall patient with ectopia lentis and aortic-root disease most likely has a pathogenic variant in:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "FBN1",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "RB1",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "NF1",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "APC",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Marfan syndrome is caused by pathogenic variants in FBN1 encoding fibrillin-1.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Cardiovascular; Topic: Marfan syndrome; Subtopic: FBN1. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Cardiovascular",
+    "topic": "Marfan syndrome",
+    "subtopic": "FBN1",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "marfan-fbn1",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-008",
+    "stem": "In obstructive jaundice, deficiency of which nutrient can reduce activity of clotting factor IX and improve after replacement?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Vitamin K",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vitamin B12",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Vitamin C",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Folate",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Fat malabsorption in biliary obstruction can cause vitamin K deficiency, reducing gamma-carboxylation of factors II, VII, IX and X.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Gastrointestinal & Hepatobiliary; Topic: Coagulopathy; Subtopic: Vitamin K deficiency. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Gastrointestinal & Hepatobiliary",
+    "topic": "Coagulopathy",
+    "subtopic": "Vitamin K deficiency",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "obstructive-jaundice-vitk",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-009",
+    "stem": "Metaphyseal splaying and fractures after trivial trauma in a child are compatible with deficiency of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Vitamin D",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Vitamin B1",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Vitamin C",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Vitamin E",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Nutritional rickets due to vitamin D deficiency can cause metaphyseal widening/splaying and weak bones.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Pediatrics; System: Musculoskeletal; Topic: Rickets; Subtopic: Vitamin D deficiency. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pediatrics",
+    "system": "Musculoskeletal",
+    "topic": "Rickets",
+    "subtopic": "Vitamin D deficiency",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "rickets-vitamin-d",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2025-010",
+    "stem": "A major long-term skeletal adverse effect of systemic glucocorticoid therapy is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Osteoporosis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Osteopetrosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Paget disease",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Osteogenesis imperfecta",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Chronic glucocorticoid exposure reduces bone formation and increases fracture risk, causing secondary osteoporosis.",
+    "reference_text": "NEET-PG 2025 memory-based recall, independently normalized/paraphrased for study use; Subject: Pharmacology; System: Musculoskeletal; Topic: Corticosteroids; Subtopic: Glucocorticoid osteoporosis. Source: https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 1,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Pharmacology",
+    "system": "Musculoskeletal",
+    "topic": "Corticosteroids",
+    "subtopic": "Glucocorticoid osteoporosis",
+    "exam": "NEET-PG",
+    "exam_year": 2025,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "steroid-osteoporosis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://www.shiksha.com/medicine-health-sciences/articles/neet-pg-2025-question-paper-with-answer-key-solutions-pdf-download-blogId-207156",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  }
+]
