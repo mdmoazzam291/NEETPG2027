@@ -12,7 +12,9 @@ test('available-bank simulator uses section-locked NEET-PG flow', async ({page})
   await loadExam(page);
   await page.evaluate(()=>window.NEETPG_EXAM9.startAvailable());
   await expect(page.locator('#exam9Backdrop')).toHaveClass(/show/);
-  await expect(page.locator('#exam9HeaderSub')).toContainText('Section 1 of 3');
+  const total=await page.evaluate(()=>app.questions.length);
+  const sections=Math.ceil(total/40);
+  await expect(page.locator('#exam9HeaderSub')).toContainText(`Section 1 of ${sections}`);
   await expect(page.locator('.exam9-q')).toHaveCount(40);
   await expect(page.locator('#exam9Clock')).toContainText(/41:|42:/);
 
@@ -22,13 +24,13 @@ test('available-bank simulator uses section-locked NEET-PG flow', async ({page})
   await expect(page.locator('#exam9Body')).toContainText('Q 2/40');
 
   await page.click('#exam9SubmitSection');
-  await expect(page.locator('#exam9HeaderSub')).toContainText('Section 2 of 3');
+  await expect(page.locator('#exam9HeaderSub')).toContainText(`Section 2 of ${sections}`);
   const state=await page.evaluate(()=>window.NEETPG_EXAM9.state);
   expect(state.sections[0].locked).toBe(true);
   expect(state.currentSection).toBe(1);
 });
 
-test('active exam survives reload and full 200Q mode stays gated until content exists', async ({page})=>{
+test('active exam survives reload and 200Q mode follows available content', async ({page})=>{
   await loadExam(page);
   await page.evaluate(()=>window.NEETPG_EXAM9.startAvailable());
   await page.locator('.exam9-option').nth(1).click();
@@ -46,6 +48,12 @@ test('active exam survives reload and full 200Q mode stays gated until content e
   await page.click('#exam9Close');
   await page.evaluate(()=>localStorage.removeItem('neetpg2027-exam-v9-active'));
   await page.evaluate(()=>window.NEETPG_EXAM9.open());
-  await expect(page.locator('#exam9Full')).toBeDisabled();
-  await expect(page.locator('#exam9Body')).toContainText('Current bank: 100');
+  const n=await page.evaluate(()=>app.questions.length);
+  if(n<200){
+    await expect(page.locator('#exam9Full')).toBeDisabled();
+    await expect(page.locator('#exam9Body')).toContainText(`Current bank: ${n}`);
+  }else{
+    await expect(page.locator('#exam9Full')).toBeEnabled();
+    await expect(page.locator('#exam9Body')).toContainText(`${n} questions available`);
+  }
 });
