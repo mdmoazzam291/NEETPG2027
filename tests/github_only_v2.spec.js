@@ -23,7 +23,13 @@ test('Question bank, analytics and settings render', async ({ page }) => {
   await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0)).toBe(405);
   await page.evaluate(()=>navigate('bank'));
   await expect(page.locator('#bankSearch')).toBeVisible();
-  await expect(page.locator('#bankCount')).toContainText('405');
+  await expect(page.locator('#bankCount')).toHaveText('405 of 405 questions');
+  await expect(page.locator('#bankBody tr')).toHaveCount(405);
+  const rendered=await page.evaluate(()=>({
+    loaded:app.questions.length,
+    rows:document.querySelectorAll('#bankBody tr').length
+  }));
+  expect(rendered.rows).toBe(rendered.loaded);
   await page.locator('#bankSearch').fill('scapholunate');
   await expect(page.locator('#bankCount')).toContainText('1 of 405');
   await page.evaluate(()=>navigate('analytics'));
