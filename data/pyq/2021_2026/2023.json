@@ -498,5 +498,505 @@
       "reviewed_by": null,
       "reviewed_at": null
     }
+  },
+  {
+    "external_id": "neetpg-2023-011",
+    "stem": "A painless violaceous skin lesion in an HIV-positive patient is most suggestive of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Kaposi sarcoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Basal cell carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Squamous cell carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Dermatofibroma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Kaposi sarcoma is an HHV-8-associated vascular tumor producing red-purple lesions, especially in advanced HIV infection.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Dermatology; Topic: HIV-associated malignancy; Subtopic: Kaposi sarcoma. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Dermatology",
+    "topic": "HIV-associated malignancy",
+    "subtopic": "Kaposi sarcoma",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "kaposi-hhv8",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2023-012",
+    "stem": "Claviceps purpurea produces which toxic compounds?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ergot alkaloids",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Aflatoxins",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Ochratoxin",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sanguinarine",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Claviceps species contaminate grains and produce ergot alkaloids that can cause vasospasm and neurotoxicity.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Microbiology; System: Infectious Disease & Immunology; Topic: Mycology; Subtopic: Ergot alkaloids. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Microbiology",
+    "system": "Infectious Disease & Immunology",
+    "topic": "Mycology",
+    "subtopic": "Ergot alkaloids",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "claviceps-ergot",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2023-013",
+    "stem": "An intrinsic error in development that produces a primary structural defect of an organ is termed:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Malformation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Disruption",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Deformation",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Sequence",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "A malformation results from an intrinsically abnormal developmental process, unlike disruption or deformation.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: General / Cross-system; Topic: Developmental pathology; Subtopic: Malformation. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "General / Cross-system",
+    "topic": "Developmental pathology",
+    "subtopic": "Malformation",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "malformation-definition",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2023-014",
+    "stem": "Precocious puberty with café-au-lait macules and polyostotic fibrous dysplasia is characteristic of:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "McCune-Albright syndrome",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Turner syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Noonan syndrome",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "MEN2",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "McCune-Albright syndrome combines fibrous dysplasia, café-au-lait pigmentation and endocrine hyperfunction such as precocious puberty.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Pediatrics; System: Endocrine; Topic: Genetic syndromes; Subtopic: McCune-Albright syndrome. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Pediatrics",
+    "system": "Endocrine",
+    "topic": "Genetic syndromes",
+    "subtopic": "McCune-Albright syndrome",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "mccune-albright-fibrous-dysplasia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2023-015",
+    "stem": "Which electrolyte abnormality may occur after transfusion of older stored red-cell units because of the storage lesion?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Hyperkalemia",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Hypercalcemia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Severe hypernatremia",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Hyperphosphatemia only",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Potassium leaks out of stored erythrocytes over time, so large or rapid transfusions can cause hyperkalemia.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Pathology; System: Hematology & Oncology; Topic: Transfusion medicine; Subtopic: Storage lesion hyperkalemia. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pathology",
+    "system": "Hematology & Oncology",
+    "topic": "Transfusion medicine",
+    "subtopic": "Storage lesion hyperkalemia",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "stored-blood-hyperkalemia",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2023-016",
+    "stem": "A child with severe dehydration from acute diarrhea should initially receive:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Intravenous isotonic fluid resuscitation",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Antidiarrheal drugs only",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Oral antibiotics only",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "No fluid until stool culture",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Severe dehydration requires rapid IV isotonic fluid therapy; ORS is crucial once oral therapy is feasible.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Pediatrics; System: General / Cross-system; Topic: Dehydration; Subtopic: Severe dehydration management. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": false,
+    "subject": "Pediatrics",
+    "system": "General / Cross-system",
+    "topic": "Dehydration",
+    "subtopic": "Severe dehydration management",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "severe-dehydration-iv-fluids",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2023-017",
+    "stem": "Under normal physiological conditions, which substance has essentially zero renal clearance because it is completely reabsorbed?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Glucose",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Inulin",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Creatinine",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "PAH",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Filtered glucose is normally completely reabsorbed below the transport maximum, giving an approximate clearance of zero.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Physiology; System: Renal & Genitourinary; Topic: Renal clearance; Subtopic: Glucose clearance. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "Renal & Genitourinary",
+    "topic": "Renal clearance",
+    "subtopic": "Glucose clearance",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "glucose-zero-clearance",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2023-018",
+    "stem": "Which membrane transport process occurs only in living cells because it requires metabolic energy?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Simple diffusion",
+        "is_correct": false
+      },
+      {
+        "label": "B",
+        "text": "Osmosis",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Active transport",
+        "is_correct": true
+      },
+      {
+        "label": "D",
+        "text": "Filtration",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Active transport depends directly or indirectly on cellular energy and functioning membrane proteins.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Physiology; System: General / Cross-system; Topic: Membrane transport; Subtopic: Active transport. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": false,
+    "subject": "Physiology",
+    "system": "General / Cross-system",
+    "topic": "Membrane transport",
+    "subtopic": "Active transport",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "active-transport-living-cells",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2023-019",
+    "stem": "Neoadjuvant chemotherapy is least routinely used as a standard strategy in which malignancy?",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Differentiated thyroid carcinoma",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Breast carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Esophageal carcinoma",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Selected lung carcinoma",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Differentiated thyroid cancer is primarily managed surgically, with radioactive iodine and thyroid-suppressive therapy as indicated rather than routine neoadjuvant cytotoxic chemotherapy.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Surgery; System: Endocrine; Topic: Cancer therapy; Subtopic: Thyroid cancer systemic therapy. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": false,
+    "is_integrated": true,
+    "subject": "Surgery",
+    "system": "Endocrine",
+    "topic": "Cancer therapy",
+    "subtopic": "Thyroid cancer systemic therapy",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "thyroid-cancer-no-neoadjuvant",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
+  },
+  {
+    "external_id": "neetpg-2023-020",
+    "stem": "A patient using inhaled corticosteroids for asthma develops removable white plaques in the mouth. The most likely diagnosis is:",
+    "question_type": "single_best_answer",
+    "options": [
+      {
+        "label": "A",
+        "text": "Oral candidiasis",
+        "is_correct": true
+      },
+      {
+        "label": "B",
+        "text": "Oral hairy leukoplakia",
+        "is_correct": false
+      },
+      {
+        "label": "C",
+        "text": "Aphthous ulcers",
+        "is_correct": false
+      },
+      {
+        "label": "D",
+        "text": "Lichen planus",
+        "is_correct": false
+      }
+    ],
+    "answer_explanation": "Local steroid deposition can predispose to oropharyngeal candidiasis; rinsing the mouth after inhalation reduces risk.",
+    "reference_text": "NEET-PG 2023 memory-based recall, independently normalized/paraphrased for study use; Subject: Medicine; System: Respiratory; Topic: Asthma therapy adverse effects; Subtopic: Inhaled steroid candidiasis. Source: https://getoncourse.ai/previous-year-papers/neet-pg/2023/. Exact original wording/options not claimed; medically unverified.",
+    "difficulty": 2,
+    "is_clinical": true,
+    "is_integrated": true,
+    "subject": "Medicine",
+    "system": "Respiratory",
+    "topic": "Asthma therapy adverse effects",
+    "subtopic": "Inhaled steroid candidiasis",
+    "exam": "NEET-PG",
+    "exam_year": 2023,
+    "exam_session": "single",
+    "pyq_status": "memory_based_recall",
+    "repeat_key": "ics-oral-candidiasis",
+    "verification_status": "unverified",
+    "content_version": 1,
+    "provenance": {
+      "origin": "public_memory_recall_normalized",
+      "source_kind": "memory_based_recall",
+      "source_url": "https://getoncourse.ai/previous-year-papers/neet-pg/2023/",
+      "reviewed_by": null,
+      "reviewed_at": null
+    }
   }
 ]
