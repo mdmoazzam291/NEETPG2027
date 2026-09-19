@@ -1,12 +1,18 @@
 (() => {
   'use strict';
 
+  // Idempotent boot: Pages/tests/extensions may evaluate the bundle more than once.
+  // A second instance would otherwise create duplicate timers and event handlers.
+  if(window.__NEETPG_UI_V4_LOADED)return;
+  window.__NEETPG_UI_V4_LOADED=true;
+
   const $q = s => document.querySelector(s);
   const $qa = s => [...document.querySelectorAll(s)];
   const fmt = n => new Intl.NumberFormat('en-IN').format(Number(n || 0));
   const clampV4 = (n,a,b) => Math.max(a,Math.min(b,n));
   const EXAM_TARGET = Object.freeze({ year: 2027, monthIndex: 7, day: 29, iso: '2027-08-29', label: '29 Aug 2027' });
   let examCountdownTimer = null;
+  let examCountdownGeneration = 0;
 
   function examTargetTime(){
     // Pin the target to Indian Standard Time so travelling or changing the device timezone
@@ -37,14 +43,21 @@
   }
 
   function stopExamCountdown(){
-    if(examCountdownTimer){clearInterval(examCountdownTimer);examCountdownTimer=null}
+    examCountdownGeneration+=1;
+    if(examCountdownTimer){clearTimeout(examCountdownTimer);examCountdownTimer=null}
   }
 
   function startExamCountdown(){
     stopExamCountdown();
     renderExamCountdown();
     if(document.visibilityState!=='visible' || !$q('#view-dashboard.active'))return;
-    examCountdownTimer=setInterval(renderExamCountdown,1000);
+    const generation=examCountdownGeneration;
+    const tick=()=>{
+      if(generation!==examCountdownGeneration || document.visibilityState!=='visible' || !$q('#view-dashboard.active'))return;
+      renderExamCountdown();
+      examCountdownTimer=setTimeout(tick,1000);
+    };
+    examCountdownTimer=setTimeout(tick,1000);
   }
 
   function syncExamCountdown(){
@@ -78,6 +91,7 @@
       const b=e.target.closest('[data-v4-target]'); if(!b)return;
       if(b.dataset.v4Target==='neuralvault'){ window.location.href='neuralvault/'; return; }
       setNavActive(b.dataset.v4Target);
+      if(b.dataset.v4Target==='dashboard')syncExamCountdown();else stopExamCountdown();
       if(typeof navigate==='function') navigate(b.dataset.v4Target);
     });
   }
@@ -87,7 +101,7 @@
     $q('#topTitle')?.remove();
     if(!$q('#v4Search')){
       const search=document.createElement('label'); search.className='v4-search'; search.id='v4Search';
-      search.innerHTML='<span>⌕</span><input id="v4SearchInput" placeholder="Search questions, topics, notes…" autocomplete="off"><kbd>⌘ K</kbd>';
+      search.innerHTML='<span>⌕</span><input id="v4SearchInput" placeholder="Search question bank & topics…" autocomplete="off"><kbd>⌘ K</kbd>';
       const spacer=$q('.topbar .spacer'); bar.insertBefore(search,spacer||bar.firstChild);
       $q('#v4SearchInput')?.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim()){if(typeof navigate==='function')navigate('bank');const s=$q('#bankSearch');if(s){s.value=e.target.value.trim();s.dispatchEvent(new Event('input',{bubbles:true}));}}});
     }
