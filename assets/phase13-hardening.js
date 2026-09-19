@@ -97,8 +97,14 @@
 
   function bindAccessibilityObservers(){
     applyAccessibility();
-    const observer = new MutationObserver(() => applyAccessibility());
-    observer.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class', 'data-on'] });
+    ['neetpg:core-ready','neetpg:route-change','neetpg:data-change','neetpg:dashboard-render'].forEach(name=>window.addEventListener(name,applyAccessibility));
+    const progress=$('#qProgress');
+    if(progress){
+      const observer=new MutationObserver(applyAccessibility);
+      observer.observe(progress,{subtree:true,childList:true,characterData:true});
+    }
+    $('#menuBtn')?.addEventListener('click',()=>queueMicrotask(applyAccessibility));
+    $('#mobileOverlay')?.addEventListener('click',()=>queueMicrotask(applyAccessibility));
   }
 
   function ensureUpdateBanner(){

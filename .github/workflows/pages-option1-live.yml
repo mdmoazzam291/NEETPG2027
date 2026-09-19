@@ -43,14 +43,12 @@ jobs:
           cp neuralvault/intelligence.js _site/neuralvault/intelligence.js
           cp neuralvault/brain.js _site/neuralvault/brain.js
           cp neuralvault/provider.js _site/neuralvault/provider.js
-          cp assets/ui-v4-core-compat.js _site/assets/ui-v4-core-compat.js
           cp assets/neetpg-timer.js _site/assets/neetpg-timer.js
           cp assets/supabase-config.js _site/assets/supabase-config.js
           cp assets/phase13-preauth.js _site/assets/phase13-preauth.js
           cp assets/auth-sync.js _site/assets/auth-sync.js
           cp assets/auth-provider-guard.js _site/assets/auth-provider-guard.js
           cp assets/ui-v4.js _site/assets/ui-v4.js
-          cp assets/ui-v4-fixes.js _site/assets/ui-v4-fixes.js
           cp assets/exam-v9.js _site/assets/exam-v9.js
           cp assets/phase10-taxonomy.js _site/assets/phase10-taxonomy.js
           cp assets/pyq-metadata.js _site/assets/pyq-metadata.js
@@ -60,7 +58,7 @@ jobs:
           cp assets/phase13-hardening.js _site/assets/phase13-hardening.js
           cp -R data/pyq _site/data/
           sed -i 's#</head>#<link rel="icon" href="assets/app-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/ui-v4.css"><link rel="stylesheet" href="assets/exam-v9.css"><link rel="stylesheet" href="assets/phase13.css"></head>#' _site/index.html
-          sed -i 's#</body>#<script src="assets/supabase-config.js"></script><script src="assets/phase13-preauth.js"></script><script src="assets/ui-v4-core-compat.js"></script><script src="assets/auth-sync.js" defer></script><script src="assets/auth-provider-guard.js" defer></script><script src="assets/neetpg-timer.js" defer></script><script src="assets/ui-v4.js" defer></script><script src="assets/ui-v4-fixes.js" defer></script><script src="assets/exam-v9.js" defer></script><script src="assets/phase10-taxonomy.js" defer></script><script src="assets/pyq-metadata.js" defer></script><script src="assets/phase11-analytics.js" defer></script><script src="assets/phase11-exam-overlay.js" defer></script><script src="assets/phase12-planning.js" defer></script><script src="assets/phase13-hardening.js" defer></script></body>#' _site/index.html
+          sed -i 's#</body>#<script src="assets/supabase-config.js"></script><script src="assets/phase13-preauth.js"></script><script src="assets/auth-sync.js" defer></script><script src="assets/auth-provider-guard.js" defer></script><script src="assets/neetpg-timer.js" defer></script><script src="assets/ui-v4.js" defer></script><script src="assets/exam-v9.js" defer></script><script src="assets/phase10-taxonomy.js" defer></script><script src="assets/pyq-metadata.js" defer></script><script src="assets/phase11-analytics.js" defer></script><script src="assets/phase11-exam-overlay.js" defer></script><script src="assets/phase12-planning.js" defer></script><script src="assets/phase13-hardening.js" defer></script></body>#' _site/index.html
           python - <<'PY'
           from pathlib import Path
           import os, re

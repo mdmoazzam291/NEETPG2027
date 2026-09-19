@@ -27,7 +27,9 @@ function loadLocal(){
 }
 
 let state=loadLocal();
+const requestedNoteId=new URLSearchParams(location.search).get('note');
 let currentId=state.notes.some(n=>n.id===state.currentId)?state.currentId:state.notes[0].id;
+if(requestedNoteId&&state.notes.some(n=>n.id===requestedNoteId))currentId=requestedNoteId;
 let view='editor';
 let saveTimer=null;
 let toastTimer=null;
@@ -97,7 +99,9 @@ async function hydrateDurable(){
     const durable=await NeuralVaultDB.loadState();
     if(durable&&Array.isArray(durable.notes)&&durable.notes.length&&Number(durable.savedAt||0)>Number(state.savedAt||0)){
       state=durable;
-      currentId=state.notes.some(n=>n.id===state.currentId)?state.currentId:state.notes[0].id;
+      currentId=requestedNoteId&&state.notes.some(n=>n.id===requestedNoteId)
+        ? requestedNoteId
+        : state.notes.some(n=>n.id===state.currentId)?state.currentId:state.notes[0].id;
       localStorage.setItem(KEY,JSON.stringify(state));
       renderCurrent();
     }else{
