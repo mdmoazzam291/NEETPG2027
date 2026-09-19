@@ -686,31 +686,45 @@ async function refreshBrainProviders(showStatus=false){
   select.innerHTML='<option value="local">Local evidence</option>';
   if(!window.NeuralVaultProvider)return;
   const info=await NeuralVaultProvider.providers();
-  (info.providers||[]).filter(x=>x.configured).forEach(row=>{
-    const o=document.createElement('option');o.value=row.id;o.textContent=row.label+(row.model?' · '+row.model:'');select.append(o);
-  });
-  if([...select.options].some(o=>o.value===previous))select.value=previous;
+  const tokenReady=Boolean(NeuralVaultProvider.accessToken());
+  const gatewayReady=Boolean(info.gateway_ready);
   const configured=(info.providers||[]).filter(x=>x.configured).length;
-  $('#brainModeLabel').textContent=configured?('Local evidence + '+configured+' configured model'+(configured===1?'':'s')):'Local evidence mode · no model backend';
+  if(gatewayReady&&tokenReady){
+    (info.providers||[]).filter(x=>x.configured).forEach(row=>{
+      const o=document.createElement('option');o.value=row.id;o.textContent=row.label+(row.model?' · '+row.model:'');select.append(o);
+    });
+  }
+  if([...select.options].some(o=>o.value===previous))select.value=previous;
+  $('#brainModeLabel').textContent=(gatewayReady&&tokenReady&&configured)
+    ? ('Local evidence + '+configured+' configured model'+(configured===1?'':'s'))
+    : 'Local evidence mode · remote models locked';
   if(showStatus){
     $('#brainSettingsStatus').textContent=info.error
       ? 'Backend connection failed: '+info.error
-      : info.base
-        ? configured+' provider'+(configured===1?'':'s')+' configured on '+info.base
-        : 'No backend URL saved. Local evidence mode is active.';
+      : !info.base
+        ? 'No backend URL saved. Local evidence mode is active.'
+        : !gatewayReady
+          ? 'Backend reached, but its AI gateway token is not configured.'
+          : !tokenReady
+            ? 'Backend reached. Enter your NeuralVault gateway token for this session.'
+            : configured+' provider'+(configured===1?'':'s')+' ready on '+info.base;
   }
 }
 
 function openBrainSettings(){
   if(!window.NeuralVaultProvider)return;
   $('#brainBackendUrl').value=NeuralVaultProvider.settings().backendUrl||'';
-  $('#brainSettingsStatus').textContent='API keys stay on the FastAPI server. The browser stores only this backend URL.';
+  $('#brainGatewayToken').value=NeuralVaultProvider.accessToken()||'';
+  $('#brainSettingsStatus').textContent='Provider API keys stay on FastAPI. The gateway token is kept only for this browser session.';
   $('#brainSettingsBackdrop').hidden=false;
 }
 
 async function saveBrainBackend(close=true){
   if(!window.NeuralVaultProvider)return;
-  NeuralVaultProvider.save({backendUrl:$('#brainBackendUrl').value});
+  NeuralVaultProvider.save({
+    backendUrl:$('#brainBackendUrl').value,
+    accessToken:$('#brainGatewayToken').value
+  });
   await refreshBrainProviders(true);
   if(close)$('#brainSettingsBackdrop').hidden=true;
 }
