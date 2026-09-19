@@ -1,104 +1,150 @@
 # NeuralVault
 
-NeuralVault is the local-first knowledge layer for NEETPG2027. It is intentionally Markdown-compatible and starts as a dependency-free browser app so it can ship on the existing GitHub Pages deployment without destabilizing the study engine.
+NeuralVault is the local-first knowledge layer for NEETPG2027. It keeps Markdown portable while connecting notes to the existing question bank, SRS, attempts and analytics rather than duplicating those systems.
 
-## V1 implemented on `feature/neuralvault-v1`
+## Current implementation
+
+### Knowledge workspace
 
 - Obsidian-style three-pane workspace
-- portable Markdown notes
-- multi-file and folder import for existing `.md` vaults
+- Markdown notes with folder paths
+- multi-file Markdown import
+- Obsidian-folder import through directory selection
 - `[[Wiki Links]]`
 - automatic backlinks
+- outgoing-link inspection and unresolved-link creation
+- rename-safe wiki-link refactoring
 - full-vault text search
-- knowledge graph
+- interactive knowledge graph
 - current-note neighborhood graph
 - YAML/frontmatter property reading
 - hashtag extraction
-- offline smart-related-note ranking
-- local autosave
-- JSON vault backup
-- individual Markdown export
+- local related-note ranking
+- daily notes
+- structured medical-note template
 - command palette and keyboard shortcuts
-- responsive iPad/mobile sidebar
-- direct navigation between NeuralVault and the NEETPG2027 study engine
-- Chromium and iPad/WebKit regression coverage
+- responsive iPad/mobile navigation
 
-## Storage contract
+### Durable local data
 
-V1 stores the browser workspace under `localStorage["neuralvault:v1"]` and preserves imported Markdown content verbatim. This is deliberately a bootstrap layer, not the final large-vault storage architecture.
-
-The source-of-truth direction is:
+NeuralVault uses two local layers:
 
 ```
-Markdown files
-    +
-IndexedDB / SQLite metadata index
-    +
-link graph
-    +
-semantic index
+Markdown-compatible note model
+        ↓
+IndexedDB durable snapshot + note revisions
+        ↓
+localStorage fast bootstrap/cache
 ```
 
-The application must keep Markdown exportable and avoid making AI-generated metadata mandatory for portability.
+IndexedDB is used for resilient vault recovery and version history. The localStorage copy is not treated as the only durable store.
 
-## Phase 2: durable vault engine
+Recovery features include:
 
-1. Move large-vault metadata/content cache from localStorage to IndexedDB.
-2. Add File System Access API where supported, with import/export fallback on iOS.
-3. Preserve folders, aliases, tags, headings and block references.
-4. Add rename-safe link refactoring and unresolved-link detection.
-5. Add note history, trash and conflict-safe recovery.
-6. Add full-text index and search ranking.
-7. Add Canvas / JSON Canvas interoperability.
+- autosave
+- note revision checkpoints
+- restoreable version history
+- checkpoint before delete, rename, restore and import replacement
+- complete JSON vault backup/restore
+- individual `.md` export
+- direct folder writing through the File System Access API when the browser supports it
+- portable fallback workflows for Safari/iPad where direct folder writing is unavailable
 
-## Phase 3: medical knowledge layer
+### NEET-PG integration
 
-Add canonical concept entities that connect one note to multiple MBBS views:
+The existing question bank remains authoritative.
 
-```
-Concept
-├── subjects
-├── system
-├── disease / drug / investigation / organism / sign
-├── related questions
-├── PYQ occurrences
-├── flashcards
-├── errors
-└── mastery
-```
+NeuralVault reads the repository PYQ manifest and matches the current note against question metadata using:
 
-The existing question-bank taxonomy remains authoritative for question data. NeuralVault references it rather than duplicating it.
+- note title
+- subject
+- system
+- topic/subtopic terms
+- shared high-signal tokens
 
-## Phase 4: adaptive learning integration
+The PYQ panel shows matched questions and, when the existing study IndexedDB is available, the current note's:
 
-- create flashcards from selected note blocks
-- attach MCQs/PYQs to notes
-- show question performance inside concept notes
-- surface weak concepts from existing attempt analytics
-- calculate note/concept mastery from retrieval evidence
-- build a daily revision queue from due cards, weak concepts and recent errors
-- support image-based medical notes and spotters
+- matched PYQ count
+- attempted matched questions
+- attempt accuracy
 
-## Phase 5: AI layer
+A matched question deep-links directly into a one-question Study Engine session. A note can also open the Question Bank filtered from its subject/topic context.
 
-AI must sit above deterministic storage and provenance rather than replacing them.
+No question, attempt, SRS or analytics state is duplicated into NeuralVault.
 
-Planned capabilities:
+## Offline contract
 
-- vault-grounded Q&A with citations to local notes
+GitHub Pages deploys and the service worker caches:
+
+- NeuralVault HTML
+- styles
+- vault controller
+- IndexedDB module
+- medical/PYQ matcher
+- PYQ manifest and bundled question files
+
+Offline navigation preserves the `/neuralvault/` route instead of falling back to the Study Engine homepage.
+
+## Browser support strategy
+
+### iPad / Safari
+
+- Markdown import
+- directory import where exposed by the browser
+- IndexedDB storage
+- JSON backup/restore
+- PWA/offline use
+- touch-responsive workspace
+
+### Chromium desktop
+
+All of the above plus direct write-back of the vault to a user-selected folder through the File System Access API.
+
+### Future native shell
+
+Tauri remains the preferred later shell for direct filesystem access on Windows/macOS/Linux and deeper native mobile integration. The browser data contracts should remain reusable.
+
+## Next high-value phases
+
+### Knowledge engine
+
+- heading and block references
+- aliases
+- attachments and embedded media
+- JSON Canvas compatibility
+- richer Markdown parsing/editor
+- safe note move/rename across folders
+- trash/recycle bin
+- scalable IndexedDB full-text index
+
+### Learning engine
+
+- note-to-flashcard extraction
+- concept-level SRS separate from question SRS
+- error-note linking
+- note mastery computed only from retrieval evidence
+- image/spotter note objects
+- revision queue combining questions, cards, errors and notes
+
+### AI layer
+
+AI should sit above deterministic storage/provenance:
+
+- vault-grounded Q&A with note citations
 - semantic search
-- cross-subject concept-link suggestions
+- cross-subject link suggestions
 - duplicate/contradiction detection
-- note cleanup with diff preview
-- question and flashcard generation with source traceability
+- diff-preview note edits
+- source-traceable flashcard/question assistance
 - personalized error-pattern coaching
-- local-model option for private/offline workflows
-- cloud model router for stronger reasoning/vision tasks
+- optional local model for private/offline workflows
+- cloud model router for stronger reasoning and vision
 
-## Platform path
+## Design constraints
 
-The static V1 remains deployable through GitHub Pages. Once the vault engine is mature, the same data contracts can be wrapped by Tauri for desktop/mobile filesystem access while retaining the browser version.
-
-## Non-goals for V1
-
-V1 does not claim complete Obsidian plugin compatibility, native filesystem synchronization, CRDT collaboration, cloud AI, or production-scale semantic indexing. Those require the durable storage/plugin layers above rather than cosmetic UI duplication.
+1. Markdown must remain exportable.
+2. AI-generated metadata must never be required to open a note.
+3. Existing question/SRS/analytics stores remain authoritative.
+4. Destructive changes require recovery paths.
+5. Medical content provenance and verification states must remain visible.
+6. The system should optimize retrieval and exam performance, not maximize note volume.
