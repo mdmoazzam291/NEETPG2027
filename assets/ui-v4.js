@@ -89,7 +89,14 @@
       const search=document.createElement('label'); search.className='v4-search'; search.id='v4Search';
       search.innerHTML='<span>⌕</span><input id="v4SearchInput" placeholder="Search questions, topics, notes…" autocomplete="off"><kbd>⌘ K</kbd>';
       const spacer=$q('.topbar .spacer'); bar.insertBefore(search,spacer||bar.firstChild);
-      $q('#v4SearchInput')?.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim()){if(typeof navigate==='function')navigate('bank');const s=$q('#bankSearch');if(s){s.value=e.target.value.trim();s.dispatchEvent(new Event('input',{bubbles:true}));}}});
+      $q('#v4SearchInput')?.addEventListener('keydown',e=>{
+        if(e.key!=='Enter'||!e.target.value.trim())return;
+        const query=e.target.value.trim();
+        if(typeof navigate==='function')navigate('bank');
+        const s=$q('#bankSearch');
+        if(s){s.value=query;s.dispatchEvent(new Event('input',{bubbles:true}));}
+        try{sessionStorage.setItem('neuralvault:pending-search',query)}catch{}
+      });
     }
     const actions=$q('.top-actions');
     if(actions && !$q('#v4SyncPill')){
