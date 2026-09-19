@@ -16,6 +16,13 @@ test('premium dashboard renders reference-inspired study UI', async ({ page }) =
   await expect(page.locator('.v4-nav')).toHaveCount(15);
   await expect(page.locator('.v4-nav[data-v4-label="NeuralVault"]')).toBeVisible();
   await expect(page.locator('#v4Greeting')).toContainText('Doctor');
+  await expect(page.locator('.v4-dashboard > *').first()).toHaveAttribute('id','v4ExamCountdown');
+  await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-08-29');
+  await expect(page.locator('#v4ExamCountdown')).toContainText('29 Aug 2027');
+  await expect(page.locator('#v4ExamDays')).toBeVisible();
+  await expect(page.locator('#v4ExamHours')).toBeVisible();
+  await expect(page.locator('#v4ExamMinutes')).toBeVisible();
+  await expect(page.locator('#v4ExamSeconds')).toBeVisible();
   await expect(page.locator('.v4-kpi')).toHaveCount(4);
   await expect(page.locator('.v4-heat-cell')).toHaveCount(84);
   await expect(page.locator('[data-v4-quick]')).toHaveCount(4);
@@ -52,4 +59,19 @@ test('visible NeuralVault navigation opens the Obsidian-style knowledge vault', 
   await expect(page).toHaveURL(/\/neuralvault\/?$/);
   await expect(page.locator('[data-view="brain"]')).toBeVisible({ timeout: 15000 });
   await expect(page.locator('#fileTree')).toBeVisible();
+});
+
+
+test('dedicated exam countdown ticks continuously toward 29 Aug 2027', async ({ page }) => {
+  await page.goto('/');
+  await loadV4(page);
+
+  const seconds = page.locator('#v4ExamSeconds');
+  const before = await seconds.textContent();
+  await page.waitForTimeout(1200);
+  const after = await seconds.textContent();
+
+  expect(after).not.toBe(before);
+  await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-08-29');
+  await expect(page.locator('#v4ExamCountdownStatus')).toContainText(/Counting down continuously|Target date reached/);
 });

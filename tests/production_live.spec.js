@@ -97,28 +97,23 @@ test('live main app visibly links to NeuralVault', async ({ page }) => {
 });
 
 
-test('live dashboard exam countdown saves and survives reload', async ({ page }) => {
-  await page.setViewportSize({ width: 1366, height: 900 });
-  await page.goto(`${LIVE}?countdown-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+test('live dashboard shows dedicated continuous countdown to 29 Aug 2027', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${LIVE}?countdown-v2-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+
+  const countdown = page.locator('#v4ExamCountdown');
+  await expect(countdown).toBeVisible({ timeout: 15000 });
+  await expect(countdown).toHaveAttribute('data-target','2027-08-29');
+  await expect(countdown).toContainText('29 Aug 2027');
+  await expect(page.locator('.v4-dashboard > *').first()).toHaveAttribute('id','v4ExamCountdown');
+
+  const before = await page.locator('#v4ExamSeconds').textContent();
+  await page.waitForTimeout(1200);
+  const after = await page.locator('#v4ExamSeconds').textContent();
+  expect(after).not.toBe(before);
+
   await expect(page.locator('#v12Planner')).toBeVisible({ timeout: 15000 });
-
-  const date = await page.evaluate(() => {
-    const future = new Date();
-    future.setDate(future.getDate() + 35);
-    return `${future.getFullYear()}-${String(future.getMonth()+1).padStart(2,'0')}-${String(future.getDate()).padStart(2,'0')}`;
-  });
-
-  await page.fill('#p12ExamDate', date);
-  await page.click('#p12Save');
-
-  await expect(page.locator('#p12ExamDate')).toHaveValue(date);
-  await expect(page.locator('#p12CountdownStatus')).toContainText('remaining');
-  const before = Number(await page.locator('#p12CountdownDays').textContent());
-  expect(before).toBeGreaterThanOrEqual(34);
-  expect(before).toBeLessThanOrEqual(35);
-
-  await page.reload({ waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#v12Planner')).toBeVisible({ timeout: 15000 });
-  await expect(page.locator('#p12ExamDate')).toHaveValue(date);
-  await expect(page.locator('#p12CountdownStatus')).toContainText('remaining');
+  await expect(page.locator('#v12Planner')).not.toContainText('Exam countdown');
+  await expect(page.locator('#p12ExamDate')).toHaveCount(0);
+  await expect(page.locator('#p12CountdownDays')).toHaveCount(0);
 });
