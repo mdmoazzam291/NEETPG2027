@@ -84,11 +84,42 @@
       .slice(0, limit);
   }
 
+  async function studyStateMap() {
+    try {
+      if (!indexedDB.databases) return new Map();
+      const databases = await indexedDB.databases();
+      if (!databases.some(x => x.name === 'neetpg2027-static-v2')) return new Map();
+      const db = await new Promise((resolve, reject) => {
+        const req = indexedDB.open('neetpg2027-static-v2');
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+      if (!db.objectStoreNames.contains('qstate')) { db.close(); return new Map(); }
+      const rows = await new Promise((resolve, reject) => {
+        const tx = db.transaction('qstate','readonly');
+        const req = tx.objectStore('qstate').getAll();
+        req.onsuccess = () => resolve(req.result || []);
+        req.onerror = () => reject(req.error);
+      });
+      db.close();
+      return new Map(rows.map(x => [x.qid, x]));
+    } catch (_) {
+      return new Map();
+    }
+  }
+
   async function summary(note) {
     const matches = await match(note, 200);
     const years = [...new Set(matches.map(x => x.q.exam_year).filter(Boolean))].sort();
     const subjects = [...new Set(matches.map(x => x.q.subject).filter(Boolean))].sort();
-    return { count: matches.length, years, subjects, matches };
+    const states = await studyStateMap();
+    const matchedStates = matches.map(x => states.get(x.q.external_id)).filter(Boolean);
+    const attempted = matchedStates.filter(x => Number(x.attempts || 0) > 0);
+    const attempts = attempted.reduce((sum, x) => sum + Number(x.attempts || 0), 0);
+    const correct = attempted.reduce((sum, x) => sum + Number(x.correct || 0), 0);
+    const accuracy = attempts ? Math.round(correct / attempts * 100) : null;
+    const coverage = matches.length ? Math.round(attempted.length / matches.length * 100) : 0;
+    return { count: matches.length, years, subjects, matches, attempted: attempted.length, attempts, correct, accuracy, coverage };
   }
 
   function questionUrl(q) {
