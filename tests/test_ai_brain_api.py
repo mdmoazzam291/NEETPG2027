@@ -35,6 +35,7 @@ def test_provider_status_is_safe_by_default(monkeypatch, tmp_path):
     data = response.json()
     assert data["local_evidence"] is True
     assert data["gateway_ready"] is False
+    assert data["gateway_authorized"] is False
     assert all(row["configured"] is False for row in data["providers"])
     assert "api_key" not in response.text.lower()
 
@@ -55,6 +56,8 @@ def test_openai_generation_requires_gateway_token_and_keeps_provider_key_server_
     monkeypatch.setattr(provider_module, "_post_json", fake_post)
 
     with TestClient(create_app()) as client:
+        wrong_status = client.get("/ai/providers", headers={"X-NeuralVault-Token": "wrong"})
+        ready_status = client.get("/ai/providers", headers={"X-NeuralVault-Token": "gateway-secret"})
         denied = client.post(
             "/ai/generate",
             json={"provider": "openai", "prompt": "hello", "max_output_tokens": 128},
@@ -65,6 +68,9 @@ def test_openai_generation_requires_gateway_token_and_keeps_provider_key_server_
             json={"provider": "openai", "prompt": "hello", "max_output_tokens": 128},
         )
 
+    assert wrong_status.status_code == 200
+    assert wrong_status.json()["gateway_authorized"] is False
+    assert ready_status.json()["gateway_authorized"] is True
     assert denied.status_code == 401
     assert allowed.status_code == 200
     assert allowed.json() == {
