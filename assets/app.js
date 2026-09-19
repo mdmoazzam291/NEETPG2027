@@ -117,8 +117,33 @@ function bindEvents(){$$('.nav button[data-view]').forEach(b=>b.onclick=()=>navi
  for(const id of ['sShuffle','sLabels','sAutoExplain'])$(`#${id}`).onclick=e=>setSwitch(e.currentTarget,!readSwitch(e.currentTarget));$('#saveSettings').onclick=()=>{app.prefs={...app.prefs,theme:$('#sTheme').value,accent:$('#sAccent').value,density:$('#sDensity').value,font:$('#sFont').value,defaultMode:$('#sDefaultMode').value,defaultCount:$('#sDefaultCount').value,shuffle:readSwitch($('#sShuffle')),labels:readSwitch($('#sLabels')),autoExplain:readSwitch($('#sAutoExplain'))};savePrefs();applyDefaultsToPractice();toast('Settings saved')};$('#exportBackup').onclick=exportBackup;$('#importBackup').onchange=async e=>{if(e.target.files[0])try{await importBackupFile(e.target.files[0])}catch(err){toast(err.message)}e.target.value=''};$('#resetAll').onclick=resetAll;$('#installPwa').onclick=async()=>{if(app.installPrompt){app.installPrompt.prompt();await app.installPrompt.userChoice;app.installPrompt=null}else toast('Use Safari Share → Add to Home Screen')};$('#cacheRefresh').onclick=async()=>{if(navigator.serviceWorker?.controller){navigator.serviceWorker.controller.postMessage({type:'REFRESH_CACHE'});toast('Offline cache refresh requested')}else toast('Reload once to activate offline mode')};
  document.addEventListener('keydown',e=>{if(!app.session||['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;const q=currentQ();if(['1','2','3','4'].includes(e.key)){const i=Number(e.key)-1;const b=$$('#qOptions .option')[i];if(b)selectOption(b)}else if(e.key==='Enter'){e.preventDefault();if(!$('#qFeedback').classList.contains('hidden'))nextQuestion(false);else submitAnswer(false)}else if(e.key.toLowerCase()==='b')toggleBookmark(q.external_id);else if(e.key.toLowerCase()==='f')toggleFlag(q.external_id);else if(e.key.toLowerCase()==='e')$('#qEliminate').click()});
  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();app.installPrompt=e});window.addEventListener('online',updateOnline);window.addEventListener('offline',updateOnline);matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(app.prefs.theme==='system')applyPrefs()})}
+function applyNeuralVaultDeepLink(){
+  const params=new URLSearchParams(location.search);
+  const qid=params.get('nvq'),subject=params.get('nvsubject'),topic=params.get('nvtopic');
+  if(!qid&&!subject&&!topic)return false;
+  const clear=()=>history.replaceState({},'',location.pathname+location.hash);
+  if(qid){
+    const q=app.qMap.get(qid);
+    if(q){
+      buildSession([q],{...builtInPreset('rapid'),mode:'single',count:1,feedback:'instant',timer:'off',order:'adaptive'});
+      toast('Opened from NeuralVault');
+      clear();
+      return true;
+    }
+  }
+  if(subject||topic){
+    navigate('bank');
+    if(subject&&[...$('#bankSubject').options].some(o=>o.value===subject))$('#bankSubject').value=subject;
+    $('#bankSearch').value=topic||'';
+    bankFilter();
+    toast(app.filteredBank.length+' matching question'+(app.filteredBank.length===1?'':'s')+' from NeuralVault');
+    clear();
+    return true;
+  }
+  return false;
+}
 function updateOnline(){$('#offlineBadge').textContent=navigator.onLine?'Online':'Offline';$('#offlineBadge').className=`tag ${navigator.onLine?'good':'warn'}`}
 
 async function registerServiceWorker(){if('serviceWorker'in navigator)try{await navigator.serviceWorker.register('./sw.js')}catch(e){console.warn('SW registration failed',e)}}
-async function init(){try{loadPrefs();app.db=await openDb();await loadState();await loadQuestions();await migrateV1();populateFilters();bindEvents();applyDefaultsToPractice();renderSettings();renderAll();updateOnline();registerServiceWorker();bindViewJump()}catch(err){console.error(err);document.querySelector('.content').innerHTML=`<div class="card"><h2 class="danger-text">Study engine could not start</h2><p>${escapeHtml(err.message)}</p><p class="muted">Reload the page. If this persists, export any available browser data before clearing site storage.</p></div>`}}
+async function init(){try{loadPrefs();app.db=await openDb();await loadState();await loadQuestions();await migrateV1();populateFilters();bindEvents();applyDefaultsToPractice();renderSettings();renderAll();updateOnline();registerServiceWorker();bindViewJump();applyNeuralVaultDeepLink()}catch(err){console.error(err);document.querySelector('.content').innerHTML=`<div class="card"><h2 class="danger-text">Study engine could not start</h2><p>${escapeHtml(err.message)}</p><p class="muted">Reload the page. If this persists, export any available browser data before clearing site storage.</p></div>`}}
 init();
