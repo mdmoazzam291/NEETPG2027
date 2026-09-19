@@ -195,5 +195,12 @@
     return '../?' + params.toString();
   }
 
-  window.NeuralVaultMedical = { load, match, summary, batchSummary, searchQuestions, questionUrl, topicUrl };
+  function practiceUrl(matches, note) {
+    const ids = (matches || []).map(x => x.q?.external_id || x.external_id).filter(Boolean).slice(0, 15);
+    if (!ids.length) return topicUrl(note, { practice: true });
+    const params = new URLSearchParams({ source: 'neuralvault', nvqs: ids.join(',') });
+    return '../?' + params.toString();
+  }
+
+  window.NeuralVaultMedical = { load, match, summary, batchSummary, searchQuestions, questionUrl, topicUrl, practiceUrl };
 })();
