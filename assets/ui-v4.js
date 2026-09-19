@@ -1,6 +1,11 @@
 (() => {
   'use strict';
 
+  // Idempotent boot: Pages/tests/extensions may evaluate the bundle more than once.
+  // A second instance would otherwise create duplicate timers and event handlers.
+  if(window.__NEETPG_UI_V4_LOADED)return;
+  window.__NEETPG_UI_V4_LOADED=true;
+
   const $q = s => document.querySelector(s);
   const $qa = s => [...document.querySelectorAll(s)];
   const fmt = n => new Intl.NumberFormat('en-IN').format(Number(n || 0));
