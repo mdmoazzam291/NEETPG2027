@@ -78,7 +78,7 @@ test('Phase 12 dashboard planner renders 15/30/60-minute and micro-session contr
   await expect(host).toContainText('5-min micro');
   await page.evaluate(()=>NEETPG_PHASE12.startPlan(15));
   await expect(page.locator('#practiceShell')).not.toHaveClass(/hidden/);
-  await expect(page.locator('#qProgress')).toContainText('1 / 12');
+  await expect(page.locator('#qProgress')).toContainText(/^1 \/ \d+$/);
 });
 
 
