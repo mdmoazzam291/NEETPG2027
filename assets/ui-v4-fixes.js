@@ -38,19 +38,6 @@
   }
   whenCoreReady(()=>{});
 
-  document.addEventListener('keydown', e => {
-    if(e.target?.id !== 'v4SearchInput' || e.key !== 'Enter') return;
-    const query=e.target.value.trim(); if(!query) return;
-    e.preventDefault(); e.stopImmediatePropagation();
-    whenCoreReady(()=>{
-      ensureCoreTitle();
-      navigate('bank');
-      const input=$('#bankSearch'); if(!input)return;
-      input.value=query;
-      bankFilter();
-    });
-  }, true);
-
   document.addEventListener('click', e => {
     const btn=e.target.closest?.('[data-v4-quick]'); if(!btn) return;
     e.preventDefault(); e.stopImmediatePropagation();

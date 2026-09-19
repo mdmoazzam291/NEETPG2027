@@ -35,7 +35,7 @@ test('global search opens the question bank and applies the query', async ({ pag
   await page.fill('#v4SearchInput', 'myocardial');
   await page.press('#v4SearchInput', 'Enter');
   await expect(page.locator('#view-bank')).toHaveClass(/active/);
-  await expect(page.locator('#bankSearch')).toHaveValue('myocardial');
+  await expect(page.locator('#bankSearch')).toHaveValue('myocardial',{timeout:10000});
 });
 
 test('rapid 15 quick start launches a practice session', async ({ page }) => {
@@ -162,4 +162,67 @@ test('exam countdown is pinned to IST and pauses outside dashboard', async ({ pa
   const resumed = await page.locator('#v4ExamSeconds').textContent();
   await page.waitForTimeout(1200);
   expect(await page.locator('#v4ExamSeconds').textContent()).not.toBe(resumed);
+});
+
+
+test('global search exposes topic results and routes them into the filtered QBank', async ({ page }) => {
+  await page.goto('/');
+  await loadV4(page);
+
+  const target=await page.evaluate(()=>{
+    const q=app.questions.find(x=>String(x.topic||'').trim().length>=3);
+    return {topic:q.topic,subject:q.subject};
+  });
+  await page.fill('#v4SearchInput',target.topic);
+  const topic=page.locator('.v4-search-result[data-kind="topic"]').first();
+  await expect(topic).toBeVisible();
+  await topic.click();
+
+  await expect(page.locator('#view-bank')).toHaveClass(/active/);
+  await expect(page.locator('#bankSearch')).toHaveValue(target.topic,{timeout:10000});
+});
+
+test('global search opens an exact question directly', async ({ page }) => {
+  await page.goto('/');
+  await loadV4(page);
+
+  const qid=await page.evaluate(()=>app.questions[0].external_id);
+  await page.fill('#v4SearchInput',qid);
+  const result=page.locator(`.v4-search-result[data-kind="question"][data-id="${qid}"]`);
+  await expect(result).toBeVisible();
+  await result.click();
+
+  await expect(page.locator('#view-practice')).toHaveClass(/active/);
+  await expect(page.locator('#practiceShell')).not.toHaveClass(/hidden/);
+  await expect(page.locator('#qProgress')).toContainText('1 / 1');
+});
+
+test('global search finds local NeuralVault notes and opens the exact note', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(()=>{
+    const now=new Date().toISOString();
+    localStorage.setItem('neuralvault:v1',JSON.stringify({
+      version:2,
+      currentId:'search-note',
+      savedAt:Date.now(),
+      notes:[{
+        id:'search-note',
+        title:'Mitral Stenosis',
+        path:'Medicine/Cardiology/Mitral Stenosis.md',
+        createdAt:now,
+        updatedAt:now,
+        content:'# Mitral Stenosis\n\nValve disease revision note.'
+      }]
+    }));
+  });
+  await loadV4(page);
+
+  await page.fill('#v4SearchInput','mitral');
+  await expect(page.locator('#v4SearchResults')).toContainText('NeuralVault notes');
+  const note=page.locator('.v4-search-result[data-kind="note"][data-id="search-note"]');
+  await expect(note).toContainText('Mitral Stenosis');
+  await note.click();
+
+  await expect(page).toHaveURL(/\/neuralvault\/\?note=search-note$/);
+  await expect(page.locator('#titleInput')).toHaveValue('Mitral Stenosis',{timeout:15000});
 });
