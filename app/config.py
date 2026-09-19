@@ -11,6 +11,7 @@ class Settings:
     cors_origins: tuple[str, ...] = ()
     ai_timeout_seconds: float = 45.0
     ai_access_token: str | None = None
+    ai_max_requests_per_minute: int = 30
     openai_api_key: str | None = None
     openai_model: str | None = None
     gemini_api_key: str | None = None
@@ -38,6 +39,7 @@ def get_settings() -> Settings:
         cors_origins=cors_origins,
         ai_timeout_seconds=float(os.getenv("NEETPG2027_AI_TIMEOUT_SECONDS", "45")),
         ai_access_token=os.getenv("NEETPG2027_AI_ACCESS_TOKEN") or None,
+        ai_max_requests_per_minute=max(1, int(os.getenv("NEETPG2027_AI_MAX_REQUESTS_PER_MINUTE", "30"))),
         openai_api_key=os.getenv("NEETPG2027_OPENAI_API_KEY") or None,
         openai_model=os.getenv("NEETPG2027_OPENAI_MODEL") or None,
         gemini_api_key=os.getenv("NEETPG2027_GEMINI_API_KEY") or None,
