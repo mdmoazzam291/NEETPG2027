@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const fs = require('fs');
 
 async function loadPhase13(page){
   await page.addStyleTag({ url: '/assets/phase13.css' });
@@ -141,4 +142,23 @@ test('Phase 13 manifest and service worker expose versioned install metadata', a
   expect(sw).toContain("'./neuralvault/brain.js'");
   expect(sw).toContain("'./neuralvault/provider.js'");
   expect(sw).toContain("neuralVault?'./neuralvault/index.html':'./index.html'");
+});
+
+
+test('Pages deployment publishes a verifiable live Brain V2 status', async () => {
+  const workflow = fs.readFileSync('.github/workflows/pages-option1-live.yml', 'utf8');
+  const live = fs.readFileSync('tests/production_live.spec.js', 'utf8');
+
+  expect(workflow).toContain('statuses: write');
+  expect(workflow).toContain('id: live_smoke');
+  expect(workflow).toContain("context: 'pages/live-smoke'");
+  expect(workflow).toContain('actions/github-script@v7');
+  expect(workflow).toContain('if: always()');
+
+  expect(live).toContain('live GitHub Pages build serves NeuralVault Brain V2');
+  expect(live).toContain("fetch('brain.js'");
+  expect(live).toContain("fetch('provider.js'");
+  expect(live).toContain('relatedAcrossSubjects');
+  expect(live).toContain('proposeSafePatch');
+  expect(live).toContain('brainGatewayToken');
 });

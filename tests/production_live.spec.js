@@ -30,3 +30,53 @@ test('live GitHub Pages build serves the validated Phase 13 study shell', async 
   expect(pwa.icon).toContain('app-icon.svg');
   expect(pwa.swScope).toContain('/NEETPG2027/');
 });
+
+test('live GitHub Pages build serves NeuralVault Brain V2', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto(`${LIVE}neuralvault/?brain-v2-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+
+  await expect(page.locator('[data-view="brain"]')).toBeVisible({ timeout: 15000 });
+  await page.locator('[data-view="brain"]').click();
+
+  await expect(page.locator('#view-brain')).toHaveClass(/active/);
+  await expect(page.locator('#brainProvider')).toBeVisible();
+  await expect(page.locator('#brainProviderBtn')).toBeVisible();
+  await expect(page.locator('#brainSuggestions')).toContainText('Cross-subject links');
+  await expect(page.locator('#brainSuggestions')).toContainText('Recall cards');
+  await expect(page.locator('#brainSuggestions')).toContainText('Safe note patch');
+
+  const runtime = await page.evaluate(async () => {
+    const [brain, provider, sw] = await Promise.all([
+      fetch('brain.js', { cache: 'no-store' }),
+      fetch('provider.js', { cache: 'no-store' }),
+      fetch('../sw.js', { cache: 'no-store' })
+    ]);
+    const [brainText, providerText, swText] = await Promise.all([brain.text(), provider.text(), sw.text()]);
+    return {
+      brainStatus: brain.status,
+      providerStatus: provider.status,
+      hasBrain: Boolean(window.NeuralVaultBrain),
+      hasProvider: Boolean(window.NeuralVaultProvider),
+      hasHybrid: Boolean(window.NeuralVaultIntelligence && window.NeuralVaultIntelligence.relatedAcrossSubjects),
+      hasSafePatch: Boolean(window.NeuralVaultIntelligence && window.NeuralVaultIntelligence.proposeSafePatch),
+      brainV2Source: brainText.includes('crossSubjectAnswer') && brainText.includes('patchAnswer'),
+      providerSource: providerText.includes('X-NeuralVault-Token') && providerText.includes('sessionStorage'),
+      swCachesProvider: swText.includes('./neuralvault/provider.js')
+    };
+  });
+
+  expect(runtime.brainStatus).toBe(200);
+  expect(runtime.providerStatus).toBe(200);
+  expect(runtime.hasBrain).toBe(true);
+  expect(runtime.hasProvider).toBe(true);
+  expect(runtime.hasHybrid).toBe(true);
+  expect(runtime.hasSafePatch).toBe(true);
+  expect(runtime.brainV2Source).toBe(true);
+  expect(runtime.providerSource).toBe(true);
+  expect(runtime.swCachesProvider).toBe(true);
+
+  await page.locator('#brainProviderBtn').click();
+  await expect(page.locator('#brainSettingsBackdrop')).toBeVisible();
+  await expect(page.locator('#brainGatewayToken')).toBeVisible();
+  await expect(page.locator('#brainSettingsBackdrop')).not.toContainText('OPENAI_API_KEY');
+});
