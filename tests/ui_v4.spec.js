@@ -289,7 +289,9 @@ for (const width of [375, 834, 1194]) {
 test('exam navigation is a standalone readable sidebar destination', async ({ page }) => {
   await page.goto('/');
   await loadV4(page);
+  await page.addStyleTag({url:'/assets/exam-v9.css'});
   await page.addScriptTag({url:'/assets/exam-v9.js'});
+  await expect(page.locator('#exam9Backdrop')).not.toBeVisible();
   const exam=page.locator('.sidebar .nav > .v4-nav-item');
   await expect(exam).toContainText('Exam Simulator');
   await expect(page.locator('.nav button button')).toHaveCount(0);
