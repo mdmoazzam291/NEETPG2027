@@ -5,12 +5,10 @@
   const $qa = s => [...document.querySelectorAll(s)];
   const fmt = n => new Intl.NumberFormat('en-IN').format(Number(n || 0));
   const clampV4 = (n,a,b) => Math.max(a,Math.min(b,n));
-  const EXAM_TARGET = Object.freeze({ year: 2027, monthIndex: 7, day: 29, iso: '2027-08-29', label: '29 Aug 2027' });
+  const EXAM_TARGET = Object.freeze({ iso: '2027-08-29', label: '29 Aug 2027', epoch: Date.parse('2027-08-28T18:30:00.000Z') });
   let examCountdownTimer = null;
 
-  function examTargetTime(){
-    return new Date(EXAM_TARGET.year, EXAM_TARGET.monthIndex, EXAM_TARGET.day, 0, 0, 0, 0).getTime();
-  }
+  function examTargetTime(){ return EXAM_TARGET.epoch; }
 
   function examCountdownParts(now = Date.now()){
     const remaining = Math.max(0, examTargetTime() - now);
@@ -41,10 +39,9 @@
   }
 
   const navItems = [
-    ['dashboard','⌂','Dashboard'],['practice','▣','Questions'],['analytics','⌁','Tests & Analytics'],
-    ['review','↻','Revision'],['review','▤','Notes'],['neuralvault','◇','NeuralVault'],['bank','▦','QBank'],['review','◩','Quick Revise'],
-    ['review','♡','Bookmarks'],['analytics','▥','Subject Wise'],['analytics','◎','Performance'],
-    ['dashboard','♕','Achievements'],['dashboard','♧','Community'],['bank','▱','Resources'],['settings','⚙','Settings']
+    ['dashboard','⌂','Dashboard'],['practice','▣','Practice'],['bank','▦','Question Bank'],
+    ['review','↻','Revision'],['neuralvault','◇','NeuralVault'],['analytics','◎','Analytics'],
+    ['analytics','▥','Tests'],['settings','⚙','Settings']
   ];
 
   function currentUserName(){
@@ -61,9 +58,6 @@
       <div class="sidebar-footer"><strong>Better Doctors<br>Brighter Tomorrows</strong><div class="v4-footer-mountain"></div><div class="v4-footer-quote">“Discipline today,<br>specialist tomorrow.”</div></div>`;
     side.addEventListener('click',e=>{
       const b=e.target.closest('[data-v4-target]'); if(!b)return;
-      const label=b.dataset.v4Label;
-      if(label==='Community'){ if(typeof toast==='function') toast('Community module is planned for a later phase'); return; }
-      if(label==='Achievements'){ if(typeof navigate==='function') navigate('dashboard'); setTimeout(()=>document.getElementById('v4Achievements')?.scrollIntoView({behavior:'smooth',block:'center'}),50); return; }
       if(b.dataset.v4Target==='neuralvault'){ window.location.href='neuralvault/'; return; }
       if(typeof navigate==='function') navigate(b.dataset.v4Target);
     });
@@ -74,7 +68,7 @@
     $q('#topTitle')?.remove();
     if(!$q('#v4Search')){
       const search=document.createElement('label'); search.className='v4-search'; search.id='v4Search';
-      search.innerHTML='<span>⌕</span><input id="v4SearchInput" placeholder="Search questions, topics, notes…" autocomplete="off"><kbd>⌘ K</kbd>';
+      search.innerHTML='<span>⌕</span><input id="v4SearchInput" placeholder="Search questions & topics…" autocomplete="off"><kbd>⌘ K</kbd>';
       const spacer=$q('.topbar .spacer'); bar.insertBefore(search,spacer||bar.firstChild);
       $q('#v4SearchInput')?.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim()){if(typeof navigate==='function')navigate('bank');const s=$q('#bankSearch');if(s){s.value=e.target.value.trim();s.dispatchEvent(new Event('input',{bubbles:true}));}}});
     }
@@ -150,7 +144,7 @@
   }
 
   function setNavActive(view){
-    $qa('.v4-nav').forEach(b=>b.classList.toggle('active', b.dataset.v4Target===view && ['Dashboard','Questions','Revision','QBank','Tests & Analytics','Settings'].includes(b.dataset.v4Label)));
+    $qa('.v4-nav').forEach(b=>b.classList.toggle('active', b.dataset.v4Target===view));
   }
 
   function launchQuick(mode){
@@ -224,7 +218,7 @@
 
   function wrapCore(){
     try{
-      if(typeof navigate==='function'&&!navigate.__v4){const core=navigate;const wrapped=function(view){const out=core(view);setNavActive(view);if(view==='dashboard')setTimeout(renderV4Dashboard,0);return out};wrapped.__v4=true;navigate=wrapped;}
+      if(typeof navigate==='function'&&!navigate.__v4){const core=navigate;const wrapped=function(view){const out=core(view);setNavActive(view);if(view==='dashboard'){startExamCountdown();setTimeout(renderV4Dashboard,0)}else if(examCountdownTimer){clearInterval(examCountdownTimer);examCountdownTimer=null}return out};wrapped.__v4=true;navigate=wrapped;}
       if(typeof renderDashboard==='function'&&!renderDashboard.__v4){const core=renderDashboard;const wrapped=function(){const out=core();renderV4Dashboard();return out};wrapped.__v4=true;renderDashboard=wrapped;}
       if(typeof renderAll==='function'&&!renderAll.__v4){const core=renderAll;const wrapped=function(){const out=core();if($q('#view-dashboard')?.classList.contains('active'))renderV4Dashboard();return out};wrapped.__v4=true;renderAll=wrapped;}
     }catch(e){console.warn('UI v4 wrapper skipped',e)}
