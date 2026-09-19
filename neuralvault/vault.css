@@ -55,7 +55,7 @@ kbd{font-size:11px;border:1px solid var(--border2);border-radius:5px;padding:2px
 .status-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
 .workspace{display:grid;grid-template-rows:var(--top) var(--tabs) minmax(0,1fr);min-width:0;min-height:0;background:#202020}
 .topbar{border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 10px;gap:7px;background:#1c1c1c}
-.breadcrumbs{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.breadcrumbs{min-width:0;flex-shrink:1;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .top-spacer,.tab-spacer{flex:1}
 .save-state{font-size:11px;color:#818181}
 .study-link{height:30px;padding:0 10px;border-radius:7px;display:flex;align-items:center;background:#242424;color:#cfcfcf;font-size:12px}
@@ -140,9 +140,10 @@ body.context-hidden .app{grid-template-columns:var(--sidebar) minmax(0,1fr)}
 body.context-hidden .context-panel{display:none}
 body.context-hidden .menu{right:14px}
 @media(max-width:980px){
-  :root{--context:270px}
-  .app{grid-template-columns:245px minmax(0,1fr) var(--context)}
-  .save-state{display:none}
+  :root{--context:240px}
+  .app{grid-template-columns:220px minmax(0,1fr) var(--context)}
+  .save-state,.study-link{display:none}
+  .context-tab{padding:0 6px;font-size:10px}
 }
 @media(max-width:760px){
   body{overflow:hidden}
