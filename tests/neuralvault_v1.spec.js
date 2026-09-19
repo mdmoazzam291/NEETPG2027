@@ -84,4 +84,61 @@ test.describe('NeuralVault durable knowledge layer', () => {
     await page.locator('#outgoingLinks [data-note-title="Brand New Concept"]').click();
     await expect(page.locator('#titleInput')).toHaveValue('Brand New Concept');
   });
+
+  test('renders transparent learning intelligence and mastery graph mode', async ({ page }) => {
+    await page.locator('.note-row', { hasText: 'Myocardial Infarction' }).click();
+    await page.locator('[data-context="intelligence"]').click();
+
+    await expect(page.locator('#insightMetrics .insight-metric')).toHaveCount(4, { timeout: 15000 });
+    await expect(page.locator('#insightAction')).not.toHaveText('');
+    await expect(page.locator('#insightBand')).not.toHaveText('…');
+
+    await page.locator('[data-view="graph"]').click();
+    await page.locator('#graphMode').selectOption('mastery');
+    await expect(page.locator('#graphLegend')).toBeVisible();
+    await expect(page.locator('#graphStats')).toContainText('measured', { timeout: 15000 });
+    await expect(page.locator('#graphSvg .graph-node').first()).toHaveClass(/mastery-/);
+  });
+
+  test('searches vault plus PYQs and starts matched concept practice', async ({ page }) => {
+    await page.locator('.note-row', { hasText: 'Myocardial Infarction' }).click();
+    await page.locator('[data-context="intelligence"]').click();
+
+    await page.locator('#vaultQuery').fill('myocardial infarction');
+    await page.locator('#vaultQueryForm button[type="submit"]').click();
+    await expect(page.locator('#evidenceSummary')).toContainText('PYQ', { timeout: 15000 });
+    await expect(page.locator('#evidenceResults .evidence-result').first()).toBeVisible();
+    await expect(page.locator('#copyContextBtn')).toBeVisible();
+
+    const practice = page.locator('#insightAction a');
+    await expect(practice).toBeVisible({ timeout: 15000 });
+    await practice.click();
+
+    await expect(page.locator('#practiceShell')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('#qStem')).not.toHaveText('');
+    await expect(page).not.toHaveURL(/nvqs=/);
+  });
+
+
+  test('uses the study progress mirror for evidence scoring when no study DB is available', async ({ page }) => {
+    const metrics = await page.evaluate(async () => {
+      const note = {
+        title: 'Myocardial Infarction',
+        content: '# Myocardial Infarction',
+        properties: { subject: 'Medicine', system: 'Cardiovascular' }
+      };
+      const first = (await window.NeuralVaultMedical.match(note, 1))[0];
+      if (!first) throw new Error('Expected at least one matched PYQ');
+      localStorage.setItem('neetpg2027:qstate-mirror', JSON.stringify([
+        { qid: first.q.external_id, attempts: 2, correct: 1, incorrect: 1, lastCorrect: false }
+      ]));
+      const s = await window.NeuralVaultMedical.summary(note);
+      return { attempted: s.attempted, accuracy: s.accuracy, coverage: s.coverage, readiness: s.readiness };
+    });
+
+    expect(metrics.attempted).toBe(1);
+    expect(metrics.accuracy).toBe(50);
+    expect(metrics.readiness).toBe(Math.round((metrics.accuracy * 0.70) + (metrics.coverage * 0.30)));
+  });
+
 });
