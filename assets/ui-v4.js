@@ -9,7 +9,9 @@
   let examCountdownTimer = null;
 
   function examTargetTime(){
-    return new Date(EXAM_TARGET.year, EXAM_TARGET.monthIndex, EXAM_TARGET.day, 0, 0, 0, 0).getTime();
+    // Pin the target to Indian Standard Time so travelling or changing the device timezone
+    // cannot silently add/remove hours from the NEET-PG countdown.
+    return Date.parse(`${EXAM_TARGET.iso}T00:00:00+05:30`);
   }
 
   function examCountdownParts(now = Date.now()){
