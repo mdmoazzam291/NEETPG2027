@@ -2,6 +2,7 @@
   'use strict';
 
   const KEY='neuralvault:brain-provider-v1';
+  const TOKEN_KEY='neuralvault:brain-gateway-token';
 
   function settings(){
     try{
@@ -15,7 +16,16 @@
   function save(next){
     const clean={backendUrl:String(next.backendUrl||'').trim().replace(/\/$/,'')};
     localStorage.setItem(KEY,JSON.stringify(clean));
+    if(Object.prototype.hasOwnProperty.call(next,'accessToken')){
+      const token=String(next.accessToken||'');
+      if(token)sessionStorage.setItem(TOKEN_KEY,token);
+      else sessionStorage.removeItem(TOKEN_KEY);
+    }
     return clean;
+  }
+
+  function accessToken(){
+    return sessionStorage.getItem(TOKEN_KEY)||'';
   }
 
   function configuredBase(){
@@ -42,18 +52,29 @@
       const r=await fetchWithTimeout(base+'/ai/providers',{headers:{Accept:'application/json'}},6000);
       if(!r.ok)throw new Error('HTTP '+r.status);
       const data=await r.json();
-      return {base,local_evidence:true,providers:Array.isArray(data.providers)?data.providers:[]};
+      return {
+        base,
+        local_evidence:true,
+        gateway_ready:Boolean(data.gateway_ready),
+        providers:Array.isArray(data.providers)?data.providers:[]
+      };
     }catch(e){
-      return {base,local_evidence:true,providers:[],error:e.name==='AbortError'?'timeout':String(e.message||e)};
+      return {base,local_evidence:true,gateway_ready:false,providers:[],error:e.name==='AbortError'?'timeout':String(e.message||e)};
     }
   }
 
   async function generate(provider,prompt,maxOutputTokens=1200){
     const base=configuredBase();
     if(!base)throw new Error('No Brain backend configured');
+    const token=accessToken();
+    if(!token)throw new Error('Brain gateway token is required for remote models');
     const r=await fetchWithTimeout(base+'/ai/generate',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      headers:{
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'X-NeuralVault-Token':token
+      },
       body:JSON.stringify({
         provider,
         prompt:String(prompt||'').slice(0,50000),
@@ -67,5 +88,5 @@
     return data;
   }
 
-  window.NeuralVaultProvider={settings,save,configuredBase,providers,generate};
+  window.NeuralVaultProvider={settings,save,accessToken,configuredBase,providers,generate};
 })();
