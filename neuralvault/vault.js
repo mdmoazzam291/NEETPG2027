@@ -630,10 +630,11 @@ async function askBrain(query){
     if(brainLastProvider!=='local'&&!deterministic.has(grounded.mode)){
       if(!window.NeuralVaultProvider)throw new Error('Provider client unavailable');
       loading.textContent='Sending grounded evidence to configured model…';
+      const contextual=/\b(this concept|this note|current note)\b/i.test(query);
       const prompt=await NeuralVaultBrain.modelPrompt(
         state.notes,
         query,
-        brainLastScope==='current'?contextNote:null
+        (brainLastScope==='current'||contextual)?contextNote:null
       );
       const remote=await NeuralVaultProvider.generate(brainLastProvider,prompt,1400);
       if(token!==brainToken)return;
