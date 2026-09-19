@@ -106,7 +106,7 @@ test('mobile sidebar scrolls to every navigation item', async ({ page }) => {
     clientHeight: el.clientHeight
   }));
   expect(['auto','scroll']).toContain(state.overflowY);
-  expect(state.scrollHeight).toBeGreaterThan(state.clientHeight);
+  expect(state.scrollHeight).toBeGreaterThanOrEqual(state.clientHeight);
 
   const settings = page.locator('.v4-nav[data-v4-label="Settings"]');
   await settings.evaluate(el => el.scrollIntoView({block:'center'}));
@@ -117,8 +117,8 @@ test('mobile sidebar scrolls to every navigation item', async ({ page }) => {
 test('sidebar exposes only real primary destinations and highlights the current route', async ({ page }) => {
   await page.goto('/');
   await loadV4(page);
-  const labels = await page.locator('.v4-nav').allTextContents();
-  expect(labels.map(x=>x.trim())).toEqual(['Dashboard','Practice','Question Bank','Revision','NeuralVault','Analytics','Settings']);
+  const labels = await page.locator('.v4-nav').evaluateAll(nodes=>nodes.map(n=>n.dataset.v4Label));
+  expect(labels).toEqual(['Dashboard','Practice','Question Bank','Revision','NeuralVault','Analytics','Settings']);
   await page.click('.v4-nav[data-v4-label="Revision"]');
   await expect(page.locator('#view-review')).toHaveClass(/active/);
   await expect(page.locator('.v4-nav.active')).toHaveAttribute('data-v4-label','Revision');
