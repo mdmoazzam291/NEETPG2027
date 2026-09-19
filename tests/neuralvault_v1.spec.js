@@ -141,4 +141,46 @@ test.describe('NeuralVault durable knowledge layer', () => {
     expect(metrics.readiness).toBe(Math.round((metrics.accuracy * 0.70) + (metrics.coverage * 0.30)));
   });
 
+
+  test('Brain answers from the current note with clickable grounded citations', async ({ page }) => {
+    await page.locator('.note-row', { hasText: 'Myocardial Infarction' }).click();
+    await page.locator('[data-view="brain"]').click();
+    await expect(page.locator('#brainCurrentNote')).toHaveText('Myocardial Infarction');
+    await page.locator('#brainScope').selectOption('current');
+    await page.locator('#brainInput').fill('Explain this concept using my vault.');
+    await page.locator('#brainForm').evaluate(form => form.requestSubmit());
+
+    const answer = page.locator('#brainThread .brain-message.assistant').last();
+    await expect(answer).toContainText('Current note · Myocardial Infarction', { timeout: 15000 });
+    await expect(answer).toContainText('myocardial', { ignoreCase: true });
+    await expect(answer.locator('[data-brain-note="mi"]').first()).toBeVisible();
+    await expect(page.locator('#brainCopyPrompt')).toBeVisible();
+  });
+
+  test('Brain exposes exact PYQ evidence and one-tap matched practice', async ({ page }) => {
+    await page.locator('.note-row', { hasText: 'Myocardial Infarction' }).click();
+    await page.locator('[data-view="brain"]').click();
+    await page.locator('[data-brain-prompt="Which PYQs test this concept?"]').click();
+
+    const answer = page.locator('#brainThread .brain-message.assistant').last();
+    await expect(answer).toContainText('PYQ evidence · Myocardial Infarction', { timeout: 15000 });
+    const practice = answer.locator('.brain-action-link.primary');
+    await expect(practice).toHaveAttribute('href', /nvqs=/);
+
+    await practice.click();
+    await expect(page.locator('#practiceShell')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('#qStem')).not.toHaveText('');
+    await expect(page).not.toHaveURL(/nvqs=/);
+  });
+
+  test('Brain can rank the next study target from retrieval evidence', async ({ page }) => {
+    await page.locator('[data-view="brain"]').click();
+    await page.locator('[data-brain-prompt="What should I study next?"]').click();
+
+    const answer = page.locator('#brainThread .brain-message.assistant').last();
+    await expect(answer).toContainText('Next best study target', { timeout: 15000 });
+    await expect(answer.locator('.brain-source-chip').first()).toBeVisible();
+    await expect(answer.locator('.brain-action-button')).toBeVisible();
+  });
+
 });
