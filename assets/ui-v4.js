@@ -8,7 +8,7 @@
 
   const navItems = [
     ['dashboard','⌂','Dashboard'],['practice','▣','Questions'],['analytics','⌁','Tests & Analytics'],
-    ['review','↻','Revision'],['review','▤','Notes'],['bank','▦','QBank'],['review','◩','Quick Revise'],
+    ['review','↻','Revision'],['review','▤','Notes'],['neuralvault','◇','NeuralVault'],['bank','▦','QBank'],['review','◩','Quick Revise'],
     ['review','♡','Bookmarks'],['analytics','▥','Subject Wise'],['analytics','◎','Performance'],
     ['dashboard','♕','Achievements'],['dashboard','♧','Community'],['bank','▱','Resources'],['settings','⚙','Settings']
   ];
@@ -30,6 +30,7 @@
       const label=b.dataset.v4Label;
       if(label==='Community'){ if(typeof toast==='function') toast('Community module is planned for a later phase'); return; }
       if(label==='Achievements'){ if(typeof navigate==='function') navigate('dashboard'); setTimeout(()=>document.getElementById('v4Achievements')?.scrollIntoView({behavior:'smooth',block:'center'}),50); return; }
+      if(b.dataset.v4Target==='neuralvault'){ window.location.href='neuralvault/'; return; }
       if(typeof navigate==='function') navigate(b.dataset.v4Target);
     });
   }

@@ -9,6 +9,7 @@ test('live GitHub Pages build serves the validated Phase 13 study shell', async 
   await expect(page.locator('#statTotal')).toHaveText('405', { timeout: 15000 });
   await expect(page.locator('#v4Greeting')).toBeVisible({ timeout: 15000 });
   await expect(page.locator('#v4Search')).toBeVisible();
+  await expect(page.locator('.v4-nav[data-v4-label="NeuralVault"]')).toBeVisible();
   await expect(page.locator('#offlineBadge')).toHaveText(/Online|Offline/);
   await expect(page.locator('.exam9-launch')).toBeVisible({ timeout: 15000 });
   await expect(page.locator('#skipToContent')).toHaveCount(1, { timeout: 15000 });
@@ -79,4 +80,18 @@ test('live GitHub Pages build serves NeuralVault Brain V2', async ({ page }) => 
   await expect(page.locator('#brainSettingsBackdrop')).toBeVisible();
   await expect(page.locator('#brainGatewayToken')).toBeVisible();
   await expect(page.locator('#brainSettingsBackdrop')).not.toContainText('OPENAI_API_KEY');
+});
+
+
+test('live main app visibly links to NeuralVault', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto(`${LIVE}?vault-nav-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+
+  const vault = page.locator('.v4-nav[data-v4-label="NeuralVault"]');
+  await expect(vault).toBeVisible({ timeout: 15000 });
+  await vault.click();
+
+  await expect(page).toHaveURL(/\/NEETPG2027\/neuralvault\/?$/);
+  await expect(page.locator('#fileTree')).toBeVisible({ timeout: 15000 });
+  await expect(page.locator('[data-view="brain"]')).toBeVisible();
 });
