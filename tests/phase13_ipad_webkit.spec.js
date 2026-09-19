@@ -36,4 +36,6 @@ test('premium UI remains usable on iPad-sized WebKit with touch and accessibilit
 
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   expect(overflow).toBeLessThanOrEqual(2);
+  const sidebarOverflow = await page.locator('#sidebar').evaluate(el => getComputedStyle(el).overflowY);
+  expect(['auto','scroll']).toContain(sidebarOverflow);
 });
