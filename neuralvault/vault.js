@@ -33,6 +33,10 @@ let saveTimer=null;
 let toastTimer=null;
 let titleSnapshot=null;
 let medicalToken=0;
+let insightToken=0;
+let graphToken=0;
+let evidenceToken=0;
+let lastEvidenceQuery='';
 
 function current(){return state.notes.find(n=>n.id===currentId)||state.notes[0]||null}
 function uid(){return crypto&&crypto.randomUUID?crypto.randomUUID():'note-'+Date.now()+'-'+Math.random().toString(16).slice(2)}
@@ -241,11 +245,71 @@ async function renderMedical(){
   }
 }
 
+async function renderInsights(){
+  if(!window.NeuralVaultIntelligence||!window.NeuralVaultMedical)return;
+  const token=++insightToken,n=current(),note={id:n.id,title:n.title,path:n.path,content:n.content,properties:props(n.content)};
+  $('#insightBand').textContent='…';
+  $('#insightMetrics').innerHTML='<div class="context-empty">Calculating from matched PYQ attempts…</div>';
+  $('#insightAction').innerHTML='';
+  try{
+    const s=await NeuralVaultIntelligence.noteInsight(note);
+    if(token!==insightToken)return;
+    const bandLabel={unmeasured:'Unmeasured',weak:'Weak',building:'Building',strong:'Strong',mastered:'Mastered'}[s.band]||s.band;
+    $('#insightBand').textContent=bandLabel;
+    const value=v=>v==null?'—':v+'%';
+    $('#insightMetrics').innerHTML=
+      '<div class="insight-metric"><strong>'+s.count+'</strong><span>Matched PYQs</span></div>'+
+      '<div class="insight-metric"><strong>'+s.attempted+'</strong><span>Attempted</span></div>'+
+      '<div class="insight-metric"><strong>'+value(s.accuracy)+'</strong><span>Accuracy</span></div>'+
+      '<div class="insight-metric"><strong>'+value(s.readiness)+'</strong><span>Evidence score</span></div>';
+    let title='Keep building',reason='Evidence score = 70% matched-PYQ accuracy + 30% matched-PYQ coverage.';
+    if(!s.count){title='Improve note mapping';reason='No strong PYQ match. Add subject/system properties or use the exam topic name.'}
+    else if(!s.attempted){title='Start retrieval';reason='You have '+s.count+' matched PYQs and none attempted yet.'}
+    else if(s.accuracy!=null&&s.accuracy<60){title='Repair weak retrieval';reason='Matched-PYQ accuracy is '+s.accuracy+'%. Re-attempt this concept before adding more notes.'}
+    else if(s.coverage<50){title='Expand coverage';reason='Only '+s.coverage+'% of matched PYQs have been attempted.'}
+    else if(s.weakQuestions.length){title='Target persistent misses';reason=s.weakQuestions.length+' matched question'+(s.weakQuestions.length===1?' is':'s are')+' still weak.'}
+    else if(s.readiness!=null&&s.readiness>=85){title='Maintain, do not over-study';reason='Retrieval evidence is strong. Use spaced review instead of rereading.'}
+    const href=NeuralVaultMedical.topicUrl(note,{practice:true});
+    $('#insightAction').innerHTML='<strong>'+esc(title)+'</strong><p>'+esc(reason)+'</p>'+(s.count?'<a href="'+esc(href)+'">Practice matched PYQs →</a>':'');
+  }catch(_){
+    if(token!==insightToken)return;
+    $('#insightBand').textContent='Offline';
+    $('#insightMetrics').innerHTML='<div class="context-empty">Study evidence is unavailable until the PYQ corpus has been cached.</div>';
+  }
+}
+
+async function runEvidenceSearch(query){
+  query=String(query||'').trim();
+  if(!query)return;
+  lastEvidenceQuery=query;
+  const token=++evidenceToken,root=$('#evidenceResults');
+  $('#evidenceSummary').textContent='Searching vault notes and PYQs…';root.replaceChildren();$('#copyContextBtn').hidden=true;
+  try{
+    const results=await NeuralVaultIntelligence.search(state.notes,query,8);
+    if(token!==evidenceToken)return;
+    $('#evidenceSummary').textContent=results.summary;
+    results.notes.forEach(x=>{
+      const b=contextItem(x.note,x.snippet);b.classList.add('evidence-result');
+      const k=document.createElement('span');k.className='evidence-kind';k.textContent='Vault note';b.prepend(k);root.append(b);
+    });
+    results.questions.forEach(x=>{
+      const q=x.q,a=document.createElement('a');a.className='context-item evidence-result';a.href=NeuralVaultMedical.questionUrl(q);
+      a.innerHTML='<span class="evidence-kind">PYQ · '+esc(q.exam_year||'')+'</span><strong>'+esc(q.topic||q.subtopic||q.subject||'Question')+'</strong><p>'+esc(q.stem||'')+'</p>';
+      root.append(a);
+    });
+    if(!results.notes.length&&!results.questions.length)root.innerHTML='<div class="context-empty">No strong evidence match. Try the canonical disease, drug, investigation or syndrome name.</div>';
+    $('#copyContextBtn').hidden=!(results.notes.length||results.questions.length);
+  }catch(_){
+    if(token!==evidenceToken)return;
+    $('#evidenceSummary').textContent='Evidence search is unavailable offline until the PYQ corpus has been cached.';
+  }
+}
+
 function renderCurrent(){
   const n=current();if(!n)return;
   $('#titleInput').value=n.title;$('#editor').value=n.content;$('#pathLabel').textContent=folder(n);$('#breadcrumbs').textContent='Vault / '+folder(n)+' / '+n.title;
   $('#wordCount').textContent=countWords(n.content)+' words';$('#updatedLabel').textContent=ago(n.updatedAt);$('#preview').innerHTML=markdown(n.content);
-  renderTree($('#searchInput').value);renderBacklinks();renderRelated();renderProps();renderMedical();if(view==='graph')renderGraph();
+  renderTree($('#searchInput').value);renderBacklinks();renderRelated();renderProps();renderMedical();renderInsights();if(view==='graph')renderGraph();
 }
 
 function scheduleSave(){
@@ -308,23 +372,52 @@ function graphData(){
   return{notes:state.notes,edges};
 }
 
-function renderGraph(){
-  const svg=$('#graphSvg');svg.replaceChildren();
+async function renderGraph(){
+  const token=++graphToken,svg=$('#graphSvg');svg.replaceChildren();
   const all=graphData();let notes=all.notes,edges=all.edges;
   if($('#graphCurrentOnly').checked){
     const ids=new Set([currentId]);
     edges.forEach(e=>{if(e.from===currentId)ids.add(e.to);if(e.to===currentId)ids.add(e.from)});
     notes=notes.filter(n=>ids.has(n.id));edges=edges.filter(e=>ids.has(e.from)&&ids.has(e.to));
   }
-  $('#graphStats').textContent=notes.length+' nodes · '+edges.length+' links';
+  const mode=$('#graphMode').value;
+  $('#graphTitle').textContent=mode==='mastery'?'Mastery graph':'Knowledge graph';
+  $('#graphLegend').hidden=mode!=='mastery';
+  $('#graphStats').textContent=mode==='mastery'?'Calculating retrieval evidence…':notes.length+' nodes · '+edges.length+' links';
+
+  let mastery=new Map(),measured=0;
+  if(mode==='mastery'&&window.NeuralVaultIntelligence){
+    try{
+      const prepared=notes.map(n=>({id:n.id,title:n.title,path:n.path,content:n.content,properties:props(n.content)}));
+      const snapshot=await NeuralVaultIntelligence.snapshot(prepared);
+      if(token!==graphToken)return;
+      mastery=snapshot.byId;measured=snapshot.measured;
+      $('#graphStats').textContent=notes.length+' nodes · '+measured+' measured · '+(snapshot.average==null?'—':snapshot.average+'%')+' avg evidence';
+    }catch(_){
+      if(token!==graphToken)return;
+      $('#graphStats').textContent='Mastery evidence unavailable offline';
+    }
+  }else if(mode==='knowledge'){
+    $('#graphStats').textContent=notes.length+' nodes · '+edges.length+' links';
+  }
+
   const NS='http://www.w3.org/2000/svg',cx=600,cy=380,rad=Math.min(300,120+notes.length*15),pos=new Map();
   notes.forEach((n,i)=>{const a=Math.PI*2*i/Math.max(1,notes.length)-Math.PI/2,j=(i%3)*18;pos.set(n.id,{x:cx+Math.cos(a)*(rad-j),y:cy+Math.sin(a)*(rad-j)})});
   edges.forEach(e=>{const a=pos.get(e.from),b=pos.get(e.to);if(!a||!b)return;const l=document.createElementNS(NS,'line');l.setAttribute('x1',a.x);l.setAttribute('y1',a.y);l.setAttribute('x2',b.x);l.setAttribute('y2',b.y);l.setAttribute('class','graph-edge');svg.append(l)});
   notes.forEach(n=>{
-    const p=pos.get(n.id),g=document.createElementNS(NS,'g'),circle=document.createElementNS(NS,'circle'),text=document.createElementNS(NS,'text');
-    g.setAttribute('class','graph-node'+(n.id===currentId?' current':''));g.dataset.noteId=n.id;
-    circle.setAttribute('cx',p.x);circle.setAttribute('cy',p.y);circle.setAttribute('r',n.id===currentId?11:8);
-    text.setAttribute('x',p.x+14);text.setAttribute('y',p.y+4);text.textContent=n.title.length>28?n.title.slice(0,26)+'…':n.title;
+    const p=pos.get(n.id),s=mastery.get(n.id),band=s?s.band:'unmeasured';
+    const g=document.createElementNS(NS,'g'),circle=document.createElementNS(NS,'circle'),text=document.createElementNS(NS,'text'),tip=document.createElementNS(NS,'title');
+    g.setAttribute('class','graph-node'+(n.id===currentId?' current':'')+(mode==='mastery'?' mastery-'+band:''));g.dataset.noteId=n.id;
+    const base=mode==='mastery'&&s?8+Math.min(6,Math.sqrt(Math.max(0,s.count||0))*1.5):8;
+    circle.setAttribute('cx',p.x);circle.setAttribute('cy',p.y);circle.setAttribute('r',base+(n.id===currentId?3:0));
+    text.setAttribute('x',p.x+15);text.setAttribute('y',p.y+4);text.textContent=n.title.length>28?n.title.slice(0,26)+'…':n.title;
+    if(mode==='mastery'&&s){
+      tip.textContent=n.title+' · '+(s.readiness==null?'unmeasured':s.readiness+'% evidence')+' · '+s.attempted+'/'+s.count+' PYQs attempted';
+      g.append(tip);
+      if(s.readiness!=null){
+        const score=document.createElementNS(NS,'text');score.setAttribute('x',p.x+15);score.setAttribute('y',p.y+16);score.setAttribute('class','readiness-label');score.textContent=s.readiness+'%';g.append(score);
+      }
+    }
     g.append(circle,text);svg.append(g);
   });
 }
@@ -457,6 +550,7 @@ const commands=[
   ['Preview note','Cmd P',()=>setView('preview')],
   ['Edit note','',()=>setView('editor')],
   ['Show matched PYQs','',()=>setContext('medical')],
+  ['Open learning insights','',()=>setContext('intelligence')],
   ['Import Markdown files','',()=>$('#fileImport').click()],
   ['Import Obsidian folder','',()=>$('#folderImport').click()],
   ['Restore JSON backup','',()=>$('#backupImport').click()],
@@ -516,6 +610,17 @@ $$('.tab').forEach(b=>b.onclick=()=>setView(b.dataset.view));
 $$('.context-tab').forEach(b=>b.onclick=()=>setContext(b.dataset.context));
 $('#toggleRight').onclick=()=>document.body.classList.toggle('context-hidden');
 $('#graphCurrentOnly').onchange=renderGraph;
+$('#graphMode').onchange=renderGraph;
+$('#vaultQueryForm').onsubmit=e=>{e.preventDefault();runEvidenceSearch($('#vaultQuery').value)};
+$('#evidenceResults').onclick=e=>{const x=e.target.closest('[data-note-id]');if(x){e.preventDefault();openNote(x.dataset.noteId)}};
+$('#copyContextBtn').onclick=async()=>{
+  if(!lastEvidenceQuery)return;
+  try{
+    const bundle=await NeuralVaultIntelligence.contextBundle(state.notes,lastEvidenceQuery);
+    try{await navigator.clipboard.writeText(bundle);toast('Evidence bundle copied for AI')}
+    catch(_){download('NeuralVault-evidence-'+new Date().toISOString().slice(0,10)+'.md',bundle,'text/markdown');toast('Clipboard unavailable; evidence bundle downloaded')}
+  }catch(_){toast('Could not build evidence bundle')}
+};
 $('#graphSvg').onclick=e=>{const x=e.target.closest&&e.target.closest('.graph-node');if(x)openNote(x.dataset.noteId)};
 $('#preview').onclick=e=>{const x=e.target.closest('.wiki-link');if(x)openTitle(x.dataset.noteTitle)};
 
