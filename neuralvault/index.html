@@ -116,10 +116,14 @@
             <p>Answers are assembled from your notes, PYQs and study evidence. Missing facts stay missing instead of being invented.</p>
           </div>
           <div class="brain-head-actions">
+            <select id="brainProvider" aria-label="Brain provider">
+              <option value="local">Local evidence</option>
+            </select>
             <select id="brainScope" aria-label="Brain scope">
               <option value="vault">Whole vault</option>
               <option value="current">Current note</option>
             </select>
+            <button id="brainProviderBtn" type="button">Provider</button>
             <button id="brainClear" type="button">Clear</button>
           </div>
         </header>
@@ -136,6 +140,9 @@
           <button type="button" data-brain-prompt="What is missing from this note?">Audit current note</button>
           <button type="button" data-brain-prompt="Which PYQs test this concept?">PYQ evidence</button>
           <button type="button" data-brain-prompt="Explain this concept using my vault.">Explain from vault</button>
+          <button type="button" data-brain-prompt="Connect this concept across subjects.">Cross-subject links</button>
+          <button type="button" data-brain-prompt="Generate recall cards from this note.">Recall cards</button>
+          <button type="button" data-brain-prompt="Improve the structure of this note safely.">Safe note patch</button>
         </div>
 
         <div class="brain-thread" id="brainThread">
@@ -239,11 +246,49 @@
   </div>
 </div>
 
+<div class="brain-settings-backdrop" id="brainSettingsBackdrop" hidden>
+  <div class="brain-settings-modal" role="dialog" aria-modal="true" aria-label="Brain provider setup">
+    <div class="history-head">
+      <div><strong>Brain provider setup</strong><span>No API keys are stored in this browser.</span></div>
+      <button class="icon-btn" id="closeBrainSettings" aria-label="Close provider setup">×</button>
+    </div>
+    <label class="brain-setting-field">
+      <span>Backend URL</span>
+      <input id="brainBackendUrl" type="url" placeholder="https://your-api.example.com">
+      <small>Use the FastAPI deployment that holds your provider keys. Leave blank for local-only mode.</small>
+    </label>
+    <div class="brain-settings-status" id="brainSettingsStatus">Local evidence mode is always available.</div>
+    <div class="brain-settings-actions">
+      <button type="button" id="brainTestBackend">Test connection</button>
+      <button type="button" id="brainSaveBackend" class="primary-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="patch-backdrop" id="patchBackdrop" hidden>
+  <div class="patch-modal" role="dialog" aria-modal="true" aria-label="Safe note patch preview">
+    <div class="history-head">
+      <div><strong>Safe patch preview</strong><span id="patchNoteTitle"></span></div>
+      <button class="icon-btn" id="closePatch" aria-label="Close patch preview">×</button>
+    </div>
+    <div id="patchChanges" class="patch-changes"></div>
+    <div class="patch-columns">
+      <div><span>Before</span><pre id="patchBefore"></pre></div>
+      <div><span>After</span><pre id="patchAfter"></pre></div>
+    </div>
+    <div class="brain-settings-actions">
+      <button type="button" id="cancelPatch">Cancel</button>
+      <button type="button" id="applyPatch" class="primary-btn">Apply patch</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="vault-db.js" defer></script>
 <script src="medical.js" defer></script>
 <script src="intelligence.js" defer></script>
 <script src="brain.js" defer></script>
+<script src="provider.js" defer></script>
 <script src="vault.js" defer></script>
 </body>
 </html>
