@@ -23,7 +23,8 @@ jobs:
         run: python scripts/generate_question_manifest.py
       - name: Prepare static site
         run: |
-          mkdir -p _site/data _site/assets\n          mkdir -p _site/neuralvault
+          mkdir -p _site/data _site/assets
+          mkdir -p _site/neuralvault
           cp index.html _site/index.html
           cp manifest.webmanifest _site/manifest.webmanifest
           cp sw.js _site/sw.js
@@ -32,7 +33,10 @@ jobs:
           cp assets/ui-v4.css _site/assets/ui-v4.css
           cp assets/exam-v9.css _site/assets/exam-v9.css
           cp assets/phase13.css _site/assets/phase13.css
-          cp assets/app.js _site/assets/app.js\n          cp neuralvault/index.html _site/neuralvault/index.html\n          cp neuralvault/vault.css _site/neuralvault/vault.css\n          cp neuralvault/vault.js _site/neuralvault/vault.js
+          cp assets/app.js _site/assets/app.js
+          cp neuralvault/index.html _site/neuralvault/index.html
+          cp neuralvault/vault.css _site/neuralvault/vault.css
+          cp neuralvault/vault.js _site/neuralvault/vault.js
           cp assets/ui-v4-core-compat.js _site/assets/ui-v4-core-compat.js
           cp assets/neetpg-timer.js _site/assets/neetpg-timer.js
           cp assets/supabase-config.js _site/assets/supabase-config.js
