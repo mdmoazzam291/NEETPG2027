@@ -41,6 +41,8 @@ let brainToken=0;
 let brainLastQuery='';
 let brainLastNoteId=null;
 let brainLastScope='vault';
+let brainLastProvider='local';
+let pendingPatch=null;
 
 function current(){return state.notes.find(n=>n.id===currentId)||state.notes[0]||null}
 function uid(){return crypto&&crypto.randomUUID?crypto.randomUUID():'note-'+Date.now()+'-'+Math.random().toString(16).slice(2)}
@@ -565,6 +567,19 @@ function brainSourceButton(source){
   return '';
 }
 
+function brainRichText(text){
+  let safe=esc(text||'').replace(/\n/g,'<br>');
+  safe=safe.replace(/\[NOTE:([A-Za-z0-9._:-]+)\]/g,(m,id)=>{
+    const n=state.notes.find(x=>x.id===id);
+    return n?'<button class="brain-cite inline-source" data-brain-note="'+esc(id)+'">[NOTE:'+esc(id)+']</button>':m;
+  });
+  safe=safe.replace(/\[PYQ:([A-Za-z0-9._:-]+)\]/g,(m,id)=>{
+    const href='../?'+new URLSearchParams({source:'neuralvault',nvq:id}).toString();
+    return '<a class="brain-cite inline-source" href="'+esc(href)+'">[PYQ:'+esc(id)+']</a>';
+  });
+  return safe;
+}
+
 function renderBrainAnswer(answer){
   const thread=$('#brainThread');
   const box=document.createElement('div');box.className='brain-message assistant';
@@ -573,7 +588,7 @@ function renderBrainAnswer(answer){
   (answer.sections||[]).forEach(section=>{
     html+='<section class="brain-section"><h3>'+esc(section.title||'Evidence')+'</h3>';
     (section.bullets||[]).forEach(b=>{
-      html+='<div class="brain-bullet"><span>'+esc(b.text||'')+brainSourceButton(b.source)+'</span></div>';
+      html+='<div class="brain-bullet"><span>'+brainRichText(b.text||'')+brainSourceButton(b.source)+'</span></div>';
     });
     html+='</section>';
   });
@@ -587,7 +602,7 @@ function renderBrainAnswer(answer){
     });
     html+='</div>';
   }
-  if(answer.nextTarget||answer.practiceUrl){
+  if(answer.nextTarget||answer.practiceUrl||answer.patch||answer.cards){
     html+='<div class="brain-actions">';
     if(answer.nextTarget){
       html+='<button class="brain-action-button" data-brain-note="'+esc(answer.nextTarget.noteId)+'">Open '+esc(answer.nextTarget.title)+'</button>';
@@ -595,15 +610,17 @@ function renderBrainAnswer(answer){
     }else if(answer.practiceUrl){
       html+='<a class="brain-action-link primary" href="'+esc(answer.practiceUrl)+'">Practice matched PYQs →</a>';
     }
+    if(answer.patch)html+='<button class="brain-action-button primary" data-brain-patch>Preview safe patch →</button>';
+    if(answer.cards&&answer.cards.length)html+='<button class="brain-action-button" data-brain-copy-cards>Copy '+answer.cards.length+' cards JSON</button>';
     html+='</div>';
   }
-  box.innerHTML=html;thread.append(box);thread.scrollTop=thread.scrollHeight;
+  box.innerHTML=html;box._brainAnswer=answer;thread.append(box);thread.scrollTop=thread.scrollHeight;
 }
 
 async function askBrain(query){
   query=String(query||'').trim();if(!query)return;
   if(!window.NeuralVaultBrain){toast('Brain engine unavailable');return}
-  brainLastQuery=query;brainLastNoteId=current()?.id||null;brainLastScope=$('#brainScope').value;setView('brain');
+  brainLastQuery=query;brainLastNoteId=current()?.id||null;brainLastScope=$('#brainScope').value;brainLastProvider=$('#brainProvider').value;setView('brain');
   const thread=$('#brainThread');
   const empty=thread.querySelector('.brain-empty');if(empty)empty.remove();
   const user=document.createElement('div');user.className='brain-message user';user.innerHTML='<p>'+esc(query)+'</p>';thread.append(user);
@@ -611,19 +628,48 @@ async function askBrain(query){
   $('#brainAskBtn').disabled=true;
   const token=++brainToken;
   try{
-    const answer=await NeuralVaultBrain.ask({
-      notes:state.notes.map(n=>({...n,properties:props(n.content)})),
-      currentNote:current()?{...current(),properties:props(current().content)}:null,
+    const notes=state.notes.map(n=>({...n,properties:props(n.content)}));
+    const contextNote=current()?{...current(),properties:props(current().content)}:null;
+    const grounded=await NeuralVaultBrain.ask({
+      notes,
+      currentNote:contextNote,
       query,
       scope:brainLastScope
     });
     if(token!==brainToken)return;
+
+    let answer=grounded;
+    const deterministic=new Set(['study','gap','pyq','connections','cards','patch']);
+    if(brainLastProvider!=='local'&&!deterministic.has(grounded.mode)){
+      if(!window.NeuralVaultProvider)throw new Error('Provider client unavailable');
+      loading.textContent='Sending grounded evidence to configured model…';
+      const contextual=/\b(this concept|this note|current note)\b/i.test(query);
+      const prompt=await NeuralVaultBrain.modelPrompt(
+        state.notes,
+        query,
+        (brainLastScope==='current'||contextual)?contextNote:null
+      );
+      const remote=await NeuralVaultProvider.generate(brainLastProvider,prompt,1400);
+      if(token!==brainToken)return;
+      const option=$('#brainProvider').selectedOptions[0];
+      const providerLabel=option?option.textContent:brainLastProvider;
+      answer={
+        mode:'model',
+        title:providerLabel+' · '+remote.model,
+        summary:'Generated from a NeuralVault evidence bundle. Source chips are the evidence supplied to the model, not automatic claim-level verification.',
+        sections:[{title:'Model answer',bullets:[{text:remote.text,source:null}]}],
+        sources:grounded.sources||[]
+      };
+    }else if(brainLastProvider!=='local'&&deterministic.has(grounded.mode)){
+      grounded.summary=(grounded.summary||'')+' This action stayed local because it changes study state, note structure, or evidence routing deterministically.';
+    }
+
     loading.remove();renderBrainAnswer(answer);$('#brainCopyPrompt').hidden=false;
   }catch(e){
     if(token!==brainToken)return;
     loading.remove();
     const err=document.createElement('div');err.className='brain-message assistant';
-    err.innerHTML='<div class="brain-answer-head"><strong>Could not answer</strong><span>local</span></div><p class="brain-answer-summary">'+esc(e.message||'Brain error')+'</p>';
+    err.innerHTML='<div class="brain-answer-head"><strong>Model unavailable</strong><span>fallback</span></div><p class="brain-answer-summary">'+esc(e.message||'Brain error')+' Local evidence mode remains available.</p>';
     thread.append(err);
   }finally{
     if(token===brainToken)$('#brainAskBtn').disabled=false;
@@ -631,7 +677,7 @@ async function askBrain(query){
 }
 
 function clearBrain(){
-  brainLastQuery='';brainLastNoteId=null;brainLastScope='vault';brainToken++;
+  brainLastQuery='';brainLastNoteId=null;brainLastScope='vault';brainLastProvider='local';brainToken++;
   $('#brainThread').innerHTML='<div class="brain-empty"><div class="brain-orb">✦</div><strong>NeuralVault Brain</strong><p>Ask a question. Local mode retrieves evidence and cites the exact notes/PYQs it used.</p></div>';
   $('#brainCopyPrompt').hidden=true;
 }
@@ -646,6 +692,79 @@ async function copyBrainPrompt(){
   }catch(_){toast('Could not build grounded model prompt')}
 }
 
+
+
+async function refreshBrainProviders(showStatus=false){
+  const select=$('#brainProvider');
+  const previous=select.value;
+  select.innerHTML='<option value="local">Local evidence</option>';
+  if(!window.NeuralVaultProvider)return;
+  const info=await NeuralVaultProvider.providers();
+  const tokenReady=Boolean(NeuralVaultProvider.accessToken());
+  const gatewayReady=Boolean(info.gateway_ready);
+  const gatewayAuthorized=Boolean(info.gateway_authorized);
+  const configured=(info.providers||[]).filter(x=>x.configured).length;
+  if(gatewayAuthorized){
+    (info.providers||[]).filter(x=>x.configured).forEach(row=>{
+      const o=document.createElement('option');o.value=row.id;o.textContent=row.label+(row.model?' · '+row.model:'');select.append(o);
+    });
+  }
+  if([...select.options].some(o=>o.value===previous))select.value=previous;
+  $('#brainModeLabel').textContent=(gatewayAuthorized&&configured)
+    ? ('Local evidence + '+configured+' configured model'+(configured===1?'':'s'))
+    : 'Local evidence mode · remote models locked';
+  if(showStatus){
+    $('#brainSettingsStatus').textContent=info.error
+      ? 'Backend connection failed: '+info.error
+      : !info.base
+        ? 'No backend URL saved. Local evidence mode is active.'
+        : !gatewayReady
+          ? 'Backend reached, but its AI gateway token is not configured.'
+          : !tokenReady
+            ? 'Backend reached. Enter your NeuralVault gateway token for this session.'
+            : !gatewayAuthorized
+              ? 'Backend reached, but the gateway token was rejected.'
+              : configured+' provider'+(configured===1?'':'s')+' ready on '+info.base;
+  }
+}
+
+function openBrainSettings(){
+  if(!window.NeuralVaultProvider)return;
+  $('#brainBackendUrl').value=NeuralVaultProvider.settings().backendUrl||'';
+  $('#brainGatewayToken').value=NeuralVaultProvider.accessToken()||'';
+  $('#brainSettingsStatus').textContent='Provider API keys stay on FastAPI. The gateway token is kept only for this browser session.';
+  $('#brainSettingsBackdrop').hidden=false;
+}
+
+async function saveBrainBackend(close=true){
+  if(!window.NeuralVaultProvider)return;
+  NeuralVaultProvider.save({
+    backendUrl:$('#brainBackendUrl').value,
+    accessToken:$('#brainGatewayToken').value
+  });
+  await refreshBrainProviders(true);
+  if(close)$('#brainSettingsBackdrop').hidden=true;
+}
+
+function openPatchPreview(patch){
+  if(!patch)return;
+  pendingPatch=patch;
+  $('#patchNoteTitle').textContent=patch.noteTitle||'';
+  $('#patchChanges').innerHTML=(patch.changes||[]).map(x=>'<div>• '+esc(x)+'</div>').join('')||'<div>No changes.</div>';
+  $('#patchBefore').textContent=patch.before||'';
+  $('#patchAfter').textContent=patch.after||'';
+  $('#patchBackdrop').hidden=false;
+}
+
+async function applyPendingPatch(){
+  if(!pendingPatch)return;
+  const n=state.notes.find(x=>x.id===pendingPatch.noteId);
+  if(!n){toast('Target note no longer exists');return}
+  if(n.content!==pendingPatch.before){toast('Note changed since this patch was proposed. Generate a fresh patch.');return}
+  if(window.NeuralVaultDB)await NeuralVaultDB.checkpoint(n,'before-brain-safe-patch').catch(()=>{});
+  n.content=pendingPatch.after;n.updatedAt=iso();currentId=n.id;save();renderCurrent();
+  $('#patchBackdrop').hidden=true;pendingPatch=null;setView('editor');toast('Safe structural patch applied');
+}
 
 function toast(message){
   const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1800);
@@ -738,7 +857,23 @@ $('#brainForm').onsubmit=e=>{e.preventDefault();const q=$('#brainInput').value;$
 $('#brainSuggestions').onclick=e=>{const b=e.target.closest('[data-brain-prompt]');if(b)askBrain(b.dataset.brainPrompt)};
 $('#brainClear').onclick=clearBrain;
 $('#brainCopyPrompt').onclick=copyBrainPrompt;
-$('#brainThread').onclick=e=>{const b=e.target.closest('[data-brain-note]');if(b){e.preventDefault();openNote(b.dataset.brainNote)}};
+$('#brainProviderBtn').onclick=openBrainSettings;
+$('#closeBrainSettings').onclick=()=>$('#brainSettingsBackdrop').hidden=true;
+$('#brainSettingsBackdrop').onclick=e=>{if(e.target===$('#brainSettingsBackdrop'))$('#brainSettingsBackdrop').hidden=true};
+$('#brainSaveBackend').onclick=()=>saveBrainBackend(true);
+$('#brainTestBackend').onclick=()=>saveBrainBackend(false);
+$('#closePatch').onclick=$('#cancelPatch').onclick=()=>{$('#patchBackdrop').hidden=true;pendingPatch=null};
+$('#patchBackdrop').onclick=e=>{if(e.target===$('#patchBackdrop')){$('#patchBackdrop').hidden=true;pendingPatch=null}};
+$('#applyPatch').onclick=applyPendingPatch;
+$('#brainThread').onclick=e=>{
+  const note=e.target.closest('[data-brain-note]');if(note){e.preventDefault();openNote(note.dataset.brainNote);return}
+  const patch=e.target.closest('[data-brain-patch]');if(patch){openPatchPreview(patch.closest('.brain-message')._brainAnswer?.patch);return}
+  const cards=e.target.closest('[data-brain-copy-cards]');if(cards){
+    const data=cards.closest('.brain-message')._brainAnswer?.cards||[];
+    const json=JSON.stringify(data,null,2);
+    navigator.clipboard?.writeText(json).then(()=>toast('Recall cards copied')).catch(()=>download('NeuralVault-recall-cards.json',json,'application/json'));
+  }
+};
 $('#brainInput').onkeydown=e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)){e.preventDefault();$('#brainForm').requestSubmit()}};
 $('#graphSvg').onclick=e=>{const x=e.target.closest&&e.target.closest('.graph-node');if(x)openNote(x.dataset.noteId)};
 $('#preview').onclick=e=>{const x=e.target.closest('.wiki-link');if(x)openTitle(x.dataset.noteTitle)};
@@ -773,11 +908,12 @@ document.addEventListener('keydown',e=>{
   if(mod&&k==='p'){e.preventDefault();setView('preview')}
   if(mod&&e.shiftKey&&k==='g'){e.preventDefault();setView('graph')}
   if(mod&&e.shiftKey&&k==='b'){e.preventDefault();setView('brain')}
-  if(e.key==='Escape'){$('#paletteBackdrop').hidden=true;$('#historyBackdrop').hidden=true;closeSidebar();$('#noteMenu').hidden=true}
+  if(e.key==='Escape'){$('#paletteBackdrop').hidden=true;$('#historyBackdrop').hidden=true;$('#brainSettingsBackdrop').hidden=true;$('#patchBackdrop').hidden=true;pendingPatch=null;closeSidebar();$('#noteMenu').hidden=true}
 });
 
 window.addEventListener('beforeunload',()=>save());
 
 renderCurrent();
 hydrateDurable();
+refreshBrainProviders(false);
 })();

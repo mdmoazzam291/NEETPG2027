@@ -188,3 +188,74 @@ Local Brain mode does not invent missing medical facts. If the answer is absent 
 
 Future generative providers must consume the same evidence bundle and preserve provenance. Browser code must not ship permanent cloud API secrets; cloud providers should be reached through a server-side/authorized provider boundary, while local models may run entirely on-device when supported.
 
+
+
+## Brain V2
+
+Brain V2 extends the grounded local Brain without changing the source-of-truth model.
+
+### Local intelligence
+
+- hybrid concept retrieval using word, bigram and character-trigram features
+- cross-subject note suggestions ranked from local concept similarity
+- source-traceable recall-card candidates derived only from existing note text
+- safe note patch proposals that add missing study headings and wiki-link suggestions only
+- side-by-side patch preview with explicit user apply/cancel
+- stable evidence IDs in model bundles: `NOTE:<id>` and `PYQ:<external_id>`
+- generated model citations using those IDs can jump back to the exact note/PYQ
+
+### Secure provider router
+
+The FastAPI backend can optionally route grounded prompts to:
+
+- OpenAI Responses API
+- Google Gemini `generateContent`
+- Anthropic Messages API
+- an OpenAI-compatible/local server
+
+No provider model name is hardcoded. Configure the model explicitly on the server so model upgrades do not require a frontend release.
+
+Required gateway protection:
+
+```bash
+NEETPG2027_AI_ACCESS_TOKEN=<random-private-gateway-token>
+NEETPG2027_AI_MAX_REQUESTS_PER_MINUTE=30
+NEETPG2027_CORS_ORIGINS=https://mdmoazzam291.github.io
+```
+
+Provider examples:
+
+```bash
+# OpenAI
+NEETPG2027_OPENAI_API_KEY=...
+NEETPG2027_OPENAI_MODEL=...
+
+# Gemini
+NEETPG2027_GEMINI_API_KEY=...
+NEETPG2027_GEMINI_MODEL=...
+
+# Anthropic
+NEETPG2027_ANTHROPIC_API_KEY=...
+NEETPG2027_ANTHROPIC_MODEL=...
+
+# Local / OpenAI-compatible server
+NEETPG2027_OPENAI_COMPATIBLE_BASE_URL=http://127.0.0.1:1234
+NEETPG2027_OPENAI_COMPATIBLE_MODEL=...
+NEETPG2027_OPENAI_COMPATIBLE_API_KEY=...   # optional
+```
+
+The browser stores only the backend URL persistently. The NeuralVault gateway token is kept in `sessionStorage`, so it disappears when the browser session ends. Provider API keys never enter browser storage.
+
+Remote model answers are fed the same evidence bundle as local Brain. Provider output is displayed with the evidence supplied to it, and inline `[NOTE:...]` / `[PYQ:...]` source IDs become clickable when they reference known local evidence.
+
+### Safety boundary
+
+Deterministic actions stay local even when a cloud model is selected:
+
+- next-study ranking
+- PYQ routing
+- cross-subject link suggestions
+- recall-card extraction
+- safe structural note patching
+
+Cloud/local generative providers are used for explanatory synthesis, not for silently mutating notes or study state.

@@ -139,5 +139,6 @@ test('Phase 13 manifest and service worker expose versioned install metadata', a
   expect(sw).toContain("'./neuralvault/index.html'");
   expect(sw).toContain("'./neuralvault/intelligence.js'");
   expect(sw).toContain("'./neuralvault/brain.js'");
+  expect(sw).toContain("'./neuralvault/provider.js'");
   expect(sw).toContain("neuralVault?'./neuralvault/index.html':'./index.html'");
 });

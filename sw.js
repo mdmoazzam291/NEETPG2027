@@ -1,4 +1,4 @@
-const RELEASE='2026-09-19-neuralvault-brain-1';
+const RELEASE='2026-09-19-neuralvault-brain-v2-1';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[
@@ -9,7 +9,7 @@ const ASSETS=[
   './assets/ui-v4.js','./assets/ui-v4-fixes.js','./assets/exam-v9.js','./assets/phase10-taxonomy.js','./assets/pyq-metadata.js',
   './assets/phase11-analytics.js','./assets/phase11-exam-overlay.js','./assets/phase12-planning.js','./assets/phase13-hardening.js',
   './data/pyq/manifest.json',
-  './neuralvault/index.html','./neuralvault/vault.css','./neuralvault/vault.js','./neuralvault/vault-db.js','./neuralvault/medical.js','./neuralvault/intelligence.js','./neuralvault/brain.js'
+  './neuralvault/index.html','./neuralvault/vault.css','./neuralvault/vault.js','./neuralvault/vault-db.js','./neuralvault/medical.js','./neuralvault/intelligence.js','./neuralvault/brain.js','./neuralvault/provider.js'
 ];
 
 async function prime(){
