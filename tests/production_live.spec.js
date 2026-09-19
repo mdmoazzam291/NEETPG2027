@@ -13,6 +13,12 @@ test('live GitHub Pages build serves the validated Phase 13 study shell', async 
   await expect(page.locator('#offlineBadge')).toHaveText(/Online|Offline/);
   await expect(page.locator('.exam9-launch')).toBeVisible({ timeout: 15000 });
   await expect(page.locator('#skipToContent')).toHaveCount(1, { timeout: 15000 });
+  const uiScript = await page.locator('script[src*="assets/ui-v4.js"]').getAttribute('src');
+  const plannerScript = await page.locator('script[src*="assets/phase12-planning.js"]').getAttribute('src');
+  const uiCss = await page.locator('link[href*="assets/ui-v4.css"]').getAttribute('href');
+  expect(uiScript).toMatch(/ui-v4\.js\?v=[0-9a-f]{12}$/);
+  expect(plannerScript).toMatch(/phase12-planning\.js\?v=[0-9a-f]{12}$/);
+  expect(uiCss).toMatch(/ui-v4\.css\?v=[0-9a-f]{12}$/);
 
   await page.locator('.v4-nav[data-v4-label="Settings"]').evaluate(el => el.click());
   await expect(page.getByText('Offline & app install')).toBeVisible({ timeout: 10000 });
