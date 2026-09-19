@@ -119,7 +119,43 @@ test('live dashboard shows dedicated continuous countdown to 29 Aug 2027', async
   expect(after).not.toBe(before);
 
   await expect(page.locator('#v12Planner')).toBeVisible({ timeout: 15000 });
+  await expect(page.locator('#v12Planner').evaluate(el => el.parentElement?.classList.contains('v4-dashboard'))).resolves.toBe(true);
+  const visibleOrder=await page.locator('.v4-dashboard > *:not(.v4-legacy)').evaluateAll(els=>els.map(el=>el.id||el.className));
+  expect(visibleOrder[0]).toContain('v4ExamCountdown');
+  expect(visibleOrder[1]).toContain('v12Planner');
   await expect(page.locator('#v12Planner')).not.toContainText('Exam countdown');
   await expect(page.locator('#p12ExamDate')).toHaveCount(0);
   await expect(page.locator('#p12CountdownDays')).toHaveCount(0);
+});
+
+
+test('live v4 shell has one real destination per nav item and no desktop double offset', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(`${LIVE}?ui-cleanup-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.v4-nav')).toHaveCount(7, { timeout: 15000 });
+  await expect(page.locator('.v4-nav')).toHaveText([
+    /Dashboard/,/Practice/,/Question Bank/,/Revision/,/NeuralVault/,/Analytics/,/Settings/
+  ]);
+  const layout=await page.evaluate(()=>{
+    const app=document.querySelector('.app').getBoundingClientRect();
+    const side=document.querySelector('#sidebar').getBoundingClientRect();
+    const main=document.querySelector('.main').getBoundingClientRect();
+    return {appLeft:app.left,sideLeft:side.left,sideRight:side.right,mainLeft:main.left,mainMargin:getComputedStyle(document.querySelector('.main')).marginLeft};
+  });
+  expect(layout.mainMargin).toBe('0px');
+  expect(Math.abs(layout.mainLeft-layout.sideRight)).toBeLessThanOrEqual(2);
+});
+
+test('mobile sidebar can scroll through every destination', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 700 });
+  await page.goto(`${LIVE}?mobile-nav-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await page.locator('#menuBtn').click();
+  const result=await page.evaluate(()=>{
+    const nav=document.querySelector('#sidebar .nav');
+    nav.scrollTop=nav.scrollHeight;
+    const last=nav.querySelector('.v4-nav:last-child').getBoundingClientRect();
+    return {overflow:getComputedStyle(nav).overflowY,scrollHeight:nav.scrollHeight,clientHeight:nav.clientHeight,lastBottom:last.bottom,viewport:innerHeight};
+  });
+  expect(['auto','scroll']).toContain(result.overflow);
+  expect(result.lastBottom).toBeLessThanOrEqual(result.viewport+1);
 });
