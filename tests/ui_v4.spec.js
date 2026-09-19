@@ -9,7 +9,7 @@ async function loadV4(page, {timer=false}={}) {
   await expect(page.locator('body')).toHaveAttribute('data-v4ready','1');
 }
 
-test('premium dashboard renders reference-inspired study UI', async ({ page }) => {
+test('premium dashboard renders streamlined reference-inspired study UI', async ({ page }) => {
   await page.goto('/');
   await loadV4(page);
   await expect(page.locator('.v4-brand-row')).toContainText('NEETPG2027');
