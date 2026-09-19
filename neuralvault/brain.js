@@ -230,11 +230,49 @@
     };
   }
 
+  async function pyqAnswer(note) {
+    if (!note) {
+      return {
+        mode:'pyq',
+        title:'PYQ evidence',
+        summary:'Open a medical note first.',
+        sections:[{title:'No current note',bullets:[{text:'Select a concept note so NeuralVault can map it to the PYQ corpus.',source:null}]}],
+        sources:[]
+      };
+    }
+    const prepared={...note,properties:parseProperties(note.content)};
+    const s=await NeuralVaultMedical.summary(prepared);
+    if(!s.count){
+      return {
+        mode:'pyq',
+        title:'PYQ evidence · '+note.title,
+        summary:'No strong PYQ mapping was found.',
+        sections:[{title:'Improve mapping',bullets:[{text:'Use the canonical exam topic name and add subject/system properties to this note.',source:{kind:'note',id:note.id,title:note.title}}]}],
+        sources:[noteRef(note)]
+      };
+    }
+    return {
+      mode:'pyq',
+      title:'PYQ evidence · '+note.title,
+      summary:s.count+' matched PYQ'+(s.count===1?'':'s')+' · '+s.attempted+' attempted'+(s.accuracy==null?'':' · '+s.accuracy+'% accuracy'),
+      sections:[{
+        title:'Matched questions',
+        bullets:s.matches.slice(0,6).map(x=>({
+          text:(x.q.exam_year?x.q.exam_year+': ':'')+(x.q.stem||x.q.topic||'Matched PYQ'),
+          source:{kind:'pyq',id:x.q.external_id,title:x.q.topic||x.q.subject||'PYQ',url:NeuralVaultMedical.questionUrl(x.q)}
+        }))
+      }],
+      sources:[noteRef(note),...s.matches.slice(0,6).map(x=>questionRef(x.q))],
+      practiceUrl:NeuralVaultMedical.practiceUrl(s.matches,prepared)
+    };
+  }
+
   async function currentNoteAnswer(notes, note, query) {
     if (!note) return genericAnswer(notes, query);
-    const local = await genericAnswer([note], query);
+    const contextual=/\b(this concept|this note|current note|using my vault)\b/i.test(query) ? note.title+' '+query : query;
+    const local = await genericAnswer([note], contextual);
     if (local.sections[0].bullets.length === 1 && /No strong grounded answer/.test(local.sections[0].bullets[0].text)) {
-      return genericAnswer(notes, query);
+      return genericAnswer(notes, note.title+' '+query);
     }
     local.title = 'Current note · ' + note.title;
     return local;
@@ -252,7 +290,10 @@
     if (/\b(gap|missing|incomplete|audit|improve note|what is missing)\b/.test(n)) {
       return gapAnswer(currentNote);
     }
-    if (scope === 'current') return currentNoteAnswer(notes, currentNote, query);
+    if (/\b(pyq|pyqs|previous year|exam question|questions test)\b/.test(n) && /\b(this|concept|current|note|pyq|question)\b/.test(n)) {
+      return pyqAnswer(currentNote);
+    }
+    if (scope === 'current' || /\b(this concept|this note|current note|using my vault)\b/.test(n)) return currentNoteAnswer(notes, currentNote, query);
     return genericAnswer(notes, query);
   }
 
