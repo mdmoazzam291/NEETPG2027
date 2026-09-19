@@ -9,3 +9,10 @@ body[data-theme="dark"] .option.wrong .letter{color:#351820}
 button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media(max-width:560px){.topbar .spacer{display:none}.top-actions{flex-shrink:0}#shortcutsBtn{display:none}.topbar{gap:8px}.theme-toggle{padding:8px 10px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Keep explicit accent choices in Settings working in both palettes. */
+body[data-theme="light"][data-accent="blue"]{--accent:#245eaa;--accent2:#e3eefc}
+body[data-theme="light"][data-accent="purple"]{--accent:#6e4bb4;--accent2:#eee8f9}
+body[data-theme="light"][data-accent="amber"]{--accent:#9a6509;--accent2:#fff1d2}
+body[data-theme="dark"][data-accent="blue"]{--accent:#a9caff;--accent2:#233249}
+body[data-theme="dark"][data-accent="purple"]{--accent:#c4b5fd;--accent2:#322a47}
+body[data-theme="dark"][data-accent="amber"]{--accent:#e7c785;--accent2:#3c3425}
