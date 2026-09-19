@@ -567,6 +567,19 @@ function brainSourceButton(source){
   return '';
 }
 
+function brainRichText(text){
+  let safe=esc(text||'').replace(/\n/g,'<br>');
+  safe=safe.replace(/\[NOTE:([A-Za-z0-9._:-]+)\]/g,(m,id)=>{
+    const n=state.notes.find(x=>x.id===id);
+    return n?'<button class="brain-cite inline-source" data-brain-note="'+esc(id)+'">[NOTE:'+esc(id)+']</button>':m;
+  });
+  safe=safe.replace(/\[PYQ:([A-Za-z0-9._:-]+)\]/g,(m,id)=>{
+    const href='../?'+new URLSearchParams({source:'neuralvault',nvq:id}).toString();
+    return '<a class="brain-cite inline-source" href="'+esc(href)+'">[PYQ:'+esc(id)+']</a>';
+  });
+  return safe;
+}
+
 function renderBrainAnswer(answer){
   const thread=$('#brainThread');
   const box=document.createElement('div');box.className='brain-message assistant';
@@ -575,7 +588,7 @@ function renderBrainAnswer(answer){
   (answer.sections||[]).forEach(section=>{
     html+='<section class="brain-section"><h3>'+esc(section.title||'Evidence')+'</h3>';
     (section.bullets||[]).forEach(b=>{
-      html+='<div class="brain-bullet"><span>'+esc(b.text||'')+brainSourceButton(b.source)+'</span></div>';
+      html+='<div class="brain-bullet"><span>'+brainRichText(b.text||'')+brainSourceButton(b.source)+'</span></div>';
     });
     html+='</section>';
   });
