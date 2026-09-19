@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171717">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>NeuralVault · NEETPG2027</title>
+  <link rel="stylesheet" href="vault.css">
+</head>
+<body>
+<div class="app" id="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-row">
+      <a class="brand" href="../" aria-label="Back to NEETPG2027">
+        <span class="brand-mark">N</span>
+        <span><strong>NeuralVault</strong><small>NEETPG2027 knowledge layer</small></span>
+      </a>
+      <button class="icon-btn mobile-only" id="closeSidebar" aria-label="Close sidebar">×</button>
+    </div>
+
+    <div class="sidebar-actions">
+      <button class="primary-btn" id="newNoteBtn">＋ New note</button>
+      <button class="icon-btn" id="commandBtn" title="Command palette">⌘</button>
+    </div>
+
+    <label class="search-box">
+      <span>⌕</span>
+      <input id="searchInput" type="search" placeholder="Search vault…" autocomplete="off">
+      <kbd>⌘K</kbd>
+    </label>
+
+    <div class="sidebar-section-head">
+      <span>VAULT</span>
+      <div>
+        <button class="mini-btn" id="importFilesBtn" title="Import Markdown files">Import</button>
+        <button class="mini-btn" id="importFolderBtn" title="Import Obsidian folder">Folder</button>
+      </div>
+    </div>
+
+    <input id="fileImport" type="file" accept=".md,text/markdown" multiple hidden>
+    <input id="folderImport" type="file" accept=".md,text/markdown" webkitdirectory directory multiple hidden>
+
+    <div class="file-tree" id="fileTree" aria-label="Vault notes"></div>
+
+    <div class="sidebar-footer">
+      <div><span class="status-dot"></span><span id="storageStatus">Local vault</span></div>
+      <span id="noteCount">0 notes</span>
+    </div>
+  </aside>
+
+  <div class="sidebar-scrim" id="sidebarScrim"></div>
+
+  <main class="workspace">
+    <header class="topbar">
+      <button class="icon-btn mobile-only" id="openSidebar" aria-label="Open sidebar">☰</button>
+      <div class="breadcrumbs" id="breadcrumbs">Vault / Inbox</div>
+      <div class="top-spacer"></div>
+      <span class="save-state" id="saveState">Saved locally</span>
+      <a class="study-link" href="../">◎ Study Engine</a>
+      <button class="icon-btn" id="exportBtn" title="Export vault">⇩</button>
+      <button class="icon-btn" id="moreBtn" title="Note actions">•••</button>
+    </header>
+
+    <div class="tabbar" role="tablist" aria-label="Workspace view">
+      <button class="tab active" data-view="editor" role="tab">Edit</button>
+      <button class="tab" data-view="preview" role="tab">Preview</button>
+      <button class="tab" data-view="graph" role="tab">Graph</button>
+      <div class="tab-spacer"></div>
+      <button class="icon-btn subtle" id="toggleRight" title="Toggle context panel">◫</button>
+    </div>
+
+    <section class="editor-view active" id="view-editor">
+      <div class="note-header">
+        <input id="titleInput" class="note-title" value="" aria-label="Note title" spellcheck="false">
+        <div class="note-meta">
+          <span id="pathLabel">Inbox</span>
+          <span>•</span>
+          <span id="wordCount">0 words</span>
+          <span>•</span>
+          <span id="updatedLabel">just now</span>
+        </div>
+      </div>
+      <textarea id="editor" class="markdown-editor" spellcheck="true" aria-label="Markdown editor"></textarea>
+    </section>
+
+    <section class="preview-view" id="view-preview">
+      <article class="markdown-preview" id="preview"></article>
+    </section>
+
+    <section class="graph-view" id="view-graph">
+      <div class="graph-toolbar">
+        <div>
+          <strong>Knowledge graph</strong>
+          <span id="graphStats">0 nodes · 0 links</span>
+        </div>
+        <label><input type="checkbox" id="graphCurrentOnly"> Current note neighborhood</label>
+      </div>
+      <svg id="graphSvg" viewBox="0 0 1200 760" role="img" aria-label="Knowledge graph"></svg>
+    </section>
+  </main>
+
+  <aside class="context-panel" id="contextPanel">
+    <div class="context-tabs">
+      <button class="context-tab active" data-context="backlinks">Backlinks</button>
+      <button class="context-tab" data-context="related">Related</button>
+      <button class="context-tab" data-context="properties">Properties</button>
+    </div>
+
+    <section class="context-view active" id="context-backlinks">
+      <div class="context-head"><strong>Linked mentions</strong><span id="backlinkCount">0</span></div>
+      <div id="backlinks" class="context-list"></div>
+    </section>
+
+    <section class="context-view" id="context-related">
+      <div class="context-head"><strong>Smart connections</strong><span>offline</span></div>
+      <p class="context-help">Related notes are ranked locally from shared terms. No note content leaves this device.</p>
+      <div id="relatedNotes" class="context-list"></div>
+    </section>
+
+    <section class="context-view" id="context-properties">
+      <div class="context-head"><strong>Properties</strong><span>YAML</span></div>
+      <div id="properties" class="properties"></div>
+    </section>
+  </aside>
+</div>
+
+<div class="palette-backdrop" id="paletteBackdrop" hidden>
+  <div class="palette" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="palette-search">
+      <span>⌘</span>
+      <input id="paletteInput" placeholder="Type a command or note…" autocomplete="off">
+      <kbd>Esc</kbd>
+    </div>
+    <div id="paletteResults" class="palette-results"></div>
+  </div>
+</div>
+
+<div class="menu" id="noteMenu" hidden>
+  <button data-action="download-note">Download .md</button>
+  <button data-action="duplicate-note">Duplicate note</button>
+  <button data-action="delete-note" class="danger-text">Delete note</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="vault.js" defer></script>
+</body>
+</html>
