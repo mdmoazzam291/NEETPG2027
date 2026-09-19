@@ -7,6 +7,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  statuses: write
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -82,6 +83,24 @@ jobs:
       - run: npm install --no-save @playwright/test@1.55.1
       - run: npx playwright install --with-deps chromium
       - name: Verify live GitHub Pages app
+        id: live_smoke
         env:
           NEETPG2027_LIVE_URL: https://mdmoazzam291.github.io/NEETPG2027/
         run: npx playwright test --config=playwright.live.config.cjs
+      - name: Publish live verification status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const outcome = '${{ steps.live_smoke.outcome }}';
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: context.sha,
+              state: outcome === 'success' ? 'success' : 'failure',
+              context: 'pages/live-smoke',
+              description: outcome === 'success'
+                ? 'Live GitHub Pages + NeuralVault Brain V2 smoke passed'
+                : 'Live GitHub Pages smoke failed',
+              target_url: 'https://mdmoazzam291.github.io/NEETPG2027/'
+            });
