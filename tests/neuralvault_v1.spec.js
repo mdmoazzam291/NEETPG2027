@@ -84,4 +84,39 @@ test.describe('NeuralVault durable knowledge layer', () => {
     await page.locator('#outgoingLinks [data-note-title="Brand New Concept"]').click();
     await expect(page.locator('#titleInput')).toHaveValue('Brand New Concept');
   });
+
+  test('renders transparent learning intelligence and mastery graph mode', async ({ page }) => {
+    await page.locator('.note-row', { hasText: 'Myocardial Infarction' }).click();
+    await page.locator('[data-context="intelligence"]').click();
+
+    await expect(page.locator('#insightMetrics .insight-metric')).toHaveCount(4, { timeout: 15000 });
+    await expect(page.locator('#insightAction')).not.toHaveText('');
+    await expect(page.locator('#insightBand')).not.toHaveText('…');
+
+    await page.locator('[data-view="graph"]').click();
+    await page.locator('#graphMode').selectOption('mastery');
+    await expect(page.locator('#graphLegend')).toBeVisible();
+    await expect(page.locator('#graphStats')).toContainText('measured', { timeout: 15000 });
+    await expect(page.locator('#graphSvg .graph-node').first()).toHaveClass(/mastery-/);
+  });
+
+  test('searches vault plus PYQs and starts matched concept practice', async ({ page }) => {
+    await page.locator('.note-row', { hasText: 'Myocardial Infarction' }).click();
+    await page.locator('[data-context="intelligence"]').click();
+
+    await page.locator('#vaultQuery').fill('myocardial infarction');
+    await page.locator('#vaultQueryForm button[type="submit"]').click();
+    await expect(page.locator('#evidenceSummary')).toContainText('PYQ', { timeout: 15000 });
+    await expect(page.locator('#evidenceResults .evidence-result').first()).toBeVisible();
+    await expect(page.locator('#copyContextBtn')).toBeVisible();
+
+    const practice = page.locator('#insightAction a');
+    await expect(practice).toBeVisible({ timeout: 15000 });
+    await practice.click();
+
+    await expect(page.locator('#practiceShell')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('#qStem')).not.toHaveText('');
+    await expect(page).not.toHaveURL(/nvpractice=/);
+  });
+
 });
