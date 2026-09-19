@@ -414,7 +414,8 @@
 
   async function modelPrompt(notes, query, currentNote = null) {
     const selected = currentNote ? [currentNote, ...notes.filter(n => n.id !== currentNote.id)] : notes;
-    const bundle = await NeuralVaultIntelligence.contextBundle(selected, query);
+    const effectiveQuery = currentNote ? currentNote.title+' '+query : query;
+    const bundle = await NeuralVaultIntelligence.contextBundle(selected, effectiveQuery);
     return [
       '# NeuralVault grounded model request',
       '',
