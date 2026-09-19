@@ -49,17 +49,21 @@
     const base=configuredBase();
     if(!base)return {base:'',local_evidence:true,providers:[]};
     try{
-      const r=await fetchWithTimeout(base+'/ai/providers',{headers:{Accept:'application/json'}},6000);
+      const token=accessToken();
+      const headers={Accept:'application/json'};
+      if(token)headers['X-NeuralVault-Token']=token;
+      const r=await fetchWithTimeout(base+'/ai/providers',{headers},6000);
       if(!r.ok)throw new Error('HTTP '+r.status);
       const data=await r.json();
       return {
         base,
         local_evidence:true,
         gateway_ready:Boolean(data.gateway_ready),
+        gateway_authorized:Boolean(data.gateway_authorized),
         providers:Array.isArray(data.providers)?data.providers:[]
       };
     }catch(e){
-      return {base,local_evidence:true,gateway_ready:false,providers:[],error:e.name==='AbortError'?'timeout':String(e.message||e)};
+      return {base,local_evidence:true,gateway_ready:false,gateway_authorized:false,providers:[],error:e.name==='AbortError'?'timeout':String(e.message||e)};
     }
   }
 
