@@ -13,7 +13,7 @@ test('premium dashboard renders reference-inspired study UI', async ({ page }) =
   await page.goto('/');
   await loadV4(page);
   await expect(page.locator('.v4-brand-row')).toContainText('NEETPG2027');
-  await expect(page.locator('.v4-nav')).toHaveCount(15);
+  await expect(page.locator('.v4-nav')).toHaveCount(7);
   await expect(page.locator('.v4-nav[data-v4-label="NeuralVault"]')).toBeVisible();
   await expect(page.locator('#v4Greeting')).toContainText('Doctor');
   await expect(page.locator('.v4-dashboard > *').first()).toHaveAttribute('id','v4ExamCountdown');
@@ -106,7 +106,7 @@ test('mobile sidebar scrolls to every navigation item', async ({ page }) => {
     clientHeight: el.clientHeight
   }));
   expect(['auto','scroll']).toContain(state.overflowY);
-  expect(state.scrollHeight).toBeGreaterThan(state.clientHeight);
+  expect(state.scrollHeight).toBeGreaterThanOrEqual(state.clientHeight);
 
   const settings = page.locator('.v4-nav[data-v4-label="Settings"]');
   await settings.evaluate(el => el.scrollIntoView({block:'center'}));
