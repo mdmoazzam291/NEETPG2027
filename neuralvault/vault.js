@@ -269,7 +269,7 @@ async function renderInsights(){
     else if(s.coverage<50){title='Expand coverage';reason='Only '+s.coverage+'% of matched PYQs have been attempted.'}
     else if(s.weakQuestions.length){title='Target persistent misses';reason=s.weakQuestions.length+' matched question'+(s.weakQuestions.length===1?' is':'s are')+' still weak.'}
     else if(s.readiness!=null&&s.readiness>=85){title='Maintain, do not over-study';reason='Retrieval evidence is strong. Use spaced review instead of rereading.'}
-    const href=NeuralVaultMedical.topicUrl(note,{practice:true});
+    const href=NeuralVaultMedical.practiceUrl(s.matches,note);
     $('#insightAction').innerHTML='<strong>'+esc(title)+'</strong><p>'+esc(reason)+'</p>'+(s.count?'<a href="'+esc(href)+'">Practice matched PYQs →</a>':'');
   }catch(_){
     if(token!==insightToken)return;
