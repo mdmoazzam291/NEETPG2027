@@ -67,6 +67,7 @@
       <button class="tab active" data-view="editor" role="tab">Edit</button>
       <button class="tab" data-view="preview" role="tab">Preview</button>
       <button class="tab" data-view="graph" role="tab">Graph</button>
+      <button class="tab brain-tab" data-view="brain" role="tab">✦ Brain</button>
       <div class="tab-spacer"></div>
       <button class="icon-btn subtle" id="toggleRight" title="Toggle context panel">◫</button>
     </div>
@@ -104,6 +105,58 @@
         <span><i class="legend-dot unmeasured"></i>Unmeasured</span>
       </div>
       <svg id="graphSvg" viewBox="0 0 1200 760" role="img" aria-label="Knowledge graph"></svg>
+    </section>
+
+    <section class="brain-view" id="view-brain">
+      <div class="brain-shell">
+        <header class="brain-head">
+          <div>
+            <span class="brain-kicker">GROUNDED LOCAL BRAIN</span>
+            <h1>Ask your vault</h1>
+            <p>Answers are assembled from your notes, PYQs and study evidence. Missing facts stay missing instead of being invented.</p>
+          </div>
+          <div class="brain-head-actions">
+            <select id="brainScope" aria-label="Brain scope">
+              <option value="vault">Whole vault</option>
+              <option value="current">Current note</option>
+            </select>
+            <button id="brainClear" type="button">Clear</button>
+          </div>
+        </header>
+
+        <div class="brain-context-strip">
+          <span>Current note</span>
+          <strong id="brainCurrentNote">—</strong>
+          <i></i>
+          <span id="brainEvidenceState">Notes + cached PYQs</span>
+        </div>
+
+        <div class="brain-suggestions" id="brainSuggestions">
+          <button type="button" data-brain-prompt="What should I study next?">Next study target</button>
+          <button type="button" data-brain-prompt="What is missing from this note?">Audit current note</button>
+          <button type="button" data-brain-prompt="Which PYQs test this concept?">PYQ evidence</button>
+          <button type="button" data-brain-prompt="Explain this concept using my vault.">Explain from vault</button>
+        </div>
+
+        <div class="brain-thread" id="brainThread">
+          <div class="brain-empty">
+            <div class="brain-orb">✦</div>
+            <strong>NeuralVault Brain</strong>
+            <p>Ask a question. Local mode retrieves evidence and cites the exact notes/PYQs it used.</p>
+          </div>
+        </div>
+
+        <form class="brain-composer" id="brainForm">
+          <textarea id="brainInput" rows="2" placeholder="Ask about a topic, find gaps, or ask what to revise next…" aria-label="Ask NeuralVault Brain"></textarea>
+          <div class="brain-composer-row">
+            <span id="brainModeLabel">Local evidence mode · no API key</span>
+            <div>
+              <button type="button" id="brainCopyPrompt" class="secondary-brain-btn" hidden>Copy model prompt</button>
+              <button type="submit" id="brainAskBtn">Ask ✦</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -190,6 +243,7 @@
 <script src="vault-db.js" defer></script>
 <script src="medical.js" defer></script>
 <script src="intelligence.js" defer></script>
+<script src="brain.js" defer></script>
 <script src="vault.js" defer></script>
 </body>
 </html>
