@@ -12,6 +12,7 @@
   const clampV4 = (n,a,b) => Math.max(a,Math.min(b,n));
   const EXAM_TARGET = Object.freeze({ year: 2027, monthIndex: 7, day: 29, iso: '2027-08-29', label: '29 Aug 2027' });
   let examCountdownTimer = null;
+  let examCountdownGeneration = 0;
 
   function examTargetTime(){
     // Pin the target to Indian Standard Time so travelling or changing the device timezone
@@ -42,14 +43,21 @@
   }
 
   function stopExamCountdown(){
-    if(examCountdownTimer){clearInterval(examCountdownTimer);examCountdownTimer=null}
+    examCountdownGeneration+=1;
+    if(examCountdownTimer){clearTimeout(examCountdownTimer);examCountdownTimer=null}
   }
 
   function startExamCountdown(){
     stopExamCountdown();
     renderExamCountdown();
     if(document.visibilityState!=='visible' || !$q('#view-dashboard.active'))return;
-    examCountdownTimer=setInterval(renderExamCountdown,1000);
+    const generation=examCountdownGeneration;
+    const tick=()=>{
+      if(generation!==examCountdownGeneration || document.visibilityState!=='visible' || !$q('#view-dashboard.active'))return;
+      renderExamCountdown();
+      examCountdownTimer=setTimeout(tick,1000);
+    };
+    examCountdownTimer=setTimeout(tick,1000);
   }
 
   function syncExamCountdown(){
