@@ -79,6 +79,7 @@
       if(b.dataset.v4Target==='neuralvault'){ window.location.href='neuralvault/'; return; }
       setNavActive(b.dataset.v4Target);
       if(typeof navigate==='function') navigate(b.dataset.v4Target);
+      syncExamCountdown();
     });
   }
 
@@ -164,8 +165,10 @@
 
   function openBankSearch(term,subject=''){
     if(typeof navigate==='function')navigate('bank');
-    const sub=$q('#bankSubject');if(sub&&subject&&[...sub.options].some(o=>o.value===subject))sub.value=subject;
-    const input=$q('#bankSearch');if(input){input.value=term;typeof bankFilter==='function'?bankFilter():input.dispatchEvent(new Event('input',{bubbles:true}))}
+    requestAnimationFrame(()=>{
+      const sub=$q('#bankSubject');if(sub&&subject&&[...sub.options].some(o=>o.value===subject))sub.value=subject;
+      const input=$q('#bankSearch');if(input){input.value=term;typeof bankFilter==='function'?bankFilter():input.dispatchEvent(new Event('input',{bubbles:true}))}
+    });
     hideGlobalSearch();
   }
 
