@@ -19,6 +19,8 @@ def _clear_ai_env(monkeypatch):
         "NEETPG2027_OPENAI_COMPATIBLE_API_KEY",
         "NEETPG2027_OPENAI_COMPATIBLE_MODEL",
         "NEETPG2027_AI_ACCESS_TOKEN",
+        "NEETPG2027_AI_MAX_REQUESTS_PER_MINUTE",
+        "NEETPG2027_AI_TIMEOUT_SECONDS",
         "NEETPG2027_CORS_ORIGINS",
     ):
         monkeypatch.delenv(name, raising=False)
