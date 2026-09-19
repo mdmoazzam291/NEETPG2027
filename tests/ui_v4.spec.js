@@ -140,3 +140,26 @@ test('primary navigation contains only truthful destinations and highlights the 
   await expect(page.locator('.v4-nav[data-v4-label="Notes"]')).toHaveCount(0);
   await expect(page.locator('.v4-nav[data-v4-label="Bookmarks"]')).toHaveCount(0);
 });
+
+
+test('exam countdown is pinned to IST and pauses outside dashboard', async ({ page }) => {
+  await page.goto('/');
+  await loadV4(page);
+
+  const target = await page.evaluate(() => Date.parse('2027-08-29T00:00:00+05:30'));
+  const dataTarget = await page.locator('#v4ExamCountdown').getAttribute('data-target');
+  expect(dataTarget).toBe('2027-08-29');
+  expect(target).toBe(1819477800000);
+
+  await page.locator('.v4-nav[data-v4-label="Practice"]').click();
+  await expect(page.locator('#view-practice')).toHaveClass(/active/);
+  const before = await page.locator('#v4ExamSeconds').textContent();
+  await page.waitForTimeout(1200);
+  const after = await page.locator('#v4ExamSeconds').textContent();
+  expect(after).toBe(before);
+
+  await page.locator('.v4-nav[data-v4-label="Dashboard"]').click();
+  const resumed = await page.locator('#v4ExamSeconds').textContent();
+  await page.waitForTimeout(1200);
+  expect(await page.locator('#v4ExamSeconds').textContent()).not.toBe(resumed);
+});
