@@ -185,7 +185,7 @@
           crossSubject
         };
       })
-      .filter(x => x.score >= 0.12)
+      .filter(x => x.similarity >= 0.045)
       .sort((a,b) => b.score - a.score || String(a.note.title).localeCompare(String(b.note.title)))
       .slice(0, limit);
   }
@@ -202,7 +202,9 @@
       const answer = buf.join(' ').replace(/\s+/g, ' ').trim();
       if (answer.length >= 24) {
         cards.push({
-          question: 'Recall ' + heading + ' of ' + note.title + '.',
+          question: norm(heading) === norm(note.title)
+            ? 'Define or summarize ' + note.title + '.'
+            : 'Recall ' + heading + ' in ' + note.title + '.',
           answer: answer.slice(0, 420),
           source: note.title
         });
