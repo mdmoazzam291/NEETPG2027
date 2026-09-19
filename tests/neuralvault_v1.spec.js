@@ -119,4 +119,26 @@ test.describe('NeuralVault durable knowledge layer', () => {
     await expect(page).not.toHaveURL(/nvpractice=/);
   });
 
+
+  test('uses the study progress mirror for evidence scoring when no study DB is available', async ({ page }) => {
+    const metrics = await page.evaluate(async () => {
+      const note = {
+        title: 'Myocardial Infarction',
+        content: '# Myocardial Infarction',
+        properties: { subject: 'Medicine', system: 'Cardiovascular' }
+      };
+      const first = (await window.NeuralVaultMedical.match(note, 1))[0];
+      if (!first) throw new Error('Expected at least one matched PYQ');
+      localStorage.setItem('neetpg2027:qstate-mirror', JSON.stringify([
+        { qid: first.q.external_id, attempts: 2, correct: 1, incorrect: 1, lastCorrect: false }
+      ]));
+      const s = await window.NeuralVaultMedical.summary(note);
+      return { attempted: s.attempted, accuracy: s.accuracy, coverage: s.coverage, readiness: s.readiness };
+    });
+
+    expect(metrics.attempted).toBe(1);
+    expect(metrics.accuracy).toBe(50);
+    expect(metrics.readiness).toBe(Math.round((metrics.accuracy * 0.70) + (metrics.coverage * 0.30)));
+  });
+
 });
