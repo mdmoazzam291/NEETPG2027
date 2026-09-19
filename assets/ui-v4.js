@@ -82,14 +82,141 @@
     });
   }
 
+  function localVaultNotes(){
+    try{
+      const snapshot=JSON.parse(localStorage.getItem('neuralvault:v1')||'null');
+      return Array.isArray(snapshot?.notes)?snapshot.notes:[];
+    }catch{return []}
+  }
+
+  function searchScore(text,term,exactBoost=0){
+    const value=String(text||'').toLowerCase();
+    if(!value||!term)return 0;
+    if(value===term)return 100+exactBoost;
+    if(value.startsWith(term))return 70+exactBoost;
+    if(value.includes(term))return 35+exactBoost;
+    return 0;
+  }
+
+  function globalSearchData(query){
+    const term=String(query||'').trim().toLowerCase();
+    if(term.length<2)return{topics:[],questions:[],notes:[]};
+    let qs=[];try{qs=(typeof app!=='undefined'&&Array.isArray(app.questions))?app.questions:[]}catch{}
+    const topicMap=new Map();
+    qs.forEach(q=>{
+      const topic=String(q.topic||q.subtopic||'').trim();if(!topic)return;
+      const key=(q.subject||'')+'|'+topic;
+      const score=Math.max(searchScore(topic,term,20),searchScore(q.subject,term,5));
+      if(score&&!topicMap.has(key))topicMap.set(key,{topic,subject:q.subject||'',score});
+    });
+    const topics=[...topicMap.values()].sort((a,b)=>b.score-a.score||a.topic.localeCompare(b.topic)).slice(0,5);
+    const questions=qs.map(q=>({
+      q,
+      score:Math.max(
+        searchScore(q.external_id,term,45),
+        searchScore(q.topic,term,20),
+        searchScore(q.subject,term,10),
+        searchScore(q.stem,term,0)
+      )
+    })).filter(x=>x.score).sort((a,b)=>b.score-a.score).slice(0,5);
+    const notes=localVaultNotes().map(note=>({
+      note,
+      score:Math.max(
+        searchScore(note.title,term,35),
+        searchScore(note.path,term,15),
+        searchScore(note.content,term,0)
+      )
+    })).filter(x=>x.score).sort((a,b)=>b.score-a.score).slice(0,5);
+    return{topics,questions,notes};
+  }
+
+  function hideGlobalSearch(){
+    const root=$q('#v4SearchResults');if(root)root.hidden=true;
+  }
+
+  function addSearchGroup(root,title,items,render){
+    if(!items.length)return;
+    const head=document.createElement('div');head.className='v4-search-group-title';head.textContent=title;root.append(head);
+    items.forEach(item=>root.append(render(item)));
+  }
+
+  function searchResultButton(kind,id,title,meta){
+    const b=document.createElement('button');b.type='button';b.className='v4-search-result';b.dataset.kind=kind;b.dataset.id=id||'';
+    const strong=document.createElement('strong');strong.textContent=title;
+    const small=document.createElement('small');small.textContent=meta||'';
+    b.append(strong,small);return b;
+  }
+
+  function renderGlobalSearch(query){
+    const root=$q('#v4SearchResults');if(!root)return;
+    const data=globalSearchData(query);root.replaceChildren();
+    addSearchGroup(root,'Topics',data.topics,x=>{
+      const b=searchResultButton('topic',x.topic,x.topic,x.subject||'Topic');
+      b.dataset.subject=x.subject||'';return b;
+    });
+    addSearchGroup(root,'Questions',data.questions,x=>searchResultButton('question',x.q.external_id,x.q.topic||x.q.subject||'Question',x.q.stem||''));
+    addSearchGroup(root,'NeuralVault notes',data.notes,x=>searchResultButton('note',x.note.id,x.note.title,x.note.path||'Vault note'));
+    if(!root.children.length){
+      const empty=document.createElement('div');empty.className='v4-search-empty';empty.textContent=String(query||'').trim().length<2?'Type at least 2 characters':'No matching questions, topics or local vault notes';root.append(empty);
+    }
+    root.hidden=false;
+  }
+
+  function openBankSearch(term,subject=''){
+    if(typeof navigate==='function')navigate('bank');
+    const sub=$q('#bankSubject');if(sub&&subject&&[...sub.options].some(o=>o.value===subject))sub.value=subject;
+    const input=$q('#bankSearch');if(input){input.value=term;typeof bankFilter==='function'?bankFilter():input.dispatchEvent(new Event('input',{bubbles:true}))}
+    hideGlobalSearch();
+  }
+
+  function activateGlobalSearchResult(button){
+    if(!button)return false;
+    const kind=button.dataset.kind,id=button.dataset.id;
+    if(kind==='note'){location.href='neuralvault/?note='+encodeURIComponent(id);return true}
+    if(kind==='topic'){openBankSearch(id,button.dataset.subject||'');return true}
+    if(kind==='question'){
+      let q=null;try{q=app.qMap?.get(id)||app.questions?.find(x=>x.external_id===id)}catch{}
+      if(q&&typeof buildSession==='function'&&typeof builtInPreset==='function'){
+        buildSession([q],{...builtInPreset('rapid'),mode:'single',count:1,feedback:'instant',timer:'off',order:'adaptive'});
+        hideGlobalSearch();return true;
+      }
+      openBankSearch(id);return true;
+    }
+    return false;
+  }
+
+  function moveGlobalSearchSelection(delta){
+    const rows=$qa('#v4SearchResults .v4-search-result');if(!rows.length)return;
+    let i=rows.findIndex(x=>x.classList.contains('selected'));
+    i=i<0?(delta>0?0:rows.length-1):(i+delta+rows.length)%rows.length;
+    rows.forEach((x,j)=>x.classList.toggle('selected',j===i));rows[i].scrollIntoView({block:'nearest'});
+  }
+
   function topbar(){
     const bar=$q('.topbar'); if(!bar)return;
     $q('#topTitle')?.remove();
     if(!$q('#v4Search')){
-      const search=document.createElement('label'); search.className='v4-search'; search.id='v4Search';
-      search.innerHTML='<span>⌕</span><input id="v4SearchInput" placeholder="Search questions, topics, notes…" autocomplete="off"><kbd>⌘ K</kbd>';
+      const search=document.createElement('div'); search.className='v4-search'; search.id='v4Search';search.setAttribute('role','search');
+      search.innerHTML='<span>⌕</span><input id="v4SearchInput" aria-label="Search questions, topics and notes" placeholder="Search questions, topics, notes…" autocomplete="off"><kbd>⌘ K</kbd><div class="v4-search-results" id="v4SearchResults" hidden></div>';
       const spacer=$q('.topbar .spacer'); bar.insertBefore(search,spacer||bar.firstChild);
-      $q('#v4SearchInput')?.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim()){if(typeof navigate==='function')navigate('bank');const s=$q('#bankSearch');if(s){s.value=e.target.value.trim();s.dispatchEvent(new Event('input',{bubbles:true}));}}});
+      const input=$q('#v4SearchInput'),results=$q('#v4SearchResults');
+      input?.addEventListener('input',e=>renderGlobalSearch(e.target.value));
+      input?.addEventListener('focus',e=>{if(e.target.value.trim())renderGlobalSearch(e.target.value)});
+      input?.addEventListener('keydown',e=>{
+        if(e.key==='ArrowDown'){e.preventDefault();moveGlobalSearchSelection(1);return}
+        if(e.key==='ArrowUp'){e.preventDefault();moveGlobalSearchSelection(-1);return}
+        if(e.key==='Escape'){hideGlobalSearch();return}
+        if(e.key==='Enter'&&e.target.value.trim()){
+          e.preventDefault();
+          const selected=results?.querySelector('.v4-search-result.selected');
+          if(selected){activateGlobalSearchResult(selected);return}
+          openBankSearch(e.target.value.trim());
+        }
+      });
+      results?.addEventListener('mousedown',e=>e.preventDefault());
+      results?.addEventListener('click',e=>{const b=e.target.closest('.v4-search-result');if(b)activateGlobalSearchResult(b)});
+      document.addEventListener('click',e=>{if(!e.target.closest('#v4Search'))hideGlobalSearch()});
+      window.NEETPG_V4_GLOBAL_SEARCH=true;
     }
     const actions=$q('.top-actions');
     if(actions && !$q('#v4SyncPill')){
