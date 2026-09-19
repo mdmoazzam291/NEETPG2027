@@ -5,6 +5,8 @@ test.describe('NeuralVault durable knowledge layer', () => {
     await page.goto('/neuralvault/');
     await page.evaluate(async () => {
       localStorage.removeItem('neuralvault:v1');
+      localStorage.removeItem('neuralvault:brain-provider-v1');
+      sessionStorage.removeItem('neuralvault:brain-gateway-token');
       if (window.NeuralVaultDB) await window.NeuralVaultDB.clear();
     });
     await page.reload();
@@ -181,6 +183,97 @@ test.describe('NeuralVault durable knowledge layer', () => {
     await expect(answer).toContainText('Next best study target', { timeout: 15000 });
     await expect(answer.locator('.brain-source-chip').first()).toBeVisible();
     await expect(answer.locator('.brain-action-button')).toBeVisible();
+  });
+
+
+  test('Brain V2 finds cross-subject links and derives source-traceable recall cards', async ({ page }) => {
+    await page.locator('.note-row', { hasText: 'Myocardial Infarction' }).click();
+    await page.locator('[data-view="brain"]').click();
+
+    await page.locator('[data-brain-prompt="Connect this concept across subjects."]').click();
+    const connections = page.locator('#brainThread .brain-message.assistant').last();
+    await expect(connections).toContainText('Cross-subject connections · Myocardial Infarction', { timeout: 15000 });
+    await expect(connections.locator('.brain-source-chip').first()).toBeVisible();
+
+    await page.locator('[data-brain-prompt="Generate recall cards from this note."]').click();
+    const cards = page.locator('#brainThread .brain-message.assistant').last();
+    await expect(cards).toContainText('Recall-card candidates · Myocardial Infarction');
+    await expect(cards.locator('[data-brain-copy-cards]')).toBeVisible();
+  });
+
+  test('Brain V2 previews and applies only a safe structural note patch', async ({ page }) => {
+    await page.locator('.note-row', { hasText: 'Myocardial Infarction' }).click();
+    await page.locator('[data-view="brain"]').click();
+    await page.locator('[data-brain-prompt="Improve the structure of this note safely."]').click();
+
+    const answer = page.locator('#brainThread .brain-message.assistant').last();
+    await expect(answer).toContainText('Safe note improvement · Myocardial Infarction', { timeout: 15000 });
+    await answer.locator('[data-brain-patch]').click();
+
+    await expect(page.locator('#patchBackdrop')).toBeVisible();
+    await expect(page.locator('#patchAfter')).toContainText('## Management');
+    await page.locator('#applyPatch').click();
+
+    await expect(page.locator('#view-editor')).toHaveClass(/active/);
+    await expect(page.locator('#editor')).toHaveValue(/## Management/);
+    await expect(page.locator('#editor')).toHaveValue(/\[\[(Aspirin|Troponin)/);
+  });
+
+  test('Brain V2 remote provider receives grounded source IDs without provider keys in browser config', async ({ page }) => {
+    const origin = await page.evaluate(() => location.origin);
+    let generated = null;
+
+    await page.route('**/ai/providers', async route => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          local_evidence: true,
+          gateway_ready: true,
+          providers: [
+            { id: 'openai', label: 'OpenAI', configured: true, model: 'test-model' }
+          ]
+        })
+      });
+    });
+    await page.route('**/ai/generate', async route => {
+      generated = {
+        headers: route.request().headers(),
+        body: JSON.parse(route.request().postData() || '{}')
+      };
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          provider: 'openai',
+          model: 'test-model',
+          text: 'Remote grounded answer [NOTE:mi]'
+        })
+      });
+    });
+
+    await page.locator('.note-row', { hasText: 'Myocardial Infarction' }).click();
+    await page.locator('[data-view="brain"]').click();
+    await page.locator('#brainProviderBtn').click();
+    await page.locator('#brainBackendUrl').fill(origin);
+    await page.locator('#brainGatewayToken').fill('session-gateway-token');
+    await page.locator('#brainSaveBackend').click();
+
+    await expect(page.locator('#brainProvider')).toContainText('OpenAI');
+    await page.locator('#brainProvider').selectOption('openai');
+    await page.locator('#brainInput').fill('Explain this concept using my vault.');
+    await page.locator('#brainForm').evaluate(form => form.requestSubmit());
+
+    const answer = page.locator('#brainThread .brain-message.assistant').last();
+    await expect(answer).toContainText('OpenAI · test-model', { timeout: 15000 });
+    await expect(answer).toContainText('Remote grounded answer [NOTE:mi]');
+    await expect(answer.locator('[data-brain-note="mi"]').first()).toBeVisible();
+
+    expect(generated).not.toBeNull();
+    expect(generated.headers['x-neuralvault-token']).toBe('session-gateway-token');
+    expect(generated.body.provider).toBe('openai');
+    expect(generated.body.prompt).toContain('Source-ID: NOTE:mi');
+    expect(await page.locator('#brainSettingsBackdrop').textContent()).not.toContain('OPENAI_API_KEY');
   });
 
 });
