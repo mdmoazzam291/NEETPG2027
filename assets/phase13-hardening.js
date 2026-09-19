@@ -103,8 +103,11 @@
       const observer=new MutationObserver(applyAccessibility);
       observer.observe(progress,{subtree:true,childList:true,characterData:true});
     }
-    $('#menuBtn')?.addEventListener('click',()=>queueMicrotask(applyAccessibility));
-    $('#mobileOverlay')?.addEventListener('click',()=>queueMicrotask(applyAccessibility));
+    const sidebar=$('#sidebar');
+    if(sidebar){
+      const drawerObserver=new MutationObserver(applyAccessibility);
+      drawerObserver.observe(sidebar,{attributes:true,attributeFilter:['class']});
+    }
   }
 
   function ensureUpdateBanner(){

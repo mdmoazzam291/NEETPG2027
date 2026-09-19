@@ -238,6 +238,6 @@ test('global search finds local NeuralVault notes and opens the exact note', asy
   await expect(note).toContainText('Mitral Stenosis');
   await note.click();
 
-  await expect(page).toHaveURL(/\/neuralvault\/?note=search-note$/);
+  await expect(page).toHaveURL(/\/neuralvault\/\?note=search-note$/);
   await expect(page.locator('#titleInput')).toHaveValue('Mitral Stenosis',{timeout:15000});
 });
