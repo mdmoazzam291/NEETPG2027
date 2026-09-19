@@ -1,4 +1,4 @@
-const RELEASE='2026-09-19-neuralvault-brain-v2-1';
+const RELEASE='2026-09-19-exam-countdown-cachefix-1';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[
@@ -29,7 +29,10 @@ async function prime(){
 }
 
 self.addEventListener('install',event=>{
-  event.waitUntil(prime());
+  event.waitUntil((async()=>{
+    await prime();
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener('activate',event=>{
@@ -55,6 +58,27 @@ self.addEventListener('fetch',event=>{
         return fresh;
       }catch{
         return (await caches.match(event.request)) || (neuralVault?await caches.match('./neuralvault/index.html'):null) || (await caches.match('./index.html')) || Response.error();
+      }
+    })());
+    return;
+  }
+
+  const freshShell =
+    event.request.destination==='script' ||
+    event.request.destination==='style' ||
+    /\.(?:js|css|webmanifest)$/.test(url.pathname);
+
+  if(freshShell){
+    event.respondWith((async()=>{
+      try{
+        const fresh=await fetch(event.request,{cache:'no-store'});
+        if(fresh.ok){
+          const cache=await caches.open(CACHE);
+          cache.put(event.request,fresh.clone()).catch(()=>{});
+        }
+        return fresh;
+      }catch{
+        return (await caches.match(event.request)) || new Response('Offline resource unavailable',{status:503,statusText:'Offline'});
       }
     })());
     return;
