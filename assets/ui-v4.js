@@ -65,6 +65,7 @@
     side.addEventListener('click',e=>{
       const b=e.target.closest('[data-v4-target]'); if(!b)return;
       if(b.dataset.v4Target==='neuralvault'){ window.location.href='neuralvault/'; return; }
+      setNavActive(b.dataset.v4Target);
       if(typeof navigate==='function') navigate(b.dataset.v4Target);
     });
   }
