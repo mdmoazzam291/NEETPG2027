@@ -9,7 +9,9 @@
   let examCountdownTimer = null;
 
   function examTargetTime(){
-    return new Date(EXAM_TARGET.year, EXAM_TARGET.monthIndex, EXAM_TARGET.day, 0, 0, 0, 0).getTime();
+    // Pin the target to Indian Standard Time so travelling or changing the device timezone
+    // cannot silently add/remove hours from the NEET-PG countdown.
+    return Date.parse(`${EXAM_TARGET.iso}T00:00:00+05:30`);
   }
 
   function examCountdownParts(now = Date.now()){
@@ -34,17 +36,30 @@
     host.dataset.reached=p.reached?'1':'0';
   }
 
+  function stopExamCountdown(){
+    if(examCountdownTimer){clearInterval(examCountdownTimer);examCountdownTimer=null}
+  }
+
   function startExamCountdown(){
-    if(examCountdownTimer)clearInterval(examCountdownTimer);
+    stopExamCountdown();
     renderExamCountdown();
+    if(document.visibilityState!=='visible' || !$q('#view-dashboard.active'))return;
     examCountdownTimer=setInterval(renderExamCountdown,1000);
   }
 
+  function syncExamCountdown(){
+    if(document.visibilityState==='visible' && $q('#view-dashboard.active'))startExamCountdown();
+    else stopExamCountdown();
+  }
+
   const navItems = [
-    ['dashboard','⌂','Dashboard'],['practice','▣','Questions'],['analytics','⌁','Tests & Analytics'],
-    ['review','↻','Revision'],['review','▤','Notes'],['neuralvault','◇','NeuralVault'],['bank','▦','QBank'],['review','◩','Quick Revise'],
-    ['review','♡','Bookmarks'],['analytics','▥','Subject Wise'],['analytics','◎','Performance'],
-    ['dashboard','♕','Achievements'],['dashboard','♧','Community'],['bank','▱','Resources'],['settings','⚙','Settings']
+    ['dashboard','⌂','Dashboard'],
+    ['practice','▣','Practice'],
+    ['bank','▦','Question Bank'],
+    ['review','↻','Revision'],
+    ['neuralvault','◇','NeuralVault'],
+    ['analytics','◎','Analytics'],
+    ['settings','⚙','Settings']
   ];
 
   function currentUserName(){
@@ -61,10 +76,8 @@
       <div class="sidebar-footer"><strong>Better Doctors<br>Brighter Tomorrows</strong><div class="v4-footer-mountain"></div><div class="v4-footer-quote">“Discipline today,<br>specialist tomorrow.”</div></div>`;
     side.addEventListener('click',e=>{
       const b=e.target.closest('[data-v4-target]'); if(!b)return;
-      const label=b.dataset.v4Label;
-      if(label==='Community'){ if(typeof toast==='function') toast('Community module is planned for a later phase'); return; }
-      if(label==='Achievements'){ if(typeof navigate==='function') navigate('dashboard'); setTimeout(()=>document.getElementById('v4Achievements')?.scrollIntoView({behavior:'smooth',block:'center'}),50); return; }
       if(b.dataset.v4Target==='neuralvault'){ window.location.href='neuralvault/'; return; }
+      setNavActive(b.dataset.v4Target);
       if(typeof navigate==='function') navigate(b.dataset.v4Target);
     });
   }
@@ -146,11 +159,11 @@
       const quick=e.target.closest('[data-v4-quick]'); if(quick) launchQuick(quick.dataset.v4Quick);
     });
     $q('#v4StartReview')?.addEventListener('click',()=>{if(typeof navigate==='function')navigate('review');setTimeout(()=>$q('#startDue')?.click(),0)});
-    startExamCountdown();
+    syncExamCountdown();
   }
 
   function setNavActive(view){
-    $qa('.v4-nav').forEach(b=>b.classList.toggle('active', b.dataset.v4Target===view && ['Dashboard','Questions','Revision','QBank','Tests & Analytics','Settings'].includes(b.dataset.v4Label)));
+    $qa('.v4-nav').forEach(b=>b.classList.toggle('active', b.dataset.v4Target===view));
   }
 
   function launchQuick(mode){
@@ -224,7 +237,7 @@
 
   function wrapCore(){
     try{
-      if(typeof navigate==='function'&&!navigate.__v4){const core=navigate;const wrapped=function(view){const out=core(view);setNavActive(view);if(view==='dashboard')setTimeout(renderV4Dashboard,0);return out};wrapped.__v4=true;navigate=wrapped;}
+      if(typeof navigate==='function'&&!navigate.__v4){const core=navigate;const wrapped=function(view){const out=core(view);setNavActive(view);if(view==='dashboard')setTimeout(()=>{renderV4Dashboard();syncExamCountdown()},0);else stopExamCountdown();return out};wrapped.__v4=true;navigate=wrapped;}
       if(typeof renderDashboard==='function'&&!renderDashboard.__v4){const core=renderDashboard;const wrapped=function(){const out=core();renderV4Dashboard();return out};wrapped.__v4=true;renderDashboard=wrapped;}
       if(typeof renderAll==='function'&&!renderAll.__v4){const core=renderAll;const wrapped=function(){const out=core();if($q('#view-dashboard')?.classList.contains('active'))renderV4Dashboard();return out};wrapped.__v4=true;renderAll=wrapped;}
     }catch(e){console.warn('UI v4 wrapper skipped',e)}
@@ -238,5 +251,6 @@
     setInterval(()=>{if($q('#view-dashboard')?.classList.contains('active'))renderV4Dashboard()},15000);
   }
 
+  document.addEventListener('visibilitychange',syncExamCountdown);
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,60));else setTimeout(init,60);
 })();
