@@ -39,7 +39,8 @@
     </div>
 
     <input id="fileImport" type="file" accept=".md,text/markdown" multiple hidden>
-    <input id="folderImport" type="file" accept=".md,text/markdown" webkitdirectory directory multiple hidden>\n    <input id="backupImport" type="file" accept=".json,application/json" hidden>
+    <input id="folderImport" type="file" accept=".md,text/markdown" webkitdirectory directory multiple hidden>
+    <input id="backupImport" type="file" accept=".json,application/json" hidden>
 
     <div class="file-tree" id="fileTree" aria-label="Vault notes"></div>
 
@@ -74,11 +75,7 @@
       <div class="note-header">
         <input id="titleInput" class="note-title" value="" aria-label="Note title" spellcheck="false">
         <div class="note-meta">
-          <span id="pathLabel">Inbox</span>
-          <span>•</span>
-          <span id="wordCount">0 words</span>
-          <span>•</span>
-          <span id="updatedLabel">just now</span>
+          <span id="pathLabel">Inbox</span><span>•</span><span id="wordCount">0 words</span><span>•</span><span id="updatedLabel">just now</span>
         </div>
       </div>
       <textarea id="editor" class="markdown-editor" spellcheck="true" aria-label="Markdown editor"></textarea>
@@ -90,10 +87,7 @@
 
     <section class="graph-view" id="view-graph">
       <div class="graph-toolbar">
-        <div>
-          <strong>Knowledge graph</strong>
-          <span id="graphStats">0 nodes · 0 links</span>
-        </div>
+        <div><strong>Knowledge graph</strong><span id="graphStats">0 nodes · 0 links</span></div>
         <label><input type="checkbox" id="graphCurrentOnly"> Current note neighborhood</label>
       </div>
       <svg id="graphSvg" viewBox="0 0 1200 760" role="img" aria-label="Knowledge graph"></svg>
@@ -102,14 +96,17 @@
 
   <aside class="context-panel" id="contextPanel">
     <div class="context-tabs">
-      <button class="context-tab active" data-context="backlinks">Backlinks</button>
+      <button class="context-tab active" data-context="backlinks">Links</button>
       <button class="context-tab" data-context="related">Related</button>
+      <button class="context-tab" data-context="medical">PYQs</button>
       <button class="context-tab" data-context="properties">Properties</button>
     </div>
 
     <section class="context-view active" id="context-backlinks">
       <div class="context-head"><strong>Linked mentions</strong><span id="backlinkCount">0</span></div>
       <div id="backlinks" class="context-list"></div>
+      <div class="context-head context-subhead"><strong>Outgoing links</strong><span id="outgoingCount">0</span></div>
+      <div id="outgoingLinks" class="context-list"></div>
     </section>
 
     <section class="context-view" id="context-related">
@@ -118,7 +115,14 @@
       <div id="relatedNotes" class="context-list"></div>
     </section>
 
-    <section class="context-view" id="context-medical">\n      <div class="context-head"><strong>Matched PYQs</strong><span id="medicalCount">…</span></div>\n      <p class="context-help" id="medicalSummary">Loading the existing NEET-PG question bank…</p>\n      <div id="medicalQuestions" class="context-list"></div>\n      <a class="medical-open-all" id="medicalOpenAll" href="../">Open matching questions in Study Engine →</a>\n    </section>\n\n    <section class="context-view" id="context-properties">
+    <section class="context-view" id="context-medical">
+      <div class="context-head"><strong>Matched PYQs</strong><span id="medicalCount">…</span></div>
+      <p class="context-help" id="medicalSummary">Loading the existing NEET-PG question bank…</p>
+      <div id="medicalQuestions" class="context-list"></div>
+      <a class="medical-open-all" id="medicalOpenAll" href="../">Open matching questions in Study Engine →</a>
+    </section>
+
+    <section class="context-view" id="context-properties">
       <div class="context-head"><strong>Properties</strong><span>YAML</span></div>
       <div id="properties" class="properties"></div>
     </section>
@@ -128,9 +132,7 @@
 <div class="palette-backdrop" id="paletteBackdrop" hidden>
   <div class="palette" role="dialog" aria-modal="true" aria-label="Command palette">
     <div class="palette-search">
-      <span>⌘</span>
-      <input id="paletteInput" placeholder="Type a command or note…" autocomplete="off">
-      <kbd>Esc</kbd>
+      <span>⌘</span><input id="paletteInput" placeholder="Type a command or note…" autocomplete="off"><kbd>Esc</kbd>
     </div>
     <div id="paletteResults" class="palette-results"></div>
   </div>
@@ -138,11 +140,26 @@
 
 <div class="menu" id="noteMenu" hidden>
   <button data-action="download-note">Download .md</button>
+  <button data-action="export-folder">Write vault to folder</button>
+  <button data-action="import-backup">Restore JSON backup</button>
+  <button data-action="history-note">Version history</button>
   <button data-action="duplicate-note">Duplicate note</button>
   <button data-action="delete-note" class="danger-text">Delete note</button>
 </div>
 
+<div class="history-backdrop" id="historyBackdrop" hidden>
+  <div class="history-modal" role="dialog" aria-modal="true" aria-label="Note version history">
+    <div class="history-head">
+      <div><strong>Version history</strong><span id="historyNoteTitle"></span></div>
+      <button class="icon-btn" id="closeHistory" aria-label="Close version history">×</button>
+    </div>
+    <div id="historyList" class="history-list"></div>
+  </div>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="vault-db.js" defer></script>
+<script src="medical.js" defer></script>
 <script src="vault.js" defer></script>
 </body>
 </html>
