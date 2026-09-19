@@ -259,7 +259,8 @@ function openSidebar(){document.body.classList.add('sidebar-open')}function clos
 
 var commands=[
   ['New note','Cmd N',function(){createNote()}],['Open graph','Cmd Shift G',function(){setView('graph')}],['Preview note','Cmd P',function(){setView('preview')}],['Edit note','',function(){setView('editor')}],
-  ['Import Markdown files','',function(){$('#fileImport').click()}],['Import Obsidian folder','',function(){$('#folderImport').click()}],['Export vault backup','',exportVault],
+  ['Import Markdown files','',function(){$('#fileImport').click()}],['Import Obsidian folder','',function(){$('#folderImport').click()}],['Restore JSON backup','',function(){$('#backupImport').click()}],
+  ['Export vault backup','',exportVault],['Write vault to folder','',writeVaultToFolder],['Version history','',showHistory],['Show matched PYQs','',function(){setContext('medical')}],
   ['Toggle context panel','',function(){document.body.classList.toggle('context-hidden')}],['Open NEETPG2027 Study Engine','',function(){location.href='../'}]
 ];
 function palette(q){
@@ -277,9 +278,13 @@ $('#importFilesBtn').onclick=function(){$('#fileImport').click()};
 $('#importFolderBtn').onclick=function(){$('#folderImport').click()};
 $('#fileImport').onchange=function(e){importFiles(e.target.files);e.target.value=''};
 $('#folderImport').onchange=function(e){importFiles(e.target.files);e.target.value=''};
+$('#backupImport').onchange=function(e){if(e.target.files[0])restoreBackup(e.target.files[0]);e.target.value=''};
 $('#fileTree').onclick=function(e){var x=e.target.closest('[data-note-id]');if(x)openNote(x.dataset.noteId)};
 $('#backlinks').onclick=$('#relatedNotes').onclick=function(e){var x=e.target.closest('[data-note-id]');if(x)openNote(x.dataset.noteId)};
-$('#editor').oninput=updateEditor;$('#titleInput').oninput=updateTitle;
+$('#outgoingLinks').onclick=function(e){var x=e.target.closest('[data-note-title]');if(x)openTitle(x.dataset.noteTitle)};
+$('#editor').oninput=updateEditor;
+$('#titleInput').onfocus=function(){var n=current();titleSnapshot={id:n.id,title:n.title,path:n.path,content:n.content,createdAt:n.createdAt,updatedAt:n.updatedAt}};
+$('#titleInput').oninput=updateTitle;$('#titleInput').onblur=finalizeTitleRename;
 $$('.tab').forEach(function(b){b.onclick=function(){setView(b.dataset.view)}});
 $$('.context-tab').forEach(function(b){b.onclick=function(){setContext(b.dataset.context)}});
 $('#toggleRight').onclick=function(){document.body.classList.toggle('context-hidden')};
@@ -288,13 +293,14 @@ $('#graphSvg').onclick=function(e){var x=e.target.closest&&e.target.closest('.gr
 $('#preview').onclick=function(e){var x=e.target.closest('.wiki-link');if(x)openTitle(x.dataset.noteTitle)};
 $('#exportBtn').onclick=exportVault;
 $('#moreBtn').onclick=function(e){$('#noteMenu').hidden=!$('#noteMenu').hidden;e.stopPropagation()};
-$('#noteMenu').onclick=function(e){var x=e.target.closest('[data-action]');if(!x)return;$('#noteMenu').hidden=true;if(x.dataset.action==='download-note')download(filename(current().title),current().content,'text/markdown');if(x.dataset.action==='duplicate-note')duplicate();if(x.dataset.action==='delete-note')del()};
+$('#noteMenu').onclick=function(e){var x=e.target.closest('[data-action]');if(!x)return;$('#noteMenu').hidden=true;if(x.dataset.action==='download-note')download(filename(current().title),current().content,'text/markdown');if(x.dataset.action==='export-folder')writeVaultToFolder();if(x.dataset.action==='import-backup')$('#backupImport').click();if(x.dataset.action==='history-note')showHistory();if(x.dataset.action==='duplicate-note')duplicate();if(x.dataset.action==='delete-note')del()};
 document.onclick=function(e){if(!e.target.closest('#noteMenu')&&!e.target.closest('#moreBtn'))$('#noteMenu').hidden=true};
 $('#paletteBackdrop').onclick=function(e){if(e.target===$('#paletteBackdrop'))$('#paletteBackdrop').hidden=true};
 $('#paletteInput').oninput=function(e){palette(e.target.value)};$('#paletteInput').onkeydown=paletteKeys;
 $('#openSidebar').onclick=openSidebar;$('#closeSidebar').onclick=closeSidebar;$('#sidebarScrim').onclick=closeSidebar;
-document.addEventListener('keydown',function(e){var m=e.metaKey||e.ctrlKey,k=e.key.toLowerCase();if(m&&k==='k'){e.preventDefault();showPalette()}if(m&&k==='n'){e.preventDefault();createNote()}if(m&&k==='s'){e.preventDefault();save();toast('Vault saved locally')}if(m&&k==='p'){e.preventDefault();setView('preview')}if(m&&e.shiftKey&&k==='g'){e.preventDefault();setView('graph')}if(e.key==='Escape'){$('#paletteBackdrop').hidden=true;closeSidebar();$('#noteMenu').hidden=true}});
+$('#closeHistory').onclick=function(){$('#historyBackdrop').hidden=true};$('#historyBackdrop').onclick=function(e){if(e.target===$('#historyBackdrop'))$('#historyBackdrop').hidden=true};
+document.addEventListener('keydown',function(e){var m=e.metaKey||e.ctrlKey,k=e.key.toLowerCase();if(m&&k==='k'){e.preventDefault();showPalette()}if(m&&k==='n'){e.preventDefault();createNote()}if(m&&k==='s'){e.preventDefault();save();toast('Vault saved locally')}if(m&&k==='p'){e.preventDefault();setView('preview')}if(m&&e.shiftKey&&k==='g'){e.preventDefault();setView('graph')}if(e.key==='Escape'){$('#paletteBackdrop').hidden=true;$('#historyBackdrop').hidden=true;closeSidebar();$('#noteMenu').hidden=true}});
 window.addEventListener('beforeunload',save);
 
-renderCurrent();save();
+renderCurrent();save();hydrateDurable();
 })();
