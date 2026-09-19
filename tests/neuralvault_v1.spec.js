@@ -152,7 +152,7 @@ test.describe('NeuralVault durable knowledge layer', () => {
 
     const answer = page.locator('#brainThread .brain-message.assistant').last();
     await expect(answer).toContainText('Current note · Myocardial Infarction', { timeout: 15000 });
-    await expect(answer).toContainText('myocardial', { ignoreCase: true });
+    await expect(answer).toContainText(/myocardial/i);
     await expect(answer.locator('[data-brain-note="mi"]').first()).toBeVisible();
     await expect(page.locator('#brainCopyPrompt')).toBeVisible();
   });
