@@ -36,10 +36,20 @@
     host.dataset.reached=p.reached?'1':'0';
   }
 
+  function stopExamCountdown(){
+    if(examCountdownTimer){clearInterval(examCountdownTimer);examCountdownTimer=null}
+  }
+
   function startExamCountdown(){
-    if(examCountdownTimer)clearInterval(examCountdownTimer);
+    stopExamCountdown();
     renderExamCountdown();
+    if(document.visibilityState!=='visible' || !$q('#view-dashboard.active'))return;
     examCountdownTimer=setInterval(renderExamCountdown,1000);
+  }
+
+  function syncExamCountdown(){
+    if(document.visibilityState==='visible' && $q('#view-dashboard.active'))startExamCountdown();
+    else stopExamCountdown();
   }
 
   const navItems = [
@@ -149,7 +159,7 @@
       const quick=e.target.closest('[data-v4-quick]'); if(quick) launchQuick(quick.dataset.v4Quick);
     });
     $q('#v4StartReview')?.addEventListener('click',()=>{if(typeof navigate==='function')navigate('review');setTimeout(()=>$q('#startDue')?.click(),0)});
-    startExamCountdown();
+    syncExamCountdown();
   }
 
   function setNavActive(view){
@@ -227,7 +237,7 @@
 
   function wrapCore(){
     try{
-      if(typeof navigate==='function'&&!navigate.__v4){const core=navigate;const wrapped=function(view){const out=core(view);setNavActive(view);if(view==='dashboard')setTimeout(renderV4Dashboard,0);return out};wrapped.__v4=true;navigate=wrapped;}
+      if(typeof navigate==='function'&&!navigate.__v4){const core=navigate;const wrapped=function(view){const out=core(view);setNavActive(view);if(view==='dashboard')setTimeout(()=>{renderV4Dashboard();syncExamCountdown()},0);else stopExamCountdown();return out};wrapped.__v4=true;navigate=wrapped;}
       if(typeof renderDashboard==='function'&&!renderDashboard.__v4){const core=renderDashboard;const wrapped=function(){const out=core();renderV4Dashboard();return out};wrapped.__v4=true;renderDashboard=wrapped;}
       if(typeof renderAll==='function'&&!renderAll.__v4){const core=renderAll;const wrapped=function(){const out=core();if($q('#view-dashboard')?.classList.contains('active'))renderV4Dashboard();return out};wrapped.__v4=true;renderAll=wrapped;}
     }catch(e){console.warn('UI v4 wrapper skipped',e)}
@@ -241,5 +251,6 @@
     setInterval(()=>{if($q('#view-dashboard')?.classList.contains('active'))renderV4Dashboard()},15000);
   }
 
+  document.addEventListener('visibilitychange',syncExamCountdown);
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,60));else setTimeout(init,60);
 })();
