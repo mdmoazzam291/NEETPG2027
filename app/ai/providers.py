@@ -111,7 +111,8 @@ def _openai(settings: Settings, prompt: str, max_output_tokens: int) -> tuple[st
 def _gemini(settings: Settings, prompt: str, max_output_tokens: int) -> tuple[str, str]:
     if not settings.gemini_api_key or not settings.gemini_model:
         raise AIProviderError("Gemini is not configured")
-    model_path = parse.quote(settings.gemini_model, safe="-._/")
+    model_name = settings.gemini_model.removeprefix("models/")
+    model_path = parse.quote(model_name, safe="-._")
     data = _post_json(
         f"https://generativelanguage.googleapis.com/v1beta/models/{model_path}:generateContent",
         headers={"x-goog-api-key": settings.gemini_api_key},
