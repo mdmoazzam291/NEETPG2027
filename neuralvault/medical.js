@@ -87,17 +87,27 @@
     return matchFrom(await load(), note, limit);
   }
 
-  async function studyStateMap() {
+  function mirroredStateMap() {
     try {
-      if (!indexedDB.databases) return new Map();
+      const rows = JSON.parse(localStorage.getItem('neetpg2027:qstate-mirror') || '[]');
+      return new Map((Array.isArray(rows) ? rows : []).filter(x => x && x.qid).map(x => [x.qid, x]));
+    } catch (_) {
+      return new Map();
+    }
+  }
+
+  async function studyStateMap() {
+    const mirror = mirroredStateMap();
+    try {
+      if (!indexedDB.databases) return mirror;
       const databases = await indexedDB.databases();
-      if (!databases.some(x => x.name === 'neetpg2027-static-v2')) return new Map();
+      if (!databases.some(x => x.name === 'neetpg2027-static-v2')) return mirror;
       const db = await new Promise((resolve, reject) => {
         const req = indexedDB.open('neetpg2027-static-v2');
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);
       });
-      if (!db.objectStoreNames.contains('qstate')) { db.close(); return new Map(); }
+      if (!db.objectStoreNames.contains('qstate')) { db.close(); return mirror; }
       const rows = await new Promise((resolve, reject) => {
         const tx = db.transaction('qstate','readonly');
         const req = tx.objectStore('qstate').getAll();
@@ -105,9 +115,11 @@
         req.onerror = () => reject(req.error);
       });
       db.close();
-      return new Map(rows.map(x => [x.qid, x]));
+      const live = new Map(rows.map(x => [x.qid, x]));
+      mirror.forEach((value, key) => { if (!live.has(key)) live.set(key, value); });
+      return live;
     } catch (_) {
-      return new Map();
+      return mirror;
     }
   }
 
