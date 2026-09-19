@@ -157,7 +157,7 @@ The current branch adds a deterministic, local-first intelligence layer before a
 - **Mastery graph mode** driven by real matched-PYQ performance
 - transparent evidence score: **70% matched-PYQ accuracy + 30% matched-PYQ coverage**
 - readiness bands: unmeasured, weak, building, strong, mastered
-- current-note learning intelligence with one-tap matched concept practice
+- current-note learning intelligence with one-tap matched concept practice using the exact matched question IDs
 - combined local search across vault notes and the bundled PYQ corpus
 - exportable evidence bundles designed for grounded AI prompting
 - command-palette action for the next best study target
