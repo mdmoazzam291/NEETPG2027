@@ -42,17 +42,16 @@ test('Phase 12 builds profile-linked goals, balanced SRS workload and unique ada
   expect(r.rem.enabled).toBe(false);
 });
 
-test('Phase 12 countdown and rolling study plan use an explicit exam date rather than inventing one',async({page})=>{
+test('Phase 12 rolling study plan remains independent of the dedicated exam countdown',async({page})=>{
   await loadPhase12(page);
   const r=await page.evaluate(()=>{
-    const future=new Date(Date.now()+20*86400000);const date=`${future.getFullYear()}-${String(future.getMonth()+1).padStart(2,'0')}-${String(future.getDate()).padStart(2,'0')}`;
     NEETPG_PHASE12.setDailyGoal(25);
-    NEETPG_PHASE12.setExamDate(date);
-    return{countdown:NEETPG_PHASE12.examCountdown(),rolling:NEETPG_PHASE12.rollingPlan(7)};
+    return{
+      rolling:NEETPG_PHASE12.rollingPlan(7),
+      hasExamApi:'setExamDate' in NEETPG_PHASE12 || 'examCountdown' in NEETPG_PHASE12
+    };
   });
-  expect(r.countdown.date).toBeTruthy();
-  expect(r.countdown.days).toBeGreaterThanOrEqual(19);
-  expect(r.countdown.days).toBeLessThanOrEqual(20);
+  expect(r.hasExamApi).toBe(false);
   expect(r.rolling).toHaveLength(7);
   expect(r.rolling[0]).toHaveProperty('srsTarget');
   expect(r.rolling[0]).toHaveProperty('adaptiveTarget');
@@ -76,39 +75,21 @@ test('Phase 12 dashboard planner renders 15/30/60-minute and micro-session contr
 });
 
 
-test('Phase 12 Save plan persists the typed exam date and updates countdown immediately',async({page})=>{
+test('Phase 12 planner no longer renders exam countdown or exam-date controls',async({page})=>{
   await loadPhase12(page);
   await page.evaluate(()=>NEETPG_PHASE12.panel());
 
-  const date=await page.evaluate(()=>{
-    const future=new Date();
-    future.setDate(future.getDate()+30);
-    return `${future.getFullYear()}-${String(future.getMonth()+1).padStart(2,'0')}-${String(future.getDate()).padStart(2,'0')}`;
-  });
+  const host=page.locator('#v12Planner');
+  await expect(host).not.toContainText('Exam countdown');
+  await expect(page.locator('#p12ExamDate')).toHaveCount(0);
+  await expect(page.locator('#p12CountdownDays')).toHaveCount(0);
+  await expect(page.locator('#p12CountdownStatus')).toHaveCount(0);
 
   await page.fill('#p12DailyGoal','35');
-  await page.fill('#p12ExamDate',date);
   await page.click('#p12Save');
-
-  await expect(page.locator('#p12ExamDate')).toHaveValue(date);
-  await expect(page.locator('#p12CountdownStatus')).toContainText('remaining');
-  const days=Number(await page.locator('#p12CountdownDays').textContent());
-  expect(days).toBeGreaterThanOrEqual(29);
-  expect(days).toBeLessThanOrEqual(30);
+  await expect(page.locator('#p12DailyGoal')).toHaveValue('35');
 
   const prefs=await page.evaluate(()=>JSON.parse(localStorage.getItem('neetpg2027-phase12-planner')));
-  expect(prefs.examDate).toBe(date);
   expect(prefs.dailyGoal).toBe(35);
-
-  await page.reload();
-  await page.addScriptTag({url:'/assets/phase10-taxonomy.js'});
-  await page.waitForFunction(()=>window.NEETPG_PHASE10,{timeout:15000});
-  await page.addScriptTag({url:'/assets/phase11-analytics.js'});
-  await page.waitForFunction(()=>window.NEETPG_PHASE11,{timeout:15000});
-  await page.addScriptTag({url:'/assets/phase12-planning.js'});
-  await page.waitForFunction(()=>window.NEETPG_PHASE12,{timeout:15000});
-  await page.evaluate(()=>NEETPG_PHASE12.panel());
-
-  await expect(page.locator('#p12ExamDate')).toHaveValue(date);
-  await expect(page.locator('#p12CountdownStatus')).toContainText('remaining');
+  expect(prefs.examDate).toBeUndefined();
 });
