@@ -5,6 +5,40 @@
   const $qa = s => [...document.querySelectorAll(s)];
   const fmt = n => new Intl.NumberFormat('en-IN').format(Number(n || 0));
   const clampV4 = (n,a,b) => Math.max(a,Math.min(b,n));
+  const EXAM_TARGET = Object.freeze({ year: 2027, monthIndex: 7, day: 29, iso: '2027-08-29', label: '29 Aug 2027' });
+  let examCountdownTimer = null;
+
+  function examTargetTime(){
+    return new Date(EXAM_TARGET.year, EXAM_TARGET.monthIndex, EXAM_TARGET.day, 0, 0, 0, 0).getTime();
+  }
+
+  function examCountdownParts(now = Date.now()){
+    const remaining = Math.max(0, examTargetTime() - now);
+    const days = Math.floor(remaining / 86400000);
+    const hours = Math.floor((remaining % 86400000) / 3600000);
+    const minutes = Math.floor((remaining % 3600000) / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+    return { remaining, days, hours, minutes, seconds, reached: remaining === 0 };
+  }
+
+  function renderExamCountdown(){
+    const host=$q('#v4ExamCountdown'); if(!host)return;
+    const p=examCountdownParts();
+    const set=(id,value)=>{const el=$q(id);if(el)el.textContent=String(value).padStart(2,'0')};
+    set('#v4ExamDays',p.days);
+    set('#v4ExamHours',p.hours);
+    set('#v4ExamMinutes',p.minutes);
+    set('#v4ExamSeconds',p.seconds);
+    const status=$q('#v4ExamCountdownStatus');
+    if(status)status.textContent=p.reached?'Target date reached':'Counting down continuously';
+    host.dataset.reached=p.reached?'1':'0';
+  }
+
+  function startExamCountdown(){
+    if(examCountdownTimer)clearInterval(examCountdownTimer);
+    renderExamCountdown();
+    examCountdownTimer=setInterval(renderExamCountdown,1000);
+  }
 
   const navItems = [
     ['dashboard','⌂','Dashboard'],['practice','▣','Questions'],['analytics','⌁','Tests & Analytics'],
@@ -62,6 +96,22 @@
 
   function dashboardMarkup(){
     return `<div class="v4-dashboard">
+      <section class="card v4-exam-countdown" id="v4ExamCountdown" data-target="2027-08-29" aria-label="NEET-PG exam countdown to 29 August 2027">
+        <div class="v4-exam-copy">
+          <span class="v4-exam-kicker">NEET-PG 2027 TARGET</span>
+          <strong>29 Aug 2027</strong>
+          <small id="v4ExamCountdownStatus">Counting down continuously</small>
+        </div>
+        <div class="v4-exam-clock" aria-label="Time remaining">
+          <div><strong id="v4ExamDays">00</strong><span>Days</span></div>
+          <i>:</i>
+          <div><strong id="v4ExamHours">00</strong><span>Hours</span></div>
+          <i>:</i>
+          <div><strong id="v4ExamMinutes">00</strong><span>Minutes</span></div>
+          <i>:</i>
+          <div><strong id="v4ExamSeconds">00</strong><span>Seconds</span></div>
+        </div>
+      </section>
       <div class="v4-greeting"><div><h2 id="v4Greeting">Good morning, Doctor!</h2><p>Small consistent steps lead to big results. Keep going.</p></div><div class="v4-quote">“Excellence in medicine is built one question at a time.”</div></div>
       <div class="v4-kpis">
         <div class="card v4-kpi"><span class="v4-kpi-icon teal">◎</span><div><div class="v4-kpi-label">Total Questions Solved</div><div class="v4-kpi-value" id="v4Solved">0</div><div class="v4-kpi-note" id="v4SolvedNote">Start your first session</div></div></div>
@@ -96,6 +146,7 @@
       const quick=e.target.closest('[data-v4-quick]'); if(quick) launchQuick(quick.dataset.v4Quick);
     });
     $q('#v4StartReview')?.addEventListener('click',()=>{if(typeof navigate==='function')navigate('review');setTimeout(()=>$q('#startDue')?.click(),0)});
+    startExamCountdown();
   }
 
   function setNavActive(view){
