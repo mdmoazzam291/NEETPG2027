@@ -257,6 +257,11 @@
       <input id="brainBackendUrl" type="url" placeholder="https://your-api.example.com">
       <small>Use the FastAPI deployment that holds your provider keys. Leave blank for local-only mode.</small>
     </label>
+    <label class="brain-setting-field">
+      <span>Gateway token</span>
+      <input id="brainGatewayToken" type="password" autocomplete="off" placeholder="NeuralVault gateway token">
+      <small>This is not a provider API key. It is stored only for this browser session and protects your server-side model quota.</small>
+    </label>
     <div class="brain-settings-status" id="brainSettingsStatus">Local evidence mode is always available.</div>
     <div class="brain-settings-actions">
       <button type="button" id="brainTestBackend">Test connection</button>
