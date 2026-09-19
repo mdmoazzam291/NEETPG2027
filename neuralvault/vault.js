@@ -39,6 +39,8 @@ let evidenceToken=0;
 let lastEvidenceQuery='';
 let brainToken=0;
 let brainLastQuery='';
+let brainLastNoteId=null;
+let brainLastScope='vault';
 
 function current(){return state.notes.find(n=>n.id===currentId)||state.notes[0]||null}
 function uid(){return crypto&&crypto.randomUUID?crypto.randomUUID():'note-'+Date.now()+'-'+Math.random().toString(16).slice(2)}
@@ -601,7 +603,7 @@ function renderBrainAnswer(answer){
 async function askBrain(query){
   query=String(query||'').trim();if(!query)return;
   if(!window.NeuralVaultBrain){toast('Brain engine unavailable');return}
-  brainLastQuery=query;setView('brain');
+  brainLastQuery=query;brainLastNoteId=current()?.id||null;brainLastScope=$('#brainScope').value;setView('brain');
   const thread=$('#brainThread');
   const empty=thread.querySelector('.brain-empty');if(empty)empty.remove();
   const user=document.createElement('div');user.className='brain-message user';user.innerHTML='<p>'+esc(query)+'</p>';thread.append(user);
@@ -613,7 +615,7 @@ async function askBrain(query){
       notes:state.notes.map(n=>({...n,properties:props(n.content)})),
       currentNote:current()?{...current(),properties:props(current().content)}:null,
       query,
-      scope:$('#brainScope').value
+      scope:brainLastScope
     });
     if(token!==brainToken)return;
     loading.remove();renderBrainAnswer(answer);$('#brainCopyPrompt').hidden=false;
@@ -629,7 +631,7 @@ async function askBrain(query){
 }
 
 function clearBrain(){
-  brainLastQuery='';brainToken++;
+  brainLastQuery='';brainLastNoteId=null;brainLastScope='vault';brainToken++;
   $('#brainThread').innerHTML='<div class="brain-empty"><div class="brain-orb">✦</div><strong>NeuralVault Brain</strong><p>Ask a question. Local mode retrieves evidence and cites the exact notes/PYQs it used.</p></div>';
   $('#brainCopyPrompt').hidden=true;
 }
@@ -637,7 +639,8 @@ function clearBrain(){
 async function copyBrainPrompt(){
   if(!brainLastQuery||!window.NeuralVaultBrain){toast('Ask the Brain first');return}
   try{
-    const prompt=await NeuralVaultBrain.modelPrompt(state.notes,brainLastQuery,current());
+    const contextNote=brainLastNoteId?state.notes.find(n=>n.id===brainLastNoteId)||null:null;
+    const prompt=await NeuralVaultBrain.modelPrompt(state.notes,brainLastQuery,brainLastScope==='current'?contextNote:null);
     try{await navigator.clipboard.writeText(prompt);toast('Grounded model prompt copied')}
     catch(_){download('NeuralVault-grounded-prompt.md',prompt,'text/markdown');toast('Clipboard unavailable; prompt downloaded')}
   }catch(_){toast('Could not build grounded model prompt')}
