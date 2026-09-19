@@ -144,3 +144,28 @@ def test_configured_cors_origin_allows_pages_frontend(monkeypatch, tmp_path):
     assert response.status_code == 200
     assert response.headers["access-control-allow-origin"] == "https://mdmoazzam291.github.io"
     assert "x-neuralvault-token" in response.headers["access-control-allow-headers"].lower()
+
+
+def test_ai_gateway_rate_limit_blocks_excess_calls(monkeypatch, tmp_path):
+    _clear_ai_env(monkeypatch)
+    monkeypatch.setenv("NEETPG2027_DATABASE_URL", f"sqlite:///{tmp_path / 'rate.sqlite3'}")
+    monkeypatch.setenv("NEETPG2027_AI_ACCESS_TOKEN", "rate-limit-token")
+    monkeypatch.setenv("NEETPG2027_AI_MAX_REQUESTS_PER_MINUTE", "1")
+    monkeypatch.setenv("NEETPG2027_OPENAI_API_KEY", "provider-secret")
+    monkeypatch.setenv("NEETPG2027_OPENAI_MODEL", "test-openai-model")
+
+    monkeypatch.setattr(
+        provider_module,
+        "_post_json",
+        lambda *args, **kwargs: {"output_text": "ok"},
+    )
+
+    with TestClient(create_app()) as client:
+        headers = {"X-NeuralVault-Token": "rate-limit-token"}
+        payload = {"provider": "openai", "prompt": "hello", "max_output_tokens": 128}
+        first = client.post("/ai/generate", headers=headers, json=payload)
+        second = client.post("/ai/generate", headers=headers, json=payload)
+
+    assert first.status_code == 200
+    assert second.status_code == 429
+    assert "rate limit" in second.json()["detail"].lower()
