@@ -226,7 +226,7 @@ async function renderMedical(){
     if(token!==medicalToken)return;
     $('#medicalCount').textContent=summary.count;
     $('#medicalOpenAll').href=NeuralVaultMedical.topicUrl(note);
-    $('#medicalSummary').textContent=summary.count?summary.count+' related PYQ matches across '+summary.years.length+' exam year'+(summary.years.length===1?'':'s')+'.':'No strong PYQ match yet. Add subject/system properties or use the exam topic name.';
+    if(summary.count){const perf=summary.attempted?' · '+summary.attempted+'/'+summary.count+' attempted'+(summary.accuracy==null?'':' · '+summary.accuracy+'% accuracy'):' · not attempted yet';$('#medicalSummary').textContent=summary.count+' related PYQ matches across '+summary.years.length+' exam year'+(summary.years.length===1?'':'s')+perf+'.';}else $('#medicalSummary').textContent='No strong PYQ match yet. Add subject/system properties or use the exam topic name.';
     summary.matches.slice(0,12).forEach(x=>{
       const q=x.q,a=document.createElement('a');a.className='context-item medical-question';a.href=NeuralVaultMedical.questionUrl(q);
       a.innerHTML='<strong>'+esc(q.topic||q.subtopic||'Question')+'</strong><p>'+esc(q.stem)+'</p><div class="medical-meta"><span class="medical-chip">'+esc(q.exam_year||'PYQ')+'</span><span class="medical-chip">'+esc(q.subject||'')+'</span><span class="medical-chip">'+esc(q.system||'')+'</span></div>';
@@ -414,6 +414,23 @@ async function showHistory(){
   $('#historyBackdrop').hidden=false;
 }
 
+function openDailyNote(){
+  const d=new Date(),date=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+  const path='Daily/'+date+'.md',existing=state.notes.find(n=>n.path===path);
+  if(existing){openNote(existing.id);return}
+  const n={id:uid(),title:date,path,content:'---\ntype: daily\ndate: '+date+'\n---\n\n# '+date+'\n\n## Focus\n\n- \n\n## Learned\n\n- \n\n## Errors to revisit\n\n- \n',createdAt:iso(),updatedAt:iso()};
+  state.notes.push(n);currentId=n.id;save();renderCurrent();setView('editor');toast('Daily note created');
+}
+
+function createMedicalNote(){
+  const title=prompt('Medical topic or disease');if(!title)return;
+  const subject=(prompt('Primary MBBS subject (optional)')||'').trim();
+  const front='---\ntype: medical-concept\nstatus: learning\n'+(subject?'subject: '+subject+'\n':'')+'mastery: 0\n---\n\n';
+  const body='# '+title+'\n\n## Core concept\n\n\n## Mechanism / pathophysiology\n\n\n## Clinical clues\n\n\n## Investigations\n\n\n## Management\n\n\n## PYQ anchors\n\n\n## Confusions / differentials\n\n\n## Links\n\n';
+  const n={id:uid(),title,path:'Medical/'+filename(title),content:front+body,createdAt:iso(),updatedAt:iso()};
+  state.notes.push(n);currentId=n.id;save();renderCurrent();setView('editor');toast('Medical note created');
+}
+
 function duplicate(){
   const n=current(),copy=Object.assign({},n,{id:uid(),title:n.title+' Copy',path:'Inbox/'+filename(n.title+' Copy'),createdAt:iso(),updatedAt:iso()});
   state.notes.push(copy);currentId=copy.id;save();renderCurrent();toast('Note duplicated');
@@ -434,6 +451,8 @@ function closeSidebar(){document.body.classList.remove('sidebar-open')}
 
 const commands=[
   ['New note','Cmd N',()=>createNote()],
+  ['New medical note','',createMedicalNote],
+  ["Open today's daily note",'',openDailyNote],
   ['Open graph','Cmd Shift G',()=>setView('graph')],
   ['Preview note','Cmd P',()=>setView('preview')],
   ['Edit note','',()=>setView('editor')],
