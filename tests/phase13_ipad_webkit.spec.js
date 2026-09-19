@@ -3,9 +3,7 @@ const { test, expect } = require('@playwright/test');
 async function loadPremiumPhase13(page){
   await page.addStyleTag({ url: '/assets/ui-v4.css' });
   await page.addStyleTag({ url: '/assets/phase13.css' });
-  await page.addScriptTag({ url: '/assets/ui-v4-core-compat.js' });
   await page.addScriptTag({ url: '/assets/ui-v4.js' });
-  await page.addScriptTag({ url: '/assets/ui-v4-fixes.js' });
   await page.addScriptTag({ url: '/assets/phase13-hardening.js' });
   await expect(page.locator('body')).toHaveAttribute('data-v4ready','1');
 }

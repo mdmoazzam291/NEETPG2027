@@ -1,12 +1,12 @@
-const RELEASE='2026-09-19-exam-countdown-cachefix-1';
+const RELEASE='2026-09-19-unified-ui-lifecycle-1';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[
   './','./index.html','./manifest.webmanifest','./assets/app-icon.svg',
   './assets/app.css','./assets/ui-v4.css','./assets/exam-v9.css','./assets/phase13.css',
-  './assets/app.js','./assets/ui-v4-core-compat.js','./assets/neetpg-timer.js',
+  './assets/app.js','./assets/neetpg-timer.js',
   './assets/supabase-config.js','./assets/phase13-preauth.js','./assets/auth-sync.js','./assets/auth-provider-guard.js',
-  './assets/ui-v4.js','./assets/ui-v4-fixes.js','./assets/exam-v9.js','./assets/phase10-taxonomy.js','./assets/pyq-metadata.js',
+  './assets/ui-v4.js','./assets/exam-v9.js','./assets/phase10-taxonomy.js','./assets/pyq-metadata.js',
   './assets/phase11-analytics.js','./assets/phase11-exam-overlay.js','./assets/phase12-planning.js','./assets/phase13-hardening.js',
   './data/pyq/manifest.json',
   './neuralvault/index.html','./neuralvault/vault.css','./neuralvault/vault.js','./neuralvault/vault-db.js','./neuralvault/medical.js','./neuralvault/intelligence.js','./neuralvault/brain.js','./neuralvault/provider.js'

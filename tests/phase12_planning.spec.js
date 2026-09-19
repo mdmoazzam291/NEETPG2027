@@ -7,9 +7,7 @@ async function loadPhase12(page){
   await page.addScriptTag({url:'/assets/phase11-analytics.js'});
   await page.waitForFunction(()=>window.NEETPG_PHASE11,{timeout:15000});
   await page.addStyleTag({url:'/assets/ui-v4.css'});
-  await page.addScriptTag({url:'/assets/ui-v4-core-compat.js'});
   await page.addScriptTag({url:'/assets/ui-v4.js'});
-  await page.addScriptTag({url:'/assets/ui-v4-fixes.js'});
   await page.waitForFunction(()=>document.body.dataset.v4ready==='1',{timeout:15000});
   await page.addScriptTag({url:'/assets/phase12-planning.js'});
   await page.waitForFunction(()=>window.NEETPG_PHASE12,{timeout:15000});
@@ -69,6 +67,7 @@ test('Phase 12 dashboard planner renders 15/30/60-minute and micro-session contr
   await expect(host).toContainText('Planning & adaptive revision v2');
   await expect(page.locator('.v4-dashboard > *').nth(0)).toHaveAttribute('id','v4ExamCountdown');
   await expect(page.locator('.v4-dashboard > *').nth(1)).toHaveAttribute('id','v12Planner');
+  await expect(page.locator('#v12Planner')).toHaveAttribute('data-dashboard-slot','planner');
   await expect(host).toContainText('Daily');
   await expect(host).toContainText('Weekly');
   await expect(host).toContainText('SRS workload');
