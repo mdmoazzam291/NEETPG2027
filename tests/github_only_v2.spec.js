@@ -1,4 +1,44 @@
 const { test, expect } = require('@playwright/test');
+test('UI v4 visible shell has correct order, navigation and mobile drawer behavior', async ({ page }) => {
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0)).toBe(405);
+  await expect(page.locator('#v4ExamCountdown')).toBeVisible();
+  await expect(page.locator('#v12Planner')).toBeVisible();
+  const order=await page.evaluate(()=>({
+    first:document.querySelector('.v4-dashboard')?.firstElementChild?.id,
+    plannerParent:document.querySelector('#v12Planner')?.parentElement?.className,
+    mainMargin:getComputedStyle(document.querySelector('.main')).marginLeft,
+    nav:[...document.querySelectorAll('.v4-nav')].map(x=>x.dataset.v4Label),
+    target:document.querySelector('#v4ExamCountdown')?.dataset.target
+  }));
+  expect(order.first).toBe('v4ExamCountdown');
+  expect(order.plannerParent).toContain('v4-dashboard');
+  expect(order.mainMargin).toBe('0px');
+  expect(order.nav).toEqual(['Dashboard','Practice','Question Bank','Revision','NeuralVault','Analytics','Tests','Settings']);
+  expect(order.target).toBe('2027-08-29');
+
+  await page.locator('.v4-nav[data-v4-label="Revision"]').click();
+  await expect(page.locator('.v4-nav[data-v4-label="Revision"]')).toHaveClass(/active/);
+  await expect(page.locator('#view-dashboard')).toBeHidden();
+  await page.locator('.v4-nav[data-v4-label="Dashboard"]').click();
+  await expect(page.locator('#v4ExamCountdown')).toBeVisible();
+});
+
+test('mobile v4 sidebar can scroll to Settings', async ({ page }) => {
+  await page.setViewportSize({width:390,height:667});
+  await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0)).toBe(405);
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#sidebar')).toHaveClass(/open/);
+  const metrics=await page.evaluate(()=>{
+    const s=document.querySelector('#sidebar');
+    return {overflowY:getComputedStyle(s).overflowY,client:s.clientHeight,scroll:s.scrollHeight};
+  });
+  expect(['auto','scroll']).toContain(metrics.overflowY);
+  await page.locator('.v4-nav[data-v4-label="Settings"]').scrollIntoViewIfNeeded();
+  await expect(page.locator('.v4-nav[data-v4-label="Settings"]')).toBeVisible();
+});
+
 
 test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ page }) => {
   await page.goto('/');
