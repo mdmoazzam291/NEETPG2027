@@ -40,7 +40,7 @@ test('Question bank, analytics and settings render', async ({ page }) => {
 
 test('Review answers is read-only and does not create new attempts', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button',{name:/Practice/}).first().click();
+  await page.locator('.nav button[data-view="practice"]').click();
   await page.locator('#pCount').selectOption('5');
   await page.locator('#pMode').selectOption('unseen');
   await page.locator('#startCustom').click();
