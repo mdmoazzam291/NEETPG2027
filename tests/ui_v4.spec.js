@@ -13,7 +13,7 @@ test('premium dashboard renders reference-inspired study UI', async ({ page }) =
   await page.goto('/');
   await loadV4(page);
   await expect(page.locator('.v4-brand-row')).toContainText('NEETPG2027');
-  await expect(page.locator('.v4-nav')).toHaveCount(15);
+  await expect(page.locator('.v4-nav')).toHaveCount(7);
   await expect(page.locator('.v4-nav[data-v4-label="NeuralVault"]')).toBeVisible();
   await expect(page.locator('#v4Greeting')).toContainText('Doctor');
   await expect(page.locator('.v4-dashboard > *').first()).toHaveAttribute('id','v4ExamCountdown');
@@ -106,9 +106,35 @@ test('mobile sidebar scrolls to every navigation item', async ({ page }) => {
     clientHeight: el.clientHeight
   }));
   expect(['auto','scroll']).toContain(state.overflowY);
-  expect(state.scrollHeight).toBeGreaterThan(state.clientHeight);
-
   const settings = page.locator('.v4-nav[data-v4-label="Settings"]');
   await settings.evaluate(el => el.scrollIntoView({block:'center'}));
   await expect(settings).toBeVisible();
+});
+
+
+test('primary navigation contains only truthful destinations and highlights the current view', async ({ page }) => {
+  await page.goto('/');
+  await loadV4(page);
+
+  const labels = await page.locator('.v4-nav').evaluateAll(nodes => nodes.map(n => n.dataset.v4Label));
+  expect(labels).toEqual(['Dashboard','Practice','Question Bank','Revision','NeuralVault','Analytics','Settings']);
+
+  for (const [label, view] of [
+    ['Practice','practice'],
+    ['Question Bank','bank'],
+    ['Revision','review'],
+    ['Analytics','analytics'],
+    ['Settings','settings']
+  ]) {
+    const item=page.locator(`.v4-nav[data-v4-label="${label}"]`);
+    await item.click();
+    await expect(page.locator(`#view-${view}`)).toHaveClass(/active/);
+    await expect(item).toHaveClass(/active/);
+    await expect(page.locator('.v4-nav.active')).toHaveCount(1);
+  }
+
+  await expect(page.locator('.v4-nav[data-v4-label="Community"]')).toHaveCount(0);
+  await expect(page.locator('.v4-nav[data-v4-label="Resources"]')).toHaveCount(0);
+  await expect(page.locator('.v4-nav[data-v4-label="Notes"]')).toHaveCount(0);
+  await expect(page.locator('.v4-nav[data-v4-label="Bookmarks"]')).toHaveCount(0);
 });
