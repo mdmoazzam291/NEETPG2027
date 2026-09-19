@@ -6,8 +6,9 @@ test('live GitHub Pages build serves the validated Phase 13 study shell', async 
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto(`${LIVE}?phase13-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
 
-  await expect(page.locator('#statTotal')).toHaveText('405', { timeout: 15000 });
+  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0),{timeout:15000}).toBe(405);
   await expect(page.locator('#v4Greeting')).toBeVisible({ timeout: 15000 });
+  await expect(page.locator('#v4Solved')).toBeVisible();
   await expect(page.locator('#v4Search')).toBeVisible();
   await expect(page.locator('.v4-nav[data-v4-label="NeuralVault"]')).toBeVisible();
   await expect(page.locator('#offlineBadge')).toHaveText(/Online|Offline/);
