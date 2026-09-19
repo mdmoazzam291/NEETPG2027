@@ -116,7 +116,7 @@ test.describe('NeuralVault durable knowledge layer', () => {
 
     await expect(page.locator('#practiceShell')).toBeVisible({ timeout: 15000 });
     await expect(page.locator('#qStem')).not.toHaveText('');
-    await expect(page).not.toHaveURL(/nvpractice=/);
+    await expect(page).not.toHaveURL(/nvqs=/);
   });
 
 
