@@ -267,6 +267,112 @@
     };
   }
 
+
+  async function crossSubjectAnswer(notes, note) {
+    if (!note) {
+      return {
+        mode:'connections',
+        title:'Cross-subject connections',
+        summary:'Open a concept note first.',
+        sections:[{title:'No current note',bullets:[{text:'Select the concept you want to integrate across MBBS subjects.',source:null}]}],
+        sources:[]
+      };
+    }
+    const related = NeuralVaultIntelligence.relatedAcrossSubjects(notes, note, 8);
+    if (!related.length) {
+      return {
+        mode:'connections',
+        title:'Cross-subject connections · '+note.title,
+        summary:'No strong cross-subject note connection is present in the vault yet.',
+        sections:[{title:'Next step',bullets:[{text:'Add related canonical notes from other subjects, then rerun this connection scan.',source:{kind:'note',id:note.id,title:note.title}}]}],
+        sources:[noteRef(note)]
+      };
+    }
+    return {
+      mode:'connections',
+      title:'Cross-subject connections · '+note.title,
+      summary:'Ranked locally from shared concept features. These are link suggestions, not claims that every relationship is clinically equivalent.',
+      sections:[{
+        title:'Suggested integrations',
+        bullets:related.map(x=>({
+          text:x.note.title+' · '+x.subject+' · similarity '+Math.round(x.similarity*100)+'%.',
+          source:{kind:'note',id:x.note.id,title:x.note.title}
+        }))
+      }],
+      sources:[noteRef(note),...related.map(x=>noteRef(x.note,'Cross-subject similarity '+Math.round(x.similarity*100)+'%'))],
+      related
+    };
+  }
+
+  async function flashcardAnswer(note) {
+    if (!note) {
+      return {
+        mode:'cards',
+        title:'Recall-card candidates',
+        summary:'Open a note first.',
+        sections:[{title:'No current note',bullets:[{text:'Select the note you want converted into source-traceable recall prompts.',source:null}]}],
+        sources:[]
+      };
+    }
+    const cards = NeuralVaultIntelligence.flashcardCandidates(note, 8);
+    if (!cards.length) {
+      return {
+        mode:'cards',
+        title:'Recall-card candidates · '+note.title,
+        summary:'This note does not yet contain enough section text to derive cards without inventing content.',
+        sections:[{title:'Next step',bullets:[{text:'Add concise factual material under headings, then generate cards again.',source:{kind:'note',id:note.id,title:note.title}}]}],
+        sources:[noteRef(note)]
+      };
+    }
+    return {
+      mode:'cards',
+      title:'Recall-card candidates · '+note.title,
+      summary:'Every answer is copied or compressed from this note. Review before adding these to a future SRS card store.',
+      sections:[{
+        title:'Candidates',
+        bullets:cards.map(card=>({
+          text:card.question+' → '+card.answer,
+          source:{kind:'note',id:note.id,title:note.title}
+        }))
+      }],
+      cards,
+      sources:[noteRef(note,cleanText(note.content).slice(0,240))]
+    };
+  }
+
+  async function patchAnswer(notes, note) {
+    if (!note) {
+      return {
+        mode:'patch',
+        title:'Safe note improvement',
+        summary:'Open a note first.',
+        sections:[{title:'No current note',bullets:[{text:'Select the note you want to improve.',source:null}]}],
+        sources:[]
+      };
+    }
+    const patch = NeuralVaultIntelligence.proposeSafePatch(notes, note);
+    if (!patch || !patch.changes.length) {
+      return {
+        mode:'patch',
+        title:'Safe note improvement · '+note.title,
+        summary:'No structural or cross-link patch is needed right now.',
+        sections:[{title:'Result',bullets:[{text:'The expected exam-oriented headings are present and no new strong cross-subject links were detected.',source:{kind:'note',id:note.id,title:note.title}}]}],
+        sources:[noteRef(note)]
+      };
+    }
+    return {
+      mode:'patch',
+      title:'Safe note improvement · '+note.title,
+      summary:'This patch adds structure and wiki-link suggestions only. It does not generate new medical facts.',
+      sections:[{
+        title:'Proposed changes',
+        bullets:patch.changes.map(text=>({text,source:{kind:'note',id:note.id,title:note.title}}))
+      }],
+      patch:{...patch,noteId:note.id,noteTitle:note.title},
+      sources:[noteRef(note)]
+    };
+  }
+
   async function currentNoteAnswer(notes, note, query) {
     if (!note) return genericAnswer(notes, query);
     const contextual=/\b(this concept|this note|current note|using my vault)\b/i.test(query) ? note.title+' '+query : query;
@@ -287,7 +393,16 @@
     if (/\b(next|revise|revision|study|weak|priority|focus)\b/.test(n) && /\b(next|what|where|weak|priority|focus|revise|study)\b/.test(n)) {
       return nextStudyAnswer(notes);
     }
-    if (/\b(gap|missing|incomplete|audit|improve note|what is missing)\b/.test(n)) {
+    if (/\b(connect|connection|integrate|integration|across subjects|cross subject)\b/.test(n)) {
+      return crossSubjectAnswer(notes, currentNote);
+    }
+    if (/\b(flashcard|flashcards|recall card|recall cards|make cards|generate cards)\b/.test(n)) {
+      return flashcardAnswer(currentNote);
+    }
+    if (/\b(improve|organize|organise|structure|patch|fix note|upgrade note)\b/.test(n)) {
+      return patchAnswer(notes, currentNote);
+    }
+    if (/\b(gap|missing|incomplete|audit|what is missing)\b/.test(n)) {
       return gapAnswer(currentNote);
     }
     if (/\b(pyq|pyqs|previous year|exam question|questions test)\b/.test(n) && /\b(this|concept|current|note|pyq|question)\b/.test(n)) {
@@ -317,5 +432,8 @@
     ].join('\n');
   }
 
-  window.NeuralVaultBrain = { ask, modelPrompt, bestExtracts, sectionStatus };
+  window.NeuralVaultBrain = {
+    ask, modelPrompt, bestExtracts, sectionStatus,
+    crossSubjectAnswer, flashcardAnswer, patchAnswer
+  };
 })();
