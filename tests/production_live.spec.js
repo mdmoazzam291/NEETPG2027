@@ -95,3 +95,30 @@ test('live main app visibly links to NeuralVault', async ({ page }) => {
   await expect(page.locator('#fileTree')).toBeVisible({ timeout: 15000 });
   await expect(page.locator('[data-view="brain"]')).toBeVisible();
 });
+
+
+test('live dashboard exam countdown saves and survives reload', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto(`${LIVE}?countdown-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#v12Planner')).toBeVisible({ timeout: 15000 });
+
+  const date = await page.evaluate(() => {
+    const future = new Date();
+    future.setDate(future.getDate() + 35);
+    return `${future.getFullYear()}-${String(future.getMonth()+1).padStart(2,'0')}-${String(future.getDate()).padStart(2,'0')}`;
+  });
+
+  await page.fill('#p12ExamDate', date);
+  await page.click('#p12Save');
+
+  await expect(page.locator('#p12ExamDate')).toHaveValue(date);
+  await expect(page.locator('#p12CountdownStatus')).toContainText('remaining');
+  const before = Number(await page.locator('#p12CountdownDays').textContent());
+  expect(before).toBeGreaterThanOrEqual(34);
+  expect(before).toBeLessThanOrEqual(35);
+
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#v12Planner')).toBeVisible({ timeout: 15000 });
+  await expect(page.locator('#p12ExamDate')).toHaveValue(date);
+  await expect(page.locator('#p12CountdownStatus')).toContainText('remaining');
+});
