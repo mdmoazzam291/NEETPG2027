@@ -87,8 +87,21 @@
 
     <section class="graph-view" id="view-graph">
       <div class="graph-toolbar">
-        <div><strong>Knowledge graph</strong><span id="graphStats">0 nodes · 0 links</span></div>
-        <label><input type="checkbox" id="graphCurrentOnly"> Current note neighborhood</label>
+        <div><strong id="graphTitle">Knowledge graph</strong><span id="graphStats">0 nodes · 0 links</span></div>
+        <div class="graph-controls">
+          <select id="graphMode" aria-label="Graph mode">
+            <option value="knowledge">Links</option>
+            <option value="mastery">Mastery</option>
+          </select>
+          <label><input type="checkbox" id="graphCurrentOnly"> Current neighborhood</label>
+        </div>
+      </div>
+      <div class="graph-legend" id="graphLegend" hidden>
+        <span><i class="legend-dot weak"></i>Weak</span>
+        <span><i class="legend-dot building"></i>Building</span>
+        <span><i class="legend-dot strong"></i>Strong</span>
+        <span><i class="legend-dot mastered"></i>Mastered</span>
+        <span><i class="legend-dot unmeasured"></i>Unmeasured</span>
       </div>
       <svg id="graphSvg" viewBox="0 0 1200 760" role="img" aria-label="Knowledge graph"></svg>
     </section>
@@ -99,6 +112,7 @@
       <button class="context-tab active" data-context="backlinks">Links</button>
       <button class="context-tab" data-context="related">Related</button>
       <button class="context-tab" data-context="medical">PYQs</button>
+      <button class="context-tab" data-context="intelligence">Insights</button>
       <button class="context-tab" data-context="properties">Properties</button>
     </div>
 
@@ -120,6 +134,21 @@
       <p class="context-help" id="medicalSummary">Loading the existing NEET-PG question bank…</p>
       <div id="medicalQuestions" class="context-list"></div>
       <a class="medical-open-all" id="medicalOpenAll" href="../">Open matching questions in Study Engine →</a>
+    </section>
+
+    <section class="context-view" id="context-intelligence">
+      <div class="context-head"><strong>Learning intelligence</strong><span id="insightBand">…</span></div>
+      <p class="context-help">Scores use your matched PYQ attempts. They are study evidence, not a medical-knowledge claim.</p>
+      <div class="insight-metrics" id="insightMetrics"></div>
+      <div class="insight-action" id="insightAction"></div>
+      <div class="context-head context-subhead"><strong>Evidence search</strong><span>local-first</span></div>
+      <form class="vault-query" id="vaultQueryForm">
+        <input id="vaultQuery" type="search" placeholder="e.g. nephrotic syndrome treatment" autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+      <div class="evidence-summary" id="evidenceSummary">Search your notes and the bundled PYQ corpus together.</div>
+      <div id="evidenceResults" class="context-list"></div>
+      <button class="copy-context-btn" id="copyContextBtn" type="button" hidden>Copy evidence bundle for AI</button>
     </section>
 
     <section class="context-view" id="context-properties">
@@ -160,6 +189,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="vault-db.js" defer></script>
 <script src="medical.js" defer></script>
+<script src="intelligence.js" defer></script>
 <script src="vault.js" defer></script>
 </body>
 </html>
