@@ -9,7 +9,7 @@
   let examCountdownTimer = null;
 
   function examTargetTime(){
-    return new Date(EXAM_TARGET.year, EXAM_TARGET.monthIndex, EXAM_TARGET.day, 0, 0, 0, 0).getTime();
+    return Date.parse(`${EXAM_TARGET.iso}T00:00:00+05:30`);
   }
 
   function examCountdownParts(now = Date.now()){
@@ -30,21 +30,20 @@
     set('#v4ExamMinutes',p.minutes);
     set('#v4ExamSeconds',p.seconds);
     const status=$q('#v4ExamCountdownStatus');
-    if(status)status.textContent=p.reached?'Target date reached':'Counting down continuously';
+    if(status)status.textContent=p.reached?'Target date reached':'Counting down continuously · IST';
     host.dataset.reached=p.reached?'1':'0';
   }
 
   function startExamCountdown(){
-    if(examCountdownTimer)clearInterval(examCountdownTimer);
+    if(examCountdownTimer){clearInterval(examCountdownTimer);examCountdownTimer=null;}
     renderExamCountdown();
-    examCountdownTimer=setInterval(renderExamCountdown,1000);
+    examCountdownTimer=setInterval(()=>{if(document.visibilityState==='visible'&&$q('#view-dashboard')?.classList.contains('active'))renderExamCountdown()},1000);
   }
 
   const navItems = [
-    ['dashboard','⌂','Dashboard'],['practice','▣','Questions'],['analytics','⌁','Tests & Analytics'],
-    ['review','↻','Revision'],['review','▤','Notes'],['neuralvault','◇','NeuralVault'],['bank','▦','QBank'],['review','◩','Quick Revise'],
-    ['review','♡','Bookmarks'],['analytics','▥','Subject Wise'],['analytics','◎','Performance'],
-    ['dashboard','♕','Achievements'],['dashboard','♧','Community'],['bank','▱','Resources'],['settings','⚙','Settings']
+    ['dashboard','⌂','Dashboard'],['practice','▣','Practice'],['bank','▦','Question Bank'],
+    ['review','↻','Revision'],['neuralvault','◇','NeuralVault'],['analytics','◎','Analytics'],
+    ['settings','⚙','Settings']
   ];
 
   function currentUserName(){
@@ -61,9 +60,6 @@
       <div class="sidebar-footer"><strong>Better Doctors<br>Brighter Tomorrows</strong><div class="v4-footer-mountain"></div><div class="v4-footer-quote">“Discipline today,<br>specialist tomorrow.”</div></div>`;
     side.addEventListener('click',e=>{
       const b=e.target.closest('[data-v4-target]'); if(!b)return;
-      const label=b.dataset.v4Label;
-      if(label==='Community'){ if(typeof toast==='function') toast('Community module is planned for a later phase'); return; }
-      if(label==='Achievements'){ if(typeof navigate==='function') navigate('dashboard'); setTimeout(()=>document.getElementById('v4Achievements')?.scrollIntoView({behavior:'smooth',block:'center'}),50); return; }
       if(b.dataset.v4Target==='neuralvault'){ window.location.href='neuralvault/'; return; }
       if(typeof navigate==='function') navigate(b.dataset.v4Target);
     });
@@ -74,7 +70,7 @@
     $q('#topTitle')?.remove();
     if(!$q('#v4Search')){
       const search=document.createElement('label'); search.className='v4-search'; search.id='v4Search';
-      search.innerHTML='<span>⌕</span><input id="v4SearchInput" placeholder="Search questions, topics, notes…" autocomplete="off"><kbd>⌘ K</kbd>';
+      search.innerHTML='<span>⌕</span><input id="v4SearchInput" placeholder="Search questions & topics…" autocomplete="off"><kbd>⌘ K</kbd>';
       const spacer=$q('.topbar .spacer'); bar.insertBefore(search,spacer||bar.firstChild);
       $q('#v4SearchInput')?.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim()){if(typeof navigate==='function')navigate('bank');const s=$q('#bankSearch');if(s){s.value=e.target.value.trim();s.dispatchEvent(new Event('input',{bubbles:true}));}}});
     }
@@ -150,7 +146,9 @@
   }
 
   function setNavActive(view){
-    $qa('.v4-nav').forEach(b=>b.classList.toggle('active', b.dataset.v4Target===view && ['Dashboard','Questions','Revision','QBank','Tests & Analytics','Settings'].includes(b.dataset.v4Label)));
+    $qa('.v4-nav').forEach(b=>b.classList.toggle('active', b.dataset.v4Target===view));
+    if(view==='dashboard')startExamCountdown();
+    else if(examCountdownTimer){clearInterval(examCountdownTimer);examCountdownTimer=null;}
   }
 
   function launchQuick(mode){
@@ -211,6 +209,7 @@
     let streak=0;try{streak=typeof calcStreak==='function'?calcStreak():0}catch{}
     let due=0,wrong=0,bm=0;try{due=typeof dueQuestions==='function'?dueQuestions().length:0;wrong=typeof incorrectQuestions==='function'?incorrectQuestions().length:0;bm=typeof bookmarkedQuestions==='function'?bookmarkedQuestions().length:0}catch{}
     const xp=attempts.length*10+correct*5+(app.sessions?.length||0)*25;const level=Math.max(1,Math.floor(xp/2000)+1);const readiness=total?Math.round((acc*.65+(coverage/total)*.35)*100):0;
+    renderExamCountdown();
     $q('#v4Greeting').textContent=`Good ${new Date().getHours()<12?'morning':new Date().getHours()<18?'afternoon':'evening'}, ${currentUserName()}!`;
     $q('#v4Solved').textContent=fmt(attempts.length);$q('#v4Streak').textContent=streak;$q('#v4Xp').textContent=fmt(xp);$q('#v4XpNote').textContent=`Level ${level}`;$q('#v4Readiness').textContent=`${readiness}%`;
     const weekAgo=Date.now()-7*86400000;const recent=attempts.filter(a=>a.ts>=weekAgo).length;$q('#v4SolvedNote').textContent=recent?`+${recent} in the last 7 days`:'Start your first session';
