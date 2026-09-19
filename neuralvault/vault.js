@@ -433,8 +433,8 @@ async function renderGraph(){
 
 function setView(v){
   view=v;
-  $('.tab').forEach(x=>x.classList.toggle('active',x.dataset.view===v));
-  $('.editor-view,.preview-view,.graph-view,.brain-view').forEach(x=>x.classList.remove('active'));
+  $$('.tab').forEach(x=>x.classList.toggle('active',x.dataset.view===v));
+  $$('.editor-view,.preview-view,.graph-view,.brain-view').forEach(x=>x.classList.remove('active'));
   $('#view-'+v).classList.add('active');
   if(v==='preview')$('#preview').innerHTML=markdown(current().content);
   if(v==='graph')renderGraph();
