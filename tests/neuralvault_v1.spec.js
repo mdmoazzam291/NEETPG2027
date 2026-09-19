@@ -24,7 +24,7 @@ test.describe('NeuralVault V1', () => {
 
     await page.reload();
     await expect(page.locator('#titleInput')).toHaveValue('Heart Failure');
-    await expect(page.locator('#editor')).toContainText('Myocardial Infarction');
+    await expect(page.locator('#editor')).toHaveValue(/Myocardial Infarction/);
   });
 
   test('creates backlinks and renders the knowledge graph', async ({ page }) => {
