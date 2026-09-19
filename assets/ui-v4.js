@@ -41,10 +41,8 @@
   }
 
   const navItems = [
-    ['dashboard','⌂','Dashboard'],['practice','▣','Questions'],['analytics','⌁','Tests & Analytics'],
-    ['review','↻','Revision'],['review','▤','Notes'],['neuralvault','◇','NeuralVault'],['bank','▦','QBank'],['review','◩','Quick Revise'],
-    ['review','♡','Bookmarks'],['analytics','▥','Subject Wise'],['analytics','◎','Performance'],
-    ['dashboard','♕','Achievements'],['dashboard','♧','Community'],['bank','▱','Resources'],['settings','⚙','Settings']
+    ['dashboard','⌂','Dashboard'],['practice','▣','Practice'],['bank','▦','Question Bank'],['review','↻','Revision'],
+    ['neuralvault','◇','NeuralVault'],['analytics','◎','Analytics'],['settings','⚙','Settings']
   ];
 
   function currentUserName(){
@@ -61,9 +59,6 @@
       <div class="sidebar-footer"><strong>Better Doctors<br>Brighter Tomorrows</strong><div class="v4-footer-mountain"></div><div class="v4-footer-quote">“Discipline today,<br>specialist tomorrow.”</div></div>`;
     side.addEventListener('click',e=>{
       const b=e.target.closest('[data-v4-target]'); if(!b)return;
-      const label=b.dataset.v4Label;
-      if(label==='Community'){ if(typeof toast==='function') toast('Community module is planned for a later phase'); return; }
-      if(label==='Achievements'){ if(typeof navigate==='function') navigate('dashboard'); setTimeout(()=>document.getElementById('v4Achievements')?.scrollIntoView({behavior:'smooth',block:'center'}),50); return; }
       if(b.dataset.v4Target==='neuralvault'){ window.location.href='neuralvault/'; return; }
       if(typeof navigate==='function') navigate(b.dataset.v4Target);
     });
@@ -150,7 +145,7 @@
   }
 
   function setNavActive(view){
-    $qa('.v4-nav').forEach(b=>b.classList.toggle('active', b.dataset.v4Target===view && ['Dashboard','Questions','Revision','QBank','Tests & Analytics','Settings'].includes(b.dataset.v4Label)));
+    $qa('.v4-nav').forEach(b=>b.classList.toggle('active', b.dataset.v4Target===view));
   }
 
   function launchQuick(mode){
