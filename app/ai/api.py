@@ -6,7 +6,11 @@ in server environment variables and are never accepted from the browser.
 from __future__ import annotations
 
 from typing import Literal
+from collections import defaultdict, deque
+import hashlib
 import secrets
+import threading
+import time
 
 from fastapi import APIRouter, Header, HTTPException, Request
 from pydantic import BaseModel, Field
@@ -16,6 +20,21 @@ from app.ai.providers import AIProviderError, generate_text, provider_infos
 
 
 router = APIRouter(prefix="/ai", tags=["ai"])
+_RATE_WINDOWS: dict[str, deque[float]] = defaultdict(deque)
+_RATE_LOCK = threading.Lock()
+
+
+def _check_rate_limit(token: str, limit: int) -> None:
+    now = time.monotonic()
+    key = hashlib.sha256(token.encode("utf-8")).hexdigest()
+    with _RATE_LOCK:
+        window = _RATE_WINDOWS[key]
+        cutoff = now - 60.0
+        while window and window[0] < cutoff:
+            window.popleft()
+        if len(window) >= limit:
+            raise HTTPException(status_code=429, detail="NeuralVault AI gateway rate limit exceeded")
+        window.append(now)
 
 
 class GenerateRequest(BaseModel):
@@ -63,6 +82,7 @@ def generate(
         raise HTTPException(status_code=503, detail="AI gateway access token is not configured")
     if not x_neuralvault_token or not secrets.compare_digest(x_neuralvault_token, settings.ai_access_token):
         raise HTTPException(status_code=401, detail="invalid NeuralVault AI gateway token")
+    _check_rate_limit(x_neuralvault_token, settings.ai_max_requests_per_minute)
     try:
         model, text = generate_text(
             settings,
