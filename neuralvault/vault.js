@@ -536,6 +536,18 @@ function del(){
   const i=state.notes.findIndex(x=>x.id===n.id);state.notes.splice(i,1);currentId=state.notes[Math.max(0,i-1)].id;save();renderCurrent();toast('Note deleted');
 }
 
+async function openNextTarget(){
+  if(!window.NeuralVaultIntelligence){toast('Learning intelligence unavailable');return}
+  const prepared=state.notes.map(n=>({id:n.id,title:n.title,path:n.path,content:n.content,properties:props(n.content)}));
+  try{
+    const snap=await NeuralVaultIntelligence.snapshot(prepared),target=snap.actions[0];
+    if(!target){toast('No PYQ-backed study target yet');return}
+    openNote(target.note.id);
+    setContext('intelligence');
+    toast('Next target: '+target.note.title+' · '+target.reason);
+  }catch(_){toast('Could not calculate next study target')}
+}
+
 function toast(message){
   const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1800);
 }
@@ -551,6 +563,7 @@ const commands=[
   ['Edit note','',()=>setView('editor')],
   ['Show matched PYQs','',()=>setContext('medical')],
   ['Open learning insights','',()=>setContext('intelligence')],
+  ['Open next best study target','',openNextTarget],
   ['Import Markdown files','',()=>$('#fileImport').click()],
   ['Import Obsidian folder','',()=>$('#folderImport').click()],
   ['Restore JSON backup','',()=>$('#backupImport').click()],
