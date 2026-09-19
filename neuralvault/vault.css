@@ -141,9 +141,23 @@ body.context-hidden .context-panel{display:none}
 body.context-hidden .menu{right:14px}
 @media(max-width:980px){
   :root{--context:240px}
-  .app{grid-template-columns:220px minmax(0,1fr) var(--context)}
+  .app{grid-template-columns:220px minmax(0,1fr)}
   .save-state,.study-link{display:none}
+  .context-panel{
+    position:fixed;
+    z-index:20;
+    top:calc(var(--top) + var(--tabs));
+    right:0;
+    bottom:0;
+    width:var(--context);
+    box-shadow:-10px 0 30px rgba(0,0,0,.18)
+  }
+  .editor-view,.preview-view,.graph-view{margin-right:var(--context)}
   .context-tab{padding:0 6px;font-size:10px}
+  body.context-hidden .app{grid-template-columns:220px minmax(0,1fr)}
+  body.context-hidden .editor-view,
+  body.context-hidden .preview-view,
+  body.context-hidden .graph-view{margin-right:0}
 }
 @media(max-width:760px){
   body{overflow:hidden}
