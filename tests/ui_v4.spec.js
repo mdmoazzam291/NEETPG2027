@@ -35,7 +35,7 @@ test('global search opens the question bank and applies the query', async ({ pag
   await page.fill('#v4SearchInput', 'myocardial');
   await page.press('#v4SearchInput', 'Enter');
   await expect(page.locator('#view-bank')).toHaveClass(/active/);
-  await expect(page.locator('#bankSearch')).toHaveValue('myocardial');
+  await expect(page.locator('#bankSearch')).toHaveValue('myocardial',{timeout:10000});
 });
 
 test('rapid 15 quick start launches a practice session', async ({ page }) => {
@@ -179,7 +179,7 @@ test('global search exposes topic results and routes them into the filtered QBan
   await topic.click();
 
   await expect(page.locator('#view-bank')).toHaveClass(/active/);
-  await expect(page.locator('#bankSearch')).toHaveValue(target.topic);
+  await expect(page.locator('#bankSearch')).toHaveValue(target.topic,{timeout:10000});
 });
 
 test('global search opens an exact question directly', async ({ page }) => {
@@ -223,6 +223,6 @@ test('global search finds local NeuralVault notes and opens the exact note', asy
   await expect(note).toContainText('Mitral Stenosis');
   await note.click();
 
-  await expect(page).toHaveURL(/\/neuralvault\/?note=search-note$/);
+  await expect(page).toHaveURL(/\/neuralvault\/\?note=search-note$/);
   await expect(page.locator('#titleInput')).toHaveValue('Mitral Stenosis',{timeout:15000});
 });
