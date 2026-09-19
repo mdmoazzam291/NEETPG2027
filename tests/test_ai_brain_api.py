@@ -136,9 +136,11 @@ def test_configured_cors_origin_allows_pages_frontend(monkeypatch, tmp_path):
             "/ai/providers",
             headers={
                 "Origin": "https://mdmoazzam291.github.io",
-                "Access-Control-Request-Method": "GET",
+                "Access-Control-Request-Method": "POST",
+                "Access-Control-Request-Headers": "x-neuralvault-token,content-type",
             },
         )
 
     assert response.status_code == 200
     assert response.headers["access-control-allow-origin"] == "https://mdmoazzam291.github.io"
+    assert "x-neuralvault-token" in response.headers["access-control-allow-headers"].lower()
