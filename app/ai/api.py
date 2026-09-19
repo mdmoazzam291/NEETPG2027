@@ -6,8 +6,9 @@ in server environment variables and are never accepted from the browser.
 from __future__ import annotations
 
 from typing import Literal
+import secrets
 
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, Header, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from app.config import Settings
@@ -38,6 +39,7 @@ def providers(request: Request) -> dict[str, object]:
     rows = provider_infos(_settings(request))
     return {
         "local_evidence": True,
+        "gateway_ready": bool(_settings(request).ai_access_token),
         "providers": [
             {
                 "id": row.id,
@@ -51,8 +53,16 @@ def providers(request: Request) -> dict[str, object]:
 
 
 @router.post("/generate", response_model=GenerateResponse)
-def generate(payload: GenerateRequest, request: Request) -> GenerateResponse:
+def generate(
+    payload: GenerateRequest,
+    request: Request,
+    x_neuralvault_token: str | None = Header(default=None),
+) -> GenerateResponse:
     settings = _settings(request)
+    if not settings.ai_access_token:
+        raise HTTPException(status_code=503, detail="AI gateway access token is not configured")
+    if not x_neuralvault_token or not secrets.compare_digest(x_neuralvault_token, settings.ai_access_token):
+        raise HTTPException(status_code=401, detail="invalid NeuralVault AI gateway token")
     try:
         model, text = generate_text(
             settings,
