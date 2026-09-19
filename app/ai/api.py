@@ -54,11 +54,22 @@ def _settings(request: Request) -> Settings:
 
 
 @router.get("/providers")
-def providers(request: Request) -> dict[str, object]:
-    rows = provider_infos(_settings(request))
+def providers(
+    request: Request,
+    x_neuralvault_token: str | None = Header(default=None),
+) -> dict[str, object]:
+    settings = _settings(request)
+    rows = provider_infos(settings)
+    gateway_ready = bool(settings.ai_access_token)
+    gateway_authorized = bool(
+        gateway_ready
+        and x_neuralvault_token
+        and secrets.compare_digest(x_neuralvault_token, settings.ai_access_token or "")
+    )
     return {
         "local_evidence": True,
-        "gateway_ready": bool(_settings(request).ai_access_token),
+        "gateway_ready": gateway_ready,
+        "gateway_authorized": gateway_authorized,
         "providers": [
             {
                 "id": row.id,
