@@ -119,7 +119,7 @@ function bindEvents(){$$('.nav button[data-view]').forEach(b=>b.onclick=()=>navi
  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();app.installPrompt=e});window.addEventListener('online',updateOnline);window.addEventListener('offline',updateOnline);matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(app.prefs.theme==='system')applyPrefs()})}
 function applyNeuralVaultDeepLink(){
   const params=new URLSearchParams(location.search);
-  const qid=params.get('nvq'),subject=params.get('nvsubject'),topic=params.get('nvtopic');
+  const qid=params.get('nvq'),subject=params.get('nvsubject'),topic=params.get('nvtopic'),practice=params.get('nvpractice')==='1';
   if(!qid&&!subject&&!topic)return false;
   const clear=()=>history.replaceState({},'',location.pathname+location.hash);
   if(qid){
@@ -136,7 +136,13 @@ function applyNeuralVaultDeepLink(){
     if(subject&&[...$('#bankSubject').options].some(o=>o.value===subject))$('#bankSubject').value=subject;
     $('#bankSearch').value=topic||'';
     bankFilter();
-    toast(app.filteredBank.length+' matching question'+(app.filteredBank.length===1?'':'s')+' from NeuralVault');
+    if(practice&&app.filteredBank.length){
+      const count=Math.min(15,app.filteredBank.length);
+      buildSession(app.filteredBank,{...builtInPreset('rapid'),mode:'neuralvault',count,order:'adaptive'});
+      toast('Started '+count+' matched question'+(count===1?'':'s')+' from NeuralVault');
+    }else{
+      toast(app.filteredBank.length+' matching question'+(app.filteredBank.length===1?'':'s')+' from NeuralVault');
+    }
     clear();
     return true;
   }
