@@ -1,4 +1,4 @@
-const RELEASE='2026-09-19-unified-ui-lifecycle-1';
+const RELEASE='2026-09-19-reference-themes-1';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[

@@ -241,3 +241,47 @@ test('global search finds local NeuralVault notes and opens the exact note', asy
   await expect(page).toHaveURL(/\/neuralvault\/\?note=search-note$/);
   await expect(page.locator('#titleInput')).toHaveValue('Mitral Stenosis',{timeout:15000});
 });
+
+test('theme toggle persists and does not reset an active answer', async ({ page }) => {
+  await page.goto('/');
+  await loadV4(page);
+  await page.click('[data-v4-quick="rapid"]');
+  await page.locator('.option').first().click();
+  const selected = await page.locator('.option.selected').textContent();
+  const previous = await page.locator('body').getAttribute('data-theme');
+  await page.locator('#themeToggle').click();
+  const next = previous === 'dark' ? 'light' : 'dark';
+  await expect(page.locator('body')).toHaveAttribute('data-theme', next);
+  await expect(page.locator('.option.selected')).toHaveText(selected);
+  await expect(page.locator('#sTheme')).toHaveValue(next);
+  await page.reload();
+  await expect(page.locator('body')).toHaveAttribute('data-theme', next);
+  await expect(page.locator('#themeToggle')).toHaveAttribute('aria-pressed', String(next === 'dark'));
+});
+
+for (const width of [375, 834, 1194]) {
+  test(`reference themes fit at ${width}px with readable countdown`, async ({ page }) => {
+    await page.setViewportSize({width, height:900});
+    await page.goto('/');
+    await loadV4(page);
+    for(let i=0;i<2;i++) {
+      await expect(page.locator('#themeToggle')).toBeInViewport();
+      const styles = await page.evaluate(() => {
+        const clock = document.querySelector('#v4ExamCountdown');
+        const toggle = document.querySelector('#themeToggle');
+        const css = getComputedStyle(clock);
+        return {text:css.color, background:css.backgroundColor, height:toggle.getBoundingClientRect().height,
+          overflow:document.documentElement.scrollWidth > innerWidth,
+          offenders:[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+1&&e.getBoundingClientRect().width>0).slice(0,12).map(e=>({tag:e.tagName,id:e.id,cls:e.className,right:e.getBoundingClientRect().right})),
+          bg:getComputedStyle(document.body).getPropertyValue('--bg').trim(),
+          dark:document.body.dataset.theme === 'dark'};
+      });
+      expect(styles.height).toBeGreaterThanOrEqual(44);
+      expect(styles.overflow, JSON.stringify(styles.offenders)).toBe(false);
+      expect(styles.text).toBe(styles.dark ? 'rgb(239, 237, 245)' : 'rgb(25, 39, 36)');
+      expect(styles.background).toBe(styles.dark ? 'rgb(50, 42, 71)' : 'rgb(225, 241, 237)');
+      expect(styles.bg).toBe(styles.dark ? '#141418' : '#f7f8f7');
+      await page.locator('#themeToggle').click();
+    }
+  });
+}

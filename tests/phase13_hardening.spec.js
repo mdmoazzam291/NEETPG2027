@@ -135,7 +135,7 @@ test('Phase 13 manifest and service worker expose versioned install metadata', a
   expect(manifest.icons?.length).toBeGreaterThan(0);
   expect(manifest.icons[0].src).toContain('app-icon.svg');
   const sw = await (await request.get('/sw.js')).text();
-  expect(sw).toContain("RELEASE='2026-09-19-unified-ui-lifecycle-1'");
+  expect(sw).toContain("RELEASE='2026-09-19-reference-themes-1'");
   expect(sw).toContain("type==='SKIP_WAITING'");
   expect(sw).toContain('await self.skipWaiting()');
   expect(sw).toContain("event.request.destination==='script'");
