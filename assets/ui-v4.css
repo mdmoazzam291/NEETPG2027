@@ -82,3 +82,5 @@ body[data-theme="dark"] .v4-heat-cell[data-l="4"]{background:#c4b5fd}
 /* Match the base drawer breakpoint, including 834px iPads. */
 @media(max-width:850px){body[data-theme] .app{grid-template-columns:minmax(0,1fr)!important}body[data-theme] .sidebar{width:264px!important}.v4-exam-countdown{grid-template-columns:1fr}.v4-exam-clock{justify-content:stretch;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr}.v4-exam-clock>div{min-width:0}}
 @media(max-width:560px){body[data-theme] .topbar{gap:8px!important;padding:0 10px!important}.top-actions{gap:6px!important}.v4-search{flex:1;width:0}.v4-search-results{position:fixed;left:10px;right:10px;top:66px;width:auto}.v4-search input{font-size:12px}.v4-search>span{display:none}body[data-theme] #view-dashboard .card{border-radius:18px!important}.v4-exam-clock strong{font-size:20px}}
+.v4-dashboard,.v4-dashboard>* ,.v4-kpis>* ,.v4-analytics-row>* ,.v4-bottom>* ,.v4-quick-grid>*{min-width:0}
+.v4-kpi>div{min-width:0;overflow-wrap:anywhere}

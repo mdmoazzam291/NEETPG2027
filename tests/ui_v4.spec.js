@@ -247,7 +247,7 @@ test('theme toggle persists and does not reset an active answer', async ({ page 
   await loadV4(page);
   await page.click('[data-v4-quick="rapid"]');
   await page.locator('.option').first().click();
-  const selected = await page.locator('.option.selected').innerText();
+  const selected = await page.locator('.option.selected').textContent();
   const previous = await page.locator('body').getAttribute('data-theme');
   await page.locator('#themeToggle').click();
   const next = previous === 'dark' ? 'light' : 'dark';
@@ -272,11 +272,12 @@ for (const width of [375, 834, 1194]) {
         const css = getComputedStyle(clock);
         return {text:css.color, background:css.backgroundColor, height:toggle.getBoundingClientRect().height,
           overflow:document.documentElement.scrollWidth > innerWidth,
+          offenders:[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+1&&e.getBoundingClientRect().width>0).slice(0,12).map(e=>({tag:e.tagName,id:e.id,cls:e.className,right:e.getBoundingClientRect().right})),
           bg:getComputedStyle(document.body).getPropertyValue('--bg').trim(),
           dark:document.body.dataset.theme === 'dark'};
       });
       expect(styles.height).toBeGreaterThanOrEqual(44);
-      expect(styles.overflow).toBe(false);
+      expect(styles.overflow, JSON.stringify(styles.offenders)).toBe(false);
       expect(styles.text).toBe(styles.dark ? 'rgb(239, 237, 245)' : 'rgb(25, 39, 36)');
       expect(styles.background).toBe(styles.dark ? 'rgb(50, 42, 71)' : 'rgb(225, 241, 237)');
       expect(styles.bg).toBe(styles.dark ? '#141418' : '#f7f8f7');
