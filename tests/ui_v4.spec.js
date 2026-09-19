@@ -75,3 +75,40 @@ test('dedicated exam countdown ticks continuously toward 29 Aug 2027', async ({ 
   await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-08-29');
   await expect(page.locator('#v4ExamCountdownStatus')).toContainText(/Counting down continuously|Target date reached/);
 });
+
+
+test('desktop shell uses one sidebar width without phantom main offset', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+  await loadV4(page);
+
+  const geometry = await page.evaluate(() => {
+    const sidebar = document.querySelector('#sidebar').getBoundingClientRect();
+    const main = document.querySelector('.main').getBoundingClientRect();
+    const app = getComputedStyle(document.querySelector('.app'));
+    return { sidebarRight: sidebar.right, mainLeft: main.left, grid: app.gridTemplateColumns };
+  });
+  expect(Math.abs(geometry.mainLeft - geometry.sidebarRight)).toBeLessThanOrEqual(1);
+  expect(geometry.grid).toContain('232px');
+});
+
+test('mobile sidebar scrolls to every navigation item', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await loadV4(page);
+
+  await page.click('#menuBtn');
+  await expect(page.locator('#sidebar')).toHaveClass(/open/);
+
+  const state = await page.locator('#sidebar').evaluate(el => ({
+    overflowY: getComputedStyle(el).overflowY,
+    scrollHeight: el.scrollHeight,
+    clientHeight: el.clientHeight
+  }));
+  expect(['auto','scroll']).toContain(state.overflowY);
+  expect(state.scrollHeight).toBeGreaterThan(state.clientHeight);
+
+  const settings = page.locator('.v4-nav[data-v4-label="Settings"]');
+  await settings.evaluate(el => el.scrollIntoView({block:'center'}));
+  await expect(settings).toBeVisible();
+});
