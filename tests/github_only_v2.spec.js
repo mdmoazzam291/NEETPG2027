@@ -19,7 +19,7 @@ test('UI v4 visible shell has correct order, navigation and mobile drawer behavi
 
   await page.locator('.v4-nav[data-v4-label="Revision"]').click();
   await expect(page.locator('.v4-nav[data-v4-label="Revision"]')).toHaveClass(/active/);
-  await expect(page.locator('#v4ExamCountdown')).toBeHidden();
+  await expect(page.locator('#view-dashboard')).toBeHidden();
   await page.locator('.v4-nav[data-v4-label="Dashboard"]').click();
   await expect(page.locator('#v4ExamCountdown')).toBeVisible();
 });
