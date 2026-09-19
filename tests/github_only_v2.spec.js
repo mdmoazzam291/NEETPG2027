@@ -1,4 +1,4 @@
-
+const { test, expect } = require('@playwright/test');
 test('UI v4 visible shell has correct order, navigation and mobile drawer behavior', async ({ page }) => {
   await page.goto('/');
   await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0)).toBe(405);
@@ -39,7 +39,6 @@ test('mobile v4 sidebar can scroll to Settings', async ({ page }) => {
   await expect(page.locator('.v4-nav[data-v4-label="Settings"]')).toBeVisible();
 });
 
-const { test, expect } = require('@playwright/test');
 
 test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ page }) => {
   await page.goto('/');
