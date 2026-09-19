@@ -39,7 +39,7 @@
   whenCoreReady(()=>{});
 
   document.addEventListener('keydown', e => {
-    if(e.target?.id !== 'v4SearchInput' || e.key !== 'Enter') return;
+    if(e.target?.id !== 'v4SearchInput' || e.key !== 'Enter' || window.NEETPG_V4_GLOBAL_SEARCH) return;
     const query=e.target.value.trim(); if(!query) return;
     e.preventDefault(); e.stopImmediatePropagation();
     whenCoreReady(()=>{
