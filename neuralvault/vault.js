@@ -702,14 +702,15 @@ async function refreshBrainProviders(showStatus=false){
   const info=await NeuralVaultProvider.providers();
   const tokenReady=Boolean(NeuralVaultProvider.accessToken());
   const gatewayReady=Boolean(info.gateway_ready);
+  const gatewayAuthorized=Boolean(info.gateway_authorized);
   const configured=(info.providers||[]).filter(x=>x.configured).length;
-  if(gatewayReady&&tokenReady){
+  if(gatewayAuthorized){
     (info.providers||[]).filter(x=>x.configured).forEach(row=>{
       const o=document.createElement('option');o.value=row.id;o.textContent=row.label+(row.model?' · '+row.model:'');select.append(o);
     });
   }
   if([...select.options].some(o=>o.value===previous))select.value=previous;
-  $('#brainModeLabel').textContent=(gatewayReady&&tokenReady&&configured)
+  $('#brainModeLabel').textContent=(gatewayAuthorized&&configured)
     ? ('Local evidence + '+configured+' configured model'+(configured===1?'':'s'))
     : 'Local evidence mode · remote models locked';
   if(showStatus){
@@ -721,7 +722,9 @@ async function refreshBrainProviders(showStatus=false){
           ? 'Backend reached, but its AI gateway token is not configured.'
           : !tokenReady
             ? 'Backend reached. Enter your NeuralVault gateway token for this session.'
-            : configured+' provider'+(configured===1?'':'s')+' ready on '+info.base;
+            : !gatewayAuthorized
+              ? 'Backend reached, but the gateway token was rejected.'
+              : configured+' provider'+(configured===1?'':'s')+' ready on '+info.base;
   }
 }
 
