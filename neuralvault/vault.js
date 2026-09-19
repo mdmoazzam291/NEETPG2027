@@ -37,6 +37,8 @@ let insightToken=0;
 let graphToken=0;
 let evidenceToken=0;
 let lastEvidenceQuery='';
+let brainToken=0;
+let brainLastQuery='';
 
 function current(){return state.notes.find(n=>n.id===currentId)||state.notes[0]||null}
 function uid(){return crypto&&crypto.randomUUID?crypto.randomUUID():'note-'+Date.now()+'-'+Math.random().toString(16).slice(2)}
@@ -305,11 +307,16 @@ async function runEvidenceSearch(query){
   }
 }
 
+function renderBrainContext(){
+  const n=current();
+  if($('#brainCurrentNote'))$('#brainCurrentNote').textContent=n?n.title:'—';
+}
+
 function renderCurrent(){
   const n=current();if(!n)return;
   $('#titleInput').value=n.title;$('#editor').value=n.content;$('#pathLabel').textContent=folder(n);$('#breadcrumbs').textContent='Vault / '+folder(n)+' / '+n.title;
   $('#wordCount').textContent=countWords(n.content)+' words';$('#updatedLabel').textContent=ago(n.updatedAt);$('#preview').innerHTML=markdown(n.content);
-  renderTree($('#searchInput').value);renderBacklinks();renderRelated();renderProps();renderMedical();renderInsights();if(view==='graph')renderGraph();
+  renderTree($('#searchInput').value);renderBacklinks();renderRelated();renderProps();renderMedical();renderInsights();renderBrainContext();if(view==='graph')renderGraph();
 }
 
 function scheduleSave(){
@@ -424,11 +431,12 @@ async function renderGraph(){
 
 function setView(v){
   view=v;
-  $$('.tab').forEach(x=>x.classList.toggle('active',x.dataset.view===v));
-  $$('.editor-view,.preview-view,.graph-view').forEach(x=>x.classList.remove('active'));
+  $('.tab').forEach(x=>x.classList.toggle('active',x.dataset.view===v));
+  $('.editor-view,.preview-view,.graph-view,.brain-view').forEach(x=>x.classList.remove('active'));
   $('#view-'+v).classList.add('active');
   if(v==='preview')$('#preview').innerHTML=markdown(current().content);
   if(v==='graph')renderGraph();
+  if(v==='brain'){renderBrainContext();requestAnimationFrame(()=>$('#brainInput')?.focus())}
 }
 
 function setContext(v){
@@ -548,6 +556,94 @@ async function openNextTarget(){
   }catch(_){toast('Could not calculate next study target')}
 }
 
+function brainSourceButton(source){
+  if(!source)return '';
+  if(source.kind==='note')return '<button class="brain-cite" data-brain-note="'+esc(source.id)+'">['+esc(source.title)+']</button>';
+  if(source.kind==='pyq')return '<a class="brain-cite" href="'+esc(source.url||'../')+'">['+esc(source.title||source.id)+']</a>';
+  return '';
+}
+
+function renderBrainAnswer(answer){
+  const thread=$('#brainThread');
+  const box=document.createElement('div');box.className='brain-message assistant';
+  let html='<div class="brain-answer-head"><strong>'+esc(answer.title||'NeuralVault Brain')+'</strong><span>'+esc(answer.mode||'grounded')+'</span></div>';
+  if(answer.summary)html+='<p class="brain-answer-summary">'+esc(answer.summary)+'</p>';
+  (answer.sections||[]).forEach(section=>{
+    html+='<section class="brain-section"><h3>'+esc(section.title||'Evidence')+'</h3>';
+    (section.bullets||[]).forEach(b=>{
+      html+='<div class="brain-bullet"><span>'+esc(b.text||'')+brainSourceButton(b.source)+'</span></div>';
+    });
+    html+='</section>';
+  });
+  if(answer.sources&&answer.sources.length){
+    const seen=new Set();
+    html+='<div class="brain-source-row">';
+    answer.sources.forEach(s=>{
+      const key=s.kind+':'+s.id;if(seen.has(key))return;seen.add(key);
+      if(s.kind==='note')html+='<button class="brain-source-chip" data-brain-note="'+esc(s.id)+'">◇ '+esc(s.title)+'</button>';
+      else if(s.kind==='pyq')html+='<a class="brain-source-chip pyq" href="'+esc(s.url||'../')+'">PYQ '+esc(s.title||s.id)+'</a>';
+    });
+    html+='</div>';
+  }
+  if(answer.nextTarget||answer.practiceUrl){
+    html+='<div class="brain-actions">';
+    if(answer.nextTarget){
+      html+='<button class="brain-action-button" data-brain-note="'+esc(answer.nextTarget.noteId)+'">Open '+esc(answer.nextTarget.title)+'</button>';
+      if(answer.nextTarget.practiceUrl)html+='<a class="brain-action-link primary" href="'+esc(answer.nextTarget.practiceUrl)+'">Practice matched PYQs →</a>';
+    }else if(answer.practiceUrl){
+      html+='<a class="brain-action-link primary" href="'+esc(answer.practiceUrl)+'">Practice matched PYQs →</a>';
+    }
+    html+='</div>';
+  }
+  box.innerHTML=html;thread.append(box);thread.scrollTop=thread.scrollHeight;
+}
+
+async function askBrain(query){
+  query=String(query||'').trim();if(!query)return;
+  if(!window.NeuralVaultBrain){toast('Brain engine unavailable');return}
+  brainLastQuery=query;setView('brain');
+  const thread=$('#brainThread');
+  const empty=thread.querySelector('.brain-empty');if(empty)empty.remove();
+  const user=document.createElement('div');user.className='brain-message user';user.innerHTML='<p>'+esc(query)+'</p>';thread.append(user);
+  const loading=document.createElement('div');loading.className='brain-loading';loading.textContent='Grounding answer in your vault…';thread.append(loading);
+  $('#brainAskBtn').disabled=true;
+  const token=++brainToken;
+  try{
+    const answer=await NeuralVaultBrain.ask({
+      notes:state.notes.map(n=>({...n,properties:props(n.content)})),
+      currentNote:current()?{...current(),properties:props(current().content)}:null,
+      query,
+      scope:$('#brainScope').value
+    });
+    if(token!==brainToken)return;
+    loading.remove();renderBrainAnswer(answer);$('#brainCopyPrompt').hidden=false;
+  }catch(e){
+    if(token!==brainToken)return;
+    loading.remove();
+    const err=document.createElement('div');err.className='brain-message assistant';
+    err.innerHTML='<div class="brain-answer-head"><strong>Could not answer</strong><span>local</span></div><p class="brain-answer-summary">'+esc(e.message||'Brain error')+'</p>';
+    thread.append(err);
+  }finally{
+    if(token===brainToken)$('#brainAskBtn').disabled=false;
+  }
+}
+
+function clearBrain(){
+  brainLastQuery='';brainToken++;
+  $('#brainThread').innerHTML='<div class="brain-empty"><div class="brain-orb">✦</div><strong>NeuralVault Brain</strong><p>Ask a question. Local mode retrieves evidence and cites the exact notes/PYQs it used.</p></div>';
+  $('#brainCopyPrompt').hidden=true;
+}
+
+async function copyBrainPrompt(){
+  if(!brainLastQuery||!window.NeuralVaultBrain){toast('Ask the Brain first');return}
+  try{
+    const prompt=await NeuralVaultBrain.modelPrompt(state.notes,brainLastQuery,current());
+    try{await navigator.clipboard.writeText(prompt);toast('Grounded model prompt copied')}
+    catch(_){download('NeuralVault-grounded-prompt.md',prompt,'text/markdown');toast('Clipboard unavailable; prompt downloaded')}
+  }catch(_){toast('Could not build grounded model prompt')}
+}
+
+
 function toast(message){
   const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1800);
 }
@@ -564,6 +660,7 @@ const commands=[
   ['Show matched PYQs','',()=>setContext('medical')],
   ['Open learning insights','',()=>setContext('intelligence')],
   ['Open next best study target','',openNextTarget],
+  ['Ask NeuralVault Brain','Cmd Shift B',()=>setView('brain')],
   ['Import Markdown files','',()=>$('#fileImport').click()],
   ['Import Obsidian folder','',()=>$('#folderImport').click()],
   ['Restore JSON backup','',()=>$('#backupImport').click()],
@@ -634,6 +731,12 @@ $('#copyContextBtn').onclick=async()=>{
     catch(_){download('NeuralVault-evidence-'+new Date().toISOString().slice(0,10)+'.md',bundle,'text/markdown');toast('Clipboard unavailable; evidence bundle downloaded')}
   }catch(_){toast('Could not build evidence bundle')}
 };
+$('#brainForm').onsubmit=e=>{e.preventDefault();const q=$('#brainInput').value;$('#brainInput').value='';askBrain(q)};
+$('#brainSuggestions').onclick=e=>{const b=e.target.closest('[data-brain-prompt]');if(b)askBrain(b.dataset.brainPrompt)};
+$('#brainClear').onclick=clearBrain;
+$('#brainCopyPrompt').onclick=copyBrainPrompt;
+$('#brainThread').onclick=e=>{const b=e.target.closest('[data-brain-note]');if(b){e.preventDefault();openNote(b.dataset.brainNote)}};
+$('#brainInput').onkeydown=e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)){e.preventDefault();$('#brainForm').requestSubmit()}};
 $('#graphSvg').onclick=e=>{const x=e.target.closest&&e.target.closest('.graph-node');if(x)openNote(x.dataset.noteId)};
 $('#preview').onclick=e=>{const x=e.target.closest('.wiki-link');if(x)openTitle(x.dataset.noteTitle)};
 
@@ -666,6 +769,7 @@ document.addEventListener('keydown',e=>{
   if(mod&&k==='s'){e.preventDefault();save();toast('Vault saved locally')}
   if(mod&&k==='p'){e.preventDefault();setView('preview')}
   if(mod&&e.shiftKey&&k==='g'){e.preventDefault();setView('graph')}
+  if(mod&&e.shiftKey&&k==='b'){e.preventDefault();setView('brain')}
   if(e.key==='Escape'){$('#paletteBackdrop').hidden=true;$('#historyBackdrop').hidden=true;closeSidebar();$('#noteMenu').hidden=true}
 });
 
