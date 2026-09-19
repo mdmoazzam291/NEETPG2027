@@ -19,6 +19,10 @@ test('premium UI remains usable on iPad-sized WebKit with touch and accessibilit
   await expect(page.locator('.v4-nav[data-v4-label="Dashboard"]')).toHaveAttribute('aria-current','page');
   await expect(page.locator('#v4SearchInput')).toHaveAttribute('aria-label','Search questions, topics and notes');
   await expect(page.locator('#skipToContent')).toHaveCount(1);
+  await expect(page.locator('.v4-dashboard > *').first()).toHaveAttribute('id','v4ExamCountdown');
+  await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-08-29');
+  await expect(page.locator('#v4ExamCountdown')).toContainText('29 Aug 2027');
+  await expect(page.locator('#v4ExamSeconds')).toBeVisible();
 
   const target = page.locator('.v4-nav[data-v4-label="Settings"]');
   await target.evaluate(el => el.click());
