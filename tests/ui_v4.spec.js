@@ -116,6 +116,7 @@ test('primary navigation contains only truthful destinations and highlights the 
   await page.goto('/');
   await loadV4(page);
 
+  await expect(page.locator('.v4-nav')).toHaveCount(7);
   const labels = await page.locator('.v4-nav').evaluateAll(nodes => nodes.map(n => n.dataset.v4Label));
   expect(labels).toEqual(['Dashboard','Practice','Question Bank','Revision','NeuralVault','Analytics','Settings']);
 
