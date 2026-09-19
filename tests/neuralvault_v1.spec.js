@@ -230,6 +230,7 @@ test.describe('NeuralVault durable knowledge layer', () => {
         body: JSON.stringify({
           local_evidence: true,
           gateway_ready: true,
+          gateway_authorized: true,
           providers: [
             { id: 'openai', label: 'OpenAI', configured: true, model: 'test-model' }
           ]
