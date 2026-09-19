@@ -39,7 +39,7 @@
     </div>
 
     <input id="fileImport" type="file" accept=".md,text/markdown" multiple hidden>
-    <input id="folderImport" type="file" accept=".md,text/markdown" webkitdirectory directory multiple hidden>
+    <input id="folderImport" type="file" accept=".md,text/markdown" webkitdirectory directory multiple hidden>\n    <input id="backupImport" type="file" accept=".json,application/json" hidden>
 
     <div class="file-tree" id="fileTree" aria-label="Vault notes"></div>
 
@@ -118,7 +118,7 @@
       <div id="relatedNotes" class="context-list"></div>
     </section>
 
-    <section class="context-view" id="context-properties">
+    <section class="context-view" id="context-medical">\n      <div class="context-head"><strong>Matched PYQs</strong><span id="medicalCount">…</span></div>\n      <p class="context-help" id="medicalSummary">Loading the existing NEET-PG question bank…</p>\n      <div id="medicalQuestions" class="context-list"></div>\n      <a class="medical-open-all" id="medicalOpenAll" href="../">Open matching questions in Study Engine →</a>\n    </section>\n\n    <section class="context-view" id="context-properties">
       <div class="context-head"><strong>Properties</strong><span>YAML</span></div>
       <div id="properties" class="properties"></div>
     </section>
