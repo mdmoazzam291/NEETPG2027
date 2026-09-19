@@ -148,3 +148,20 @@ AI should sit above deterministic storage/provenance:
 4. Destructive changes require recovery paths.
 5. Medical content provenance and verification states must remain visible.
 6. The system should optimize retrieval and exam performance, not maximize note volume.
+
+
+## Intelligence layer implemented
+
+The current branch adds a deterministic, local-first intelligence layer before any cloud LLM dependency:
+
+- **Mastery graph mode** driven by real matched-PYQ performance
+- transparent evidence score: **70% matched-PYQ accuracy + 30% matched-PYQ coverage**
+- readiness bands: unmeasured, weak, building, strong, mastered
+- current-note learning intelligence with one-tap matched concept practice
+- combined local search across vault notes and the bundled PYQ corpus
+- exportable evidence bundles designed for grounded AI prompting
+- command-palette action for the next best study target
+- Safari/iPad progress mirror so study evidence remains visible when IndexedDB database enumeration is unavailable
+
+The evidence score is a study-prioritization metric only. It is not treated as proof of clinical competence or medical correctness.
+
