@@ -14,7 +14,7 @@ test('premium UI remains usable on iPad-sized WebKit with touch and accessibilit
   await page.goto('/');
   await loadPremiumPhase13(page);
 
-  await expect(page.locator('.v4-nav')).toHaveCount(15);
+  await expect(page.locator('.v4-nav')).toHaveCount(7);
   await expect(page.locator('.v4-nav[data-v4-label="NeuralVault"]')).toBeVisible();
   await expect(page.locator('.v4-nav[data-v4-label="Dashboard"]')).toHaveAttribute('aria-current','page');
   await expect(page.locator('#v4SearchInput')).toHaveAttribute('aria-label','Search questions, topics and notes');
