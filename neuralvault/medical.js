@@ -75,8 +75,7 @@
     return s;
   }
 
-  async function match(note, limit = 15) {
-    const questions = await load();
+  function matchFrom(questions, note, limit = 15) {
     return questions
       .map(q => ({ q, score: score(note, q) }))
       .filter(x => x.score >= 16)
@@ -84,17 +83,31 @@
       .slice(0, limit);
   }
 
-  async function studyStateMap() {
+  async function match(note, limit = 15) {
+    return matchFrom(await load(), note, limit);
+  }
+
+  function mirroredStateMap() {
     try {
-      if (!indexedDB.databases) return new Map();
+      const rows = JSON.parse(localStorage.getItem('neetpg2027:qstate-mirror') || '[]');
+      return new Map((Array.isArray(rows) ? rows : []).filter(x => x && x.qid).map(x => [x.qid, x]));
+    } catch (_) {
+      return new Map();
+    }
+  }
+
+  async function studyStateMap() {
+    const mirror = mirroredStateMap();
+    try {
+      if (!indexedDB.databases) return mirror;
       const databases = await indexedDB.databases();
-      if (!databases.some(x => x.name === 'neetpg2027-static-v2')) return new Map();
+      if (!databases.some(x => x.name === 'neetpg2027-static-v2')) return mirror;
       const db = await new Promise((resolve, reject) => {
         const req = indexedDB.open('neetpg2027-static-v2');
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);
       });
-      if (!db.objectStoreNames.contains('qstate')) { db.close(); return new Map(); }
+      if (!db.objectStoreNames.contains('qstate')) { db.close(); return mirror; }
       const rows = await new Promise((resolve, reject) => {
         const tx = db.transaction('qstate','readonly');
         const req = tx.objectStore('qstate').getAll();
@@ -102,37 +115,92 @@
         req.onerror = () => reject(req.error);
       });
       db.close();
-      return new Map(rows.map(x => [x.qid, x]));
+      const live = new Map(rows.map(x => [x.qid, x]));
+      mirror.forEach((value, key) => { if (!live.has(key)) live.set(key, value); });
+      return live;
     } catch (_) {
-      return new Map();
+      return mirror;
     }
   }
 
-  async function summary(note) {
-    const matches = await match(note, 200);
+  function summarizeMatches(matches, states) {
     const years = [...new Set(matches.map(x => x.q.exam_year).filter(Boolean))].sort();
     const subjects = [...new Set(matches.map(x => x.q.subject).filter(Boolean))].sort();
-    const states = await studyStateMap();
     const matchedStates = matches.map(x => states.get(x.q.external_id)).filter(Boolean);
-    const attempted = matchedStates.filter(x => Number(x.attempts || 0) > 0);
-    const attempts = attempted.reduce((sum, x) => sum + Number(x.attempts || 0), 0);
-    const correct = attempted.reduce((sum, x) => sum + Number(x.correct || 0), 0);
+    const attemptedRows = matchedStates.filter(x => Number(x.attempts || 0) > 0);
+    const attempts = attemptedRows.reduce((sum, x) => sum + Number(x.attempts || 0), 0);
+    const correct = attemptedRows.reduce((sum, x) => sum + Number(x.correct || 0), 0);
     const accuracy = attempts ? Math.round(correct / attempts * 100) : null;
-    const coverage = matches.length ? Math.round(attempted.length / matches.length * 100) : 0;
-    return { count: matches.length, years, subjects, matches, attempted: attempted.length, attempts, correct, accuracy, coverage };
+    const coverage = matches.length ? Math.round(attemptedRows.length / matches.length * 100) : 0;
+    const readiness = attempts ? Math.round((accuracy * 0.70) + (coverage * 0.30)) : null;
+    const band = readiness == null ? 'unmeasured' : readiness < 50 ? 'weak' : readiness < 70 ? 'building' : readiness < 85 ? 'strong' : 'mastered';
+    const weakQuestions = matches.filter(x => {
+      const s = states.get(x.q.external_id);
+      return s && Number(s.attempts || 0) > 0 && Number(s.correct || 0) / Math.max(1, Number(s.attempts || 0)) < 0.6;
+    });
+    const unseenQuestions = matches.filter(x => {
+      const s = states.get(x.q.external_id);
+      return !s || Number(s.attempts || 0) === 0;
+    });
+    return {
+      count: matches.length, years, subjects, matches,
+      attempted: attemptedRows.length, attempts, correct, accuracy, coverage,
+      readiness, band, weakQuestions, unseenQuestions
+    };
+  }
+
+  async function summary(note) {
+    const questions = await load();
+    const states = await studyStateMap();
+    return summarizeMatches(matchFrom(questions, note, 200), states);
+  }
+
+  async function batchSummary(notes) {
+    const questions = await load();
+    const states = await studyStateMap();
+    const out = new Map();
+    for (const note of notes || []) {
+      out.set(note.id, summarizeMatches(matchFrom(questions, note, 200), states));
+    }
+    return out;
+  }
+
+  async function searchQuestions(query, limit = 10) {
+    const questions = await load();
+    const qn = norm(query);
+    const qt = toks(query);
+    return questions.map(q => {
+      const hay = norm((q.topic || '') + ' ' + (q.subtopic || '') + ' ' + (q.subject || '') + ' ' + (q.system || '') + ' ' + (q.stem || ''));
+      const ht = toks(hay);
+      let s = qn && hay.includes(qn) ? 70 : 0;
+      qt.forEach(t => { if (ht.has(t)) s += 9; });
+      if (qn && norm(q.topic) === qn) s += 70;
+      if (qn && norm(q.subtopic) === qn) s += 55;
+      return { q, score: s };
+    }).filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score || Number(b.q.exam_year || 0) - Number(a.q.exam_year || 0))
+      .slice(0, limit);
   }
 
   function questionUrl(q) {
     return '../?nvq=' + encodeURIComponent(q.external_id) + '&source=neuralvault';
   }
 
-  function topicUrl(note) {
+  function topicUrl(note, options = {}) {
     const p = note.properties || {};
     const params = new URLSearchParams({ source: 'neuralvault' });
     if (p.subject) params.set('nvsubject', p.subject);
     if (note.title) params.set('nvtopic', note.title);
+    if (options.practice) params.set('nvpractice', '1');
     return '../?' + params.toString();
   }
 
-  window.NeuralVaultMedical = { load, match, summary, questionUrl, topicUrl };
+  function practiceUrl(matches, note) {
+    const ids = (matches || []).map(x => x.q?.external_id || x.external_id).filter(Boolean).slice(0, 15);
+    if (!ids.length) return topicUrl(note, { practice: true });
+    const params = new URLSearchParams({ source: 'neuralvault', nvqs: ids.join(',') });
+    return '../?' + params.toString();
+  }
+
+  window.NeuralVaultMedical = { load, match, summary, batchSummary, searchQuestions, questionUrl, topicUrl, practiceUrl };
 })();
