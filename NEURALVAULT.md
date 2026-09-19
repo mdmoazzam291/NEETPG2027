@@ -165,3 +165,26 @@ The current branch adds a deterministic, local-first intelligence layer before a
 
 The evidence score is a study-prioritization metric only. It is not treated as proof of clinical competence or medical correctness.
 
+
+
+## Grounded Brain V1
+
+The Brain workspace is intentionally useful before any cloud model is connected.
+
+Implemented:
+
+- local question answering over vault notes + the cached PYQ corpus
+- extractive answers that cite the exact note or PYQ used
+- current-note explanations that use the selected concept as context
+- exact matched-PYQ retrieval and practice handoff
+- note gap audit for common exam-oriented sections
+- "what should I study next?" driven by the existing retrieval-evidence priority engine
+- model-ready grounded prompt generation for later GPT/Gemini/Claude/local-provider adapters
+- offline operation for the local Brain because its retrieval dependencies are service-worker cached
+
+### Trust boundary
+
+Local Brain mode does not invent missing medical facts. If the answer is absent from the vault/PYQ evidence, it says so.
+
+Future generative providers must consume the same evidence bundle and preserve provenance. Browser code must not ship permanent cloud API secrets; cloud providers should be reached through a server-side/authorized provider boundary, while local models may run entirely on-device when supported.
+
