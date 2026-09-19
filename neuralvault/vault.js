@@ -25,11 +25,17 @@ function load(){
   return {version:1,notes:sampleNotes(),currentId:'welcome'};
 }
 var state=load(),currentId=state.notes.some(function(n){return n.id===state.currentId})?state.currentId:state.notes[0].id;
-var view='editor',saveTimer=null,toastTimer=null;
+var view='editor',saveTimer=null,toastTimer=null,titleSnapshot=null,medicalToken=0;
 
 function save(){
   state.currentId=currentId;
+  state.savedAt=Date.now();
   localStorage.setItem(KEY,JSON.stringify(state));
+  if(window.NeuralVaultDB) NeuralVaultDB.saveState(state).then(function(){
+    $('#storageStatus').textContent='IndexedDB + local cache';
+  }).catch(function(){
+    $('#storageStatus').textContent='Local cache only';
+  });
   $('#saveState').textContent='Saved locally';
 }
 function current(){return state.notes.find(function(n){return n.id===currentId})||state.notes[0]}
@@ -101,8 +107,21 @@ function item(n,subtitle){
 function renderBacklinks(){
   var n=current(),t=norm(n.title),a=state.notes.filter(function(x){return x.id!==n.id&&links(x.content).some(function(v){return norm(v)===t})});
   $('#backlinkCount').textContent=a.length;var r=$('#backlinks');r.innerHTML='';
-  if(!a.length){r.innerHTML='<div class="context-empty">No backlinks yet. Link this note from another note with double brackets.</div>';return}
-  a.forEach(function(x){r.appendChild(item(x))});
+  if(!a.length) r.innerHTML='<div class="context-empty">No backlinks yet. Link this note from another note with double brackets.</div>';
+  else a.forEach(function(x){r.appendChild(item(x))});
+  renderOutgoing();
+}
+function renderOutgoing(){
+  var n=current(),list=links(n.content),r=$('#outgoingLinks');
+  $('#outgoingCount').textContent=list.length;r.innerHTML='';
+  if(!list.length){r.innerHTML='<div class="context-empty">No outgoing wiki links in this note.</div>';return}
+  list.forEach(function(title){
+    var target=byTitle(title),b=document.createElement('button');
+    b.className='context-item outgoing-link'+(target?'':' broken');
+    b.dataset.noteTitle=title;
+    b.innerHTML='<strong>'+esc(title)+'</strong><span class="link-state">'+(target?'linked':'create')+'</span>';
+    r.appendChild(b);
+  });
 }
 function tokens(n){
   return new Set((n.title+' '+stripFM(n.content)).toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu,' ').split(/\s+/).filter(function(x){return x.length>3&&!stop.has(x)}));
@@ -122,6 +141,30 @@ function renderCurrent(){
   var n=current();if(!n)return;
   $('#titleInput').value=n.title;$('#editor').value=n.content;$('#pathLabel').textContent=folder(n);$('#breadcrumbs').textContent='Vault / '+folder(n)+' / '+n.title;
   $('#wordCount').textContent=countWords(n.content)+' words';$('#updatedLabel').textContent=ago(n.updatedAt);$('#preview').innerHTML=markdown(n.content);
+  renderTree($('#searchInput').value);renderBacklinks();renderRelated();renderProps();renderMedical();if(view==='graph')renderGraph();
+}
+function schedule(){
+  $('#saveState').textContent='Saving…';clearTimeout(saveTimer);saveTimer=setTimeout(function(){
+    save();renderBacklinks();renderRelated();renderProps();renderMedical();if(view==='preview')$('#preview').innerHTML=markdown(current().content);
+    if(window.NeuralVaultDB) NeuralVaultDB.checkpoint(current(),'autosave').catch(function(){});
+  },220);
+}
+function openNote(i){
+  if(!state.notes.some(function(n){return n.id===i}))return;
+  if(window.NeuralVaultDB) NeuralVaultDB.checkpoint(current(),'navigation').catch(function(){});
+  currentId=i;save();renderCurrent();setView('editor');closeSidebar();
+}
+function createNote(title){
+  title=title||'Untitled';var n={id:id(),title:title,path:'Inbox/'+filename(title),content:'---\ntype: note\nstatus: learning\n---\n\n# '+title+'\n\n',createdAt:iso(),updatedAt:iso()};
+  state.notes.push(n);currentId=n.id;save();renderCurrent();setView('editor');$('#titleInput').focus();$('#titleInput').select();toast('New note created');
+}
+function openTitle(t){var n=byTitle(t);if(n)openNote(n.id);else{createNote(t);toast('Created linked note')}}
+function updateEditor(){var n=current();n.content=$('#editor').value;n.updatedAt=iso();$('#wordCount').textContent=countWords(n.content)+' words';$('#updatedLabel').textContent='just now';schedule()}
+function updateTitle(){var n=current(),v=$('#titleInput').value.trim()||'Untitled',parts=n.path.split('/');n.title=v;parts[parts.length-1]=filename(v);n.path=parts.join('/');n.updatedAt=iso();$('#breadcrumbs').textContent='Vault / '+folder(n)+' / '+v;renderTree($('#searchInput').value);schedule()}
+function escapeRegExp(s){return String(s).replace(/[.*+?^${}()|[\\]\\]/g,'\\function renderCurrent(){
+  var n=current();if(!n)return;
+  $('#titleInput').value=n.title;$('#editor').value=n.content;$('#pathLabel').textContent=folder(n);$('#breadcrumbs').textContent='Vault / '+folder(n)+' / '+n.title;
+  $('#wordCount').textContent=countWords(n.content)+' words';$('#updatedLabel').textContent=ago(n.updatedAt);$('#preview').innerHTML=markdown(n.content);
   renderTree($('#searchInput').value);renderBacklinks();renderRelated();renderProps();if(view==='graph')renderGraph();
 }
 function schedule(){
@@ -134,8 +177,58 @@ function createNote(title){
 }
 function openTitle(t){var n=byTitle(t);if(n)openNote(n.id);else{createNote(t);toast('Created linked note')}}
 function updateEditor(){var n=current();n.content=$('#editor').value;n.updatedAt=iso();$('#wordCount').textContent=countWords(n.content)+' words';$('#updatedLabel').textContent='just now';schedule()}
-function updateTitle(){var n=current(),v=$('#titleInput').value.trim()||'Untitled',parts=n.path.split('/');n.title=v;parts[parts.length-1]=filename(v);n.path=parts.join('/');n.updatedAt=iso();$('#breadcrumbs').textContent='Vault / '+folder(n)+' / '+v;renderTree($('#searchInput').value);schedule()}
+function updateTitle(){var n=current(),v=$('#titleInput').value.trim()||'Untitled',parts=n.path.split('/');n.title=v;parts[parts.length-1]=filename(v);n.path=parts.join('/');n.updatedAt=iso();$('#breadcrumbs').textContent='Vault / '+folder(n)+' / '+v;renderTree($('#searchInput').value);schedule()}')}
+function finalizeTitleRename(){
+  var n=current();if(!titleSnapshot||titleSnapshot.id!==n.id)return;
+  var oldTitle=titleSnapshot.title,newTitle=n.title;
+  if(norm(oldTitle)!==norm(newTitle)){
+    if(window.NeuralVaultDB) NeuralVaultDB.checkpoint(titleSnapshot,'before-rename').catch(function(){});
+    var re=new RegExp('\\\\[\\\\['+escapeRegExp(oldTitle)+'(?=[#|\\\\]])','gi'),changed=0;
+    state.notes.forEach(function(x){if(x.id===n.id)return;var next=x.content.replace(re,'[['+newTitle);if(next!==x.content){x.content=next;x.updatedAt=iso();changed++}});
+    save();renderCurrent();toast('Renamed note and updated '+changed+' linked '+(changed===1?'note':'notes'));
+  }
+  titleSnapshot=null;
+}
 
+async function hydrateDurable(){
+  if(!window.NeuralVaultDB)return;
+  try{
+    var durable=await NeuralVaultDB.loadState();
+    if(durable&&Array.isArray(durable.notes)&&durable.notes.length&&Number(durable.savedAt||0)>Number(state.savedAt||0)){
+      state=durable;currentId=state.notes.some(function(n){return n.id===state.currentId})?state.currentId:state.notes[0].id;localStorage.setItem(KEY,JSON.stringify(state));renderCurrent();
+    }else await NeuralVaultDB.saveState(state);
+    $('#storageStatus').textContent='IndexedDB + local cache';
+  }catch(e){$('#storageStatus').textContent='Local cache only';}
+}
+async function renderMedical(){
+  if(!window.NeuralVaultMedical)return;
+  var token=++medicalToken,n=current(),note={title:n.title,content:n.content,properties:props(n.content)},root=$('#medicalQuestions');
+  $('#medicalCount').textContent='…';$('#medicalSummary').textContent='Matching this note against the existing NEET-PG PYQ bank…';root.innerHTML='';
+  try{
+    var summary=await NeuralVaultMedical.summary(note);if(token!==medicalToken)return;
+    $('#medicalCount').textContent=summary.count;$('#medicalOpenAll').href=NeuralVaultMedical.topicUrl(note);
+    $('#medicalSummary').textContent=summary.count?(summary.count+' related PYQ matches across '+summary.years.length+' exam year'+(summary.years.length===1?'':'s')+'.'):'No strong PYQ match yet. Add subject/system properties or use the exam topic name.';
+    summary.matches.slice(0,12).forEach(function(x){var q=x.q,a=document.createElement('a');a.className='context-item medical-question';a.href=NeuralVaultMedical.questionUrl(q);a.innerHTML='<strong>'+esc(q.topic||q.subtopic||'Question')+'</strong><p>'+esc(q.stem)+'</p><div class="medical-meta"><span class="medical-chip">'+esc(q.exam_year||'PYQ')+'</span><span class="medical-chip">'+esc(q.subject||'')+'</span><span class="medical-chip">'+esc(q.system||'')+'</span></div>';root.appendChild(a)});
+    if(!summary.matches.length)root.innerHTML='<div class="context-empty">No matching PYQs found for this note.</div>';
+  }catch(e){if(token!==medicalToken)return;$('#medicalCount').textContent='!';$('#medicalSummary').textContent='PYQ index is unavailable offline until it has been cached once.';root.innerHTML='<div class="context-empty">Open the Study Engine once online to cache the bundled question bank.</div>';}
+}
+async function restoreBackup(file){
+  try{var data=JSON.parse(await file.text()),notes=Array.isArray(data)?data:data.notes;if(!Array.isArray(notes)||!notes.length)throw new Error('No notes found');
+    var clean=notes.filter(function(n){return n&&n.title&&typeof n.content==='string'}).map(function(n){return{id:n.id||id(),title:String(n.title),path:String(n.path||('Imported/'+filename(n.title))),content:n.content,createdAt:n.createdAt||iso(),updatedAt:n.updatedAt||iso()}});
+    if(!clean.length)throw new Error('No valid notes found');if(!confirm('Replace this browser vault with '+clean.length+' notes from the backup?'))return;
+    state={version:2,notes:clean,currentId:clean[0].id,savedAt:Date.now()};currentId=clean[0].id;save();renderCurrent();toast('Backup restored: '+clean.length+' notes');
+  }catch(e){toast('Backup restore failed: '+e.message);}
+}
+async function writeVaultToFolder(){
+  if(!window.showDirectoryPicker){toast('Direct folder writing is not supported here. Use JSON backup or Markdown import/export.');return;}
+  try{var root=await window.showDirectoryPicker({mode:'readwrite'});for(const n of state.notes){var parts=n.path.split('/').filter(Boolean),dir=root;for(var i=0;i<parts.length-1;i++)dir=await dir.getDirectoryHandle(parts[i],{create:true});var fh=await dir.getFileHandle(parts[parts.length-1]||filename(n.title),{create:true}),w=await fh.createWritable();await w.write(n.content);await w.close()}toast('Wrote '+state.notes.length+' Markdown notes to folder');}catch(e){if(e&&e.name!=='AbortError')toast('Folder export failed: '+e.message);}
+}
+async function showHistory(){
+  if(!window.NeuralVaultDB){toast('Version history unavailable');return;}var n=current();await NeuralVaultDB.checkpoint(n,'manual');var rows=await NeuralVaultDB.revisions(n.id),root=$('#historyList');$('#historyNoteTitle').textContent=n.title;root.innerHTML='';
+  if(!rows.length)root.innerHTML='<div class="context-empty">No earlier versions yet.</div>';
+  rows.forEach(function(row){var d=document.createElement('div');d.className='history-row';d.innerHTML='<div><strong>'+esc(new Date(row.savedAt).toLocaleString())+'</strong><p>'+esc(row.reason||'saved')+' · '+countWords(row.content)+' words</p></div>';var b=document.createElement('button');b.textContent='Restore';b.onclick=function(){if(!confirm('Restore this version? The current note will be checkpointed first.'))return;NeuralVaultDB.checkpoint(current(),'before-restore').then(function(){var x=current();x.title=row.title;x.path=row.path;x.content=row.content;x.updatedAt=iso();save();renderCurrent();$('#historyBackdrop').hidden=true;toast('Version restored')})};d.appendChild(b);root.appendChild(d)});
+  $('#historyBackdrop').hidden=false;
+}
 function graphData(){
   var map=new Map(state.notes.map(function(n){return[norm(n.title),n]})),e=[];
   state.notes.forEach(function(n){links(n.content).forEach(function(t){var to=map.get(norm(t));if(to&&to.id!==n.id)e.push({from:n.id,to:to.id})})});
