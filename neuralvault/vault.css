@@ -165,3 +165,28 @@ body.context-hidden .menu{right:14px}
 @media(prefers-color-scheme:light){
   body:not([data-theme="dark"]){--bg:#f6f6f6;--panel:#fff;--panel2:#f3f3f3;--panel3:#ececec;--border:#dedede;--border2:#cfcfcf;--text:#252525;--muted:#707070}
 }
+
+.context-subhead{margin-top:18px;padding-top:12px;border-top:1px solid var(--border)}
+.outgoing-link{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.outgoing-link .link-state{font-size:9px;padding:2px 5px;border-radius:4px;background:#2b2b2b;color:#888}
+.outgoing-link.broken .link-state{background:rgba(239,106,106,.12);color:#e88}
+.medical-open-all{display:block;margin-top:12px;padding:9px;border:1px solid var(--border);border-radius:7px;font-size:11px;color:#b99cff;text-align:center}
+.medical-open-all:hover{background:var(--accent-soft);border-color:#5d4b87}
+.medical-question{display:block;width:100%;text-align:left;color:inherit;text-decoration:none}
+.medical-question .medical-meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.medical-chip{font-size:9px;padding:2px 5px;border-radius:4px;background:#292929;color:#aaa}
+.history-backdrop{position:fixed;inset:0;z-index:55;background:rgba(0,0,0,.58);display:grid;place-items:center;padding:20px}
+.history-backdrop[hidden]{display:none}
+.history-modal{width:min(720px,96vw);max-height:78vh;background:#222;border:1px solid #454545;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,.6);overflow:hidden;display:flex;flex-direction:column}
+.history-head{min-height:56px;padding:9px 12px 9px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.history-head strong,.history-head span{display:block}
+.history-head span{font-size:10px;color:var(--muted);margin-top:3px}
+.history-list{overflow:auto;padding:9px;display:flex;flex-direction:column;gap:7px}
+.history-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px;border:1px solid var(--border);border-radius:8px;background:#1d1d1d}
+.history-row strong{font-size:12px}
+.history-row p{margin:4px 0 0;color:var(--muted);font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.history-row button{border:1px solid var(--border2);background:#292929;color:#ddd;border-radius:6px;padding:6px 9px;cursor:pointer;font-size:10px}
+.history-row button:hover{background:#333}
+.context-tabs{overflow-x:auto;scrollbar-width:none}
+.context-tabs::-webkit-scrollbar{display:none}
+.context-tab{flex:0 0 auto}
