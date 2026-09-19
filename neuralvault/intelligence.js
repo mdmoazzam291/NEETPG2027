@@ -349,7 +349,8 @@
     if (!results.notes.length) lines.push('- No matching vault notes.');
     results.notes.forEach((x, i) => {
       lines.push('');
-      lines.push('### ' + (i + 1) + '. ' + x.note.title);
+      lines.push('### NOTE ' + (i + 1) + ' · ' + x.note.title);
+      lines.push('Source-ID: NOTE:' + x.note.id);
       lines.push('Path: ' + (x.note.path || ''));
       lines.push(stripFrontmatter(x.note.content).slice(0, 3000));
     });
@@ -361,13 +362,14 @@
       const q = x.q;
       lines.push('');
       lines.push('### PYQ ' + (i + 1));
+      lines.push('Source-ID: PYQ:' + (q.external_id || 'unknown'));
       lines.push('Year: ' + (q.exam_year || 'unknown') + ' | Subject: ' + (q.subject || '') + ' | Topic: ' + (q.topic || q.subtopic || ''));
       lines.push(q.stem || '');
     });
 
     lines.push('');
     lines.push('## Instruction');
-    lines.push('Use only the evidence above. Distinguish facts present in the notes/PYQs from any additional reasoning.');
+    lines.push('Use the evidence above as the primary grounding source. Cite Source-ID values such as [NOTE:...] and [PYQ:...] near claims based on them. Distinguish evidence-backed statements from any additional model knowledge or reasoning.');
     return lines.join('\n');
   }
 
