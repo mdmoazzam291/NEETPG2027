@@ -84,7 +84,7 @@ kbd{font-size:11px;border:1px solid var(--border2);border-radius:5px;padding:2px
 .markdown-preview pre code{background:transparent;padding:0;color:#d8d8d8}
 .markdown-preview blockquote{border-left:3px solid var(--accent);margin:1em 0;padding:.25em 1em;color:#b9b9b9;background:#1d1d1d}
 .markdown-preview ul{padding-left:1.5em}
-.markdown-preview .wiki-link{color:#b99cff;cursor:pointer;text-decoration:none}
+.markdown-preview .wiki-link{border:0;background:transparent;padding:0;font:inherit;color:#b99cff;cursor:pointer;text-decoration:none}
 .markdown-preview .wiki-link:hover{text-decoration:underline}
 .markdown-preview .tag-link{color:#86a7df;background:#223047;border-radius:4px;padding:1px 5px;font-size:.9em}
 .markdown-preview hr{border:0;border-top:1px solid var(--border);margin:2em 0}
