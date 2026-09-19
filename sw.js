@@ -53,7 +53,8 @@ self.addEventListener('fetch',event=>{
         cache.put('./index.html',fresh.clone()).catch(()=>{});
         return fresh;
       }catch{
-        return (await caches.match(event.request)) || (await caches.match('./index.html')) || Response.error();
+        const neuralVault=url.pathname.endsWith('/neuralvault/')||url.pathname.endsWith('/neuralvault/index.html');
+        return (await caches.match(event.request)) || (neuralVault?await caches.match('./neuralvault/index.html'):null) || (await caches.match('./index.html')) || Response.error();
       }
     })());
     return;
