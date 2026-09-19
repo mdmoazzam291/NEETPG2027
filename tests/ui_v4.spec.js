@@ -32,6 +32,7 @@ test('premium dashboard renders reference-inspired study UI', async ({ page }) =
 test('global search opens the question bank and applies the query', async ({ page }) => {
   await page.goto('/');
   await loadV4(page);
+  await expect(page.locator('#v4SearchInput')).toHaveAttribute('placeholder','Search question bank & topics…');
   await page.fill('#v4SearchInput', 'myocardial');
   await page.press('#v4SearchInput', 'Enter');
   await expect(page.locator('#view-bank')).toHaveClass(/active/);
