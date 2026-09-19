@@ -40,7 +40,9 @@ test('Question bank, analytics and settings render', async ({ page }) => {
 
 test('Review answers is read-only and does not create new attempts', async ({ page }) => {
   await page.goto('/');
+  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0)).toBe(405);
   await page.getByRole('button',{name:/Practice/}).first().click();
+  await expect(page.getByText('Session builder')).toBeVisible();
   await page.locator('#pCount').selectOption('5');
   await page.locator('#pMode').selectOption('unseen');
   await page.locator('#startCustom').click();
