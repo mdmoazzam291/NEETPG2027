@@ -47,13 +47,13 @@ self.addEventListener('fetch',event=>{
 
   if(event.request.mode==='navigate'){
     event.respondWith((async()=>{
+      const neuralVault=url.pathname.endsWith('/neuralvault/')||url.pathname.endsWith('/neuralvault/index.html');
       try{
         const fresh=await fetch(event.request);
         const cache=await caches.open(CACHE);
-        cache.put('./index.html',fresh.clone()).catch(()=>{});
+        cache.put(neuralVault?'./neuralvault/index.html':'./index.html',fresh.clone()).catch(()=>{});
         return fresh;
       }catch{
-        const neuralVault=url.pathname.endsWith('/neuralvault/')||url.pathname.endsWith('/neuralvault/index.html');
         return (await caches.match(event.request)) || (neuralVault?await caches.match('./neuralvault/index.html'):null) || (await caches.match('./index.html')) || Response.error();
       }
     })());
