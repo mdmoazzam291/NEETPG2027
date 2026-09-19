@@ -1,5 +1,4 @@
 const { test, expect } = require('@playwright/test');
-
 test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByText('Study cockpit')).toBeVisible();
