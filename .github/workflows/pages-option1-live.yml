@@ -61,6 +61,20 @@ jobs:
           cp -R data/pyq _site/data/
           sed -i 's#</head>#<link rel="icon" href="assets/app-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/ui-v4.css"><link rel="stylesheet" href="assets/exam-v9.css"><link rel="stylesheet" href="assets/phase13.css"></head>#' _site/index.html
           sed -i 's#</body>#<script src="assets/supabase-config.js"></script><script src="assets/phase13-preauth.js"></script><script src="assets/ui-v4-core-compat.js"></script><script src="assets/auth-sync.js" defer></script><script src="assets/auth-provider-guard.js" defer></script><script src="assets/neetpg-timer.js" defer></script><script src="assets/ui-v4.js" defer></script><script src="assets/ui-v4-fixes.js" defer></script><script src="assets/exam-v9.js" defer></script><script src="assets/phase10-taxonomy.js" defer></script><script src="assets/pyq-metadata.js" defer></script><script src="assets/phase11-analytics.js" defer></script><script src="assets/phase11-exam-overlay.js" defer></script><script src="assets/phase12-planning.js" defer></script><script src="assets/phase13-hardening.js" defer></script></body>#' _site/index.html
+          python - <<'PY'
+          from pathlib import Path
+          import os, re
+          version = os.environ.get("GITHUB_SHA", "dev")[:12]
+          for name in ("_site/index.html", "_site/neuralvault/index.html"):
+              path = Path(name)
+              text = path.read_text()
+              text = re.sub(
+                  r'(?P<q>["\'])(?P<url>[^"\']+\.(?:js|css))(?P=q)',
+                  lambda m: f'{m.group("q")}{m.group("url")}?v={version}{m.group("q")}',
+                  text,
+              )
+              path.write_text(text)
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
