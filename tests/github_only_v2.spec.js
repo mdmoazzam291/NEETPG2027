@@ -4,7 +4,7 @@ test('GitHub-only v2 loads dashboard and supports a study attempt', async ({ pag
   await page.goto('/');
   await expect(page.getByText('Study cockpit')).toBeVisible();
   await expect(page.locator('#statTotal')).toHaveText(/405/);
-  await page.getByRole('button',{name:/Practice/}).first().click();
+  await page.locator('.nav button[data-view="practice"]').click();
   await expect(page.getByText('Session builder')).toBeVisible();
   await page.locator('#pCount').selectOption('5');
   await page.locator('#pMode').selectOption('unseen');
@@ -40,7 +40,7 @@ test('Question bank, analytics and settings render', async ({ page }) => {
 
 test('Review answers is read-only and does not create new attempts', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button',{name:/Practice/}).first().click();
+  await page.locator('.nav button[data-view="practice"]').click();
   await page.locator('#pCount').selectOption('5');
   await page.locator('#pMode').selectOption('unseen');
   await page.locator('#startCustom').click();
