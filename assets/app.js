@@ -121,14 +121,23 @@ function bindEvents(){$$('.nav button[data-view]').forEach(b=>b.onclick=()=>navi
  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();app.installPrompt=e});window.addEventListener('online',updateOnline);window.addEventListener('offline',updateOnline);matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(app.prefs.theme==='system')applyPrefs()})}
 function applyNeuralVaultDeepLink(){
   const params=new URLSearchParams(location.search);
-  const qid=params.get('nvq'),subject=params.get('nvsubject'),topic=params.get('nvtopic'),practice=params.get('nvpractice')==='1';
-  if(!qid&&!subject&&!topic)return false;
+  const qid=params.get('nvq'),qids=params.get('nvqs'),subject=params.get('nvsubject'),topic=params.get('nvtopic'),practice=params.get('nvpractice')==='1';
+  if(!qid&&!qids&&!subject&&!topic)return false;
   const clear=()=>history.replaceState({},'',location.pathname+location.hash);
   if(qid){
     const q=app.qMap.get(qid);
     if(q){
       buildSession([q],{...builtInPreset('rapid'),mode:'single',count:1,feedback:'instant',timer:'off',order:'adaptive'});
       toast('Opened from NeuralVault');
+      clear();
+      return true;
+    }
+  }
+  if(qids){
+    const exact=qids.split(',').map(id=>app.qMap.get(id)).filter(Boolean);
+    if(exact.length){
+      buildSession(exact,{...builtInPreset('rapid'),mode:'neuralvault',count:exact.length,feedback:'instant',timer:'off',order:'adaptive'});
+      toast('Started '+exact.length+' matched question'+(exact.length===1?'':'s')+' from NeuralVault');
       clear();
       return true;
     }
