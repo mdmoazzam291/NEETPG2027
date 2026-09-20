@@ -261,17 +261,21 @@
   }
 
   async function reconcileQuestionStateFromAttempts(){
-    const byQ=new Map();
+    const mockSessions=new Set((app.sessions||[]).filter(s=>String(s?.mode||'').startsWith('Mock · ')).map(s=>s.id));
+    const knownByQ=new Map(), practiceByQ=new Map();
     for(const a of app.attempts||[]){
       if(!a?.qid)continue;
-      let x=byQ.get(a.qid);if(!x){x={attempts:0,correct:0,incorrect:0,streak:0,latest:null};byQ.set(a.qid,x);}
+      let known=knownByQ.get(a.qid);if(!known){known={attempts:0};knownByQ.set(a.qid,known);}known.attempts++;
+      if(mockSessions.has(a.sessionId))continue;
+      let x=practiceByQ.get(a.qid);if(!x){x={attempts:0,correct:0,incorrect:0,streak:0,latest:null};practiceByQ.set(a.qid,x);}
       x.attempts++;if(a.correct){x.correct++;x.streak++;}else{x.incorrect++;x.streak=0;}
       if(!x.latest || Number(a.ts||0)>Number(x.latest.ts||0))x.latest=a;
     }
-    for(const [qid,x] of byQ){
+    for(const [qid,known] of knownByQ){
       const local=stateFor(qid), currentAttempts=Number(local.attempts||0);
-      if(x.attempts<currentAttempts)continue;
-      const lastCorrect=!!x.latest?.correct;
+      if(known.attempts<currentAttempts)continue;
+      const x=practiceByQ.get(qid)||{attempts:0,correct:0,incorrect:0,streak:0,latest:null};
+      const lastCorrect=x.latest?!!x.latest.correct:null;
       if(x.attempts===currentAttempts && x.correct===Number(local.correct||0) && x.incorrect===Number(local.incorrect||0) && lastCorrect===local.lastCorrect && x.streak===Number(local.streak||0))continue;
       const next={...local,attempts:x.attempts,correct:x.correct,incorrect:x.incorrect,lastCorrect,streak:x.streak,updatedAt:Date.now()};
       await dbPut('qstate',next);app.states.set(qid,next);
@@ -303,7 +307,6 @@
       const id=await dbAdd('attempts',a);a.id=id;app.attempts.push(a);localByKey.set(key,a);
     }
     app.attempts.sort((a,b)=>a.ts-b.ts);
-    await reconcileQuestionStateFromAttempts();
 
     const srows=await paged('study_sessions', q=>q.eq('user_id',uid).order('session_id',{ascending:true}));
     cloud.remoteSessionUpdated=new Map(srows.map(r=>[r.session_id,ms(r.updated_at)]));
@@ -313,6 +316,7 @@
       if(!local || remoteUpdated>localUpdated){await dbPut('sessions',remote);sessionMap.set(remote.id,remote);}
     }
     app.sessions=[...sessionMap.values()].sort((a,b)=>b.startedAt-a.startedAt);
+    await reconcileQuestionStateFromAttempts();
 
     const {data:settings,error:settingsError}=await cloud.client.from('user_settings').select('settings,updated_at').eq('user_id',uid).maybeSingle();
     if(settingsError)throw settingsError;
@@ -435,6 +439,8 @@
       if(cloud.user && navigator.onLine && (cloud.dirty||cloud.syncQueued)){cloud.syncQueued=false;clearTimeout(cloud.syncTimer);cloud.syncTimer=setTimeout(()=>syncNow(),500);}
     }
   }
+
+  cloud.syncNow=syncNow;
 
   function markDirty(){
     cloud.dirty=true;cloud.changeVersion=(cloud.changeVersion||0)+1;updateCloudUi('idle');
