@@ -167,3 +167,38 @@ test('live global search, mobile navigation and target-date edit remain coherent
   await expect(page.locator('#targetDateLabel')).not.toHaveText('2027-09-01');
   await expect(page.locator('#targetDateLabel')).toContainText('2027');
 });
+
+
+test('live Revision sidebar keeps due ordering, badge, CTA and keyboard tabs coherent', async ({ page }) => {
+  await page.setViewportSize({width:390,height:844});
+  await page.goto(`${LIVE}?revision-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
+  await expect(page.locator('body')).toHaveAttribute('data-v4ready','1',{timeout:15000});
+  const ids=await page.evaluate(async()=>{
+    const [later,earlier,bookmark,note]=app.questions.slice(10,14),t=Date.now();
+    for(const [q,patch] of [
+      [later,{attempts:1,incorrect:1,lastCorrect:false,streak:0,dueAt:t-1000}],
+      [earlier,{attempts:1,incorrect:1,lastCorrect:false,streak:0,dueAt:t-5000}],
+      [bookmark,{bookmarked:true}],
+      [note,{note:'Live revision recall cue'}]
+    ]){
+      const s={...stateFor(q.external_id),qid:q.external_id,...patch,updatedAt:t};
+      app.states.set(q.external_id,s);await dbPut('qstate',s);
+    }
+    renderAll();navigate('review');refreshRevisionClock(true);
+    return {earlier:earlier.external_id};
+  });
+  await expect(page.locator('#v4NavDue')).toHaveText('2');
+  await expect(page.locator('#v4NavDue')).toBeVisible();
+  await expect(page.locator('#startDue')).toHaveText('Start due review');
+  await expect(page.locator('#startDue')).toBeEnabled();
+  await expect(page.locator('#dueList [data-practice-q]').first()).toHaveAttribute('data-practice-q',ids.earlier);
+  await page.locator('[data-review-tab="quick"]').focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('[data-review-tab="bookmarks"]')).toBeFocused();
+  await expect(page.locator('#reviewPanelBookmarks')).toBeVisible();
+  await expect(page.locator('#startDue')).toHaveText('Practice bookmarks');
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#reviewPanelNotes')).toBeVisible();
+  await expect(page.locator('#startDue')).toHaveText('Practice noted questions');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
+});
