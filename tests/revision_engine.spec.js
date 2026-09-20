@@ -21,6 +21,7 @@ test('answering schedules SRS immediately and manual rating overrides from the p
   const correct=await page.evaluate(()=>currentQ().options.find(o=>o.is_correct).label);
   await page.locator(`#qOptions .option[data-label="${correct}"]`).click();
   await page.click('#qSubmit');
+  await expect(page.locator('#qFeedback')).toBeVisible();
 
   const automatic=await page.evaluate(()=>{
     const s=stateFor(currentQ().external_id);
