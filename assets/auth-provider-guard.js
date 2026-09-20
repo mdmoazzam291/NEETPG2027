@@ -1,6 +1,7 @@
 (() => {
   function applyProviderFlags(){
     const cfg=window.NEETPG_SUPABASE||{};
+    if(cfg.autoDetectOAuthProviders)return;
     const google=document.getElementById('authGoogle');
     if(google && !cfg.googleEnabled){
       const divider=google.previousElementSibling;
