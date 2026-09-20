@@ -40,7 +40,7 @@ test('Phase 11 analytics exposes transparent subject/system/topic weakness and p
 test('analytics panel renders documented readiness, pace split and revision effectiveness',async({page})=>{
   await loadPhase11(page);
   await page.evaluate(()=>NEETPG_PHASE11.panel());
-  await expect(page.locator('#v11Analytics')).toContainText('Analytics Engine v2');
+  await expect(page.locator('#v11Analytics')).toContainText('Performance insights');
   await expect(page.locator('#v11Analytics')).toContainText('≤63s');
   await expect(page.locator('#v11Analytics')).toContainText('Coverage');
   await expect(page.locator('#v11Analytics')).toContainText('Revision');

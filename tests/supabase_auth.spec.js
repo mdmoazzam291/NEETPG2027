@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test('Connected Supabase backend keeps guest mode usable and RLS protects private tables', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('#statTotal')).toHaveText('100');
+  await expect(page.locator('#statTotal')).toHaveText('405');
 
   await page.addScriptTag({ url: '/assets/supabase-config.js' });
   await page.addScriptTag({ url: '/assets/auth-sync.js' });

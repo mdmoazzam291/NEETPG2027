@@ -68,7 +68,9 @@ test('Phase 13 backup export and import restore local study progress', async ({ 
   await expect(page.locator('#statAttempted')).toHaveText('0');
 
   await page.setInputFiles('#importBackup', backupPath);
-  await expect.poll(async () => Number(await page.locator('#statAttempted').textContent())).toBeGreaterThan(0);
+  await expect.poll(()=>page.evaluate(()=>app.attempts.length)).toBeGreaterThan(0);
+  await page.evaluate(()=>navigate('dashboard'));
+  await expect(page.locator('#statAttempted')).not.toHaveText('0');
   await expect(page.locator('#statBookmarks')).not.toHaveText('0');
 });
 
@@ -166,7 +168,9 @@ test('Pages deployment publishes a verifiable live Brain V2 status', async () =>
   expect(live).toContain('proposeSafePatch');
   expect(live).toContain('brainGatewayToken');
 
-  expect(workflow).toContain('GITHUB_SHA');
-  expect(workflow).toContain('_site/neuralvault/index.html');
-  expect(workflow).toContain('?v={version}');
+  expect(workflow).toContain('python scripts/build_static.py');
+  const build=fs.readFileSync('scripts/build_static.py','utf8');
+  expect(build).toContain('GITHUB_SHA');
+  expect(build).toContain('neuralvault/index.html');
+  expect(build).toContain('?v={version}');
 });

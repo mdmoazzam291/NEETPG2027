@@ -24,3 +24,8 @@ test('reimporting a backup does not duplicate attempts',async({page})=>{
   await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
   const counts=await page.evaluate(async()=>{const data={qstate:[],attempts:[{qid:app.questions[0].external_id,sessionId:'backup-test',ts:123456,selected:'A',correct:false}],sessions:[],custom:[]};const f=new File([JSON.stringify(data)],'backup.json');await importBackupFile(f);const before=app.attempts.length;await importBackupFile(f);return [before,app.attempts.length]});expect(counts).toEqual([1,1]);
 });
+test('Vault commits survive a failed localStorage cache write',async({page})=>{
+  await page.goto('/neuralvault/');await expect(page.locator('#editor')).toBeVisible();
+  await expect.poll(()=>page.evaluate(()=>Boolean(window.NeuralVaultDB))).toBe(true);
+  const saved=await page.evaluate(async()=>{const original=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw new DOMException('Full','QuotaExceededError')};try{await NeuralVaultDB.saveState({notes:[{id:'durable-test',title:'Durable',content:'Retained without cache',updatedAt:Date.now()}],currentId:'durable-test'});return (await NeuralVaultDB.loadState()).notes.find(n=>n.id==='durable-test')?.content}finally{Storage.prototype.setItem=original}});expect(saved).toBe('Retained without cache');
+});

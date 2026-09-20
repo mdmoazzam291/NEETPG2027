@@ -83,16 +83,16 @@ function ago(x){
 }
 function escapeRe(s){return String(s).replace(/[.*+?^$(){}|[\]\\]/g,'\\$&')}
 
-let saveQueue=Promise.resolve();
+let saveQueue=Promise.resolve(),lastCacheAt=0;
 function save(){
   state.currentId=currentId;state.savedAt=Date.now();
-  const snapshot=JSON.parse(JSON.stringify(state));
+  const snapshot=structuredClone(state);
   $('#saveState').textContent='Saving…';
   saveQueue=saveQueue.catch(()=>{}).then(async()=>{
     try{
       if(!window.NeuralVaultDB)throw new Error('Durable storage unavailable');
       await NeuralVaultDB.saveState(snapshot);
-      try{localStorage.setItem(KEY,JSON.stringify(snapshot))}catch{}
+      if(Date.now()-lastCacheAt>30000){try{localStorage.setItem(KEY,JSON.stringify(snapshot));lastCacheAt=Date.now()}catch{}}
       if(snapshot.savedAt===state.savedAt)$('#saveState').textContent='Saved on device';
       $('#storageStatus').textContent='Saved in IndexedDB';
     }catch(e){$('#saveState').textContent='Save failed — keep this tab open';$('#storageStatus').textContent=e.message;}
@@ -921,7 +921,7 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){$('#paletteBackdrop').hidden=true;$('#historyBackdrop').hidden=true;$('#brainSettingsBackdrop').hidden=true;$('#patchBackdrop').hidden=true;pendingPatch=null;closeSidebar();$('#noteMenu').hidden=true}
 });
 
-window.addEventListener('beforeunload',()=>save());
+window.addEventListener('pagehide',()=>{clearTimeout(saveTimer);try{state.currentId=currentId;state.savedAt=Date.now();localStorage.setItem(KEY,JSON.stringify(state))}catch{}save()});
 
 renderCurrent();
 hydrateDurable();

@@ -59,7 +59,7 @@ test('Review answers is read-only and does not create new attempts', async ({ pa
   await expect(page.locator('#sessionSummary')).toBeVisible();
 
   const countAttempts = () => page.evaluate(() => new Promise((resolve,reject) => {
-    const req=indexedDB.open('neetpg2027-static-v2',1);
+    const req=indexedDB.open('neetpg2027-static-v2');
     req.onerror=()=>reject(req.error);
     req.onsuccess=()=>{
       const c=req.result.transaction('attempts','readonly').objectStore('attempts').count();

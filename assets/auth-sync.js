@@ -142,6 +142,7 @@
   }
 
   function updateCloudUi(state='idle', detail=''){
+    window.dispatchEvent(new CustomEvent('neetpg:cloud-status')); 
     const user=cloud.user;
     const label=document.getElementById('accountLabel'), avatar=document.getElementById('accountAvatar');
     const status=document.getElementById('cloudStatus'), dot=document.getElementById('cloudDot'), d=document.getElementById('cloudDetail');
@@ -150,7 +151,7 @@
     if(user){
       if(label)label.textContent=cloud.profile?.display_name || user.email?.split('@')[0] || 'Account';
       if(avatar)avatar.textContent=initials(user);
-      if(status)status.textContent=state==='syncing'?'Syncing…':'Cloud sync active';
+      if(status)status.textContent=state==='error'?'Sync failed':state==='syncing'?'Syncing…':cloud.dirty?'Changes pending':cloud.lastSyncAt?'Synced':'Waiting to sync';
       if(d)d.textContent=detail || `${user.email || 'Signed in'}${cloud.lastSyncAt?` · Last sync ${new Date(cloud.lastSyncAt).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}`:''}`;
       signIn?.classList.add('hidden'); sync?.classList.remove('hidden'); signOut?.classList.remove('hidden'); saveProfile?.classList.remove('hidden'); profile?.classList.remove('hidden');
       const n=document.getElementById('cloudDisplayName'), goal=document.getElementById('cloudDailyGoal');
@@ -381,7 +382,7 @@
       const {data:{session},error}=await cloud.client.auth.getSession(); if(error)throw error;
       await setSession(session);
       cloud.client.auth.onAuthStateChange((_event,next)=>{setTimeout(()=>setSession(next),0);});
-      cloud.periodicTimer=setInterval(()=>{if(cloud.user && (cloud.dirty || app.session))syncNow();},30000);
+      cloud.periodicTimer=setInterval(()=>{if(document.visibilityState==='visible' && cloud.user && (cloud.dirty || app.session))syncNow();},30000);
     }catch(e){console.error('Supabase init failed',e);updateCloudUi('error',`Supabase unavailable: ${e.message || e}`);}
   }
 
