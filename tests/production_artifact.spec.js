@@ -14,6 +14,15 @@ test('production shell loads all scripts, preserves answers after reload and pag
   await page.evaluate(()=>navigate('bank'));await expect(page.locator('#bankBody tr')).toHaveCount(50);await page.locator('#bankPager [data-page="1"]').click();await expect(page.locator('#bankPager')).toContainText('Page 2');
   expect(errors).toEqual([]);
 });
+test('attempt annotations get a durable edit timestamp for cloud conflict resolution',async({page})=>{
+  await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
+  await page.click('#continueLearning');await page.locator('#qOptions .option').first().click();await page.click('#qSubmit');await expect(page.locator('#qFeedback')).toBeVisible();
+  const before=await page.evaluate(()=>app.session.lastAttempt.updatedAt||app.session.lastAttempt.ts);
+  await page.waitForTimeout(5);await page.fill('#attemptNote','sync edit survives reload');await page.locator('#attemptNote').dispatchEvent('change');
+  const edited=await page.evaluate(()=>({id:app.session.lastAttempt.id,updatedAt:app.session.lastAttempt.updatedAt,note:app.session.lastAttempt.note}));
+  expect(edited.updatedAt).toBeGreaterThan(before);expect(edited.note).toBe('sync edit survives reload');
+  await page.reload();await expect.poll(()=>page.evaluate(()=>app.attempts.some(a=>a.note==='sync edit survives reload'&&Number(a.updatedAt)>Number(a.ts)))).toBe(true);
+});
 test('production mobile themes have no horizontal overflow and target date persists',async({page})=>{
   await page.setViewportSize({width:390,height:844});await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
   await expect(page.locator('.mobile-bottom button')).toHaveCount(5);

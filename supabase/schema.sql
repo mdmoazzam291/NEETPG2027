@@ -50,6 +50,7 @@ create table if not exists public.attempts (
   session_id text not null default '',
   subject text,
   difficulty integer,
+  updated_at timestamptz not null default now(),
   primary key (user_id, client_key)
 );
 
@@ -57,6 +58,8 @@ create index if not exists attempts_user_happened_idx
   on public.attempts(user_id, happened_at desc);
 create index if not exists attempts_user_qid_idx
   on public.attempts(user_id, qid);
+create index if not exists attempts_user_updated_idx
+  on public.attempts(user_id, updated_at desc);
 
 create table if not exists public.study_sessions (
   user_id uuid not null references auth.users(id) on delete cascade,
