@@ -63,10 +63,11 @@ test('Phase 12 rolling study plan remains independent of the dedicated exam coun
 test('Phase 12 dashboard planner renders 15/30/60-minute and micro-session controls and can launch practice',async({page})=>{
   await loadPhase12(page);
   await page.evaluate(()=>NEETPG_PHASE12.panel());
+  await page.evaluate(()=>navigate('plan'));
   const host=page.locator('#v12Planner');
-  await expect(host).toContainText('Planning & adaptive revision v2');
+  await expect(host).toContainText('Your study plan');
   await expect(page.locator('.v4-dashboard > *').nth(0)).toHaveAttribute('id','v4ExamCountdown');
-  await expect(page.locator('.v4-dashboard > *').nth(1)).toHaveAttribute('id','v12Planner');
+  await expect(page.locator('#view-plan #v12Planner')).toBeVisible();
   await expect(page.locator('#v12Planner')).toHaveAttribute('data-dashboard-slot','planner');
   await expect(host).toContainText('Daily');
   await expect(host).toContainText('Weekly');
@@ -85,6 +86,7 @@ test('Phase 12 planner no longer renders exam countdown or exam-date controls',a
   await loadPhase12(page);
   await page.evaluate(()=>NEETPG_PHASE12.panel());
 
+  await page.evaluate(()=>navigate('plan'));
   const host=page.locator('#v12Planner');
   await expect(host).not.toContainText('Exam countdown');
   await expect(page.locator('#p12ExamDate')).toHaveCount(0);

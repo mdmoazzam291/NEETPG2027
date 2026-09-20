@@ -131,8 +131,8 @@
     const s = app.session;
     if (!s || s.cfg.timer !== 'neetpg') return originalStartTimer();
     clearInterval(s.timerId);
-    s._neetSectionIndex = 0;
-    s._neetSectionStartedAt = now();
+    s._neetSectionIndex ??= Math.floor(s.pos / SECTION_QUESTIONS);
+    s._neetSectionStartedAt ||= now();
     s._paceAlertedForPos = -1;
     s.timerId = setInterval(() => updateTimerLabel(), 250);
     updateTimerLabel();

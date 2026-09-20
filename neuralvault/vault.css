@@ -335,3 +335,6 @@ body.context-hidden .menu{right:14px}
   .patch-columns{grid-template-columns:1fr}
   .patch-columns pre{min-height:220px;max-height:35vh}
 }
+body[data-theme="light"]{--bg:#f7f8f7;--panel:#fff;--panel2:#eff4f2;--panel3:#e1f1ed;--border:#dce4e0;--border2:#c4d4cd;--text:#192724;--muted:#60716a;--accent:#0f766e;--accent2:#0f766e;--accent-soft:#e1f1ed;--shadow:0 16px 40px #19272414;color-scheme:light}
+body[data-theme="dark"]{--bg:#141418;--panel:#1e1e24;--panel2:#25252d;--panel3:#322a47;--border:#35343e;--border2:#494653;--text:#efedf5;--muted:#b2adbf;--accent:#c4b5fd;--accent2:#c4b5fd;--accent-soft:#322a47;color-scheme:dark}
+body[data-theme] .sidebar,body[data-theme] .context-panel,body[data-theme] .search-box,body[data-theme] kbd{background:var(--panel)}body[data-theme] .primary-btn{color:var(--bg)}body[data-theme] .primary-btn:hover{background:var(--accent2)}

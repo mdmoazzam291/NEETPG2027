@@ -18,8 +18,8 @@
           store.createIndex('savedAt', 'savedAt', { unique: false });
         }
       };
-      req.onsuccess = () => resolve(req.result);
-      req.onerror = () => reject(req.error);
+      tx.oncomplete = () => resolve(req.result);
+      tx.onerror = tx.onabort = () => reject(tx.error || new Error("Storage transaction failed"));
     });
     return dbPromise;
   }

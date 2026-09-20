@@ -240,20 +240,21 @@
 
   async function pullCloud(){
     const uid=cloud.user.id, since=localStorage.getItem(PULL_KEY(uid));
-    const qrows=await paged('question_state', q=>since?q.eq('user_id',uid).gt('updated_at',since):q.eq('user_id',uid));
+    const qrows=await paged('question_state', q=>q.eq('user_id',uid).order('qid',{ascending:true}));
     for(const r of qrows){
       const remote=qFromCloud(r), local=typeof stateFor==='function'?stateFor(remote.qid):null;
       if(!local || ms(remote.updatedAt)>ms(local.updatedAt)){ await dbPut('qstate',remote); app.states.set(remote.qid,remote); }
     }
 
-    const arows=await paged('attempts', q=>since?q.eq('user_id',uid).gt('happened_at',since).order('happened_at',{ascending:true}):q.eq('user_id',uid).order('happened_at',{ascending:true}));
+    const arows=await paged('attempts', q=>q.eq('user_id',uid).order('client_key',{ascending:true}));
+    cloud.remoteAttemptKeys=new Set(arows.map(r=>r.client_key));
     const localKeys=new Set((app.attempts||[]).map(attemptKey));
     for(const r of arows){
       const a=aFromCloud(r), key=attemptKey(a); if(localKeys.has(key))continue;
       const id=await dbAdd('attempts',a); a.id=id; app.attempts.push(a); localKeys.add(key);
     }
 
-    const srows=await paged('study_sessions', q=>since?q.eq('user_id',uid).gt('updated_at',since):q.eq('user_id',uid));
+    const srows=await paged('study_sessions', q=>q.eq('user_id',uid).order('session_id',{ascending:true}));
     const sessionMap=new Map((app.sessions||[]).map(x=>[x.id,x]));
     for(const r of srows){ const remote=sFromCloud(r), local=sessionMap.get(remote.id); if(!local || ms(r.updated_at)>ms(local.endedAt||local.startedAt)){await dbPut('sessions',remote);sessionMap.set(remote.id,remote);} }
     app.sessions=[...sessionMap.values()].sort((a,b)=>b.startedAt-a.startedAt);
@@ -278,13 +279,13 @@
 
   async function pushCloud(){
     const uid=cloud.user.id, since=localStorage.getItem(PUSH_KEY(uid)), sinceMs=ms(since);
-    const qrows=[...app.states.values()].filter(x=>!sinceMs || ms(x.updatedAt)>sinceMs).map(x=>qToCloud(x,uid));
+    const qrows=[...app.states.values()].map(x=>qToCloud(x,uid));
     for(const part of chunks(qrows)){const {error}=await cloud.client.from('question_state').upsert(part,{onConflict:'user_id,qid'});if(error)throw error;}
 
-    const arows=(app.attempts||[]).filter(x=>!sinceMs || x.ts>sinceMs).map(x=>aToCloud(x,uid));
+    const arows=(app.attempts||[]).filter(x=>!cloud.remoteAttemptKeys?.has(attemptKey(x))).map(x=>aToCloud(x,uid));
     for(const part of chunks(arows)){const {error}=await cloud.client.from('attempts').upsert(part,{onConflict:'user_id,client_key',ignoreDuplicates:true});if(error)throw error;}
 
-    const srows=(app.sessions||[]).filter(x=>!sinceMs || (x.endedAt||x.startedAt)>sinceMs).map(x=>sToCloud(x,uid));
+    const srows=(app.sessions||[]).map(x=>sToCloud(x,uid));
     for(const part of chunks(srows)){const {error}=await cloud.client.from('study_sessions').upsert(part,{onConflict:'user_id,session_id'});if(error)throw error;}
 
     const settingsRow={user_id:uid,settings:app.prefs,updated_at:new Date(Number(localStorage.getItem(PREFS_UPDATED_KEY)||Date.now())).toISOString()};
@@ -296,7 +297,7 @@
 
   function activePayload(){
     const s=app.session; if(!s || s.ended)return null;
-    return {sessionId:s.id,qids:s.questions.map(q=>q.external_id),pos:s.pos,cfg:s.cfg,answers:s.answers,startedAt:s.startedAt,currentStart:s.currentStart,selected:s.selected,confidence:s.confidence,savedAt:Date.now()};
+    return typeof sessionSnapshot==='function'?sessionSnapshot():null;
   }
   async function pushActiveSession(){
     if(!cloud.user)return;
@@ -318,26 +319,23 @@
 
   function resumeCloudSession(){
     const p=cloud.resumePayload; if(!p)return;
-    const qs=p.qids.map(id=>app.qMap.get(id)).filter(Boolean); if(!qs.length){if(typeof toast==='function')toast('Questions for this session are not available on this device');return;}
-    buildSession(qs,{...(p.cfg||{}),count:qs.length});
-    if(app.session){app.session.id=p.sessionId||app.session.id;app.session.pos=Math.min(Number(p.pos||0),qs.length-1);app.session.answers=Array.isArray(p.answers)?p.answers:[];app.session.startedAt=Number(p.startedAt||Date.now());app.session.currentStart=Date.now();renderQuestion();}
+    if(!restoreSessionPayload(p))return;
     if(typeof toast==='function')toast('Cloud session resumed');
   }
 
   async function syncNow({initial=false}={}){
     if(!cloud.user || cloud.syncing || !navigator.onLine)return;
-    cloud.syncing=true; updateCloudUi('syncing');
+    const version=cloud.changeVersion||0;cloud.syncing=true; updateCloudUi('syncing');
     try{
-      if(initial)await pullCloud();
+      await pullCloud();
       await pushCloud();
-      if(!initial)await pullCloud();
-      cloud.dirty=false; cloud.lastSyncAt=Date.now(); updateCloudUi('idle');
-    }catch(e){console.error('Cloud sync failed',e);updateCloudUi('error',`Sync failed: ${e.message || e}`);}
-    finally{cloud.syncing=false;}
+      cloud.dirty=cloud.changeVersion!==version;cloud.error=null; cloud.lastSyncAt=Date.now(); updateCloudUi('idle');
+    }catch(e){cloud.error=e.message||String(e);console.error('Cloud sync failed',e);updateCloudUi('error',`Sync failed: ${e.message || e}`);}
+    finally{cloud.syncing=false;window.dispatchEvent(new CustomEvent('neetpg:cloud-status'));}
   }
 
   function markDirty(){
-    cloud.dirty=true;
+    cloud.dirty=true;cloud.changeVersion=(cloud.changeVersion||0)+1;
     clearTimeout(cloud.syncTimer);
     cloud.syncTimer=setTimeout(()=>syncNow(),2500);
   }
@@ -350,6 +348,7 @@
     }else updateCloudUi();
   }
 
+  window.addEventListener('neetpg:prefs-change',markDirty);window.addEventListener('neetpg:progress-saved',markDirty);
   function bindUi(){
     document.getElementById('accountBtn')?.addEventListener('click',()=>cloud.user?navigate('settings'):openAuth());
     document.getElementById('cloudSignIn')?.addEventListener('click',openAuth);

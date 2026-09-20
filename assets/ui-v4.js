@@ -5,7 +5,7 @@
   const $qa = s => [...document.querySelectorAll(s)];
   const fmt = n => new Intl.NumberFormat('en-IN').format(Number(n || 0));
   const clampV4 = (n,a,b) => Math.max(a,Math.min(b,n));
-  const EXAM_TARGET = Object.freeze({ year: 2027, monthIndex: 7, day: 29, iso: '2027-08-29', label: '29 Aug 2027' });
+  const EXAM_TARGET = {iso: '2027-08-29'};try{const date=localStorage.getItem('neetpg2027-exam-target');if(/^\d{4}-\d{2}-\d{2}$/.test(date))EXAM_TARGET.iso=date}catch{}
   let examCountdownTimer = null;
 
   function examTargetTime(){
@@ -54,10 +54,11 @@
 
   const navItems = [
     ['dashboard','⌂','Dashboard'],
-    ['practice','▣','Practice'],
-    ['bank','▦','Question Bank'],
+    ['bank','▦','QBank'],
     ['review','↻','Revision'],
     ['neuralvault','◇','NeuralVault'],
+    ['mock','▣','Mock Exams'],
+    ['plan','▤','Study Plan'],
     ['analytics','◎','Analytics'],
     ['settings','⚙','Settings']
   ];
@@ -82,7 +83,9 @@
     });
   }
 
+  let durableNotes=null;
   function localVaultNotes(){
+    if(durableNotes)return durableNotes;
     try{
       const snapshot=JSON.parse(localStorage.getItem('neuralvault:v1')||'null');
       return Array.isArray(snapshot?.notes)?snapshot.notes:[];
@@ -164,6 +167,7 @@
 
   function openBankSearch(term,subject=''){
     if(typeof navigate==='function')navigate('bank');
+    for(const el of $qa('#view-bank select'))if([...el.options].some(o=>o.value==='all'))el.value='all';
     const sub=$q('#bankSubject');if(sub&&subject&&[...sub.options].some(o=>o.value===subject))sub.value=subject;
     const input=$q('#bankSearch');if(input){input.value=term;typeof bankFilter==='function'?bankFilter():input.dispatchEvent(new Event('input',{bubbles:true}))}
     hideGlobalSearch();
@@ -200,7 +204,7 @@
       search.innerHTML='<span>⌕</span><input id="v4SearchInput" aria-label="Search questions, topics and notes" placeholder="Search questions, topics, notes…" autocomplete="off"><kbd>⌘ K</kbd><div class="v4-search-results" id="v4SearchResults" hidden></div>';
       const spacer=$q('.topbar .spacer'); bar.insertBefore(search,spacer||bar.firstChild);
       const input=$q('#v4SearchInput'),results=$q('#v4SearchResults');
-      input?.addEventListener('input',e=>renderGlobalSearch(e.target.value));
+      let searchTimer;input?.addEventListener('input',e=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>renderGlobalSearch(e.target.value),160)});
       input?.addEventListener('focus',e=>{if(e.target.value.trim())renderGlobalSearch(e.target.value)});
       input?.addEventListener('keydown',e=>{
         if(e.key==='ArrowDown'){e.preventDefault();moveGlobalSearchSelection(1);return}
@@ -228,59 +232,31 @@
   }
 
   function dashboardMarkup(){
-    return `<div class="v4-dashboard">
-      <section class="card v4-exam-countdown" id="v4ExamCountdown" data-target="2027-08-29" aria-label="NEET-PG exam countdown to 29 August 2027">
-        <div class="v4-exam-copy">
-          <span class="v4-exam-kicker">NEET-PG 2027 TARGET</span>
-          <strong>29 Aug 2027</strong>
-          <small id="v4ExamCountdownStatus">Counting down continuously</small>
-        </div>
-        <div class="v4-exam-clock" aria-label="Time remaining">
-          <div><strong id="v4ExamDays">00</strong><span>Days</span></div>
-          <i>:</i>
-          <div><strong id="v4ExamHours">00</strong><span>Hours</span></div>
-          <i>:</i>
-          <div><strong id="v4ExamMinutes">00</strong><span>Minutes</span></div>
-          <i>:</i>
-          <div><strong id="v4ExamSeconds">00</strong><span>Seconds</span></div>
-        </div>
-      </section>
-      <section class="card hidden" id="v12Planner" data-dashboard-slot="planner" aria-label="Planning and adaptive revision"></section>
-      <div class="v4-greeting"><div><h2 id="v4Greeting">Good morning, Doctor!</h2><p>Small consistent steps lead to big results. Keep going.</p></div><div class="v4-quote">“Excellence in medicine is built one question at a time.”</div></div>
-      <div class="v4-kpis">
-        <div class="card v4-kpi"><span class="v4-kpi-icon teal">◎</span><div><div class="v4-kpi-label">Total Questions Solved</div><div class="v4-kpi-value" id="v4Solved">0</div><div class="v4-kpi-note" id="v4SolvedNote">Start your first session</div></div></div>
-        <div class="card v4-kpi"><span class="v4-kpi-icon purple">♨</span><div><div class="v4-kpi-label">Current Streak</div><div class="v4-kpi-value"><span id="v4Streak">0</span> days</div><div class="v4-kpi-note">Consistency compounds</div></div></div>
-        <div class="card v4-kpi"><span class="v4-kpi-icon gold">★</span><div><div class="v4-kpi-label">Your XP</div><div class="v4-kpi-value" id="v4Xp">0</div><div class="v4-kpi-note" id="v4XpNote">Level 1</div></div></div>
-        <div class="card v4-kpi"><span class="v4-kpi-icon blue">▥</span><div><div class="v4-kpi-label">Readiness Score</div><div class="v4-kpi-value" id="v4Readiness">0%</div><div class="v4-kpi-note">Personal progress estimate</div></div></div>
-      </div>
-      <div class="v4-analytics-row">
-        <div class="card v4-card-pad"><div class="v4-card-title"><h3>▣ Weekly Study Heatmap</h3><small>Past 12 weeks</small></div><div class="v4-heatmap" id="v4Heatmap"></div><div class="v4-heat-foot"><span>12 weeks ago</span><span>Less ▪ ▪ ▪ ▪ More</span><span>Today</span></div></div>
-        <div class="card v4-card-pad"><div class="v4-card-title"><h3>◎ Subject-wise Accuracy</h3><small>Attempted subjects</small></div><div class="v4-subject-bars" id="v4SubjectBars"></div></div>
-        <div class="card v4-card-pad"><div class="v4-card-title"><h3>◷ Time per Question</h3><small>Recent pace</small></div><div class="v4-time-main"><div><strong id="v4AvgTime">—</strong><div><span>Avg. seconds / question</span></div></div><span id="v4PaceNote">63 sec NEET-PG pace</span></div><div class="v4-spark" id="v4Spark"></div><div class="v4-confidence"><div class="v4-ring" id="v4ConfRing" style="--ring:0%"><strong id="v4ConfPct">—</strong></div><div class="v4-conf-copy"><b>Confidence Calibration</b><br><span id="v4ConfCopy">Answer with confidence ratings to calibrate certainty.</span></div></div></div>
-      </div>
-      <div class="card v4-quick"><div class="v4-quick-head"><strong>🚀 Quick Start</strong><span>Choose a mode and get started</span></div><div class="v4-quick-grid">
-        <button class="v4-quick-btn teal" data-v4-quick="rapid"><span><b>Rapid 15</b><small>15 Qs · mixed · timed</small></span><span>→</span></button>
-        <button class="v4-quick-btn indigo" data-v4-quick="errors"><span><b>Error Drill</b><small>Attack your weak areas</small></span><span>→</span></button>
-        <button class="v4-quick-btn gold" data-v4-quick="mock"><span><b>Mock Test</b><small>Exam-style practice</small></span><span>→</span></button>
-        <button class="v4-quick-btn purple" data-v4-quick="smart"><span><b>Smart Session</b><small>Adaptive mixed practice</small></span><span>→</span></button>
-      </div></div>
-      <div class="v4-bottom">
-        <div class="card v4-card-pad"><div class="v4-card-title"><h3>▥ Revise Next</h3><small>Performance + forgetting curve</small></div><div class="v4-revise-list" id="v4ReviseNext"></div></div>
-        <div class="card v4-card-pad"><div class="v4-card-title"><h3>↻ Review Queue</h3><small>Spaced repetition</small></div><div class="v4-review-counters"><div class="v4-review-box"><strong id="v4DueToday">0</strong><small>Due Today</small></div><div class="v4-review-box"><strong id="v4Incorrect">0</strong><small>Incorrect</small></div><div class="v4-review-box"><strong id="v4Bookmarks">0</strong><small>Bookmarks</small></div></div><button class="btn v4-review-start" id="v4StartReview">Start Reviewing →</button></div>
-        <div class="card v4-card-pad" id="v4Achievements"><div class="v4-card-title"><h3>♕ Achievements</h3><small>Your milestones</small></div><div class="v4-achievements" id="v4AchievementList"></div></div>
-      </div>
-    </div>`;
+    return `<div class="v4-dashboard simple-dashboard">
+      <section class="card compact-countdown" id="v4ExamCountdown" data-target="${EXAM_TARGET.iso}" aria-label="Study target countdown"><div><small>Your target date · <span id="targetDateLabel"></span></small><strong><span id="v4ExamDays">00</span> days <span id="v4ExamHours">00</span>:<span id="v4ExamMinutes">00</span>:<span id="v4ExamSeconds">00</span></strong><span id="v4ExamCountdownStatus" class="sr-only"></span></div><button class="btn small" id="editTarget">Edit date</button><form id="targetForm" hidden><label>Personal target date <input type="date" id="targetDate" required></label><button class="btn small" type="submit">Save date</button></form></section>
+      <div class="v4-greeting"><div><h2 id="v4Greeting">Ready to study, Dr.?</h2><p>Small steps. A stronger you.</p></div></div>
+      <div class="study-grid"><section class="card study-card"><h3>Continue learning</h3><div id="continueDetail"></div><button class="btn primary" id="continueLearning">Start a session</button><button class="btn small" id="customPractice">Customize practice →</button></section>
+      <section class="card study-card"><h3>Today</h3><div id="todaySummary"></div><button class="text-action" data-home-view="plan">View study plan →</button></section>
+      <section class="card study-card"><h3>Revision</h3><div class="revision-tabs" role="tablist" aria-label="Revision collections">${[['due','Due'],['incorrect','Incorrect'],['bookmarked','Bookmarks'],['notes','Notes']].map(([key,label],i)=>`<button role="tab" aria-selected="${i===0}" data-home-review="${key}">${label}</button>`).join('')}</div><div id="homeRevision"></div><button class="text-action" id="allRevision">View all →</button></section>
+      <section class="card study-card"><h3>Recent notes</h3><div id="homeNotes"></div><a class="text-action" href="neuralvault/">Open vault →</a></section></div></div>`;
   }
-
+  let reviewKind='due';
   function installDashboard(){
-    const section=$q('#view-dashboard');if(!section)return;
-    section.innerHTML=dashboardMarkup();
-    section.addEventListener('click',e=>{
-      const quick=e.target.closest('[data-v4-quick]'); if(quick) launchQuick(quick.dataset.v4Quick);
-    });
-    $q('#v4StartReview')?.addEventListener('click',()=>{if(typeof navigate==='function')navigate('review');setTimeout(()=>$q('#startDue')?.click(),0)});
-    syncExamCountdown();
-    window.dispatchEvent(new CustomEvent('neetpg:dashboard-render'));
+    const section=$q('#view-dashboard');if(!section)return;section.innerHTML=dashboardMarkup();
+    for(const [id,title] of [['plan','Study Plan'],['mock','Mock Exams']])if(!$q('#view-'+id)){const v=document.createElement('section');v.className='view';v.id='view-'+id;v.innerHTML=`<h2>${title}</h2>`+(id==='plan'?'<section class="card study-card" id="v12Planner" data-dashboard-slot="planner"></section>':'<section class="card study-card"><h3>Practice under exam conditions</h3><p>Timed sections, question navigation and a detailed review after submission.</p><button class="btn primary exam9-launch" id="openMock">Start mock exam</button></section>');section.parentElement.append(v)}
+    $q('#openMock').onclick=()=>window.NEETPG_EXAM9?.open();
+    $q('#targetDateLabel').textContent=new Date(EXAM_TARGET.iso+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+    $q('#targetDate').value=EXAM_TARGET.iso;$q('#editTarget').onclick=()=>{$q('#targetForm').hidden=!$q('#targetForm').hidden};
+    $q('#targetForm').onsubmit=e=>{e.preventDefault();EXAM_TARGET.iso=$q('#targetDate').value;try{localStorage.setItem('neetpg2027-exam-target',EXAM_TARGET.iso)}catch{toast('Date could not be saved on this device.')} $q('#targetDateLabel').textContent=EXAM_TARGET.iso;$q('#targetForm').hidden=true;renderExamCountdown()};
+    $q('#continueLearning').onclick=()=>{if(app.session)navigate('practice');else if(app.savedSession)restoreSessionPayload();else window.NEETPG_PHASE12?.startPlan(15)||launchQuick('rapid')};
+    $q('#customPractice').onclick=()=>navigate('practice');
+    $q('[data-home-view]').onclick=()=>navigate('plan');
+    $qa('[data-home-review]').forEach(b=>b.onclick=()=>{reviewKind=b.dataset.homeReview;renderV4Dashboard()});
+    $q('#allRevision').onclick=()=>{navigate('review');activateReviewTab(reviewKind==='due'?'quick':reviewKind==='incorrect'?'quick':reviewKind==='bookmarked'?'bookmarks':'notes')};
+    const bottom=document.createElement('nav');bottom.className='mobile-bottom';bottom.setAttribute('aria-label','Main navigation');bottom.innerHTML=[['dashboard','⌂','Home'],['bank','▦','QBank'],['review','↻','Revise'],['neuralvault','◇','Vault'],['more','•••','More']].map(([key,icon,label])=>`<button data-mobile-target="${key}"><span>${icon}</span>${label}</button>`).join('');document.body.append(bottom);
+    bottom.onclick=e=>{const b=e.target.closest('button');if(!b)return;const target=b.dataset.mobileTarget;if(target==='neuralvault')location.href='neuralvault/';else if(target==='more')$q('#menuBtn').click();else navigate(target)};
+    window.NeuralVaultDB?.loadState().then(v=>{durableNotes=v?.notes||localVaultNotes();renderV4Dashboard()}).catch(()=>{});
+    syncExamCountdown();window.dispatchEvent(new CustomEvent('neetpg:dashboard-render'));
   }
 
   function setNavActive(view){
@@ -343,25 +319,24 @@
   }
 
   function renderV4Dashboard(){
-    if(!$q('#v4Solved')||typeof app==='undefined')return;
-    const attempts=app.attempts||[];const states=app.states||new Map();const total=app.questions?.length||0;
-    const correct=attempts.filter(a=>a.correct).length;const acc=attempts.length?correct/attempts.length:0;const coverage=[...states.values()].filter(s=>s.attempts).length;
-    let streak=0;try{streak=typeof calcStreak==='function'?calcStreak():0}catch{}
-    let due=0,wrong=0,bm=0;try{due=typeof dueQuestions==='function'?dueQuestions().length:0;wrong=typeof incorrectQuestions==='function'?incorrectQuestions().length:0;bm=typeof bookmarkedQuestions==='function'?bookmarkedQuestions().length:0}catch{}
-    const xp=attempts.length*10+correct*5+(app.sessions?.length||0)*25;const level=Math.max(1,Math.floor(xp/2000)+1);const readiness=total?Math.round((acc*.65+(coverage/total)*.35)*100):0;
-    $q('#v4Greeting').textContent=`Good ${new Date().getHours()<12?'morning':new Date().getHours()<18?'afternoon':'evening'}, ${currentUserName()}!`;
-    $q('#v4Solved').textContent=fmt(attempts.length);$q('#v4Streak').textContent=streak;$q('#v4Xp').textContent=fmt(xp);$q('#v4XpNote').textContent=`Level ${level}`;$q('#v4Readiness').textContent=`${readiness}%`;
-    const weekAgo=Date.now()-7*86400000;const recent=attempts.filter(a=>a.ts>=weekAgo).length;$q('#v4SolvedNote').textContent=recent?`+${recent} in the last 7 days`:'Start your first session';
-    $q('#v4Heatmap').innerHTML=heatmap(attempts);renderSubjects();renderSpark(attempts);reviseNext();
-    $q('#v4DueToday').textContent=due;$q('#v4Incorrect').textContent=wrong;$q('#v4Bookmarks').textContent=bm;if($q('#v4NavDue'))$q('#v4NavDue').textContent=due;
-    const timed=attempts.filter(a=>Number(a.elapsed)>0);const avg=timed.length?Math.round(timed.reduce((s,a)=>s+Number(a.elapsed),0)/timed.length):null;$q('#v4AvgTime').textContent=avg??'—';$q('#v4PaceNote').textContent=avg?avg<=63?'On NEET-PG pace':'Target: 63 sec':'63 sec NEET-PG pace';
-    const confident=attempts.filter(a=>Number(a.confidence)>=4);const confAcc=confident.length?Math.round(confident.filter(a=>a.correct).length/confident.length*100):0;$q('#v4ConfRing').style.setProperty('--ring',`${confAcc}%`);$q('#v4ConfPct').textContent=confident.length?`${confAcc}%`:'—';$q('#v4ConfCopy').textContent=confident.length?`${confAcc}% of high-confidence answers were correct across ${confident.length} attempts.`:'Answer with confidence ratings to calibrate certainty.';
-    let subjects={};try{subjects=typeof subjectStats==='function'?subjectStats():{}}catch{}achievements(attempts,streak,subjects);
-    const cloud=window.NEETPG_CLOUD;const dot=$q('#v4SyncPill .v4-sync-dot'),txt=$q('#v4SyncText');if(dot&&txt){const signed=!!cloud?.user;dot.classList.toggle('local',!signed);txt.textContent=signed?(cloud.syncing?'Syncing':'Synced'):'Local';}
+    if(!$q('#continueDetail')||typeof app==='undefined')return;
+    const escape=escapeHtml,s=app.session,p=s?sessionSnapshot():app.savedSession;
+    const q=p?.qids?.length?app.qMap.get(p.qids[p.pos||0]):null;
+    $q('#continueDetail').innerHTML=q?`<div class="study-topic">${escape(q.topic||q.subject)}</div><p class="muted">Question ${(p.pos||0)+1} of ${p.qids.length}</p><progress max="${p.qids.length}" value="${p.pos||0}" aria-label="Session progress"></progress>`:'<div class="study-topic">Your next small step</div><p class="muted">A focused 15-minute mix, tailored to your progress.</p>';
+    $q('#continueLearning').textContent=p?'Resume session':'Start learning';
+    const today=app.attempts.filter(a=>dayKeyLocal(a.ts)===dayKeyLocal(Date.now())),goal=window.NEETPG_PHASE12?.profileGoal?.()||50,due=dueQuestions().length;
+    $q('#todaySummary').innerHTML=`<p><span class="study-symbol">▤</span><strong>${today.length} / ${goal}</strong> questions</p><p><span class="study-symbol">◷</span><strong>${due}</strong> reviews due</p><p><span class="study-symbol">◴</span><strong>${Math.round(today.reduce((n,a)=>n+Number(a.elapsed||0),0)/60)} min</strong> focused</p>`;
+    $qa('[data-home-review]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.homeReview===reviewKind)));
+    const rows=reviewCollection(reviewKind).slice(0,3);$q('#homeRevision').innerHTML=rows.length?rows.map(q=>`<button class="home-row" data-home-q="${escape(q.external_id)}"><span class="study-symbol">▤</span><span>${escape(q.topic)}<small>${escape(q.subject)}</small></span><span>›</span></button>`).join(''):'<p class="muted empty-home">'+(reviewKind==='due'?'All caught up. New reviews will appear here.':'No items in this collection yet.')+'</p>';
+    $qa('[data-home-q]').forEach(b=>b.onclick=()=>{const q=app.qMap.get(b.dataset.homeQ);buildSession([q],{...builtInPreset('rapid'),count:1})});
+    const notes=[...localVaultNotes()].sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt)).slice(0,3);$q('#homeNotes').innerHTML=notes.length?notes.map(n=>`<a class="home-row" href="neuralvault/?note=${encodeURIComponent(n.id)}"><span class="study-symbol">▤</span><span>${escape(n.title)}<small>${escape(n.path||'Vault note')}</small></span><span>›</span></a>`).join(''):'<p class="muted empty-home">Capture your first note in NeuralVault.</p>';
+    if($q('#v4NavDue'))$q('#v4NavDue').textContent=due;
+    updateSyncPill();
   }
+  function updateSyncPill(){const cloud=window.NEETPG_CLOUD,txt=$q('#v4SyncText');if(txt)txt.textContent=!navigator.onLine?'Offline':!cloud?.user?'Saved on device':cloud.error?'Sync failed':cloud.syncing?'Syncing…':cloud.dirty?'Changes pending':cloud.lastSyncAt?'Synced':'Waiting to sync'}
 
   function renderLifecycle(view='dashboard'){
-    setNavActive(view);
+    setNavActive(view);$qa('[data-mobile-target]').forEach(b=>{const active=b.dataset.mobileTarget===view;b.classList.toggle('active',active);if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
     if(view==='dashboard'){
       renderV4Dashboard();
       syncExamCountdown();
@@ -379,7 +354,8 @@
     window.addEventListener('neetpg:core-ready',()=>{document.body.dataset.v4ready='1';renderLifecycle($q('.view.active')?.id?.replace('view-','')||'dashboard')});
     if(document.body.dataset.coreReady==='1')document.body.dataset.v4ready='1';
     document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$q('#v4SearchInput')?.focus();}});
-    setInterval(()=>{if($q('#view-dashboard')?.classList.contains('active'))renderV4Dashboard()},15000);
+    window.addEventListener('neetpg:cloud-status',updateSyncPill);window.addEventListener('online',updateSyncPill);window.addEventListener('offline',updateSyncPill);
+    setInterval(()=>{if(document.visibilityState==='visible'&&$q('#view-dashboard.active'))renderV4Dashboard()},60000);
   }
 
   document.addEventListener('visibilitychange',syncExamCountdown);

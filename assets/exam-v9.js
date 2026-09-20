@@ -15,8 +15,6 @@ function saveHistory(summary){let arr=[];try{arr=JSON.parse(localStorage.getItem
 function inject(){if($('#exam9Backdrop'))return;document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="assets/exam-v9.css">');
  const host=document.createElement('div');host.id='exam9Backdrop';host.className='exam9-backdrop';host.innerHTML=`<div class="exam9-shell"><main class="exam9-main"><header class="exam9-head"><div class="exam9-brand"><strong>NEETPG2027</strong><span id="exam9HeaderSub">Exam Simulator</span></div><div style="display:flex;gap:8px;align-items:center"><div id="exam9Clock" class="exam9-clock">42:00</div><button id="exam9Close" class="exam9-btn">Exit</button></div></header><section id="exam9Body" class="exam9-body"></section><footer id="exam9Actions" class="exam9-actions"></footer></main><aside id="exam9Side" class="exam9-side"></aside></div>`;document.body.appendChild(host);
  const t=document.createElement('div');t.id='exam9Toast';t.className='exam9-toast';document.body.appendChild(t);
- const nav=document.querySelector('.sidebar .nav');if(nav){const b=document.createElement('button');b.className='v4-nav-item';b.innerHTML='<span>🧪</span><span>Exam Simulator</span>';b.onclick=openStart;nav.appendChild(b)}
- const top=document.querySelector('.top-actions');if(top){const b=document.createElement('button');b.className='btn exam9-launch';b.textContent='🧪 Exam';b.onclick=openStart;top.prepend(b)}
  $('#exam9Close').onclick=()=>{persist();close()};
 }
 function show(){document.body.style.overflow='hidden';$('#exam9Backdrop').classList.add('show')}

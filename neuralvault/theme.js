@@ -1,0 +1,5 @@
+(() => {
+  const key='neetpg2027-v2-settings';
+  function apply(){let prefs={};try{prefs=JSON.parse(localStorage.getItem(key)||'{}')}catch{}const theme=prefs.theme==='dark'||prefs.theme==='light'?prefs.theme:matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.body.dataset.theme=theme;document.documentElement.style.colorScheme=theme;const b=document.getElementById('vaultTheme');if(b){b.textContent=theme==='dark'?'☀':'☾';b.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode')}}
+  const b=document.createElement('button');b.id='vaultTheme';b.className='icon-btn';b.onclick=()=>{let p={};try{p=JSON.parse(localStorage.getItem(key)||'{}');p.theme=document.body.dataset.theme==='dark'?'light':'dark';localStorage.setItem(key,JSON.stringify(p));localStorage.setItem('neetpg2027-v2-settings-updated',String(Date.now()));apply()}catch{}};document.querySelector('.brand-row').append(b);apply();window.addEventListener('storage',apply);matchMedia('(prefers-color-scheme:dark)').addEventListener('change',apply);
+})();

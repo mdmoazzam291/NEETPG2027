@@ -133,6 +133,7 @@
         if (!worker) return;
         banner.classList.remove('hidden');
         $('#applyAppUpdate').onclick = () => {
+          if((typeof app!=='undefined'&&app.session)||window.NEETPG_EXAM9?.state){toast('Finish your active session before updating.');return;}
           reloadRequested = true;
           worker.postMessage({ type: 'SKIP_WAITING' });
         };

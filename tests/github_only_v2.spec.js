@@ -24,12 +24,15 @@ test('Question bank, analytics and settings render', async ({ page }) => {
   await page.evaluate(()=>navigate('bank'));
   await expect(page.locator('#bankSearch')).toBeVisible();
   await expect(page.locator('#bankCount')).toHaveText('405 of 405 questions');
-  await expect(page.locator('#bankBody tr')).toHaveCount(405);
+  await expect(page.locator('#bankBody tr')).toHaveCount(50);
   const rendered=await page.evaluate(()=>({
     loaded:app.questions.length,
     rows:document.querySelectorAll('#bankBody tr').length
   }));
-  expect(rendered.rows).toBe(rendered.loaded);
+  expect(rendered.rows).toBe(50);
+  expect(rendered.loaded).toBe(405);
+  await page.locator('#bankPager [data-page="1"]').click();
+  await expect(page.locator('#bankPager')).toContainText('Page 2 of 9');
   await page.locator('#bankSearch').fill('scapholunate');
   await expect(page.locator('#bankCount')).toContainText('1 of 405');
   await page.evaluate(()=>navigate('analytics'));

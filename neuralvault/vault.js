@@ -83,14 +83,20 @@ function ago(x){
 }
 function escapeRe(s){return String(s).replace(/[.*+?^$(){}|[\]\\]/g,'\\$&')}
 
+let saveQueue=Promise.resolve();
 function save(){
-  state.currentId=currentId;
-  state.savedAt=Date.now();
-  localStorage.setItem(KEY,JSON.stringify(state));
-  $('#saveState').textContent='Saved locally';
-  if(window.NeuralVaultDB){
-    NeuralVaultDB.saveState(state).then(()=>{$('#storageStatus').textContent='IndexedDB + local cache'}).catch(()=>{$('#storageStatus').textContent='Local cache only'});
-  }
+  state.currentId=currentId;state.savedAt=Date.now();
+  const snapshot=JSON.parse(JSON.stringify(state));
+  $('#saveState').textContent='Saving…';
+  saveQueue=saveQueue.catch(()=>{}).then(async()=>{
+    try{
+      if(!window.NeuralVaultDB)throw new Error('Durable storage unavailable');
+      await NeuralVaultDB.saveState(snapshot);
+      try{localStorage.setItem(KEY,JSON.stringify(snapshot))}catch{}
+      if(snapshot.savedAt===state.savedAt)$('#saveState').textContent='Saved on device';
+      $('#storageStatus').textContent='Saved in IndexedDB';
+    }catch(e){$('#saveState').textContent='Save failed — keep this tab open';$('#storageStatus').textContent=e.message;}
+  });return saveQueue;
 }
 
 async function hydrateDurable(){
@@ -102,7 +108,7 @@ async function hydrateDurable(){
       currentId=requestedNoteId&&state.notes.some(n=>n.id===requestedNoteId)
         ? requestedNoteId
         : state.notes.some(n=>n.id===state.currentId)?state.currentId:state.notes[0].id;
-      localStorage.setItem(KEY,JSON.stringify(state));
+      try{localStorage.setItem(KEY,JSON.stringify(state))}catch{}
       renderCurrent();
     }else{
       await NeuralVaultDB.saveState(state);
@@ -334,7 +340,7 @@ function scheduleSave(){
     save();renderBacklinks();renderRelated();renderProps();renderMedical();
     if(view==='preview')$('#preview').innerHTML=markdown(current().content);
     if(window.NeuralVaultDB)NeuralVaultDB.checkpoint(current(),'autosave').catch(()=>{});
-  },240);
+  },600);
 }
 
 function openNote(noteId){
