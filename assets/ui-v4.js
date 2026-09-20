@@ -272,7 +272,7 @@
   let reviewKind='due';
   function installDashboard(){
     const section=$q('#view-dashboard');if(!section)return;section.innerHTML=dashboardMarkup();
-    for(const [id,title] of [['plan','Study Plan'],['mock','Mock Exams']])if(!$q('#view-'+id)){const v=document.createElement('section');v.className='view';v.id='view-'+id;v.innerHTML=`<h2>${title}</h2>`+(id==='plan'?'<section class="card study-card" id="v12Planner" data-dashboard-slot="planner"></section>':'<section class="card study-card"><h3>Practice under exam conditions</h3><p>Timed sections, question navigation and a detailed review after submission.</p><button class="btn primary exam9-launch" id="openMock">Start mock exam</button></section>');section.parentElement.append(v)}
+    for(const [id,title] of [['plan','Study Plan'],['mock','Mock Exams']])if(!$q('#view-'+id)){const v=document.createElement('section');v.className='view';v.id='view-'+id;v.innerHTML=`<h2>${title}</h2>`+(id==='plan'?'<section class="card study-card" id="v12Planner" data-dashboard-slot="planner"></section>':'<section class="card study-card"><h3>NEET-PG REAL EXAM SIMULATION</h3><p>180 questions · 720 marks · 3 hours 30 minutes</p><p>5 time-bound sections · 36 questions × 42 minutes · +4 / −1 / 0</p><button class="btn primary exam9-launch" id="openMock">START FULL MOCK</button></section>');section.parentElement.append(v)}
     $q('#openMock').onclick=()=>window.NEETPG_EXAM9?.open();
     $q('#targetDateLabel').textContent=formatExamTargetLabel(EXAM_TARGET.iso);
     $q('#targetDate').value=EXAM_TARGET.iso;$q('#editTarget').onclick=()=>{$q('#targetForm').hidden=!$q('#targetForm').hidden};
@@ -391,3 +391,4 @@
   document.addEventListener('visibilitychange',syncExamCountdown);
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,60));else setTimeout(init,60);
 })();
+

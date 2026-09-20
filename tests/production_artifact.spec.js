@@ -102,13 +102,12 @@ test('Analytics includes saved mocks and unfinished sessions without duplicates 
  await expect(page.locator('#sessionHistory .list-item')).toHaveCount(10);await page.locator('#sessionHistoryPager [data-page="1"]').click();await expect(page.locator('#sessionHistory .list-item')).toHaveCount(4);
 });
 
-test('failed mock save can retry without duplicating attempts and records a durable session',async({page})=>{
- await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
- await page.evaluate(()=>{app.questions=app.questions.slice(0,2);window.NEETPG_EXAM9.startAvailable();const original=dbPut;window.__restorePut=()=>{dbPut=original};dbPut=async(store,value)=>{if(store==='sessions')throw new Error('Test storage failure');return original(store,value)}});
- await page.click('#exam9SubmitSection');await expect(page.locator('#exam9Retry')).toBeVisible();
- expect(await page.evaluate(()=>app.attempts.length)).toBe(2);
- expect(await page.evaluate(()=>!!localStorage.getItem('neetpg2027-exam-v9-active'))).toBe(true);
- await page.evaluate(()=>window.__restorePut());await page.click('#exam9Retry');await expect(page.locator('#exam9Done')).toBeVisible();
- expect(await page.evaluate(()=>app.attempts.length)).toBe(2);expect(await page.evaluate(async()=>(await dbAll('sessions')).length)).toBe(1);
- await page.click('#exam9Done');await page.evaluate(()=>navigate('analytics'));await expect(page.locator('#sessionHistory')).toContainText('Mock');await expect(page.locator('#sessionHistoryPager')).toContainText('1 sessions');
+test('production mock result persists once and selective revision remains independent',async({context,page})=>{
+ const {fixture,connect,begin}=require('./helpers/exam_fixture.cjs');
+ const server=await fixture(context);await connect(page,{built:true});await begin(page,true);
+ await page.check('#exam9Option0');await expect.poll(()=>server.get().responses[0].selected).toBe('A');
+ server.advance(2520);await page.click('#exam9Retry');await expect(page.locator('.exam9-score')).toContainText('4 / 144');
+ await expect.poll(()=>page.evaluate(async()=>(await dbAll('sessions')).length)).toBe(1);
+ await page.click('#exam9SyncResult');expect(await page.evaluate(async()=>(await dbAll('attempts')).length)).toBe(36);
+ await page.click('#exam9Done');await page.evaluate(()=>navigate('analytics'));await expect(page.locator('#sessionHistory')).toContainText('Mock');
 });
