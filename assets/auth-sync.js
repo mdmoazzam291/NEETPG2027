@@ -418,7 +418,8 @@
   }
 
   async function syncNow({initial=false}={}){
-    if(!cloud.user || !navigator.onLine)return;
+    if(!cloud.user)return;
+    if(!navigator.onLine){if(cloud.dirty)updateCloudUi('idle','Offline · changes pending and will sync automatically when connection returns.');return;}
     if(cloud.syncing){cloud.syncQueued=true;return;}
     const uid=cloud.user.id, version=cloud.changeVersion||0;cloud.syncing=true;cloud.syncQueued=false;updateCloudUi('syncing');
     try{
@@ -434,7 +435,7 @@
   }
 
   function markDirty(){
-    cloud.dirty=true;cloud.changeVersion=(cloud.changeVersion||0)+1;
+    cloud.dirty=true;cloud.changeVersion=(cloud.changeVersion||0)+1;updateCloudUi('idle');
     clearTimeout(cloud.syncTimer);
     cloud.syncTimer=setTimeout(()=>syncNow(),2500);
   }
@@ -474,7 +475,11 @@
     },true);
     document.addEventListener('change',e=>{if(cloud.user && e.target.closest('#mistakeCategory,#attemptNote,#questionNote,#cloudDisplayName,#cloudDailyGoal'))markDirty();},true);
     window.addEventListener('online',()=>{updateCloudUi();if(cloud.user)syncNow();});
-    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&cloud.user&&cloud.dirty)syncNow();});
+    document.addEventListener('visibilitychange',()=>{
+      if(!cloud.user)return;
+      if(document.visibilityState==='hidden'){if(cloud.dirty)syncNow();}
+      else if(navigator.onLine)syncNow();
+    });
   }
 
   async function initCloud(){
@@ -487,7 +492,7 @@
       const {data:{session},error}=await cloud.client.auth.getSession(); if(error)throw error;
       await setSession(session);
       cloud.client.auth.onAuthStateChange((_event,next)=>{setTimeout(()=>setSession(next),0);});
-      cloud.periodicTimer=setInterval(()=>{if(document.visibilityState==='visible' && cloud.user && (cloud.dirty || app.session))syncNow();},30000);
+      cloud.periodicTimer=setInterval(()=>{if(document.visibilityState==='visible' && cloud.user && navigator.onLine)syncNow();},30000);
     }catch(e){console.error('Supabase init failed',e);updateCloudUi('error',`Supabase unavailable: ${e.message || e}`);}
   }
 
