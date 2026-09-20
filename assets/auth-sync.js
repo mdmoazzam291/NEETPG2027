@@ -425,6 +425,7 @@
       if(cloud.user?.id!==uid)return;
       const pushVersion=cloud.changeVersion||0;
       await pushCloud();
+      if(cloud.user?.id!==uid)return;
       cloud.dirty=cloud.changeVersion!==pushVersion;cloud.error=null;cloud.lastSyncAt=Date.now();updateCloudUi('idle');
     }catch(e){cloud.error=e.message||String(e);console.error('Cloud sync failed',e);updateCloudUi('error',`Sync failed: ${e.message || e}`);}
     finally{
