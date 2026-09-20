@@ -76,7 +76,7 @@ test('production Revision schedules answers immediately and keeps the sidebar qu
   const geometry=await page.evaluate(()=>({
     width:innerWidth,
     scrollWidth:document.documentElement.scrollWidth,
-    offenders:[...document.querySelectorAll('body *')].map(el=>{const r=el.getBoundingClientRect();return{tag:el.tagName,id:el.id,cls:String(el.className||''),left:r.left,right:r.right,width:r.width}}).filter(x=>x.width>0&&(x.right>innerWidth+2||x.left<-2)).slice(0,20)
+    offenders:[...document.querySelectorAll('body *')].map(el=>{const r=el.getBoundingClientRect();return{tag:el.tagName,id:el.id,cls:String(el.className||''),left:r.left,right:r.right,width:r.width,scrollWidth:el.scrollWidth}}).filter(x=>x.width>0&&x.right>innerWidth+2).sort((a,b)=>b.right-a.right).slice(0,20)
   }));
   expect(geometry.scrollWidth<=geometry.width+2,JSON.stringify(geometry)).toBe(true);
 });
