@@ -149,3 +149,12 @@ test('cloud sync excludes Mock Exams attempts from SRS counters and repairs cont
   expect(result.lastSyncAt).toBeTruthy();
   expect(result.error).toBeNull();
 });
+
+
+test('initial cloud sync change counter is zero so a successful first sync settles cleanly', async ({ page }) => {
+  await page.goto('/');
+  const source=await page.evaluate(async()=>await (await fetch('/assets/auth-sync.js')).text());
+  expect(source).toContain("dirty: false,\n    changeVersion: 0,\n    syncTimer: null,");
+  expect(source).toContain("const pushVersion=cloud.changeVersion||0;");
+  expect(source).toContain("cloud.dirty=cloud.changeVersion!==pushVersion");
+});
