@@ -96,7 +96,7 @@ test('cloud sync does not re-upload unchanged rows after an acknowledged push', 
   expect(first).toBeGreaterThan(0);
   const before=await page.evaluate(()=>window.NEETPG_CLOUD.lastSyncAt);
   await page.click('#cloudSyncNow');
-  await expect.poll(()=>page.evaluate(t=>window.NEETPG_CLOUD.lastSyncAt>t),{timeout:5000}).toBe(true,{timeout:5000},before);
+  await expect.poll(()=>page.evaluate(t=>window.NEETPG_CLOUD.lastSyncAt>t,before),{timeout:5000}).toBe(true);
   const second=await page.evaluate(()=>window.__syncUpserts.filter(x=>x.table==='question_state').reduce((n,x)=>n+x.count,0));
   expect(second).toBe(first);
 });
