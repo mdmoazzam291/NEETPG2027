@@ -7,6 +7,7 @@ test('Connected Supabase backend keeps guest mode usable and RLS protects privat
   await page.addScriptTag({ url: '/assets/supabase-config.js' });
   await page.addScriptTag({ url: '/assets/auth-sync.js' });
   await page.addScriptTag({ url: '/assets/auth-provider-guard.js' });
+  await page.addScriptTag({ url: '/assets/auth-v2.js' });
 
   await expect(page.locator('#accountBtn')).toBeVisible();
   await expect(page.locator('#accountLabel')).toHaveText('Sign in');
