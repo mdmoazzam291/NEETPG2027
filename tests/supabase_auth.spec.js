@@ -69,8 +69,11 @@ test('cloud sync does not re-upload unchanged local rows after a successful push
   await page.goto('/');
   await page.evaluate(async()=>{
     const now=Date.now();
-    const s=stateFor(app.questions[0].id);
-    const next={...s,attempts:1,correct:1,incorrect:0,lastCorrect:true,updatedAt:now};
+    const q=app.questions.find(x=>x?.id)||app.questions.find(x=>x?.qid);
+    const qid=q?.id||q?.qid;
+    if(!qid)throw new Error('No question id available for sync fixture');
+    const s=stateFor(qid);
+    const next={...s,qid,attempts:1,correct:1,incorrect:0,lastCorrect:true,updatedAt:now};
     await dbPut('qstate',next);app.states.set(next.qid,next);
   });
   await page.addScriptTag({content: `
