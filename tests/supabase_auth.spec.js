@@ -36,7 +36,13 @@ test('Connected Supabase backend keeps guest mode usable and RLS protects privat
   await page.click('#accountBtn');
   await expect(page.locator('#authModal')).toHaveClass(/show/);
   await expect(page.locator('#authSubmit')).toHaveText('Sign in');
-  await expect(page.locator('#authGoogle')).toBeHidden();
+  const googleEnabled = await page.evaluate(async () => {
+    const cfg=window.NEETPG_SUPABASE;
+    const res=await fetch(String(cfg.url).replace(/\/$/,'')+'/auth/v1/settings',{headers:{apikey:cfg.anonKey}});
+    const settings=await res.json();
+    return Boolean(settings?.external?.google);
+  });
+  await expect.poll(()=>page.locator('#authGoogle').isVisible()).toBe(googleEnabled);
   await page.click('#authClose');
 
   await page.click('[data-view="practice"]');
