@@ -141,3 +141,36 @@ test('Revision renders imported question ids as inert data attributes', async ({
   expect(result.onclick).toBeNull();
   expect(result.triggered).toBe(0);
 });
+
+test('Revision practice uses the searched collection and disables empty matches',async({page})=>{
+  await loadRevisionUi(page);
+  await page.evaluate(()=>{for(const [i,q] of app.questions.slice(0,2).entries())app.states.set(q.external_id,{...stateFor(q.external_id),bookmarked:true,note:'filter-marker-'+i});navigate('review');activateReviewTab('bookmarks')});
+  await page.fill('#bookmarkListControls input','filter-marker-1');
+  await expect(page.locator('#bookmarkList [data-practice-q]')).toHaveCount(1);
+  await page.click('#startDue');
+  expect(await page.evaluate(()=>app.session.questions.length)).toBe(1);
+  expect(await page.evaluate(()=>stateFor(currentQ().external_id).note)).toBe('filter-marker-1');
+  await page.evaluate(()=>navigate('review'));
+  await page.fill('#bookmarkListControls input','no-matching-question');
+  await expect(page.locator('#startDue')).toBeDisabled();
+});
+
+test('Revision keyboard interaction cannot answer or bookmark hidden practice',async({page})=>{
+  await loadRevisionUi(page);
+  await page.evaluate(()=>{buildSession(app.questions.slice(0,2),{...builtInPreset('rapid'),timer:'off'});app.session.selected=currentQ().options[0].label;navigate('review')});
+  await page.locator('[data-review-tab="bookmarks"]').focus();
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('b');
+  expect(await page.evaluate(()=>app.session.answers.length)).toBe(0);
+  expect(await page.evaluate(()=>!!stateFor(currentQ().external_id).bookmarked)).toBe(false);
+});
+
+test('manual review rating is persisted in the active session snapshot',async({page})=>{
+  await waitCore(page);
+  await page.evaluate(()=>buildSession(app.questions.slice(0,2),{...builtInPreset('rapid'),feedback:'instant',timer:'off'}));
+  await page.locator('#qOptions .option').first().click();await page.click('#qSubmit');
+  await expect(page.locator('#qFeedback')).toBeVisible();await page.click('[data-rating="easy"]');
+  await expect.poll(()=>page.evaluate(async()=>(await dbAll('runtime'))[0]?.payload?.rating)).toBe('easy');
+  await page.reload();await expect.poll(()=>page.evaluate(()=>!!app.savedSession)).toBe(true);
+  await page.evaluate(()=>restoreSessionPayload());await expect(page.locator('[data-rating="easy"]')).toHaveClass(/primary/);
+});

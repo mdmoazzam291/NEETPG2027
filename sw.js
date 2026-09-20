@@ -1,4 +1,4 @@
-const RELEASE='2026-09-20-study-dashboard-1';
+const RELEASE='2026-09-20-revision-analytics-2';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[
