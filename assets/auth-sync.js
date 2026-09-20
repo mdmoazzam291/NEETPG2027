@@ -423,10 +423,11 @@
     try{
       await pullCloud();
       if(cloud.user?.id!==uid)return;
-      const pushVersion=cloud.changeVersion||0;
       await pushCloud();
       if(cloud.user?.id!==uid)return;
-      cloud.dirty=cloud.changeVersion!==pushVersion;cloud.error=null;cloud.lastSyncAt=Date.now();updateCloudUi('idle');
+      // A successful push includes any pull-reconciled state. Do not let progress
+      // events emitted by that reconciliation manufacture an endless retry cycle.
+      cloud.dirty=false;cloud.error=null;cloud.lastSyncAt=Date.now();updateCloudUi('idle');
     }catch(e){cloud.error=e.message||String(e);console.error('Cloud sync failed',e);updateCloudUi('error',`Sync failed: ${e.message || e}`);}
     finally{
       cloud.syncing=false;window.dispatchEvent(new CustomEvent('neetpg:cloud-status'));
