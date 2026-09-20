@@ -120,6 +120,25 @@ test('Phase 13 prevents initial cloud sync from deleting a remote active session
   expect(result.resumePayload).toBeNull();
 });
 
+test('completed practice never performs a broad cross-device active-session delete', async ({ request }) => {
+  const hardening = await (await request.get('/assets/phase13-hardening.js')).text();
+  const appSource = await (await request.get('/assets/app.js')).text();
+  expect(hardening).not.toContain("await window.NEETPG_CLOUD?.clearActiveSession?.()");
+  expect(appSource).toContain("emitUi('session-finished'");
+  expect(appSource).toContain("emitUi('progress-saved')");
+});
+
+test('exam target participates in cloud settings without replacing unrelated remote fields', async ({ request }) => {
+  const auth = await (await request.get('/assets/auth-sync.js')).text();
+  const ui = await (await request.get('/assets/ui-v4.js')).text();
+  expect(auth).toContain("const EXAM_TARGET_KEY = 'neetpg2027-exam-target'");
+  expect(auth).toContain('remoteSettingsSnapshot');
+  expect(auth).toContain('settingsPayload.examTarget=examTarget');
+  expect(auth).toContain('NEETPG_V4_SET_EXAM_TARGET');
+  expect(ui).toContain('window.NEETPG_V4_SET_EXAM_TARGET=setExamTarget');
+  expect(ui).toContain("new CustomEvent('neetpg:prefs-change'");
+});
+
 test('Phase 13 cloud conflict policy is deterministic and deletion is explicitly guarded', async ({ request }) => {
   const auth = await (await request.get('/assets/auth-sync.js')).text();
   const guard = await (await request.get('/assets/phase13-preauth.js')).text();
