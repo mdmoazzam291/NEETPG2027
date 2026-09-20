@@ -93,10 +93,14 @@ test('starting Revision after answer review restores practice controls',async({p
 
 test('Analytics includes saved mocks and unfinished sessions without duplicates and paginates',async({page})=>{
  await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
- await page.evaluate(()=>{
-  app.sessions=Array.from({length:12},(_,i)=>({id:'complete-'+i,startedAt:Date.now()-i*1000,count:2,correct:1,mode:'Practice'}));
+ await page.evaluate(async()=>{
+  const sessions=Array.from({length:12},(_,i)=>({id:'complete-'+i,startedAt:Date.now()-i*1000,count:2,correct:1,mode:'Practice'}));
+  for(const session of sessions)await dbPut('sessions',session);
+  await loadState();
   localStorage.setItem('neetpg2027-exam-v9-history',JSON.stringify([{id:'complete-0',finishedAt:Date.now(),total:2,correct:1,mode:'available'},{id:'legacy-mock',finishedAt:Date.now(),total:4,correct:3,mode:'available'}]));
-  app.savedSession={sessionId:'unfinished',qids:app.questions.slice(0,2).map(q=>q.external_id),answers:[],startedAt:Date.now()+100,cfg:{mode:'rapid'}};navigate('analytics');
+  app.savedSession={sessionId:'unfinished',qids:app.questions.slice(0,2).map(q=>q.external_id),answers:[],startedAt:Date.now()+100,cfg:{mode:'rapid'}};
+  await dbPut('runtime',{id:'active',payload:app.savedSession});
+  navigate('analytics');
  });
  await expect(page.locator('#sessionHistoryPager')).toContainText('14 sessions');await expect(page.locator('#sessionHistory')).toContainText('In progress');await expect(page.locator('#sessionHistory')).toContainText('Mock');
  await expect(page.locator('#sessionHistory .list-item')).toHaveCount(10);await page.locator('#sessionHistoryPager [data-page="1"]').click();await expect(page.locator('#sessionHistory .list-item')).toHaveCount(4);
