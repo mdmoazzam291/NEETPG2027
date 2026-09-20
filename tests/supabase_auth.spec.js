@@ -101,3 +101,15 @@ test('cloud sync does not loop when pull reconciliation changes local state', as
   expect(state.writes).toBeLessThan(8);
   expect(state.lastSyncAt).toBeGreaterThan(0);
 });
+
+
+test('cloud sync preserves mock score metadata and advances successful push watermarks', async ({ page }) => {
+  await page.goto('/');
+  const source = await page.evaluate(async () => await (await fetch('/assets/auth-sync.js')).text());
+  expect(source).toContain("payload:{score:Number.isFinite(Number(s.score))?Number(s.score):null,source:s.mode?.startsWith('Mock · ')?'exam-simulator':'study'}");
+  expect(source).toContain("score:Number.isFinite(Number(payload.score))?Number(payload.score):undefined");
+  expect(source).toContain("cloud.remoteQUpdated.set(row.qid,ms(row.updated_at))");
+  expect(source).toContain("cloud.remoteAttemptUpdated.set(row.client_key,ms(row.updated_at||row.happened_at))");
+  expect(source).toContain("cloud.remoteSessionUpdated.set(row.session_id,ms(row.updated_at))");
+  expect(source).toContain("cloud.remoteSettingsUpdated=localSettingsUpdated");
+});
