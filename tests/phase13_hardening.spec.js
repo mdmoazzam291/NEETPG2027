@@ -123,7 +123,7 @@ test('Phase 13 prevents initial cloud sync from deleting a remote active session
 test('Phase 13 cloud conflict policy is deterministic and deletion is explicitly guarded', async ({ request }) => {
   const auth = await (await request.get('/assets/auth-sync.js')).text();
   const guard = await (await request.get('/assets/phase13-preauth.js')).text();
-  const schema = await (await request.get('/supabase/schema.sql')).text();
+  const schema = fs.readFileSync('supabase/schema.sql','utf8');
 
   expect(auth).toContain('ms(remote.updatedAt)>ms(local.updatedAt)');
   expect(auth).toContain('remoteAttemptUpdated');
