@@ -158,3 +158,31 @@ test('initial cloud sync change counter is zero so a successful first sync settl
   expect(source).toContain("const pushVersion=cloud.changeVersion||0;");
   expect(source).toContain("cloud.dirty=cloud.changeVersion!==pushVersion");
 });
+
+
+test('cloud sync does not re-upload unchanged rows after an acknowledged push', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(async()=>{
+    const qid='sync-regression-question';
+    const now=Date.now(),s=stateFor(qid),next={...s,qid,attempts:1,correct:1,incorrect:0,lastCorrect:true,updatedAt:now};
+    await dbPut('qstate',next);app.states.set(qid,next);
+  });
+  await page.addScriptTag({content: `
+    window.__syncUpserts=[];
+    const query=()=>{const q={select(){return q},eq(){return q},order(){return q},range(){return Promise.resolve({data:[],error:null})},maybeSingle(){return Promise.resolve({data:null,error:null})}};return q;};
+    window.NEETPG_SUPABASE={url:'https://example.supabase.co',anonKey:'public-test-key',redirectUrl:location.href,googleEnabled:false};
+    window.supabase={createClient:()=>({
+      from:(table)=>({select(){return query()},upsert:async(rows)=>{window.__syncUpserts.push({table,count:Array.isArray(rows)?rows.length:1});return {error:null}},delete(){const q=query();q.eq=()=>q;q.then=(resolve)=>resolve({error:null});return q}}),
+      auth:{getSession:async()=>({data:{session:{user:{id:'sync-user',email:'sync@example.com'}}},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}}),signOut:async()=>({error:null})}
+    })};
+  `});
+  await page.addScriptTag({ url: '/assets/auth-sync.js' });
+  await expect.poll(()=>page.evaluate(()=>window.NEETPG_CLOUD?.lastSyncAt||0),{timeout:15000}).toBeGreaterThan(0);
+  const first=await page.evaluate(()=>window.__syncUpserts.filter(x=>x.table==='question_state').reduce((n,x)=>n+x.count,0));
+  expect(first).toBeGreaterThan(0);
+  const before=await page.evaluate(()=>window.NEETPG_CLOUD.lastSyncAt);
+  await page.locator('#cloudSyncNow').evaluate(el=>el.click());
+  await expect.poll(()=>page.evaluate(t=>window.NEETPG_CLOUD.lastSyncAt>t,before),{timeout:5000}).toBe(true);
+  const second=await page.evaluate(()=>window.__syncUpserts.filter(x=>x.table==='question_state').reduce((n,x)=>n+x.count,0));
+  expect(second).toBe(first);
+});
