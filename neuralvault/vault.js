@@ -83,14 +83,20 @@ function ago(x){
 }
 function escapeRe(s){return String(s).replace(/[.*+?^$(){}|[\]\\]/g,'\\$&')}
 
+let saveQueue=Promise.resolve(),lastCacheAt=0;
 function save(){
-  state.currentId=currentId;
-  state.savedAt=Date.now();
-  localStorage.setItem(KEY,JSON.stringify(state));
-  $('#saveState').textContent='Saved locally';
-  if(window.NeuralVaultDB){
-    NeuralVaultDB.saveState(state).then(()=>{$('#storageStatus').textContent='IndexedDB + local cache'}).catch(()=>{$('#storageStatus').textContent='Local cache only'});
-  }
+  state.currentId=currentId;state.savedAt=Date.now();
+  const snapshot=structuredClone(state);
+  $('#saveState').textContent='Saving…';
+  saveQueue=saveQueue.catch(()=>{}).then(async()=>{
+    try{
+      if(!window.NeuralVaultDB)throw new Error('Durable storage unavailable');
+      await NeuralVaultDB.saveState(snapshot);
+      if(Date.now()-lastCacheAt>30000){try{localStorage.setItem(KEY,JSON.stringify(snapshot));lastCacheAt=Date.now()}catch{}}
+      if(snapshot.savedAt===state.savedAt)$('#saveState').textContent='Saved on device';
+      $('#storageStatus').textContent='Saved in IndexedDB';
+    }catch(e){$('#saveState').textContent='Save failed — keep this tab open';$('#storageStatus').textContent=e.message;}
+  });return saveQueue;
 }
 
 async function hydrateDurable(){
@@ -102,7 +108,7 @@ async function hydrateDurable(){
       currentId=requestedNoteId&&state.notes.some(n=>n.id===requestedNoteId)
         ? requestedNoteId
         : state.notes.some(n=>n.id===state.currentId)?state.currentId:state.notes[0].id;
-      localStorage.setItem(KEY,JSON.stringify(state));
+      try{localStorage.setItem(KEY,JSON.stringify(state))}catch{}
       renderCurrent();
     }else{
       await NeuralVaultDB.saveState(state);
@@ -334,7 +340,7 @@ function scheduleSave(){
     save();renderBacklinks();renderRelated();renderProps();renderMedical();
     if(view==='preview')$('#preview').innerHTML=markdown(current().content);
     if(window.NeuralVaultDB)NeuralVaultDB.checkpoint(current(),'autosave').catch(()=>{});
-  },240);
+  },600);
 }
 
 function openNote(noteId){
@@ -908,14 +914,14 @@ document.addEventListener('keydown',e=>{
   const mod=e.metaKey||e.ctrlKey,k=e.key.toLowerCase();
   if(mod&&k==='k'){e.preventDefault();showPalette()}
   if(mod&&k==='n'){e.preventDefault();createNote()}
-  if(mod&&k==='s'){e.preventDefault();save();toast('Vault saved locally')}
+  if(mod&&k==='s'){e.preventDefault();save().then(()=>{if($('#saveState').textContent==='Saved on device')toast('Vault saved on device')})}
   if(mod&&k==='p'){e.preventDefault();setView('preview')}
   if(mod&&e.shiftKey&&k==='g'){e.preventDefault();setView('graph')}
   if(mod&&e.shiftKey&&k==='b'){e.preventDefault();setView('brain')}
   if(e.key==='Escape'){$('#paletteBackdrop').hidden=true;$('#historyBackdrop').hidden=true;$('#brainSettingsBackdrop').hidden=true;$('#patchBackdrop').hidden=true;pendingPatch=null;closeSidebar();$('#noteMenu').hidden=true}
 });
 
-window.addEventListener('beforeunload',()=>save());
+window.addEventListener('pagehide',()=>{clearTimeout(saveTimer);try{state.currentId=currentId;state.savedAt=Date.now();localStorage.setItem(KEY,JSON.stringify(state))}catch{}save()});
 
 renderCurrent();
 hydrateDurable();

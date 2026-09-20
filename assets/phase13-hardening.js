@@ -21,7 +21,7 @@
     const footer = $('.sidebar-footer');
     const footerText = 'Local-first. Study data stays on this device offline; sign in to sync supported progress securely across devices.';
     if (footer && footer.textContent !== footerText) footer.textContent = footerText;
-    const calloutText = 'Local backup remains the recovery path. When signed in, supported progress, SRS, notes, bookmarks and sessions also sync through Supabase.';
+    const calloutText = 'Backup includes study progress, question notes, custom questions, settings, plans, exam history, the saved practice session, and NeuralVault notes and revisions. Cloud sync covers supported study progress; Vault content stays on this device.';
     $$('.settings-grid .callout').forEach(el => {
       if (/does not sync progress between devices/i.test(el.textContent || '') && el.textContent !== calloutText) el.textContent = calloutText;
     });
@@ -133,6 +133,7 @@
         if (!worker) return;
         banner.classList.remove('hidden');
         $('#applyAppUpdate').onclick = () => {
+          if((typeof app!=='undefined'&&app.session)||window.NEETPG_EXAM9?.state){toast('Finish your active session before updating.');return;}
           reloadRequested = true;
           worker.postMessage({ type: 'SKIP_WAITING' });
         };
@@ -220,9 +221,8 @@
     setupServiceWorkerUpdates();
     bindRecoverySignals();
     refreshSessionControls();
-    const cloudObserver = new MutationObserver(refreshSessionControls);
-    cloudObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
-    setInterval(refreshSessionControls, 3000);
+    window.addEventListener('neetpg:cloud-status',refreshSessionControls);
+    window.addEventListener('neetpg:core-ready',refreshSessionControls);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });

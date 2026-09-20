@@ -2,7 +2,7 @@
   'use strict';
 
   const DB_NAME = 'neuralvault-v2';
-  const DB_VERSION = 1;
+  const DB_VERSION = 2;
   let dbPromise = null;
 
   function open() {
@@ -11,6 +11,7 @@
       const req = indexedDB.open(DB_NAME, DB_VERSION);
       req.onupgradeneeded = () => {
         const db = req.result;
+        if (!db.objectStoreNames.contains('notes')) db.createObjectStore('notes', {keyPath:'id'});
         if (!db.objectStoreNames.contains('vault')) db.createObjectStore('vault', { keyPath: 'key' });
         if (!db.objectStoreNames.contains('revisions')) {
           const store = db.createObjectStore('revisions', { keyPath: 'id', autoIncrement: true });
@@ -18,8 +19,8 @@
           store.createIndex('savedAt', 'savedAt', { unique: false });
         }
       };
-      req.onsuccess = () => resolve(req.result);
-      req.onerror = () => reject(req.error);
+      req.onsuccess = () => {req.result.onversionchange=()=>req.result.close();resolve(req.result)};
+      req.onerror = () => {dbPromise=null;reject(req.error)};
     });
     return dbPromise;
   }
@@ -30,22 +31,33 @@
       const tx = db.transaction(storeName, mode);
       const store = tx.objectStore(storeName);
       const req = action(store);
-      req.onsuccess = () => resolve(req.result);
-      req.onerror = () => reject(req.error);
+      tx.oncomplete = () => resolve(req.result);
+      tx.onerror = tx.onabort = () => reject(tx.error || new Error("Storage transaction failed"));
     });
   }
 
+  let writeQueue=Promise.resolve();
   async function loadState() {
-    const row = await request('vault', 'readonly', store => store.get('primary'));
-    return row ? row.state : null;
+    const meta=await request('vault','readonly',s=>s.get('metadata'));
+    if(meta){const notes=await request('notes','readonly',s=>s.getAll());const byId=new Map(notes.map(n=>[n.id,n]));return {...meta.state,notes:meta.ids.map(id=>byId.get(id)).filter(Boolean)}}
+    const row=await request('vault','readonly',s=>s.get('primary'));
+    return row?.state||null;
   }
-
-  async function saveState(state) {
-    const snapshot = JSON.parse(JSON.stringify(state));
-    snapshot.savedAt = Date.now();
-    await request('vault', 'readwrite', store => store.put({ key: 'primary', state: snapshot }));
-    return snapshot.savedAt;
+  function saveState(state) {
+    const snapshot=structuredClone(state);snapshot.savedAt=Date.now();
+    const work=async()=>{
+      const db=await open();
+      return new Promise((resolve,reject)=>{
+        const tx=db.transaction(['notes','vault'],'readwrite'),notes=tx.objectStore('notes'),vault=tx.objectStore('vault');
+        const req=notes.getAll();
+        req.onsuccess=()=>{const old=new Map(req.result.map(n=>[n.id,n]));for(const note of snapshot.notes||[]){if(JSON.stringify(old.get(note.id))!==JSON.stringify(note))notes.put(note);old.delete(note.id)}for(const id of old.keys())notes.delete(id);const {notes:_,...metadata}=snapshot;vault.put({key:'metadata',state:metadata,ids:(snapshot.notes||[]).map(n=>n.id)})};
+        tx.oncomplete=()=>resolve(snapshot.savedAt);tx.onerror=tx.onabort=()=>reject(tx.error||new Error('Vault save failed'));
+      });
+    };
+    writeQueue=writeQueue.catch(()=>{}).then(work);return writeQueue;
   }
+  async function exportRevisions(){return request('revisions','readonly',s=>s.getAll())}
+  async function importRevisions(rows){const existing=await exportRevisions(),key=r=>[r.noteId,r.savedAt,r.content].join('|'),known=new Set(existing.map(key));for(const r of rows||[]){if(!r.noteId||known.has(key(r)))continue;const {id,...row}=r;await request('revisions','readwrite',s=>s.add(row));known.add(key(r))}}
 
   async function checkpoint(note, reason = 'autosave') {
     if (!note || !note.id) return;
@@ -91,8 +103,9 @@
   }
 
   async function clear() {
+    await writeQueue.catch(()=>{});
     const db = await open();
-    await Promise.all(['vault','revisions'].map(name => new Promise((resolve,reject) => {
+    await Promise.all(['vault','notes','revisions'].map(name => new Promise((resolve,reject) => {
       const tx = db.transaction(name,'readwrite');
       const req = tx.objectStore(name).clear();
       req.onsuccess = resolve;
@@ -100,5 +113,5 @@
     })));
   }
 
-  window.NeuralVaultDB = { open, loadState, saveState, checkpoint, revisions, clear };
+  window.NeuralVaultDB = { open, loadState, saveState, checkpoint, revisions, exportRevisions, importRevisions, clear };
 })();

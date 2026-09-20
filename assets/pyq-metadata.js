@@ -158,7 +158,7 @@
       </div>`;
     content.appendChild(section);
 
-    const nav = document.querySelector('.nav') || document.querySelector('.v4-nav');
+    const nav = document.querySelector('#view-bank .section-title') || document.querySelector('#view-bank');
     if (nav && !nav.querySelector('[data-view="pyq"]')) {
       const b = document.createElement('button');
       b.dataset.view = 'pyq';
@@ -358,8 +358,8 @@
     }
 
     if (typeof baseRenderQuestion === 'function') {
-      window.renderQuestion = function() {
-        baseRenderQuestion();
+      window.renderQuestion = function(...args) {
+        baseRenderQuestion(...args);
         const q = typeof currentQ === 'function' ? currentQ() : null;
         const index = repeatIndex();
         if (q) enrich(q, index);
@@ -378,9 +378,8 @@
     }
 
     if (typeof baseBankFilter === 'function') {
-      window.bankFilter = function() {
-        baseBankFilter();
-        applyBankFilters();
+      window.bankFilter = function(...args) {
+        baseBankFilter(...args);
       };
     }
 
@@ -400,7 +399,7 @@
     for (const id of ['bankSearch','bankSubject','bankSystem','bankStatus','bankDifficulty','bankYear','bankRepeat']) {
       document.querySelector(`#${id}`)?.addEventListener('input', () => {
         baseBankFilter?.();
-        applyBankFilters();
+
       });
     }
     const practice = document.querySelector('#practiceFiltered');
@@ -429,7 +428,7 @@
       installIntelligenceView();
       patchCore();
       bindUi();
-      applyBankFilters();
+      window.bankFilter?.();
       renderIntelligence();
       window.NEETPG_PYQ = {
         version:2,

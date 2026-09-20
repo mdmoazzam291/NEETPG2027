@@ -11,20 +11,20 @@ test('premium dashboard renders reference-inspired study UI', async ({ page }) =
   await page.goto('/');
   await loadV4(page);
   await expect(page.locator('.v4-brand-row')).toContainText('NEETPG2027');
-  await expect(page.locator('.v4-nav')).toHaveCount(7);
+  await expect(page.locator('.v4-nav')).toHaveCount(8);
   await expect(page.locator('.v4-nav[data-v4-label="NeuralVault"]')).toBeVisible();
-  await expect(page.locator('#v4Greeting')).toContainText('Doctor');
+  await expect(page.locator('#v4Greeting')).toContainText('Ready to study');
   await expect(page.locator('.v4-dashboard > *').first()).toHaveAttribute('id','v4ExamCountdown');
   await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-08-29');
-  await expect(page.locator('#v4ExamCountdown')).toContainText('29 Aug 2027');
+  await expect(page.locator('#v4ExamCountdown')).toContainText('2027');
   await expect(page.locator('#v4ExamDays')).toBeVisible();
   await expect(page.locator('#v4ExamHours')).toBeVisible();
   await expect(page.locator('#v4ExamMinutes')).toBeVisible();
   await expect(page.locator('#v4ExamSeconds')).toBeVisible();
-  await expect(page.locator('.v4-kpi')).toHaveCount(4);
-  await expect(page.locator('.v4-heat-cell')).toHaveCount(84);
-  await expect(page.locator('[data-v4-quick]')).toHaveCount(4);
-  await expect(page.locator('#v4StartReview')).toHaveCount(1);
+  await expect(page.locator('.study-grid > .study-card')).toHaveCount(4);
+  await expect(page.locator('#todaySummary')).toContainText('reviews due');
+  await expect(page.locator('[data-home-review]')).toHaveCount(4);
+  await expect(page.locator('#continueLearning')).toBeVisible();
   await expect(page.locator('#v4CoreCompat')).toHaveCount(0);
   await expect(page.locator('.v4-legacy')).toHaveCount(0);
 });
@@ -41,7 +41,7 @@ test('global search opens the question bank and applies the query', async ({ pag
 test('rapid 15 quick start launches a practice session', async ({ page }) => {
   await page.goto('/');
   await loadV4(page,{timer:true});
-  await page.click('[data-v4-quick="rapid"]');
+  await page.click('#continueLearning');
   await expect(page.locator('#view-practice')).toHaveClass(/active/);
   await expect(page.locator('#practiceShell')).not.toHaveClass(/hidden/);
   await expect(page.locator('#qStem')).not.toBeEmpty();
@@ -116,14 +116,14 @@ test('primary navigation contains only truthful destinations and highlights the 
   await page.goto('/');
   await loadV4(page);
 
-  await expect(page.locator('.v4-nav')).toHaveCount(7);
-  await expect(page.locator('.v4-nav')).toHaveCount(7);
+  await expect(page.locator('.v4-nav')).toHaveCount(8);
+  await expect(page.locator('.v4-nav')).toHaveCount(8);
   const labels = await page.locator('.v4-nav').evaluateAll(nodes => nodes.map(n => n.dataset.v4Label));
-  expect(labels).toEqual(['Dashboard','Practice','Question Bank','Revision','NeuralVault','Analytics','Settings']);
+  expect(labels).toEqual(['Dashboard','QBank','Revision','NeuralVault','Mock Exams','Study Plan','Analytics','Settings']);
 
   for (const [label, view] of [
-    ['Practice','practice'],
-    ['Question Bank','bank'],
+    ['Study Plan','plan'],
+    ['QBank','bank'],
     ['Revision','review'],
     ['Analytics','analytics'],
     ['Settings','settings']
@@ -166,8 +166,8 @@ test('exam countdown is pinned to IST and pauses outside dashboard', async ({ pa
   expect(dataTarget).toBe('2027-08-29');
   expect(target).toBe(1819477800000);
 
-  await page.locator('.v4-nav[data-v4-label="Practice"]').click();
-  await expect(page.locator('#view-practice')).toHaveClass(/active/);
+  await page.locator('.v4-nav[data-v4-label="QBank"]').click();
+  await expect(page.locator('#view-bank')).toHaveClass(/active/);
   const before = await page.locator('#v4ExamSeconds').textContent();
   await page.waitForTimeout(1200);
   const after = await page.locator('#v4ExamSeconds').textContent();
@@ -245,7 +245,7 @@ test('global search finds local NeuralVault notes and opens the exact note', asy
 test('theme toggle persists and does not reset an active answer', async ({ page }) => {
   await page.goto('/');
   await loadV4(page);
-  await page.click('[data-v4-quick="rapid"]');
+  await page.click('#continueLearning');
   await page.locator('.option').first().click();
   const selected = await page.locator('.option.selected').textContent();
   const previous = await page.locator('body').getAttribute('data-theme');
@@ -292,9 +292,10 @@ test('exam navigation is a standalone readable sidebar destination', async ({ pa
   await page.addStyleTag({url:'/assets/exam-v9.css'});
   await page.addScriptTag({url:'/assets/exam-v9.js'});
   await expect(page.locator('#exam9Backdrop')).not.toBeVisible();
-  const exam=page.locator('.sidebar .nav > .v4-nav-item');
-  await expect(exam).toContainText('Exam Simulator');
+  const exam=page.locator('.v4-nav[data-v4-label="Mock Exams"]');
+  await expect(exam).toContainText('Mock Exams');
   await expect(page.locator('.nav button button')).toHaveCount(0);
   await exam.click();
+  await page.click('#openMock');
   await expect(page.locator('#exam9Backdrop')).toBeVisible();
 });

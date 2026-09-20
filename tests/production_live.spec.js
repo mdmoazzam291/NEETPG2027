@@ -8,11 +8,11 @@ test('live GitHub Pages build serves the validated Phase 13 study shell', async 
 
   await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0),{timeout:15000}).toBe(405);
   await expect(page.locator('#v4Greeting')).toBeVisible({ timeout: 15000 });
-  await expect(page.locator('#v4Solved')).toBeVisible();
+  await expect(page.locator('#todaySummary')).toBeVisible();
   await expect(page.locator('#v4Search')).toBeVisible();
   await expect(page.locator('.v4-nav[data-v4-label="NeuralVault"]')).toBeVisible();
   await expect(page.locator('#offlineBadge')).toHaveText(/Online|Offline/);
-  await expect(page.locator('.exam9-launch')).toBeVisible({ timeout: 15000 });
+  await expect(page.locator('.v4-nav[data-v4-label="Mock Exams"]')).toBeVisible({ timeout: 15000 });
   await expect(page.locator('#skipToContent')).toHaveCount(1, { timeout: 15000 });
   const uiScript = await page.locator('script[src*="assets/ui-v4.js"]').getAttribute('src');
   const plannerScript = await page.locator('script[src*="assets/phase12-planning.js"]').getAttribute('src');
@@ -119,6 +119,7 @@ test('live dashboard shows dedicated continuous countdown to 29 Aug 2027', async
   const after = await page.locator('#v4ExamSeconds').textContent();
   expect(after).not.toBe(before);
 
+  await page.locator('.v4-nav[data-v4-label="Study Plan"]').evaluate(el=>el.click());
   await expect(page.locator('#v12Planner')).toBeVisible({ timeout: 15000 });
   await expect(page.locator('#v12Planner')).not.toContainText('Exam countdown');
   await expect(page.locator('#p12ExamDate')).toHaveCount(0);

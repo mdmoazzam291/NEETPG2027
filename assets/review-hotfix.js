@@ -39,7 +39,7 @@
       if (o.label === correct?.label) classes.push('correct');
       if (selected && o.label === selected) classes.push('selected');
       if (selected && o.label === selected && !answer?.correct) classes.push('wrong');
-      return `<button class="${classes.join(' ')}" data-label="${String(o.label || '').replace(/"/g, '&quot;')}" disabled><span class="letter">${o.label || ''}</span><span>${o.text || ''}</span></button>`;
+      return `<button class="${classes.join(' ')}" data-label="${escapeHtml(o.label||'')}" disabled><span class="letter">${escapeHtml(o.label||'')}</span><span>${escapeHtml(o.text||'')}</span></button>`;
     }).join('');
 
     setHidden($('.q-tools'), true);

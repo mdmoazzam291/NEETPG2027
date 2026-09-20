@@ -228,3 +228,5 @@ playwright-report/
 test-results/
 browser-ci.sqlite3
 ci.sqlite3
+
+_site/
