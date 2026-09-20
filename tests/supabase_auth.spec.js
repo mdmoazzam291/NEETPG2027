@@ -71,6 +71,20 @@ test('Auth UI supports email sign-in and account creation modes without privileg
 });
 
 
+test('signed-in account surface includes an in-page logout action', async ({ page }) => {
+  await page.goto('/');
+  const sources=await page.evaluate(async()=>({
+    sync:await (await fetch('/assets/auth-sync.js')).text(),
+    v2:await (await fetch('/assets/auth-v2.js')).text()
+  }));
+  expect(sources.sync).toContain("getElementById('accountBtn')?.addEventListener('click',openAuth)");
+  expect(sources.sync).toContain("modal.dataset.mode='account'");
+  expect(sources.v2).toContain("authPageSignOut");
+  expect(sources.v2).toContain("client.auth.signOut()");
+  expect(sources.v2).toContain("Local study data remains available on this device.");
+});
+
+
 test('cloud sync deletes a finished active-session row instead of resurrecting it', async ({ page }) => {
   await page.goto('/');
   const source=await page.evaluate(async()=>await (await fetch('/assets/auth-sync.js')).text());
