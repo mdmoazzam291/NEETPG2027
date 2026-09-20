@@ -63,3 +63,11 @@ test('Auth UI supports email sign-in and account creation modes without privileg
   expect(config).not.toHaveProperty('serviceRoleKey');
   expect(config).not.toHaveProperty('service_role');
 });
+
+
+test('cloud sync deletes a finished active-session row instead of resurrecting it', async ({ page }) => {
+  await page.goto('/');
+  const source=await page.evaluate(async()=>await (await fetch('/assets/auth-sync.js')).text());
+  expect(source).toContain("from('active_sessions').delete().eq('user_id',cloud.user.id).eq('session_id',clearIntent.sessionId)");
+  expect(source).not.toContain("typeof cloud.clearActiveSession==='function'");
+});
