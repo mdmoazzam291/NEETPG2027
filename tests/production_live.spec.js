@@ -125,3 +125,45 @@ test('live dashboard shows dedicated continuous countdown to 29 Aug 2027', async
   await expect(page.locator('#p12ExamDate')).toHaveCount(0);
   await expect(page.locator('#p12CountdownDays')).toHaveCount(0);
 });
+
+
+test('live post-deployment audit has clean primary navigation and same-origin resources', async ({ page }) => {
+  const pageErrors=[];const failed=[];
+  page.on('pageerror',e=>pageErrors.push(e.message));
+  page.on('response',r=>{try{const u=new URL(r.url());if(u.origin===new URL(LIVE).origin&&r.status()>=400)failed.push([r.status(),u.pathname]);}catch{}});
+  await page.setViewportSize({width:1440,height:900});
+  await page.goto(`${LIVE}?post-deploy-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
+  await expect(page.locator('body')).toHaveAttribute('data-v4ready','1',{timeout:15000});
+  for(const label of ['Dashboard','QBank','Revision','Mock Exams','Study Plan','Analytics','Settings']){
+    const nav=page.locator(`.v4-nav[data-v4-label="${label}"]`);
+    await expect(nav).toBeVisible();
+    await nav.evaluate(el=>el.click());
+    await expect(nav).toHaveAttribute('aria-current','page');
+    const view=await nav.getAttribute('data-v4-target');
+    await expect(page.locator(`#view-${view}`)).toHaveClass(/active/);
+  }
+  await expect(page.getByText('NeuralVault notes and exported backups are preserved.')).toBeVisible();
+  expect(pageErrors).toEqual([]);
+  expect(failed).toEqual([]);
+});
+
+test('live global search, mobile navigation and target-date edit remain coherent', async ({ page }) => {
+  await page.setViewportSize({width:390,height:844});
+  await page.goto(`${LIVE}?mobile-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
+  await expect(page.locator('body')).toHaveAttribute('data-v4ready','1',{timeout:15000});
+  const topic=await page.evaluate(()=>app.questions.find(q=>String(q.topic||'').length>=3)?.topic||app.questions[0].subject);
+  await page.fill('#v4SearchInput',String(topic).slice(0,12));
+  await expect(page.locator('#v4SearchResults')).toBeVisible();
+  await expect(page.locator('#v4SearchResults .v4-search-result').first()).toBeVisible();
+
+  await page.locator('.mobile-bottom [data-mobile-target="bank"]').click();
+  await expect(page.locator('#view-bank')).toHaveClass(/active/);
+  await expect(page.locator('.mobile-bottom [data-mobile-target="bank"]')).toHaveAttribute('aria-current','page');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
+
+  await page.locator('.mobile-bottom [data-mobile-target="dashboard"]').click();
+  await page.click('#editTarget');await page.fill('#targetDate','2027-09-01');await page.locator('#targetForm button').click();
+  await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-09-01');
+  await expect(page.locator('#targetDateLabel')).not.toHaveText('2027-09-01');
+  await expect(page.locator('#targetDateLabel')).toContainText('2027');
+});

@@ -21,6 +21,7 @@
     remoteAttemptUpdated: new Map(),
     remoteSessionUpdated: new Map(),
     remoteSettingsUpdated: 0,
+    remoteSettingsSnapshot: {},
     remoteActive: null
   };
   window.NEETPG_CLOUD = cloud;
@@ -28,6 +29,7 @@
   const PULL_KEY = uid => `neetpg2027-cloud-last-pull:${uid}`;
   const PUSH_KEY = uid => `neetpg2027-cloud-last-push:${uid}`;
   const PREFS_UPDATED_KEY = 'neetpg2027-v2-settings-updated';
+  const EXAM_TARGET_KEY = 'neetpg2027-exam-target';
   const ACTIVE_CLEAR_KEY = 'neetpg2027-cloud-active-clear';
   const CDN = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
 
@@ -315,10 +317,23 @@
     const {data:settings,error:settingsError}=await cloud.client.from('user_settings').select('settings,updated_at').eq('user_id',uid).maybeSingle();
     if(settingsError)throw settingsError;
     cloud.remoteSettingsUpdated=ms(settings?.updated_at);
+    cloud.remoteSettingsSnapshot=settings?.settings && typeof settings.settings==='object'?{...settings.settings}:{};
     if(settings?.settings){
       const localExists=Boolean(localStorage.getItem(SETTINGS_KEY));
       const localUpdated=Number(localStorage.getItem(PREFS_UPDATED_KEY)||0);
-      if(!localExists || cloud.remoteSettingsUpdated>localUpdated){ app.prefs={...DEFAULTS,...settings.settings}; localStorage.setItem(SETTINGS_KEY,JSON.stringify(app.prefs)); localStorage.setItem(PREFS_UPDATED_KEY,String(cloud.remoteSettingsUpdated)); if(typeof applyPrefs==='function')applyPrefs(); }
+      if(!localExists || cloud.remoteSettingsUpdated>localUpdated){
+        const remoteSettings={...settings.settings};
+        const remoteExamTarget=remoteSettings.examTarget;
+        delete remoteSettings.examTarget;
+        app.prefs={...DEFAULTS,...remoteSettings};
+        localStorage.setItem(SETTINGS_KEY,JSON.stringify(app.prefs));
+        if(/^\d{4}-\d{2}-\d{2}$/.test(String(remoteExamTarget||''))){
+          localStorage.setItem(EXAM_TARGET_KEY,String(remoteExamTarget));
+          window.NEETPG_V4_SET_EXAM_TARGET?.(String(remoteExamTarget),{persist:false,markChanged:false});
+        }
+        localStorage.setItem(PREFS_UPDATED_KEY,String(cloud.remoteSettingsUpdated));
+        if(typeof applyPrefs==='function')applyPrefs();
+      }
     }
 
     const {data:active,error:activeError}=await cloud.client.from('active_sessions').select('session_id,payload,updated_at').eq('user_id',uid).maybeSingle();
@@ -347,7 +362,10 @@
 
     const localSettingsUpdated=Number(localStorage.getItem(PREFS_UPDATED_KEY)||0);
     if(localSettingsUpdated>cloud.remoteSettingsUpdated){
-      const settingsRow={user_id:uid,settings:app.prefs,updated_at:new Date(localSettingsUpdated||Date.now()).toISOString()};
+      const examTarget=localStorage.getItem(EXAM_TARGET_KEY);
+      const settingsPayload={...cloud.remoteSettingsSnapshot,...app.prefs};
+      if(/^\d{4}-\d{2}-\d{2}$/.test(String(examTarget||'')))settingsPayload.examTarget=examTarget;
+      const settingsRow={user_id:uid,settings:settingsPayload,updated_at:new Date(localSettingsUpdated||Date.now()).toISOString()};
       const {error:settingsError}=await cloud.client.from('user_settings').upsert(settingsRow,{onConflict:'user_id'}); if(settingsError)throw settingsError;
     }
 
@@ -422,7 +440,7 @@
 
   async function setSession(session){
     const epoch=++cloud.sessionEpoch;
-    cloud.session=session;cloud.user=session?.user||null;cloud.profile=null;cloud.resumePayload=null;cloud.remoteQUpdated=new Map();cloud.remoteAttemptUpdated=new Map();cloud.remoteSessionUpdated=new Map();cloud.remoteSettingsUpdated=0;cloud.remoteActive=null;
+    cloud.session=session;cloud.user=session?.user||null;cloud.profile=null;cloud.resumePayload=null;cloud.remoteQUpdated=new Map();cloud.remoteAttemptUpdated=new Map();cloud.remoteSessionUpdated=new Map();cloud.remoteSettingsUpdated=0;cloud.remoteSettingsSnapshot={};cloud.remoteActive=null;
     if(cloud.user){
       try{
         await loadProfile();updateCloudUi();await waitForCore();

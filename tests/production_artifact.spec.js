@@ -23,6 +23,18 @@ test('attempt annotations get a durable edit timestamp for cloud conflict resolu
   expect(edited.updatedAt).toBeGreaterThan(before);expect(edited.note).toBe('sync edit survives reload');
   await page.reload();await expect.poll(()=>page.evaluate(()=>app.attempts.some(a=>a.note==='sync edit survives reload'&&Number(a.updatedAt)>Number(a.ts)))).toBe(true);
 });
+test('target-date edits update immediately and are marked for cloud settings sync',async({page})=>{
+  await page.goto('/');await expect(page.locator('#v4ExamCountdown')).toBeVisible();
+  const before=await page.evaluate(()=>Number(localStorage.getItem('neetpg2027-v2-settings-updated')||0));
+  await page.click('#editTarget');await page.fill('#targetDate','2027-09-01');await page.locator('#targetForm button').click();
+  await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-09-01');
+  await expect(page.locator('#targetDateLabel')).toHaveText(/1 Sep(t)? 2027/);
+  const state=await page.evaluate(()=>({
+    target:localStorage.getItem('neetpg2027-exam-target'),
+    updated:Number(localStorage.getItem('neetpg2027-v2-settings-updated')||0)
+  }));
+  expect(state.target).toBe('2027-09-01');expect(state.updated).toBeGreaterThan(before);
+});
 test('production mobile themes have no horizontal overflow and target date persists',async({page})=>{
   await page.setViewportSize({width:390,height:844});await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
   await expect(page.locator('.mobile-bottom button')).toHaveCount(5);

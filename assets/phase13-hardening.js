@@ -161,10 +161,10 @@
     const original = window.finishSession;
     if (typeof original !== 'function' || original.__phase13Wrapped) return;
     const wrapped = async function(...args){
-      const result = await original.apply(this, args);
-      try { await window.NEETPG_CLOUD?.clearActiveSession?.(); }
-      catch (e) { console.warn('Could not clear completed cloud session', e); }
-      return result;
+      // finishSession now emits a session-finished signal. Auth sync uses that signal
+      // to clear only the matching stale cloud active session, so never issue a broad
+      // user-level active_sessions delete here: another device may have a newer session.
+      return original.apply(this, args);
     };
     wrapped.__phase13Wrapped = true;
     window.finishSession = wrapped;
