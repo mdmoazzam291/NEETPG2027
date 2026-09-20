@@ -68,7 +68,7 @@ create table if not exists public.study_sessions (
   ended_at timestamptz,
   question_count integer not null default 0,
   correct_count integer not null default 0,
-  accuracy integer not null default 0 check (accuracy between 0 and 100),
+  accuracy double precision not null default 0 check (accuracy between 0 and 100),
   mode text,
   feedback text,
   subjects text[] not null default '{}',
