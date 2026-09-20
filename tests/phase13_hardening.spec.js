@@ -65,6 +65,7 @@ test('Phase 13 backup export and import restore local study progress', async ({ 
 
   page.once('dialog', dialog => dialog.accept());
   await page.click('#resetAll');
+  await expect(page.locator('#toast')).toHaveText('Local data reset',{timeout:15000});
   await expect(page.locator('#statAttempted')).toHaveText('0');
 
   await page.setInputFiles('#importBackup', backupPath);
