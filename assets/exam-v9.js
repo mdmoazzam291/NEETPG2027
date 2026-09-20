@@ -3,7 +3,7 @@
 'use strict';
 const $=s=>document.querySelector(s), esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const FULL='neetpg-180-v1', DRILL='neetpg-drill-v1';
-let retryAfter=0;
+let retryAfter=0,pausedStudy=null,studyPausedAt=0;
 let exam=null,open=false,busy=false,clock=null,heartbeat=null,anchor=null,owner=null,lastFocus=null,reviewFilter='all',reviewIndex=0,palette=false,tutorial=false;
 let syncBusy=false,channel=typeof BroadcastChannel==='function'?new BroadcastChannel('neetpg-exam-v10'):null;
 const fmt=sec=>{sec=Math.max(0,Math.ceil(sec));return `${String(Math.floor(sec/60)).padStart(2,'0')}:${String(sec%60).padStart(2,'0')}`;};
@@ -19,6 +19,7 @@ function attach(){
  host.innerHTML=`<div class="exam9-shell"><header class="exam9-head"><div class="exam9-brand"><img src="assets/app-icon.svg" alt="NEETPG2027" width="32" height="32"><div><strong>NEET-PG REAL EXAM SIMULATION</strong><span id="exam9HeaderSub">Practice simulator</span></div></div><div class="exam9-head-actions"><span id="exam9SaveStatus" role="status"></span><div id="exam9Clock" class="exam9-clock" aria-label="Section time">42:00</div><button id="exam9Close" class="exam9-btn">Exit</button></div></header><div id="exam9Notice" class="exam9-notice" role="alert" hidden></div><nav id="exam9Sections" class="exam9-sections" aria-label="Exam sections"></nav><div class="exam9-work"><main id="exam9Body" class="exam9-body"></main><aside id="exam9Side" class="exam9-side" aria-label="Question palette"></aside></div><footer id="exam9Actions" class="exam9-actions"></footer></div>`;
  document.body.appendChild(host);$('#exam9Close').onclick=exit;
  host.addEventListener('keydown',e=>{
+  e.stopPropagation();
   if(e.key==='Escape'){if(palette){palette=false;$('#exam9Side').classList.remove('expanded');$('#exam9PaletteToggle')?.focus();}else exit();}
   if(e.key==='Tab'){
    const els=[...host.querySelectorAll('button:not(:disabled),input:not(:disabled),select,textarea,a[href],[tabindex="0"]')].filter(x=>x.getClientRects().length);
@@ -28,8 +29,8 @@ function attach(){
   }
  });
 }
-function show(){attach();if(!open)lastFocus=document.activeElement;open=true;document.body.classList.add('exam9-open');$('#exam9Backdrop').classList.add('show');document.querySelector('.app')?.setAttribute('inert','');$('#exam9Backdrop').focus();}
-function close(){open=false;stopClock();document.body.classList.remove('exam9-open');$('#exam9Backdrop')?.classList.remove('show');document.querySelector('.app')?.removeAttribute('inert');lastFocus?.focus();}
+function show(){attach();if(!open){lastFocus=document.activeElement;if(typeof app!=='undefined'&&app.session&&!app.session.ended){pausedStudy=app.session;studyPausedAt=Date.now();clearInterval(pausedStudy.timerId);}}open=true;document.body.classList.add('exam9-open');$('#exam9Backdrop').classList.add('show');document.querySelector('.app')?.setAttribute('inert','');$('#exam9Backdrop').focus();}
+function close(){open=false;stopClock();if(pausedStudy&&typeof app!=='undefined'&&app.session===pausedStudy){const delta=Date.now()-studyPausedAt;for(const k of ['startedAt','currentStart','_neetSectionStartedAt'])if(Number.isFinite(pausedStudy[k]))pausedStudy[k]+=delta;startTimer();saveActiveSession();}pausedStudy=null;document.body.classList.remove('exam9-open');$('#exam9Backdrop')?.classList.remove('show');document.querySelector('.app')?.removeAttribute('inert');lastFocus?.focus();}
 function exit(){
  if(exam?.status==='active'&&!tutorial){
   const dialog=document.createElement('dialog');dialog.className='exam9-dialog';dialog.innerHTML='<h2>Your mock examination is still running.</h2><p>Leaving this screen will not pause the timer.</p><div><button class="exam9-btn primary" data-stay>STAY IN EXAM</button> <button class="exam9-btn" data-leave>EXIT ANYWAY</button></div>';
