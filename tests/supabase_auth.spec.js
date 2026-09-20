@@ -71,3 +71,13 @@ test('cloud sync deletes a finished active-session row instead of resurrecting i
   expect(source).toContain("from('active_sessions').delete().eq('user_id',cloud.user.id).eq('session_id',clearIntent.sessionId)");
   expect(source).not.toContain("typeof cloud.clearActiveSession==='function'");
 });
+
+
+test('cloud sync pulls cross-device changes while idle and when returning to foreground', async ({ page }) => {
+  await page.goto('/');
+  const source=await page.evaluate(async()=>await (await fetch('/assets/auth-sync.js')).text());
+  expect(source).toContain("document.visibilityState==='visible' && cloud.user && navigator.onLine");
+  expect(source).not.toContain("cloud.dirty || app.session");
+  expect(source).toContain("else if(navigator.onLine)syncNow()");
+  expect(source).toContain("Offline · changes pending and will sync automatically when connection returns.");
+});
