@@ -21,6 +21,7 @@
     remoteAttemptUpdated: new Map(),
     remoteSessionUpdated: new Map(),
     remoteSettingsUpdated: 0,
+    remoteSettingsSnapshot: {},
     remoteActive: null
   };
   window.NEETPG_CLOUD = cloud;
@@ -316,6 +317,7 @@
     const {data:settings,error:settingsError}=await cloud.client.from('user_settings').select('settings,updated_at').eq('user_id',uid).maybeSingle();
     if(settingsError)throw settingsError;
     cloud.remoteSettingsUpdated=ms(settings?.updated_at);
+    cloud.remoteSettingsSnapshot=settings?.settings && typeof settings.settings==='object'?{...settings.settings}:{};
     if(settings?.settings){
       const localExists=Boolean(localStorage.getItem(SETTINGS_KEY));
       const localUpdated=Number(localStorage.getItem(PREFS_UPDATED_KEY)||0);
@@ -361,7 +363,7 @@
     const localSettingsUpdated=Number(localStorage.getItem(PREFS_UPDATED_KEY)||0);
     if(localSettingsUpdated>cloud.remoteSettingsUpdated){
       const examTarget=localStorage.getItem(EXAM_TARGET_KEY);
-      const settingsPayload={...app.prefs};
+      const settingsPayload={...cloud.remoteSettingsSnapshot,...app.prefs};
       if(/^\d{4}-\d{2}-\d{2}$/.test(String(examTarget||'')))settingsPayload.examTarget=examTarget;
       const settingsRow={user_id:uid,settings:settingsPayload,updated_at:new Date(localSettingsUpdated||Date.now()).toISOString()};
       const {error:settingsError}=await cloud.client.from('user_settings').upsert(settingsRow,{onConflict:'user_id'}); if(settingsError)throw settingsError;
@@ -438,7 +440,7 @@
 
   async function setSession(session){
     const epoch=++cloud.sessionEpoch;
-    cloud.session=session;cloud.user=session?.user||null;cloud.profile=null;cloud.resumePayload=null;cloud.remoteQUpdated=new Map();cloud.remoteAttemptUpdated=new Map();cloud.remoteSessionUpdated=new Map();cloud.remoteSettingsUpdated=0;cloud.remoteActive=null;
+    cloud.session=session;cloud.user=session?.user||null;cloud.profile=null;cloud.resumePayload=null;cloud.remoteQUpdated=new Map();cloud.remoteAttemptUpdated=new Map();cloud.remoteSessionUpdated=new Map();cloud.remoteSettingsUpdated=0;cloud.remoteSettingsSnapshot={};cloud.remoteActive=null;
     if(cloud.user){
       try{
         await loadProfile();updateCloudUi();await waitForCore();
