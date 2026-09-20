@@ -247,8 +247,8 @@
   function qFromCloud(r){ return {qid:r.qid,attempts:r.attempts||0,correct:r.correct||0,incorrect:r.incorrect||0,lastCorrect:r.last_correct,bookmarked:!!r.bookmarked,flagged:!!r.flagged,note:r.note||'',dueAt:r.due_at?ms(r.due_at):null,intervalDays:Number(r.interval_days||0),ease:Number(r.ease||2.5),streak:Number(r.streak||0),updatedAt:ms(r.updated_at)}; }
   function aToCloud(a,uid){return {user_id:uid,client_key:attemptKey(a),qid:a.qid,correct:!!a.correct,selected:a.selected||null,confidence:a.confidence?Number(a.confidence):null,mistake:a.mistake||'',note:a.note||'',skipped:!!a.skipped,happened_at:toIso(a.ts),elapsed_seconds:Number(a.elapsed||0),session_id:a.sessionId||'',subject:a.subject||null,difficulty:a.difficulty?Number(a.difficulty):null,updated_at:toIso(a.updatedAt||a.ts||Date.now())};}
   function aFromCloud(r){return {qid:r.qid,correct:!!r.correct,selected:r.selected||null,confidence:r.confidence||null,mistake:r.mistake||'',note:r.note||'',skipped:!!r.skipped,ts:ms(r.happened_at),updatedAt:ms(r.updated_at||r.happened_at),elapsed:Number(r.elapsed_seconds||0),sessionId:r.session_id||'',subject:r.subject||'',difficulty:r.difficulty||2};}
-  function sToCloud(s,uid){return {user_id:uid,session_id:s.id,started_at:toIso(s.startedAt),ended_at:s.endedAt?toIso(s.endedAt):null,question_count:Number(s.count||0),correct_count:Number(s.correct||0),accuracy:Number(s.accuracy||0),mode:s.mode||'',feedback:s.feedback||'',subjects:s.subjects||[],payload:{},updated_at:toIso(s.updatedAt||s.endedAt||s.startedAt||Date.now())};}
-  function sFromCloud(r){return {id:r.session_id,startedAt:ms(r.started_at),endedAt:r.ended_at?ms(r.ended_at):null,updatedAt:ms(r.updated_at),count:r.question_count||0,correct:r.correct_count||0,accuracy:r.accuracy||0,mode:r.mode||'',feedback:r.feedback||'',subjects:r.subjects||[]};}
+  function sToCloud(s,uid){return {user_id:uid,session_id:s.id,started_at:toIso(s.startedAt),ended_at:s.endedAt?toIso(s.endedAt):null,question_count:Number(s.count||0),correct_count:Number(s.correct||0),accuracy:Number(s.accuracy||0),mode:s.mode||'',feedback:s.feedback||'',subjects:s.subjects||[],payload:{score:Number.isFinite(Number(s.score))?Number(s.score):null,source:s.mode?.startsWith('Mock · ')?'exam-simulator':'study'},updated_at:toIso(s.updatedAt||s.endedAt||s.startedAt||Date.now())};}
+  function sFromCloud(r){const payload=r.payload&&typeof r.payload==='object'?r.payload:{};return {id:r.session_id,startedAt:ms(r.started_at),endedAt:r.ended_at?ms(r.ended_at):null,updatedAt:ms(r.updated_at),count:r.question_count||0,correct:r.correct_count||0,accuracy:r.accuracy||0,score:Number.isFinite(Number(payload.score))?Number(payload.score):undefined,mode:r.mode||'',feedback:r.feedback||'',subjects:r.subjects||[]};}
 
   async function paged(table, build){
     const all=[]; let from=0; const size=1000;
@@ -352,13 +352,13 @@
   async function pushCloud(){
     const uid=cloud.user.id;
     const qrows=[...app.states.values()].filter(x=>Number(x.updatedAt||0)>(cloud.remoteQUpdated.get(x.qid)||0)).map(x=>qToCloud(x,uid));
-    for(const part of chunks(qrows)){const {error}=await cloud.client.from('question_state').upsert(part,{onConflict:'user_id,qid'});if(error)throw error;}
+    for(const part of chunks(qrows)){const {error}=await cloud.client.from('question_state').upsert(part,{onConflict:'user_id,qid'});if(error)throw error;for(const row of part)cloud.remoteQUpdated.set(row.qid,ms(row.updated_at));}
 
     const arows=(app.attempts||[]).filter(x=>Number(x.updatedAt||x.ts||0)>(cloud.remoteAttemptUpdated.get(attemptKey(x))||0)).map(x=>aToCloud(x,uid));
-    for(const part of chunks(arows)){const {error}=await cloud.client.from('attempts').upsert(part,{onConflict:'user_id,client_key'});if(error)throw error;}
+    for(const part of chunks(arows)){const {error}=await cloud.client.from('attempts').upsert(part,{onConflict:'user_id,client_key'});if(error)throw error;for(const row of part)cloud.remoteAttemptUpdated.set(row.client_key,ms(row.updated_at||row.happened_at));}
 
     const srows=(app.sessions||[]).filter(x=>Number(x.updatedAt||x.endedAt||x.startedAt||0)>(cloud.remoteSessionUpdated.get(x.id)||0)).map(x=>sToCloud(x,uid));
-    for(const part of chunks(srows)){const {error}=await cloud.client.from('study_sessions').upsert(part,{onConflict:'user_id,session_id'});if(error)throw error;}
+    for(const part of chunks(srows)){const {error}=await cloud.client.from('study_sessions').upsert(part,{onConflict:'user_id,session_id'});if(error)throw error;for(const row of part)cloud.remoteSessionUpdated.set(row.session_id,ms(row.updated_at));}
 
     const localSettingsUpdated=Number(localStorage.getItem(PREFS_UPDATED_KEY)||0);
     if(localSettingsUpdated>cloud.remoteSettingsUpdated){
@@ -366,7 +366,7 @@
       const settingsPayload={...cloud.remoteSettingsSnapshot,...app.prefs};
       if(/^\d{4}-\d{2}-\d{2}$/.test(String(examTarget||'')))settingsPayload.examTarget=examTarget;
       const settingsRow={user_id:uid,settings:settingsPayload,updated_at:new Date(localSettingsUpdated||Date.now()).toISOString()};
-      const {error:settingsError}=await cloud.client.from('user_settings').upsert(settingsRow,{onConflict:'user_id'}); if(settingsError)throw settingsError;
+      const {error:settingsError}=await cloud.client.from('user_settings').upsert(settingsRow,{onConflict:'user_id'}); if(settingsError)throw settingsError;cloud.remoteSettingsUpdated=localSettingsUpdated;cloud.remoteSettingsSnapshot={...settingsPayload};
     }
 
     await pushActiveSession();
@@ -420,12 +420,15 @@
   async function syncNow({initial=false}={}){
     if(!cloud.user || !navigator.onLine)return;
     if(cloud.syncing){cloud.syncQueued=true;return;}
-    const uid=cloud.user.id, version=cloud.changeVersion||0;cloud.syncing=true;cloud.syncQueued=false;updateCloudUi('syncing');
+    const uid=cloud.user.id;cloud.syncing=true;cloud.syncQueued=false;updateCloudUi('syncing');
     try{
       await pullCloud();
       if(cloud.user?.id!==uid)return;
       await pushCloud();
-      cloud.dirty=cloud.changeVersion!==version;cloud.error=null;cloud.lastSyncAt=Date.now();updateCloudUi('idle');
+      if(cloud.user?.id!==uid)return;
+      // Pull reconciliation may emit progress events while sync is busy. A successful
+      // push already includes that reconciled state, so do not manufacture a retry loop.
+      cloud.dirty=false;cloud.error=null;cloud.lastSyncAt=Date.now();updateCloudUi('idle');
     }catch(e){cloud.error=e.message||String(e);console.error('Cloud sync failed',e);updateCloudUi('error',`Sync failed: ${e.message || e}`);}
     finally{
       cloud.syncing=false;window.dispatchEvent(new CustomEvent('neetpg:cloud-status'));
