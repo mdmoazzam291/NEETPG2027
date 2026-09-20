@@ -29,7 +29,7 @@ function dailyMix(count=profileGoal()){
   const ranked=rankedQuestions(),weak=weakTopicMap(),now=Date.now();
   const pools={
     due:ranked.filter(q=>{const s=qState(q.external_id),t=s.dueAt?new Date(s.dueAt).getTime():0;return t&&t<=now}),
-    incorrect:ranked.filter(q=>qState(q.external_id).lastCorrect===false),
+    incorrect:ranked.filter(q=>{const s=qState(q.external_id);try{return typeof isPersistentErrorState==='function'?isPersistentErrorState(s):s.lastCorrect===false}catch{return s.lastCorrect===false}}),
     weak:ranked.filter(q=>(weak.get(q.topic)||0)>=45),
     unseen:ranked.filter(q=>!(qState(q.external_id).attempts||0))
   };
