@@ -419,12 +419,13 @@
   async function syncNow({initial=false}={}){
     if(!cloud.user || !navigator.onLine)return;
     if(cloud.syncing){cloud.syncQueued=true;return;}
-    const uid=cloud.user.id, version=cloud.changeVersion||0;cloud.syncing=true;cloud.syncQueued=false;updateCloudUi('syncing');
+    const uid=cloud.user.id;cloud.syncing=true;cloud.syncQueued=false;updateCloudUi('syncing');
     try{
       await pullCloud();
       if(cloud.user?.id!==uid)return;
+      const pushVersion=cloud.changeVersion||0;
       await pushCloud();
-      cloud.dirty=cloud.changeVersion!==version;cloud.error=null;cloud.lastSyncAt=Date.now();updateCloudUi('idle');
+      cloud.dirty=cloud.changeVersion!==pushVersion;cloud.error=null;cloud.lastSyncAt=Date.now();updateCloudUi('idle');
     }catch(e){cloud.error=e.message||String(e);console.error('Cloud sync failed',e);updateCloudUi('error',`Sync failed: ${e.message || e}`);}
     finally{
       cloud.syncing=false;window.dispatchEvent(new CustomEvent('neetpg:cloud-status'));
