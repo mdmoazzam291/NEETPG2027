@@ -55,7 +55,7 @@ test('live Mock Exams launcher opens the deployed simulator shell', async ({ pag
   await expect(page.locator('#exam9Drill')).toBeVisible();
   await expect(page.locator('#exam9Tutorial')).toBeVisible();
   await expect(page.locator('#exam9Body')).toContainText('180');
-  await expect(page.locator('#exam9Body')).toContainText('Not affiliated with or endorsed by NBEMS');
+  await expect(page.locator('#exam9HeaderSub')).toContainText('Not affiliated with or endorsed by NBEMS');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
 });
 
