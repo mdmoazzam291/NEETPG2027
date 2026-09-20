@@ -80,3 +80,35 @@ test('production Revision schedules answers immediately and keeps the sidebar qu
   }));
   expect(geometry.scrollWidth<=geometry.width+2,JSON.stringify(geometry)).toBe(true);
 });
+
+test('starting Revision after answer review restores practice controls',async({page})=>{
+ await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
+ await page.evaluate(()=>buildSession([app.questions[0]],{...builtInPreset('rapid'),feedback:'instant',timer:'off'}));
+ await page.locator('#qOptions .option').first().click();await page.click('#qSubmit');await page.click('#qNext');await page.click('#reviewSession');
+ await expect(page.locator('#qSubmit')).toBeHidden();
+ await page.evaluate(()=>{const q=app.questions[1];app.states.set(q.external_id,{...stateFor(q.external_id),bookmarked:true});navigate('review');activateReviewTab('bookmarks')});
+ await page.click('#startDue');await expect(page.locator('#qSubmit')).toBeVisible();await expect(page.locator('#qSubmit')).toBeEnabled();
+ await page.locator('#qOptions .option').first().click();await page.click('#qSubmit');await page.click('#qNext');await expect(page.locator('#sessionSummary')).toBeVisible();
+});
+
+test('Analytics includes saved mocks and unfinished sessions without duplicates and paginates',async({page})=>{
+ await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
+ await page.evaluate(()=>{
+  app.sessions=Array.from({length:12},(_,i)=>({id:'complete-'+i,startedAt:Date.now()-i*1000,count:2,correct:1,mode:'Practice'}));
+  localStorage.setItem('neetpg2027-exam-v9-history',JSON.stringify([{id:'complete-0',finishedAt:Date.now(),total:2,correct:1,mode:'available'},{id:'legacy-mock',finishedAt:Date.now(),total:4,correct:3,mode:'available'}]));
+  app.savedSession={sessionId:'unfinished',qids:app.questions.slice(0,2).map(q=>q.external_id),answers:[],startedAt:Date.now()+100,cfg:{mode:'rapid'}};navigate('analytics');
+ });
+ await expect(page.locator('#sessionHistoryPager')).toContainText('14 sessions');await expect(page.locator('#sessionHistory')).toContainText('In progress');await expect(page.locator('#sessionHistory')).toContainText('Mock');
+ await expect(page.locator('#sessionHistory .list-item')).toHaveCount(10);await page.locator('#sessionHistoryPager [data-page="1"]').click();await expect(page.locator('#sessionHistory .list-item')).toHaveCount(4);
+});
+
+test('failed mock save can retry without duplicating attempts and records a durable session',async({page})=>{
+ await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
+ await page.evaluate(()=>{app.questions=app.questions.slice(0,2);window.NEETPG_EXAM9.startAvailable();const original=dbPut;window.__restorePut=()=>{dbPut=original};dbPut=async(store,value)=>{if(store==='sessions')throw new Error('Test storage failure');return original(store,value)}});
+ await page.click('#exam9SubmitSection');await expect(page.locator('#exam9Retry')).toBeVisible();
+ expect(await page.evaluate(()=>app.attempts.length)).toBe(2);
+ expect(await page.evaluate(()=>!!localStorage.getItem('neetpg2027-exam-v9-active'))).toBe(true);
+ await page.evaluate(()=>window.__restorePut());await page.click('#exam9Retry');await expect(page.locator('#exam9Done')).toBeVisible();
+ expect(await page.evaluate(()=>app.attempts.length)).toBe(2);expect(await page.evaluate(async()=>(await dbAll('sessions')).length)).toBe(1);
+ await page.click('#exam9Done');await page.evaluate(()=>navigate('analytics'));await expect(page.locator('#sessionHistory')).toContainText('Mock');await expect(page.locator('#sessionHistoryPager')).toContainText('1 sessions');
+});

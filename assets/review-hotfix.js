@@ -84,6 +84,14 @@
     restoreControls();
   }
 
+  window.addEventListener('neetpg:session-started', () => {
+    if (!state.active) return;
+    state.active = false;
+    state.pos = 0;
+    state.last = null;
+    restoreControls();
+  });
+
   document.addEventListener('click', (event) => {
     const reviewButton = event.target.closest?.('#reviewSession');
     if (reviewButton) {
