@@ -387,7 +387,8 @@
       if(!remote || remote.sessionId!==clearIntent.sessionId){
         localStorage.removeItem(ACTIVE_CLEAR_KEY);
       }else if(Number(clearIntent.finishedAt||0)>=ms(remote.updatedAt)){
-        if(typeof cloud.clearActiveSession==='function')await cloud.clearActiveSession();
+        const {error}=await cloud.client.from('active_sessions').delete().eq('user_id',cloud.user.id).eq('session_id',clearIntent.sessionId);
+        if(error)throw error;
         cloud.remoteActive=null;cloud.resumePayload=null;localStorage.removeItem(ACTIVE_CLEAR_KEY);renderResumeCard();return;
       }
     }
