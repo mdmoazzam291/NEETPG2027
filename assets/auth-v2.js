@@ -447,6 +447,7 @@
 
     const accountPanel = make('section', 'auth-v2-account');
     accountPanel.id = 'authAccountPanel';
+    accountPanel.setAttribute('aria-label', 'Signed-in account');
     accountPanel.style.display = 'none';
     accountPanel.innerHTML =
       '<div class="auth-v2-account-card">' +
