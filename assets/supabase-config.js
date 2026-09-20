@@ -8,5 +8,6 @@ window.NEETPG_SUPABASE = {
   redirectUrl: 'https://mdmoazzam291.github.io/NEETPG2027/',
   googleEnabled: false,
   appleEnabled: false,
+  autoDetectOAuthProviders: true,
   emailCodeEnabled: true
 };
