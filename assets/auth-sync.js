@@ -424,6 +424,14 @@
       await pullCloud();
       if(cloud.user?.id!==uid)return;
       await pushCloud();
+      if(cloud.user?.id!==uid)return;
+      // Advance the remote watermarks to the data that was just acknowledged.
+      // Without this, every later sync in the same tab re-uploads unchanged rows
+      // because the maps still describe the pre-push server snapshot.
+      cloud.remoteQUpdated=new Map([...app.states.values()].map(x=>[x.qid,Number(x.updatedAt||0)]));
+      cloud.remoteAttemptUpdated=new Map((app.attempts||[]).map(x=>[attemptKey(x),Number(x.updatedAt||x.ts||0)]));
+      cloud.remoteSessionUpdated=new Map((app.sessions||[]).map(x=>[x.id,Number(x.updatedAt||x.endedAt||x.startedAt||0)]));
+      cloud.remoteSettingsUpdated=Math.max(cloud.remoteSettingsUpdated,Number(localStorage.getItem(PREFS_UPDATED_KEY)||0));
       cloud.dirty=cloud.changeVersion!==version;cloud.error=null;cloud.lastSyncAt=Date.now();updateCloudUi('idle');
     }catch(e){cloud.error=e.message||String(e);console.error('Cloud sync failed',e);updateCloudUi('error',`Sync failed: ${e.message || e}`);}
     finally{
