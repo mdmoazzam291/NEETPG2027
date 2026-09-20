@@ -69,14 +69,14 @@ test('cloud sync polls remote changes while idle and deletes a finished active s
   await page.goto('/');
   await page.addScriptTag({content: `
     window.__syncCalls={selects:0,deletes:0};
-    const chain=()=>({
+    const chain=(table)=>({
       select(){window.__syncCalls.selects++;return this},eq(){return this},order(){return this},range:async()=>({data:[],error:null}),
-      maybeSingle:async()=>({data:null,error:null}),upsert:async()=>({error:null}),
+      maybeSingle:async()=>({data:table==='active_sessions'&&window.__remoteActive?window.__remoteActive:null,error:null}),upsert:async()=>({error:null}),
       delete(){window.__syncCalls.deletes++;return this},then(resolve){resolve({data:null,error:null})}
     });
     window.NEETPG_SUPABASE={url:'https://example.supabase.co',anonKey:'public-test-key',redirectUrl:location.href,googleEnabled:false};
     window.supabase={createClient:()=>({
-      from:()=>chain(),
+      from:(table)=>chain(table),
       auth:{
         getSession:async()=>({data:{session:{user:{id:'user-1',email:'sync@example.com'}}},error:null}),
         onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})
@@ -95,7 +95,7 @@ test('cloud sync polls remote changes while idle and deletes a finished active s
 
   await page.evaluate(()=>{
     const now=Date.now();
-    window.NEETPG_CLOUD.remoteActive={sessionId:'finished-session',payload:{qids:['q1']},updatedAt:new Date(now-1000).toISOString()};
+    window.__remoteActive={session_id:'finished-session',payload:{qids:['q1']},updated_at:new Date(now-1000).toISOString()};
     localStorage.setItem('neetpg2027-cloud-active-clear',JSON.stringify({sessionId:'finished-session',finishedAt:now}));
     window.dispatchEvent(new CustomEvent('neetpg:progress-saved'));
   });
