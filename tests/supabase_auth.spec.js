@@ -63,3 +63,32 @@ test('Auth UI supports email sign-in and account creation modes without privileg
   expect(config).not.toHaveProperty('serviceRoleKey');
   expect(config).not.toHaveProperty('service_role');
 });
+
+
+test('cloud sync does not re-upload unchanged local rows after a successful push', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(async()=>{
+    const now=Date.now();
+    const s=stateFor(app.questions[0].id);
+    const next={...s,attempts:1,correct:1,incorrect:0,lastCorrect:true,updatedAt:now};
+    await dbPut('qstate',next);app.states.set(next.qid,next);
+  });
+  await page.addScriptTag({content: `
+    window.__syncUpserts=[];
+    const query=()=>{const q={select(){return q},eq(){return q},order(){return q},range(){return Promise.resolve({data:[],error:null})},maybeSingle(){return Promise.resolve({data:null,error:null})}};return q;};
+    window.NEETPG_SUPABASE={url:'https://example.supabase.co',anonKey:'public-test-key',redirectUrl:location.href,googleEnabled:false};
+    window.supabase={createClient:()=>({
+      from:(table)=>({select(){return query()},upsert:async(rows)=>{window.__syncUpserts.push({table,count:Array.isArray(rows)?rows.length:1});return {error:null}},delete(){const q=query();q.eq=()=>Promise.resolve({error:null});return q}}),
+      auth:{getSession:async()=>({data:{session:{user:{id:'sync-user',email:'sync@example.com'}}},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}}),signOut:async()=>({error:null})}
+    })};
+  `});
+  await page.addScriptTag({ url: '/assets/auth-sync.js' });
+  await expect.poll(()=>page.evaluate(()=>window.NEETPG_CLOUD?.lastSyncAt||0),{timeout:15000}).toBeGreaterThan(0);
+  const first=await page.evaluate(()=>window.__syncUpserts.filter(x=>x.table==='question_state').reduce((n,x)=>n+x.count,0));
+  expect(first).toBeGreaterThan(0);
+  await page.click('#cloudSyncNow');
+  await expect.poll(()=>page.evaluate(()=>window.NEETPG_CLOUD?.syncing===false)).toBe(true);
+  await page.waitForTimeout(100);
+  const second=await page.evaluate(()=>window.__syncUpserts.filter(x=>x.table==='question_state').reduce((n,x)=>n+x.count,0));
+  expect(second).toBe(first);
+});
