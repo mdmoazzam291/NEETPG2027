@@ -53,8 +53,8 @@
     const google = document.getElementById('authGoogle');
     const apple = document.getElementById('authApple');
     const emailCode = document.getElementById('authEmailCode');
-    if (google) google.hidden = !googleEnabled;
-    if (apple) apple.hidden = !appleEnabled;
+    if (google) { google.hidden = !googleEnabled; google.style.display = googleEnabled ? '' : 'none'; }
+    if (apple) { apple.hidden = !appleEnabled; apple.style.display = appleEnabled ? '' : 'none'; }
     if (emailCode) emailCode.hidden = cfg.emailCodeEnabled === false;
     const social = document.getElementById('authSocials');
     const socialDivider = document.getElementById('authSocialDivider');
