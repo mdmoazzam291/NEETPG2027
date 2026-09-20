@@ -6,5 +6,7 @@ window.NEETPG_SUPABASE = {
   url: 'https://ueuguguoladoqvtxkumt.supabase.co',
   anonKey: 'sb_publishable_KWUIkwvozerOh7F7wc84yQ_YdVOcKQJ',
   redirectUrl: 'https://mdmoazzam291.github.io/NEETPG2027/',
-  googleEnabled: false
+  googleEnabled: false,
+  appleEnabled: false,
+  emailCodeEnabled: true
 };
