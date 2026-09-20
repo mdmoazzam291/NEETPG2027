@@ -380,6 +380,12 @@
     return saved?.qids?.length?saved:null;
   }
 
+  async function clearRemoteActiveSession(sessionId){
+    if(!cloud.user || !sessionId)return;
+    const {error}=await cloud.client.from('active_sessions').delete().eq('user_id',cloud.user.id).eq('session_id',sessionId);
+    if(error)throw error;
+  }
+
   async function pushActiveSession(){
     if(!cloud.user)return;
     const clearIntent=readJson(ACTIVE_CLEAR_KEY), remote=cloud.remoteActive;
@@ -387,7 +393,7 @@
       if(!remote || remote.sessionId!==clearIntent.sessionId){
         localStorage.removeItem(ACTIVE_CLEAR_KEY);
       }else if(Number(clearIntent.finishedAt||0)>=ms(remote.updatedAt)){
-        if(typeof cloud.clearActiveSession==='function')await cloud.clearActiveSession();
+        await clearRemoteActiveSession(clearIntent.sessionId);
         cloud.remoteActive=null;cloud.resumePayload=null;localStorage.removeItem(ACTIVE_CLEAR_KEY);renderResumeCard();return;
       }
     }
