@@ -63,3 +63,42 @@ test('Auth UI supports email sign-in and account creation modes without privileg
   expect(config).not.toHaveProperty('serviceRoleKey');
   expect(config).not.toHaveProperty('service_role');
 });
+
+
+test('cloud sync polls remote changes while idle and deletes a finished active session', async ({ page }) => {
+  await page.goto('/');
+  await page.addScriptTag({content: `
+    window.__syncCalls={selects:0,deletes:0};
+    const chain=()=>({
+      select(){window.__syncCalls.selects++;return this},eq(){return this},order(){return this},range:async()=>({data:[],error:null}),
+      maybeSingle:async()=>({data:null,error:null}),upsert:async()=>({error:null}),
+      delete(){window.__syncCalls.deletes++;return this},then(resolve){resolve({data:null,error:null})}
+    });
+    window.NEETPG_SUPABASE={url:'https://example.supabase.co',anonKey:'public-test-key',redirectUrl:location.href,googleEnabled:false};
+    window.supabase={createClient:()=>({
+      from:()=>chain(),
+      auth:{
+        getSession:async()=>({data:{session:{user:{id:'user-1',email:'sync@example.com'}}},error:null}),
+        onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})
+      }
+    })};
+  `});
+  await page.addScriptTag({ url: '/assets/auth-sync.js' });
+
+  await expect.poll(()=>page.evaluate(()=>window.__syncCalls.selects),{timeout:5000}).toBeGreaterThan(0);
+  const before=await page.evaluate(()=>window.__syncCalls.selects);
+  await page.evaluate(()=>{
+    window.NEETPG_CLOUD.dirty=false;
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await expect.poll(()=>page.evaluate(()=>window.__syncCalls.selects),{timeout:5000}).toBeGreaterThan(before);
+
+  await page.evaluate(()=>{
+    const now=Date.now();
+    window.NEETPG_CLOUD.remoteActive={sessionId:'finished-session',payload:{qids:['q1']},updatedAt:new Date(now-1000).toISOString()};
+    localStorage.setItem('neetpg2027-cloud-active-clear',JSON.stringify({sessionId:'finished-session',finishedAt:now}));
+    window.dispatchEvent(new CustomEvent('neetpg:progress-saved'));
+  });
+  await expect.poll(()=>page.evaluate(()=>window.__syncCalls.deletes),{timeout:6000}).toBeGreaterThan(0);
+  await expect.poll(()=>page.evaluate(()=>localStorage.getItem('neetpg2027-cloud-active-clear')),{timeout:6000}).toBeNull();
+});
