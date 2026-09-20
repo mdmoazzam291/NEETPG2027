@@ -109,7 +109,7 @@
                 <div class="field"><label>One-line note</label><input id="attemptNote" placeholder="What should future-you remember?"></div>
               </div>
               <div class="note-box"><textarea id="questionNote" placeholder="Personal note for this question…"></textarea></div>
-              <div class="review-buttons"><button class="btn" data-rating="again">Again</button><button class="btn" data-rating="hard">Hard</button><button class="btn primary" data-rating="good">Good</button><button class="btn soft" data-rating="easy">Easy</button></div>
+              <div class="review-buttons" aria-label="Optional review rating"><button class="btn" data-rating="again">Again</button><button class="btn" data-rating="hard">Hard</button><button class="btn" data-rating="good">Good</button><button class="btn" data-rating="easy">Easy</button></div>
               <div style="display:flex;justify-content:flex-end;margin-top:12px"><button class="btn primary" id="qNext">Next question</button></div>
             </div>
           </div>
@@ -126,21 +126,21 @@
       <section class="view" id="view-review">
         <div class="page-head"><div><h2>Review & spaced repetition</h2><p>Due cards, persistent errors, notes and bookmarks in one retrieval queue.</p></div><button class="btn primary" id="startDue">Start due review</button></div>
         <div class="review-subnav" role="tablist" aria-label="Revision views">
-          <button class="chip active" type="button" role="tab" aria-selected="true" data-review-tab="quick">Quick Revise</button>
-          <button class="chip" type="button" role="tab" aria-selected="false" data-review-tab="bookmarks">Bookmarks</button>
-          <button class="chip" type="button" role="tab" aria-selected="false" data-review-tab="notes">Notes</button>
+          <button class="chip active" id="reviewTabQuick" type="button" role="tab" aria-selected="true" aria-controls="reviewPanelQuick" tabindex="0" data-review-tab="quick">Quick Revise</button>
+          <button class="chip" id="reviewTabBookmarks" type="button" role="tab" aria-selected="false" aria-controls="reviewPanelBookmarks" tabindex="-1" data-review-tab="bookmarks">Bookmarks</button>
+          <button class="chip" id="reviewTabNotes" type="button" role="tab" aria-selected="false" aria-controls="reviewPanelNotes" tabindex="-1" data-review-tab="notes">Notes</button>
         </div>
-        <div data-review-panel="quick">
+        <div id="reviewPanelQuick" role="tabpanel" aria-labelledby="reviewTabQuick" data-review-panel="quick">
           <div class="grid stats review-stats">
             <div class="card stat-card"><span class="stat-label">Due</span><strong class="stat-number" id="reviewDue">0</strong></div>
-            <div class="card stat-card"><span class="stat-label">Incorrect</span><strong class="stat-number" id="reviewIncorrect">0</strong></div>
+            <div class="card stat-card"><span class="stat-label">Incorrect to recover</span><strong class="stat-number" id="reviewIncorrect">0</strong></div>
             <div class="card stat-card"><span class="stat-label">Bookmarked</span><strong class="stat-number" id="reviewBookmarks">0</strong></div>
             <div class="card stat-card"><span class="stat-label">Notes</span><strong class="stat-number" id="reviewNotes">0</strong></div>
           </div>
-          <div class="grid two" style="margin-top:16px"><div class="card"><h3>Due now</h3><div id="dueList" class="list"></div></div><div class="card"><h3>Recent incorrect</h3><div id="wrongList" class="list"></div></div></div>
+          <div class="grid two" style="margin-top:16px"><div class="card"><h3>Due now</h3><div id="dueList" class="list"></div></div><div class="card"><h3>Incorrect to recover</h3><p class="muted small">Repeated errors stay here until you demonstrate recovery with consecutive correct recalls.</p><div id="wrongList" class="list"></div></div></div>
         </div>
-        <div class="hidden" data-review-panel="bookmarks"><div class="card"><h3>Bookmarks</h3><p class="muted small">Saved questions ready for targeted retrieval.</p><div id="bookmarkList" class="list"></div></div></div>
-        <div class="hidden" data-review-panel="notes"><div class="card"><h3>My notes</h3><p class="muted small">Personal recall cues attached to questions.</p><div id="notesList" class="list"></div></div></div>
+        <div class="hidden" id="reviewPanelBookmarks" role="tabpanel" aria-labelledby="reviewTabBookmarks" aria-hidden="true" data-review-panel="bookmarks"><div class="card"><h3>Bookmarks</h3><p class="muted small">Saved questions ready for targeted retrieval.</p><div id="bookmarkList" class="list"></div></div></div>
+        <div class="hidden" id="reviewPanelNotes" role="tabpanel" aria-labelledby="reviewTabNotes" aria-hidden="true" data-review-panel="notes"><div class="card"><h3>My notes</h3><p class="muted small">Personal recall cues attached to questions.</p><div id="notesList" class="list"></div></div></div>
       </section>
 
       <section class="view" id="view-bank">

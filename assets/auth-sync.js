@@ -264,16 +264,16 @@
     const byQ=new Map();
     for(const a of app.attempts||[]){
       if(!a?.qid)continue;
-      let x=byQ.get(a.qid);if(!x){x={attempts:0,correct:0,incorrect:0,latest:null};byQ.set(a.qid,x);}
-      x.attempts++;if(a.correct)x.correct++;else x.incorrect++;
+      let x=byQ.get(a.qid);if(!x){x={attempts:0,correct:0,incorrect:0,streak:0,latest:null};byQ.set(a.qid,x);}
+      x.attempts++;if(a.correct){x.correct++;x.streak++;}else{x.incorrect++;x.streak=0;}
       if(!x.latest || Number(a.ts||0)>Number(x.latest.ts||0))x.latest=a;
     }
     for(const [qid,x] of byQ){
       const local=stateFor(qid), currentAttempts=Number(local.attempts||0);
       if(x.attempts<currentAttempts)continue;
       const lastCorrect=!!x.latest?.correct;
-      if(x.attempts===currentAttempts && x.correct===Number(local.correct||0) && x.incorrect===Number(local.incorrect||0) && lastCorrect===local.lastCorrect)continue;
-      const next={...local,attempts:x.attempts,correct:x.correct,incorrect:x.incorrect,lastCorrect,updatedAt:Date.now()};
+      if(x.attempts===currentAttempts && x.correct===Number(local.correct||0) && x.incorrect===Number(local.incorrect||0) && lastCorrect===local.lastCorrect && x.streak===Number(local.streak||0))continue;
+      const next={...local,attempts:x.attempts,correct:x.correct,incorrect:x.incorrect,lastCorrect,streak:x.streak,updatedAt:Date.now()};
       await dbPut('qstate',next);app.states.set(qid,next);
     }
   }

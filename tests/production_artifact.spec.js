@@ -56,3 +56,27 @@ test('a missing question bundle keeps the available bank usable',async({page})=>
   await expect(page.locator('#bundleStatus')).toContainText('1 question bundles unavailable');
   await page.click('#continueLearning');await expect(page.locator('#qStem')).not.toBeEmpty();
 });
+
+test('production Revision schedules answers immediately and keeps the sidebar queue coherent',async({page})=>{
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/');await expect(page.locator('body')).toHaveAttribute('data-v4ready','1');
+  await page.evaluate(()=>{const q=app.questions[20];buildSession([q],{...builtInPreset('rapid'),count:1,feedback:'instant',timer:'off',shuffle:false})});
+  const qid=await page.evaluate(()=>currentQ().external_id);
+  const correct=await page.evaluate(()=>currentQ().options.find(o=>o.is_correct).label);
+  await page.locator(`#qOptions .option[data-label="${correct}"]`).click();await page.click('#qSubmit');await expect(page.locator('#qFeedback')).toBeVisible();
+  const s=await page.evaluate(qid=>{const x=stateFor(qid);return{dueAt:Number(x.dueAt),interval:Number(x.intervalDays)}},qid);
+  expect(s.dueAt).toBeGreaterThan(Date.now());expect(s.interval).toBe(1);
+  await page.evaluate(async()=>{
+    const q=app.questions[21],x={...stateFor(q.external_id),qid:q.external_id,attempts:1,incorrect:1,lastCorrect:false,streak:0,dueAt:Date.now()-5000,updatedAt:Date.now()};
+    app.states.set(q.external_id,x);await dbPut('qstate',x);renderAll();navigate('review');refreshRevisionClock(true);
+  });
+  await expect(page.locator('#v4NavDue')).toHaveText('1');
+  await expect(page.locator('#startDue')).toHaveText('Start due review');
+  await expect(page.locator('#dueList [data-practice-q]')).toHaveCount(1);
+  const geometry=await page.evaluate(()=>({
+    width:innerWidth,
+    scrollWidth:document.documentElement.scrollWidth,
+    offenders:[...document.querySelectorAll('body *')].map(el=>{const r=el.getBoundingClientRect();return{tag:el.tagName,id:el.id,cls:String(el.className||''),left:r.left,right:r.right,width:r.width,scrollWidth:el.scrollWidth}}).filter(x=>x.width>0&&x.right>innerWidth+2).sort((a,b)=>b.right-a.right).slice(0,20)
+  }));
+  expect(geometry.scrollWidth<=geometry.width+2,JSON.stringify(geometry)).toBe(true);
+});

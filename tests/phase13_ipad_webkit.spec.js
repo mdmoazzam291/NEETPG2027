@@ -37,3 +37,21 @@ test('premium UI remains usable on iPad-sized WebKit with touch and accessibilit
   const sidebarOverflow = await page.locator('#sidebar').evaluate(el => getComputedStyle(el).overflowY);
   expect(['auto','scroll']).toContain(sidebarOverflow);
 });
+
+
+test('Revision remains touch-safe and keyboard-accessible on iPad WebKit', async ({ page }) => {
+  await page.goto('/');
+  await loadPremiumPhase13(page);
+  await page.locator('.v4-nav[data-v4-label="Revision"]').evaluate(el=>el.click());
+  await expect(page.locator('#view-review')).toHaveClass(/active/);
+  await expect(page.locator('[data-review-tab]')).toHaveCount(3);
+  const minHeight=await page.locator('[data-review-tab]').first().evaluate(el=>parseFloat(getComputedStyle(el).minHeight));
+  expect(minHeight).toBeGreaterThanOrEqual(44);
+  await page.locator('[data-review-tab="quick"]').focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('[data-review-tab="bookmarks"]')).toBeFocused();
+  await expect(page.locator('#reviewPanelBookmarks')).toBeVisible();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#reviewPanelNotes')).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(2);
+});
