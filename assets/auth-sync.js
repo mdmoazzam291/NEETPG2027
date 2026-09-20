@@ -158,6 +158,7 @@
 
 
   function openAuth(){
+    setAuthMessage('','');
     if(!configured){
       const e=document.getElementById('authError');
       document.getElementById('authModal')?.classList.add('show');
