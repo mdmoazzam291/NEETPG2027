@@ -169,10 +169,37 @@ test('cloud sync does not re-upload unchanged rows after an acknowledged push', 
   });
   await page.addScriptTag({content: `
     window.__syncUpserts=[];
-    const query=()=>{const q={select(){return q},eq(){return q},order(){return q},range(){return Promise.resolve({data:[],error:null})},maybeSingle(){return Promise.resolve({data:null,error:null})}};return q;};
+    window.__syncRemote={profiles:[],question_state:[],attempts:[],study_sessions:[],user_settings:[],active_sessions:[]};
+    const keysFor=table=>table==='question_state'?['user_id','qid']:table==='attempts'?['user_id','client_key']:table==='study_sessions'?['user_id','session_id']:table==='profiles'?['id']:['user_id'];
+    const query=table=>{
+      let filters=[];
+      const rows=()=>window.__syncRemote[table].filter(row=>filters.every(([k,v])=>row[k]===v));
+      const q={
+        select(){return q},
+        eq(k,v){filters.push([k,v]);return q},
+        order(){return q},
+        range(){return Promise.resolve({data:rows(),error:null})},
+        maybeSingle(){return Promise.resolve({data:rows()[0]||null,error:null})}
+      };
+      return q;
+    };
     window.NEETPG_SUPABASE={url:'https://example.supabase.co',anonKey:'public-test-key',redirectUrl:location.href,googleEnabled:false};
     window.supabase={createClient:()=>({
-      from:(table)=>({select(){return query()},upsert:async(rows)=>{window.__syncUpserts.push({table,count:Array.isArray(rows)?rows.length:1});return {error:null}},delete(){const q=query();q.eq=()=>q;q.then=(resolve)=>resolve({error:null});return q}}),
+      from:(table)=>({
+        select(){return query(table)},
+        upsert:async(input)=>{
+          const rows=Array.isArray(input)?input:[input];
+          window.__syncUpserts.push({table,count:rows.length});
+          const keys=keysFor(table);
+          for(const row of rows){
+            const i=window.__syncRemote[table].findIndex(x=>keys.every(k=>x[k]===row[k]));
+            if(i>=0)window.__syncRemote[table][i]={...window.__syncRemote[table][i],...row};
+            else window.__syncRemote[table].push({...row});
+          }
+          return {error:null};
+        },
+        delete(){const q=query(table);q.then=(resolve)=>resolve({error:null});return q}
+      }),
       auth:{getSession:async()=>({data:{session:{user:{id:'sync-user',email:'sync@example.com'}}},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}}),signOut:async()=>({error:null})}
     })};
   `});
