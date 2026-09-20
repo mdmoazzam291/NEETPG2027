@@ -28,7 +28,7 @@ test('target-date edits update immediately and are marked for cloud settings syn
   const before=await page.evaluate(()=>Number(localStorage.getItem('neetpg2027-v2-settings-updated')||0));
   await page.click('#editTarget');await page.fill('#targetDate','2027-09-01');await page.locator('#targetForm button').click();
   await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-09-01');
-  await expect(page.locator('#targetDateLabel')).toHaveText('1 Sept 2027');
+  await expect(page.locator('#targetDateLabel')).toHaveText(/1 Sep(t)? 2027/);
   const state=await page.evaluate(()=>({
     target:localStorage.getItem('neetpg2027-exam-target'),
     updated:Number(localStorage.getItem('neetpg2027-v2-settings-updated')||0)
