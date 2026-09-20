@@ -108,7 +108,11 @@
     const socials = document.getElementById('authSocials');
     const divider = document.getElementById('authSocialDivider');
     const password = document.getElementById('authPassword');
+    const accountPanel = document.getElementById('authAccountPanel');
+    const privacy = document.getElementById('authPrivacy');
+    const offline = document.getElementById('authContinueOffline');
 
+    const accountMode = mode === 'account' && Boolean(getCloud()?.user);
     const signup = mode === 'signup';
     const signin = mode === 'signin';
     const forgotMode = mode === 'forgot';
@@ -116,21 +120,27 @@
     const otpMode = mode === 'otpverify';
     const resetMode = mode === 'reset';
 
-    if (name) name.style.display = signup ? 'block' : 'none';
-    if (emailField) emailField.style.display = resetMode ? 'none' : 'block';
-    if (passwordField) passwordField.style.display = (signin || signup || resetMode) ? 'block' : 'none';
-    if (confirmField) confirmField.style.display = (signup || resetMode) ? 'block' : 'none';
-    if (otpField) otpField.style.display = otpMode ? 'block' : 'none';
-    if (forgot) forgot.style.display = signin ? 'inline-flex' : 'none';
-    if (emailCode) emailCode.style.display = signin && getCfg().emailCodeEnabled !== false ? 'flex' : 'none';
+    if (name) name.style.display = signup && !accountMode ? 'block' : 'none';
+    if (emailField) emailField.style.display = !accountMode && !resetMode ? 'block' : 'none';
+    if (passwordField) passwordField.style.display = !accountMode && (signin || signup || resetMode) ? 'block' : 'none';
+    if (confirmField) confirmField.style.display = !accountMode && (signup || resetMode) ? 'block' : 'none';
+    if (otpField) otpField.style.display = !accountMode && otpMode ? 'block' : 'none';
+    if (forgot) forgot.style.display = !accountMode && signin ? 'inline-flex' : 'none';
+    if (emailCode) emailCode.style.display = !accountMode && signin && getCfg().emailCodeEnabled !== false ? 'flex' : 'none';
+    if (submit) submit.style.display = accountMode ? 'none' : '';
+    if (switchText?.parentElement) switchText.parentElement.style.display = accountMode ? 'none' : '';
+    if (offline) offline.style.display = accountMode ? 'none' : '';
+    if (privacy) privacy.style.display = accountMode ? 'none' : '';
+    if (accountPanel) accountPanel.style.display = accountMode ? 'grid' : 'none';
     if (password) password.autocomplete = signup || resetMode ? 'new-password' : 'current-password';
 
-    const showSocial = signin || signup;
+    const showSocial = (signin || signup) && !accountMode;
     const hasSocial = providerEnabled('google') || providerEnabled('apple');
     if (socials) socials.style.display = showSocial && hasSocial ? 'grid' : 'none';
     if (divider) divider.style.display = showSocial && hasSocial ? 'flex' : 'none';
 
     const copy = {
+      account: ['Your account', 'Signed in and syncing your NEET-PG progress across devices.', ''],
       signin: ['Welcome back', 'Sign in to sync your NEET-PG progress across devices.', 'Sign in'],
       signup: ['Create your account', 'Keep practice history, revision data and notes connected.', 'Create account'],
       forgot: ['Reset your password', 'Enter your account email and we will send a secure recovery link.', 'Send reset link'],
@@ -142,7 +152,22 @@
     if (copy) {
       if (title) title.textContent = copy[0];
       if (subtitle) subtitle.textContent = copy[1];
-      if (submit) submit.textContent = copy[2];
+      if (submit && !accountMode) submit.textContent = copy[2];
+    }
+
+    if (accountMode) {
+      const cloud = getCloud();
+      const user = cloud?.user;
+      const displayName = cloud?.profile?.display_name || user?.user_metadata?.display_name || user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'NEETPG2027 user';
+      const email = user?.email || 'Signed-in account';
+      const avatar = document.getElementById('authAccountAvatar');
+      const nameEl = document.getElementById('authAccountName');
+      const emailEl = document.getElementById('authAccountEmail');
+      const statusEl = document.getElementById('authAccountStatus');
+      if (avatar) avatar.textContent = displayName.split(/\s+|@/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()).join('') || 'U';
+      if (nameEl) nameEl.textContent = displayName;
+      if (emailEl) emailEl.textContent = email;
+      if (statusEl) statusEl.textContent = cloud?.syncing ? 'Syncing now' : cloud?.dirty ? 'Changes pending sync' : cloud?.lastSyncAt ? 'Cloud sync up to date' : 'Cloud account connected';
     }
 
     if (switchText && switchBtn) {
@@ -420,9 +445,27 @@
     offline.type = 'button';
     switchRow.after(offline);
 
-    if (error) offline.after(error);
+    const accountPanel = make('section', 'auth-v2-account');
+    accountPanel.id = 'authAccountPanel';
+    accountPanel.setAttribute('aria-label', 'Signed-in account');
+    accountPanel.style.display = 'none';
+    accountPanel.innerHTML =
+      '<div class="auth-v2-account-card">' +
+        '<div class="auth-v2-account-avatar" id="authAccountAvatar">U</div>' +
+        '<div class="auth-v2-account-copy"><strong id="authAccountName">Account</strong><span id="authAccountEmail"></span></div>' +
+        '<span class="auth-v2-account-badge" id="authAccountStatus">Cloud account connected</span>' +
+      '</div>' +
+      '<button type="button" class="auth-v2-account-primary" id="authAccountContinue">Continue studying</button>' +
+      '<button type="button" class="auth-v2-account-settings" id="authAccountSettings">Account & sync settings</button>' +
+      '<div class="auth-v2-logout-zone">' +
+        '<div><strong>Sign out</strong><span>Your local study data stays on this device.</span></div>' +
+        '<button type="button" class="auth-v2-signout" id="authPageSignOut">Sign out</button>' +
+      '</div>';
+    offline.after(accountPanel);
+
+    if (error) accountPanel.after(error);
     if (success) error?.after(success);
-    if (privacy) success?.after(privacy);
+    if (privacy) { privacy.id = 'authPrivacy'; success?.after(privacy); }
 
     apple.addEventListener('click', appleSignIn);
     document.getElementById('authForgot')?.addEventListener('click', () => { message(); renderMode('forgot'); });
@@ -431,6 +474,30 @@
     document.getElementById('authSwitchBtn')?.addEventListener('click', () => {
       message();
       useBaseTab(document.getElementById('authSwitchBtn')?.dataset.targetMode || 'signin');
+    });
+    document.getElementById('authAccountContinue')?.addEventListener('click', () => document.getElementById('authClose')?.click());
+    document.getElementById('authAccountSettings')?.addEventListener('click', () => {
+      document.getElementById('authClose')?.click();
+      if (typeof navigate === 'function') navigate('settings');
+    });
+    document.getElementById('authPageSignOut')?.addEventListener('click', async () => {
+      const client = clientOrError();
+      const button = document.getElementById('authPageSignOut');
+      if (!client) return;
+      if (button) { button.disabled = true; button.textContent = 'Signing out…'; }
+      message();
+      try {
+        const result = await client.auth.signOut();
+        if (result?.error) throw result.error;
+        const modal = document.getElementById('authModal');
+        if (modal) modal.dataset.mode = 'signin';
+        renderMode('signin');
+        message('', 'Signed out. Local study data remains available on this device.');
+      } catch (error) {
+        message(error.message || 'Could not sign out.');
+      } finally {
+        if (button) { button.disabled = false; button.textContent = 'Sign out'; }
+      }
     });
 
     function toggle(inputId, buttonId) {
@@ -479,8 +546,9 @@
     modal.querySelectorAll('[data-auth-tab]').forEach(tab => tab.addEventListener('click', () => setTimeout(() => renderMode(tab.dataset.authTab), 0)));
     new MutationObserver(() => {
       if (modal.classList.contains('show')) {
-        renderMode(modal.dataset.mode || 'signin');
-        setTimeout(() => document.getElementById('authEmail')?.focus(), 40);
+        const currentMode = getCloud()?.user ? (modal.dataset.mode === 'reset' ? 'reset' : 'account') : (modal.dataset.mode || 'signin');
+        renderMode(currentMode);
+        if (currentMode !== 'account') setTimeout(() => document.getElementById('authEmail')?.focus(), 40);
       }
     }).observe(modal, { attributes: true, attributeFilter: ['class'] });
 
@@ -494,6 +562,14 @@
     if (!client?.auth?.onAuthStateChange) return;
     recoveryBound = true;
     client.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_OUT') {
+        const modal = document.getElementById('authModal');
+        if (modal?.classList.contains('show')) renderMode('signin');
+      }
+      if (event === 'SIGNED_IN') {
+        const modal = document.getElementById('authModal');
+        if (modal?.classList.contains('show') && modal.dataset.mode !== 'reset') renderMode('account');
+      }
       if (event === 'PASSWORD_RECOVERY') {
         const modal = document.getElementById('authModal');
         if (modal) {
@@ -511,6 +587,11 @@
       }
     }
   }
+
+  window.addEventListener('neetpg:cloud-status', () => {
+    const modal = document.getElementById('authModal');
+    if (modal?.classList.contains('show') && getCloud()?.user && modal.dataset.mode !== 'reset') renderMode('account');
+  });
 
   let tries = 0;
   const timer = setInterval(() => {

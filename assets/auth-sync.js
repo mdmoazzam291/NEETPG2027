@@ -158,14 +158,20 @@
 
 
   function openAuth(){
+    setAuthMessage('','');
     if(!configured){
       const e=document.getElementById('authError');
       document.getElementById('authModal')?.classList.add('show');
       if(e)e.textContent='Supabase backend is not connected yet. The app remains fully usable in local mode.';
       return;
     }
-    setAuthTab('signin');
-    document.getElementById('authModal')?.classList.add('show');
+    const modal=document.getElementById('authModal');
+    if(cloud.user){
+      modal.dataset.mode='account';
+    }else{
+      setAuthTab('signin');
+    }
+    modal?.classList.add('show');
   }
   function closeAuth(){ document.getElementById('authModal')?.classList.remove('show'); }
 
@@ -510,7 +516,7 @@
   window.addEventListener('neetpg:prefs-change',markDirty);
   window.addEventListener('neetpg:progress-saved',markDirty);
   function bindUi(){
-    document.getElementById('accountBtn')?.addEventListener('click',()=>cloud.user?navigate('settings'):openAuth());
+    document.getElementById('accountBtn')?.addEventListener('click',openAuth);
     document.getElementById('cloudSignIn')?.addEventListener('click',openAuth);
     document.getElementById('cloudSyncNow')?.addEventListener('click',()=>syncNow());
     document.getElementById('cloudSaveProfile')?.addEventListener('click',()=>saveProfile().catch(e=>updateCloudUi('error',e.message)));
