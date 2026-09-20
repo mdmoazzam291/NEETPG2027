@@ -914,7 +914,7 @@ document.addEventListener('keydown',e=>{
   const mod=e.metaKey||e.ctrlKey,k=e.key.toLowerCase();
   if(mod&&k==='k'){e.preventDefault();showPalette()}
   if(mod&&k==='n'){e.preventDefault();createNote()}
-  if(mod&&k==='s'){e.preventDefault();save();toast('Vault saved locally')}
+  if(mod&&k==='s'){e.preventDefault();save().then(()=>{if($('#saveState').textContent==='Saved on device')toast('Vault saved on device')})}
   if(mod&&k==='p'){e.preventDefault();setView('preview')}
   if(mod&&e.shiftKey&&k==='g'){e.preventDefault();setView('graph')}
   if(mod&&e.shiftKey&&k==='b'){e.preventDefault();setView('brain')}

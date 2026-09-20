@@ -29,3 +29,9 @@ test('Vault commits survive a failed localStorage cache write',async({page})=>{
   await expect.poll(()=>page.evaluate(()=>Boolean(window.NeuralVaultDB))).toBe(true);
   const saved=await page.evaluate(async()=>{const original=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw new DOMException('Full','QuotaExceededError')};try{await NeuralVaultDB.saveState({notes:[{id:'durable-test',title:'Durable',content:'Retained without cache',updatedAt:Date.now()}],currentId:'durable-test'});return (await NeuralVaultDB.loadState()).notes.find(n=>n.id==='durable-test')?.content}finally{Storage.prototype.setItem=original}});expect(saved).toBe('Retained without cache');
 });
+test('a missing question bundle keeps the available bank usable',async({page})=>{
+  await page.route('**/data/pyq/2021_2026/2024-expansion-a.json',route=>route.abort());
+  await page.goto('/');await expect(page.locator('body')).toHaveAttribute('data-core-ready','1');
+  await expect(page.locator('#bundleStatus')).toContainText('1 question bundles unavailable');
+  await page.click('#continueLearning');await expect(page.locator('#qStem')).not.toBeEmpty();
+});

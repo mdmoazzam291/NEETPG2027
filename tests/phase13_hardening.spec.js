@@ -125,7 +125,7 @@ test('Phase 13 cloud conflict policy is deterministic and deletion is explicitly
   const guard = await (await request.get('/assets/phase13-preauth.js')).text();
 
   expect(auth).toContain('ms(remote.updatedAt)>ms(local.updatedAt)');
-  expect(auth).toContain('if(localKeys.has(key))continue');
+  expect(auth).toContain('if(localKeys.has(key))');
   expect(auth).toContain("onConflict:'user_id,client_key'");
   expect(guard).toContain('__NEETPG_ALLOW_ACTIVE_SESSION_DELETE__');
   expect(guard).toContain('clearActiveSession');

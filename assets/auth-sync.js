@@ -14,7 +14,8 @@
     syncTimer: null,
     periodicTimer: null,
     lastSyncAt: null,
-    resumePayload: null
+    resumePayload: null,
+    editedAttemptKeys:new Set()
   };
   window.NEETPG_CLOUD = cloud;
 
@@ -142,7 +143,7 @@
   }
 
   function updateCloudUi(state='idle', detail=''){
-    window.dispatchEvent(new CustomEvent('neetpg:cloud-status')); 
+    window.dispatchEvent(new CustomEvent('neetpg:cloud-status'));
     const user=cloud.user;
     const label=document.getElementById('accountLabel'), avatar=document.getElementById('accountAvatar');
     const status=document.getElementById('cloudStatus'), dot=document.getElementById('cloudDot'), d=document.getElementById('cloudDetail');
@@ -251,7 +252,7 @@
     cloud.remoteAttemptKeys=new Set(arows.map(r=>r.client_key));
     const localKeys=new Set((app.attempts||[]).map(attemptKey));
     for(const r of arows){
-      const a=aFromCloud(r), key=attemptKey(a); if(localKeys.has(key))continue;
+      const a=aFromCloud(r), key=attemptKey(a); if(localKeys.has(key)){const local=app.attempts.find(x=>attemptKey(x)===key);if(local&&!cloud.editedAttemptKeys.has(key)&&(local.note!==a.note||local.mistake!==a.mistake)){Object.assign(local,{note:a.note,mistake:a.mistake});await dbPut('attempts',local)}continue;}
       const id=await dbAdd('attempts',a); a.id=id; app.attempts.push(a); localKeys.add(key);
     }
 
@@ -283,8 +284,8 @@
     const qrows=[...app.states.values()].map(x=>qToCloud(x,uid));
     for(const part of chunks(qrows)){const {error}=await cloud.client.from('question_state').upsert(part,{onConflict:'user_id,qid'});if(error)throw error;}
 
-    const arows=(app.attempts||[]).filter(x=>!cloud.remoteAttemptKeys?.has(attemptKey(x))).map(x=>aToCloud(x,uid));
-    for(const part of chunks(arows)){const {error}=await cloud.client.from('attempts').upsert(part,{onConflict:'user_id,client_key',ignoreDuplicates:true});if(error)throw error;}
+    const arows=(app.attempts||[]).filter(x=>!cloud.remoteAttemptKeys?.has(attemptKey(x))||cloud.editedAttemptKeys.has(attemptKey(x))).map(x=>aToCloud(x,uid));
+    for(const part of chunks(arows)){const {error}=await cloud.client.from('attempts').upsert(part,{onConflict:'user_id,client_key'});if(error)throw error;}
 
     const srows=(app.sessions||[]).map(x=>sToCloud(x,uid));
     for(const part of chunks(srows)){const {error}=await cloud.client.from('study_sessions').upsert(part,{onConflict:'user_id,session_id'});if(error)throw error;}
@@ -330,7 +331,7 @@
     try{
       await pullCloud();
       await pushCloud();
-      cloud.dirty=cloud.changeVersion!==version;cloud.error=null; cloud.lastSyncAt=Date.now(); updateCloudUi('idle');
+      cloud.dirty=cloud.changeVersion!==version;if(!cloud.dirty)cloud.editedAttemptKeys.clear();cloud.error=null; cloud.lastSyncAt=Date.now(); updateCloudUi('idle');
     }catch(e){cloud.error=e.message||String(e);console.error('Cloud sync failed',e);updateCloudUi('error',`Sync failed: ${e.message || e}`);}
     finally{cloud.syncing=false;window.dispatchEvent(new CustomEvent('neetpg:cloud-status'));}
   }
@@ -349,7 +350,7 @@
     }else updateCloudUi();
   }
 
-  window.addEventListener('neetpg:prefs-change',markDirty);window.addEventListener('neetpg:progress-saved',markDirty);
+  window.addEventListener('neetpg:attempt-edited',e=>{if(e.detail?.attempt)cloud.editedAttemptKeys.add(attemptKey(e.detail.attempt))});window.addEventListener('neetpg:prefs-change',markDirty);window.addEventListener('neetpg:progress-saved',markDirty);
   function bindUi(){
     document.getElementById('accountBtn')?.addEventListener('click',()=>cloud.user?navigate('settings'):openAuth());
     document.getElementById('cloudSignIn')?.addEventListener('click',openAuth);

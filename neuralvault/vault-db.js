@@ -103,6 +103,7 @@
   }
 
   async function clear() {
+    await writeQueue.catch(()=>{});
     const db = await open();
     await Promise.all(['vault','notes','revisions'].map(name => new Promise((resolve,reject) => {
       const tx = db.transaction(name,'readwrite');

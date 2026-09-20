@@ -8,7 +8,7 @@ test('live GitHub Pages build serves the validated Phase 13 study shell', async 
 
   await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0),{timeout:15000}).toBe(405);
   await expect(page.locator('#v4Greeting')).toBeVisible({ timeout: 15000 });
-  await expect(page.locator('#v4Solved')).toBeVisible();
+  await expect(page.locator('#todaySummary')).toBeVisible();
   await expect(page.locator('#v4Search')).toBeVisible();
   await expect(page.locator('.v4-nav[data-v4-label="NeuralVault"]')).toBeVisible();
   await expect(page.locator('#offlineBadge')).toHaveText(/Online|Offline/);
