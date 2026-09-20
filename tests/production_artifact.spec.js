@@ -63,7 +63,7 @@ test('production Revision schedules answers immediately and keeps the sidebar qu
   await page.evaluate(()=>{const q=app.questions[20];buildSession([q],{...builtInPreset('rapid'),count:1,feedback:'instant',timer:'off',shuffle:false})});
   const qid=await page.evaluate(()=>currentQ().external_id);
   const correct=await page.evaluate(()=>currentQ().options.find(o=>o.is_correct).label);
-  await page.locator(`#qOptions .option[data-label="${correct}"]`).click();await page.click('#qSubmit');
+  await page.locator(`#qOptions .option[data-label="${correct}"]`).click();await page.click('#qSubmit');await expect(page.locator('#qFeedback')).toBeVisible();
   const s=await page.evaluate(qid=>{const x=stateFor(qid);return{dueAt:Number(x.dueAt),interval:Number(x.intervalDays)}},qid);
   expect(s.dueAt).toBeGreaterThan(Date.now());expect(s.interval).toBe(1);
   await page.evaluate(async()=>{
