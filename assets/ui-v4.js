@@ -5,8 +5,34 @@
   const $qa = s => [...document.querySelectorAll(s)];
   const fmt = n => new Intl.NumberFormat('en-IN').format(Number(n || 0));
   const clampV4 = (n,a,b) => Math.max(a,Math.min(b,n));
-  const EXAM_TARGET = {iso: '2027-08-29'};try{const date=localStorage.getItem('neetpg2027-exam-target');if(/^\d{4}-\d{2}-\d{2}$/.test(date))EXAM_TARGET.iso=date}catch{}
+  const EXAM_TARGET_KEY='neetpg2027-exam-target';
+  const PREFS_UPDATED_KEY='neetpg2027-v2-settings-updated';
+  const EXAM_TARGET = {iso: '2027-08-29'};
+  try{const date=localStorage.getItem(EXAM_TARGET_KEY);if(/^\d{4}-\d{2}-\d{2}$/.test(date))EXAM_TARGET.iso=date}catch{}
   let examCountdownTimer = null;
+
+  function formatExamTargetLabel(iso){
+    const date=new Date(String(iso||'')+'T00:00:00');
+    return Number.isNaN(date.getTime())?String(iso||''):date.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  }
+
+  function setExamTarget(iso,{persist=true,markChanged=true}={}){
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(String(iso||'')))return false;
+    EXAM_TARGET.iso=String(iso);
+    if(persist){
+      try{
+        localStorage.setItem(EXAM_TARGET_KEY,EXAM_TARGET.iso);
+        if(markChanged)localStorage.setItem(PREFS_UPDATED_KEY,String(Date.now()));
+      }catch{}
+    }
+    const host=$q('#v4ExamCountdown');if(host)host.dataset.target=EXAM_TARGET.iso;
+    const label=$q('#targetDateLabel');if(label)label.textContent=formatExamTargetLabel(EXAM_TARGET.iso);
+    const input=$q('#targetDate');if(input)input.value=EXAM_TARGET.iso;
+    renderExamCountdown();
+    if(markChanged)window.dispatchEvent(new CustomEvent('neetpg:prefs-change',{detail:{source:'exam-target',iso:EXAM_TARGET.iso}}));
+    return true;
+  }
+  window.NEETPG_V4_SET_EXAM_TARGET=setExamTarget;
 
   function examTargetTime(){
     // Pin the target to Indian Standard Time so travelling or changing the device timezone
@@ -245,9 +271,9 @@
     const section=$q('#view-dashboard');if(!section)return;section.innerHTML=dashboardMarkup();
     for(const [id,title] of [['plan','Study Plan'],['mock','Mock Exams']])if(!$q('#view-'+id)){const v=document.createElement('section');v.className='view';v.id='view-'+id;v.innerHTML=`<h2>${title}</h2>`+(id==='plan'?'<section class="card study-card" id="v12Planner" data-dashboard-slot="planner"></section>':'<section class="card study-card"><h3>Practice under exam conditions</h3><p>Timed sections, question navigation and a detailed review after submission.</p><button class="btn primary exam9-launch" id="openMock">Start mock exam</button></section>');section.parentElement.append(v)}
     $q('#openMock').onclick=()=>window.NEETPG_EXAM9?.open();
-    $q('#targetDateLabel').textContent=new Date(EXAM_TARGET.iso+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+    $q('#targetDateLabel').textContent=formatExamTargetLabel(EXAM_TARGET.iso);
     $q('#targetDate').value=EXAM_TARGET.iso;$q('#editTarget').onclick=()=>{$q('#targetForm').hidden=!$q('#targetForm').hidden};
-    $q('#targetForm').onsubmit=e=>{e.preventDefault();EXAM_TARGET.iso=$q('#targetDate').value;try{localStorage.setItem('neetpg2027-exam-target',EXAM_TARGET.iso)}catch{toast('Date could not be saved on this device.')} $q('#targetDateLabel').textContent=EXAM_TARGET.iso;$q('#targetForm').hidden=true;renderExamCountdown()};
+    $q('#targetForm').onsubmit=e=>{e.preventDefault();const iso=$q('#targetDate').value;if(!setExamTarget(iso)){toast('Choose a valid target date.');return}$q('#targetForm').hidden=true};
     $q('#continueLearning').onclick=()=>{if(app.session)navigate('practice');else if(app.savedSession)restoreSessionPayload();else window.NEETPG_PHASE12?.startPlan(15)||launchQuick('rapid')};
     $q('#customPractice').onclick=()=>navigate('practice');
     $q('[data-home-view]').onclick=()=>navigate('plan');
@@ -347,6 +373,7 @@
   function init(){
     if(window.__NEETPG_UI_V4_BOOTED)return;
     window.__NEETPG_UI_V4_BOOTED=true;
+    try{const stored=localStorage.getItem(EXAM_TARGET_KEY);if(/^\d{4}-\d{2}-\d{2}$/.test(stored||''))EXAM_TARGET.iso=stored}catch{}
     document.body.classList.add('ui-v4');sidebar();topbar();installDashboard();
     renderLifecycle($q('.view.active')?.id?.replace('view-','')||'dashboard');
     window.addEventListener('neetpg:route-change',e=>renderLifecycle(e.detail?.view||'dashboard'));
