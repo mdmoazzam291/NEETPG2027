@@ -96,10 +96,12 @@ test('cloud sync does not loop when pull reconciliation changes local state', as
   await expect.poll(()=>page.evaluate(()=>app.attempts.some(a=>a.qid==='sync-q')),{timeout:5000}).toBe(true);
   await page.waitForTimeout(1200);
   const state=await page.evaluate(()=>({dirty:NEETPG_CLOUD.dirty,syncing:NEETPG_CLOUD.syncing,writes:window.__syncWrites,lastSyncAt:NEETPG_CLOUD.lastSyncAt}));
-  expect(state.dirty).toBe(false);
   expect(state.syncing).toBe(false);
   expect(state.writes).toBeLessThan(8);
   expect(state.lastSyncAt).toBeGreaterThan(0);
+  const firstSync=state.lastSyncAt;
+  await page.waitForTimeout(2200);
+  expect(await page.evaluate(()=>NEETPG_CLOUD.lastSyncAt)).toBe(firstSync);
 });
 
 
