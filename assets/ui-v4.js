@@ -23,7 +23,10 @@
       try{
         localStorage.setItem(EXAM_TARGET_KEY,EXAM_TARGET.iso);
         if(markChanged)localStorage.setItem(PREFS_UPDATED_KEY,String(Date.now()));
-      }catch{}
+      }catch{
+        if(markChanged&&typeof toast==='function')toast('Date could not be saved on this device.');
+        return false;
+      }
     }
     const host=$q('#v4ExamCountdown');if(host)host.dataset.target=EXAM_TARGET.iso;
     const label=$q('#targetDateLabel');if(label)label.textContent=formatExamTargetLabel(EXAM_TARGET.iso);
