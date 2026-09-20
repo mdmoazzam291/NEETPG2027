@@ -95,3 +95,4 @@ test('cloud sync does not re-upload unchanged local rows after a successful push
   const second=await page.evaluate(()=>window.__syncUpserts.filter(x=>x.table==='question_state').reduce((n,x)=>n+x.count,0));
   expect(second).toBe(first);
 });
+
