@@ -7,6 +7,8 @@
   const getCloud = () => window.NEETPG_CLOUD || null;
   let enhanced = false;
   let recoveryBound = false;
+  let providerProbeStarted = false;
+  const runtimeProviders = { google: null, apple: null };
 
   function make(tag, className, text) {
     const node = document.createElement(tag);
@@ -39,19 +41,50 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
   }
 
+  function providerEnabled(name) {
+    if (runtimeProviders[name] !== null) return Boolean(runtimeProviders[name]);
+    return Boolean(getCfg()[name + 'Enabled']);
+  }
+
   function providerFlags() {
     const cfg = getCfg();
+    const googleEnabled = providerEnabled('google');
+    const appleEnabled = providerEnabled('apple');
     const google = document.getElementById('authGoogle');
     const apple = document.getElementById('authApple');
     const emailCode = document.getElementById('authEmailCode');
-    if (google) google.hidden = !cfg.googleEnabled;
-    if (apple) apple.hidden = !cfg.appleEnabled;
+    if (google) google.hidden = !googleEnabled;
+    if (apple) apple.hidden = !appleEnabled;
     if (emailCode) emailCode.hidden = cfg.emailCodeEnabled === false;
     const social = document.getElementById('authSocials');
     const socialDivider = document.getElementById('authSocialDivider');
-    const any = Boolean(cfg.googleEnabled || cfg.appleEnabled);
+    const any = googleEnabled || appleEnabled;
     if (social) social.hidden = !any;
     if (socialDivider) socialDivider.hidden = !any;
+  }
+
+  async function detectOAuthProviders() {
+    const cfg = getCfg();
+    if (providerProbeStarted || cfg.autoDetectOAuthProviders === false || !cfg.url || !cfg.anonKey) return;
+    providerProbeStarted = true;
+    try {
+      const base = String(cfg.url).replace(/\/$/, '');
+      const response = await fetch(base + '/auth/v1/settings', {
+        headers: { apikey: cfg.anonKey },
+        cache: 'no-store'
+      });
+      if (!response.ok) throw new Error('Auth settings unavailable');
+      const settings = await response.json();
+      runtimeProviders.google = Boolean(settings?.external?.google);
+      runtimeProviders.apple = Boolean(settings?.external?.apple);
+    } catch (error) {
+      runtimeProviders.google = Boolean(cfg.googleEnabled);
+      runtimeProviders.apple = Boolean(cfg.appleEnabled);
+      console.warn('OAuth provider detection fell back to local flags', error);
+    }
+    providerFlags();
+    const modal = document.getElementById('authModal');
+    if (modal?.classList.contains('show')) renderMode(modal.dataset.mode || 'signin');
   }
 
   function renderMode(mode) {
@@ -93,8 +126,9 @@
     if (password) password.autocomplete = signup || resetMode ? 'new-password' : 'current-password';
 
     const showSocial = signin || signup;
-    if (socials) socials.style.display = showSocial && (getCfg().googleEnabled || getCfg().appleEnabled) ? 'grid' : 'none';
-    if (divider) divider.style.display = showSocial && (getCfg().googleEnabled || getCfg().appleEnabled) ? 'flex' : 'none';
+    const hasSocial = providerEnabled('google') || providerEnabled('apple');
+    if (socials) socials.style.display = showSocial && hasSocial ? 'grid' : 'none';
+    if (divider) divider.style.display = showSocial && hasSocial ? 'flex' : 'none';
 
     const copy = {
       signin: ['Welcome back', 'Sign in to sync your NEET-PG progress across devices.', 'Sign in'],
@@ -247,7 +281,7 @@
   }
 
   async function appleSignIn() {
-    if (!getCfg().appleEnabled) {
+    if (!providerEnabled('apple')) {
       message('Apple sign-in is not enabled in Supabase yet.');
       return;
     }
@@ -484,12 +518,14 @@
     enhance();
     bindRecovery();
     providerFlags();
-    if (enhanced && recoveryBound) clearInterval(timer);
+    detectOAuthProviders();
+    if (enhanced && recoveryBound && providerProbeStarted) clearInterval(timer);
     if (tries > 240) clearInterval(timer);
   }, 25);
 
   if (document.readyState !== 'loading') {
     enhance();
     bindRecovery();
+    detectOAuthProviders();
   }
 })();
