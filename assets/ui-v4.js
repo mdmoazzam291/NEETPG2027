@@ -359,7 +359,7 @@
     const rows=reviewCollection(reviewKind).slice(0,3);$q('#homeRevision').innerHTML=rows.length?rows.map(q=>`<button class="home-row" data-home-q="${escape(q.external_id)}"><span class="study-symbol">▤</span><span>${escape(q.topic)}<small>${escape(q.subject)}</small></span><span>›</span></button>`).join(''):'<p class="muted empty-home">'+(reviewKind==='due'?'All caught up. New reviews will appear here.':'No items in this collection yet.')+'</p>';
     $qa('[data-home-q]').forEach(b=>b.onclick=()=>{const q=app.qMap.get(b.dataset.homeQ);buildSession([q],{...builtInPreset('rapid'),count:1})});
     const notes=[...localVaultNotes()].sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt)).slice(0,3);$q('#homeNotes').innerHTML=notes.length?notes.map(n=>`<a class="home-row" href="neuralvault/?note=${encodeURIComponent(n.id)}"><span class="study-symbol">▤</span><span>${escape(n.title)}<small>${escape(n.path||'Vault note')}</small></span><span>›</span></a>`).join(''):'<p class="muted empty-home">Capture your first note in NeuralVault.</p>';
-    if($q('#v4NavDue'))$q('#v4NavDue').textContent=due;
+    const revisionBadge=$q('#v4NavDue');if(revisionBadge){revisionBadge.textContent=due;revisionBadge.hidden=due===0;revisionBadge.setAttribute('aria-label',due+` due review${due===1?'':'s'}`)}
     updateSyncPill();
   }
   function updateSyncPill(){const cloud=window.NEETPG_CLOUD,txt=$q('#v4SyncText');if(txt)txt.textContent=!navigator.onLine?'Offline':!cloud?.user?'Saved on device':cloud.error?'Sync failed':cloud.syncing?'Syncing…':cloud.dirty?'Changes pending':cloud.lastSyncAt?'Synced':'Waiting to sync'}
