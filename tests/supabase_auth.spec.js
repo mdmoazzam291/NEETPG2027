@@ -71,3 +71,15 @@ test('cloud sync deletes a finished active-session row instead of resurrecting i
   expect(source).toContain("from('active_sessions').delete().eq('user_id',cloud.user.id).eq('session_id',clearIntent.sessionId)");
   expect(source).not.toContain("typeof cloud.clearActiveSession==='function'");
 });
+
+
+test('cloud sync preserves mock metadata and advances successful push watermarks', async ({ page }) => {
+  await page.goto('/');
+  const source=await page.evaluate(async()=>await (await fetch('/assets/auth-sync.js')).text());
+  expect(source).toContain("cloud.remoteQUpdated.set(row.qid,ms(row.updated_at))");
+  expect(source).toContain("cloud.remoteAttemptUpdated.set(row.client_key,ms(row.updated_at||row.happened_at))");
+  expect(source).toContain("cloud.remoteSessionUpdated.set(row.session_id,ms(row.updated_at))");
+  expect(source).toContain("cloud.remoteSettingsUpdated=localSettingsUpdated");
+  expect(source).toContain("payload:{score:Number.isFinite(Number(s.score))?Number(s.score):null,source:s.mode?.startsWith('Mock · ')?'exam-simulator':'study'}");
+  expect(source).toContain("score:Number.isFinite(Number(payload.score))?Number(payload.score):undefined");
+});
