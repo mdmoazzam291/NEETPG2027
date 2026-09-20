@@ -73,5 +73,10 @@ test('production Revision schedules answers immediately and keeps the sidebar qu
   await expect(page.locator('#v4NavDue')).toHaveText('1');
   await expect(page.locator('#startDue')).toHaveText('Start due review');
   await expect(page.locator('#dueList [data-practice-q]')).toHaveCount(1);
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
+  const geometry=await page.evaluate(()=>({
+    width:innerWidth,
+    scrollWidth:document.documentElement.scrollWidth,
+    offenders:[...document.querySelectorAll('body *')].map(el=>{const r=el.getBoundingClientRect();return{tag:el.tagName,id:el.id,cls:String(el.className||''),left:r.left,right:r.right,width:r.width}}).filter(x=>x.width>0&&(x.right>innerWidth+2||x.left<-2)).slice(0,20)
+  }));
+  expect(geometry.scrollWidth<=geometry.width+2,JSON.stringify(geometry)).toBe(true);
 });
