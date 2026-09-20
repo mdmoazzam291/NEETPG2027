@@ -12,6 +12,7 @@
     profile: null,
     syncing: false,
     dirty: false,
+    changeVersion: 0,
     syncTimer: null,
     periodicTimer: null,
     lastSyncAt: null,
