@@ -426,7 +426,7 @@
       if(cloud.user?.id!==uid)return;
       await pushCloud();
       if(cloud.user?.id!==uid)return;
-      // Record the data just acknowledged by Supabase. Otherwise the next
+      // Record the data just acknowledged by Supabase; otherwise the next
       // periodic/manual sync in this tab treats unchanged rows as unsynced
       // and re-upserts them until another pull refreshes these watermarks.
       cloud.remoteQUpdated=new Map([...app.states.values()].map(x=>[x.qid,Number(x.updatedAt||0)]));
