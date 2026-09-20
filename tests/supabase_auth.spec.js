@@ -76,7 +76,7 @@ test('cloud sync deletes a finished active-session row instead of resurrecting i
 test('cloud sync does not re-upload unchanged rows after an acknowledged push', async ({ page }) => {
   await page.goto('/');
   await page.evaluate(async()=>{
-    const qid='sync-regression-question';
+    const qid='sync-regression-question'; // deterministic fixture id
     const now=Date.now(),s=stateFor(qid),next={...s,qid,attempts:1,correct:1,incorrect:0,lastCorrect:true,updatedAt:now};
     await dbPut('qstate',next);app.states.set(qid,next);
   });
