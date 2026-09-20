@@ -68,7 +68,8 @@ test('Phase 13 backup export and import restore local study progress', async ({ 
   await expect(page.locator('#statAttempted')).toHaveText('0');
 
   await page.setInputFiles('#importBackup', backupPath);
-  await expect.poll(()=>page.evaluate(()=>app.attempts.length)).toBeGreaterThan(0);
+  await expect(page.locator('#toast')).toHaveText('Backup imported',{timeout:15000});
+  expect(await page.evaluate(()=>app.attempts.length)).toBeGreaterThan(0);
   await page.evaluate(()=>navigate('dashboard'));
   await expect(page.locator('#statAttempted')).not.toHaveText('0');
   await expect(page.locator('#statBookmarks')).not.toHaveText('0');
