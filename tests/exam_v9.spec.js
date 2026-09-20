@@ -18,6 +18,21 @@ test('refresh recovery, stale tab, offline failure and full 210-minute lifecycle
  await expect.poll(()=>page.evaluate(async()=>(await dbAll('sessions')).length)).toBe(1);await page.click('#exam9SyncResult');expect(await page.evaluate(async()=>(await dbAll('attempts')).length)).toBe(180);
  await page.locator('[data-review="unattempted"]').click();await page.click('#exam9AddRevision');await expect(page.locator('#exam9Notice')).toContainText('Saved');
 });
+test('failed saves never masquerade as confirmed responses',async({context,page})=>{
+ const server=await fixture(context);await connect(page);await begin(page);
+ await page.check('#exam9Option0');await expect.poll(()=>server.get().responses[0].selected).toBe('A');
+ server.offline(true);await page.check('#exam9Option1');
+ await expect(page.locator('#exam9SaveStatus')).toHaveText('Not confirmed');
+ await expect(page.locator('#exam9Notice')).toContainText('Save not confirmed');
+ await expect(page.locator('#exam9Option0')).toBeChecked();
+ await expect(page.locator('#exam9Option1')).not.toBeChecked();
+ server.offline(false);await page.click('#exam9Retry');await expect(page.locator('#exam9SaveStatus')).toHaveText('Saved');
+ await page.locator('[data-pos="35"]').click();server.offline(true);await page.click('#exam9Save');
+ await expect(page.locator('#exam9Notice')).toContainText('Save not confirmed');
+ await expect(page.locator('#exam9Notice')).not.toContainText('last question');
+ await expect(page.locator('#exam9SaveStatus')).toHaveText('Not confirmed');
+});
+
 test('two tabs reject stale versions and reconcile an 85-minute absence',async({context,page})=>{
  const server=await fixture(context);await connect(page);await begin(page);const second=await context.newPage();await connect(second);await second.click('#exam9Resume');
  await page.check('#exam9Option0');await expect.poll(()=>server.get().responses[0].selected).toBe('A');await second.click('#exam9Retry');await expect(second.locator('#exam9Option0')).toBeChecked();

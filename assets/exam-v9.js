@@ -49,22 +49,24 @@ async function rpc(action,payload={},id=exam?.id){
  if(data.error)message(data.error==='STALE_VERSION'?'Another tab changed this attempt. Latest saved responses restored; retry your action.':data.error==='SECTION_LOCKED'?'That section has expired. Your attempt is now on the scheduled section.':'This attempt is complete and cannot be edited.');
  return data;
 }
-function saving(on){busy=on;$('#exam9Backdrop')?.classList.toggle('saving',on);const field=$('.exam9-options');if(field)field.disabled=on;const s=$('#exam9SaveStatus');if(s)s.textContent=on?'Saving…':'Saved';}
+function saving(on,label='Saved'){busy=on;$('#exam9Backdrop')?.classList.toggle('saving',on);const field=$('.exam9-options');if(field)field.disabled=on;const s=$('#exam9SaveStatus');if(s)s.textContent=on?'Saving…':label;}
 async function action(payload){
- if(busy||exam?.status!=='active')return;
- if(timeNow()>=Date.parse(exam.sectionExpiresAt))return reconcile();
+ if(busy||exam?.status!=='active')return false;
+ if(timeNow()>=Date.parse(exam.sectionExpiresAt)){await reconcile();return false;}
  const focusId=document.activeElement?.id,oldPosition=exam.currentPosition;saving(true);message('');
- try{await rpc('mutate',{position:oldPosition,visible:!document.hidden,...payload});channel?.postMessage({id:exam.id});render();
+ try{
+  const data=await rpc('mutate',{position:oldPosition,visible:!document.hidden,...payload});channel?.postMessage({id:exam.id});render();
   if(exam.currentPosition===oldPosition&&focusId)document.getElementById(focusId)?.focus();else $('#exam9QuestionTitle')?.focus();
- }catch(e){message(`Save not confirmed. ${e.message} Reconnect, then use Retry sync. The timer continues.`);$('#exam9SaveStatus').textContent='Not confirmed';}
- finally{saving(false);}
+  const confirmed=!data.error;saving(false,confirmed?'Saved':'Synced latest');return confirmed;
+ }catch(e){
+  render();message(`Save not confirmed. ${e.message} Reconnect, then use Retry sync. The timer continues.`);saving(false,'Not confirmed');return false;
+ }
 }
 async function reconcile(actionName='get'){
  if(busy||!open||!exam||tutorial)return;
  saving(true);const before=`${exam.status}:${exam.activeSection}:${exam.version}`;
- try{await rpc(actionName,{visible:!document.hidden});message('');if(actionName==='get'||before!==`${exam.status}:${exam.activeSection}:${exam.version}`)render();else tick();}
- catch(e){message(`Connection lost: ${e.message} The timer continues. Retry sync to restore server state.`);}
- finally{saving(false);}
+ try{await rpc(actionName,{visible:!document.hidden});message('');if(actionName==='get'||before!==`${exam.status}:${exam.activeSection}:${exam.version}`)render();else tick();saving(false,'Saved');}
+ catch(e){message(`Connection lost: ${e.message} The timer continues. Retry sync to restore server state.`);saving(false,'Offline');}
 }
 function tick(){
  if(!exam||exam.status!=='active')return;
@@ -89,7 +91,7 @@ function rules(version){
  const full=version===FULL,n=full?180:36;resetScreen('Read the simulation rules');
  $('#exam9Body').innerHTML=`<div class="exam9-lobby"><h1>${full?'Full mock':'Section drill'} rules</h1><ul class="exam9-rules"><li>${n} questions · ${full?5:1} time-bound section${full?'s':''}</li><li>36 questions and 42 minutes per section</li><li>No pause, early section exit, or time carry-forward</li><li>Completed sections cannot be reopened</li><li>Answered questions marked for review are evaluated normally</li><li>+4 correct · −1 incorrect · 0 unattempted</li><li>The timer continues during refresh, backgrounding and disconnection</li><li>Your answers are saved to your account. Multiple tabs share one attempt.</li></ul><label class="exam9-consent"><input id="exam9Consent" type="checkbox"> I understand the simulation rules</label><button id="exam9Begin" class="exam9-btn primary large" disabled>START MOCK</button><p><button id="exam9Back" class="exam9-btn">Back</button></p></div>`;
  $('#exam9Consent').onchange=e=>$('#exam9Begin').disabled=!e.target.checked;
- $('#exam9Begin').onclick=async()=>{if(busy)return;saving(true);message('');try{await rpc('start',{presetVersion:version},null);render();}catch(e){message(e.message);}finally{saving(false);}};
+ $('#exam9Begin').onclick=async()=>{if(busy)return;saving(true);message('');try{await rpc('start',{presetVersion:version},null);render();saving(false,'Saved');}catch(e){message(e.message);saving(false,'Not started');}};
  $('#exam9Back').onclick=lobby;
 }
 const status=r=>r.selected!=null?(r.review?'answered-review':'answered'):(r.review?'review':r.visited?'unanswered':'unvisited');
@@ -105,7 +107,7 @@ function render(){
  $('#exam9Body').querySelectorAll('input').forEach(el=>el.onchange=()=>action({selected:el.value}));renderImage(q.image);
  $('#exam9Actions').innerHTML=`<button id="exam9Clear" class="exam9-btn">Clear Response</button><button id="exam9Mark" class="exam9-btn">Mark for Review & Next</button>${r.review?'<button id="exam9Unmark" class="exam9-btn">Remove review mark</button>':''}<span class="exam9-spacer"></span><button id="exam9Previous" class="exam9-btn" ${index===0?'disabled':''}>Previous</button><button id="exam9Save" class="exam9-btn primary">Save & Next</button><button id="exam9Retry" class="exam9-btn">Retry sync</button>`;
  const next=Math.min(offset+p.questionsPerSection-1,exam.currentPosition+1);
- $('#exam9Clear').onclick=()=>action({selected:null});$('#exam9Mark').onclick=()=>action({review:true,navigate:next});$('#exam9Unmark')?.addEventListener('click',()=>action({review:false}));$('#exam9Previous').onclick=()=>action({navigate:exam.currentPosition-1});$('#exam9Save').onclick=async()=>{await action({navigate:next});if(index===p.questionsPerSection-1)message('You are at the last question. Review this section until the timer expires.');};$('#exam9Retry').onclick=()=>reconcile();
+ $('#exam9Clear').onclick=()=>action({selected:null});$('#exam9Mark').onclick=()=>action({review:true,navigate:next});$('#exam9Unmark')?.addEventListener('click',()=>action({review:false}));$('#exam9Previous').onclick=()=>action({navigate:exam.currentPosition-1});$('#exam9Save').onclick=async()=>{const confirmed=await action({navigate:next});if(confirmed&&index===p.questionsPerSection-1)message('You are at the last question. Review this section until the timer expires.');};$('#exam9Retry').onclick=()=>reconcile();
  const counts=Object.fromEntries(Object.keys(names).map(k=>[k,exam.responses.filter(r=>status(r)===k).length]));
  $('#exam9Side').innerHTML=`<div class="exam9-palette-title"><h3>SECTION ${String.fromCharCode(65+exam.activeSection)}</h3><button id="exam9PaletteClose" class="exam9-btn">Close palette</button></div><div class="exam9-palette">${exam.questions.map((q,i)=>{const s=status(exam.responses[i]);return `<button class="exam9-q ${s} ${i===index?'current':''}" data-pos="${offset+i}" aria-label="Question ${i+1}, ${names[s]}" ${i===index?'aria-current="true"':''}><span>${String(i+1).padStart(2,'0')}</span><small aria-hidden="true">${symbols[s]}</small></button>`;}).join('')}</div><dl class="exam9-legend">${Object.entries(names).map(([s,name])=>`<div><dt><span class="exam9-status ${s}" aria-hidden="true">${symbols[s]}</span>${name}</dt><dd>${counts[s]}</dd></div>`).join('')}</dl><p class="exam9-muted">Review freely within this section. The next section opens only when its scheduled time begins.</p>`;
  $('#exam9Side').classList.toggle('expanded',palette);

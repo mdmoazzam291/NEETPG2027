@@ -39,6 +39,26 @@ test('live GitHub Pages build serves the validated Phase 13 study shell', async 
   expect(pwa.swScope).toContain('/NEETPG2027/');
 });
 
+test('live Mock Exams launcher opens the deployed simulator shell', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${LIVE}?mock-live-audit=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('body')).toHaveAttribute('data-v4ready','1',{timeout:15000});
+
+  const nav=page.locator('.v4-nav[data-v4-label="Mock Exams"]');
+  await expect(nav).toBeVisible();
+  await nav.evaluate(el=>el.click());
+  await expect(page.locator('#view-mock')).toHaveClass(/active/);
+  await page.locator('#openMock').click();
+
+  await expect(page.locator('#exam9Backdrop')).toHaveClass(/show/,{timeout:10000});
+  await expect(page.locator('#exam9Full')).toBeVisible();
+  await expect(page.locator('#exam9Drill')).toBeVisible();
+  await expect(page.locator('#exam9Tutorial')).toBeVisible();
+  await expect(page.locator('#exam9Body')).toContainText('180');
+  await expect(page.locator('#exam9Body')).toContainText('Not affiliated with or endorsed by NBEMS');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
+});
+
 test('live GitHub Pages build serves NeuralVault Brain V2', async ({ page }) => {
   await page.setViewportSize({ width: 1366, height: 900 });
   await page.goto(`${LIVE}neuralvault/?brain-v2-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
