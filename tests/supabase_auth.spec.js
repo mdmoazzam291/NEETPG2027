@@ -81,3 +81,71 @@ test('cloud sync pulls cross-device changes while idle and when returning to for
   expect(source).toContain("else if(navigator.onLine)syncNow()");
   expect(source).toContain("Offline · changes pending and will sync automatically when connection returns.");
 });
+
+
+test('cloud sync excludes Mock Exams attempts from SRS counters and repairs contaminated state', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('#statTotal')).toHaveText('405');
+  await page.addScriptTag({content:'window.NEETPG_SUPABASE={};'});
+  await page.addScriptTag({url:'/assets/auth-sync.js'});
+  await expect.poll(()=>page.evaluate(()=>typeof window.NEETPG_CLOUD?.syncNow==='function')).toBe(true);
+
+  const result=await page.evaluate(async()=>{
+    const uid='sync-user', qid=app.questions[0].external_id, old='2026-09-20T10:00:00.000Z';
+    const remote={
+      question_state:[{user_id:uid,qid,attempts:2,correct:1,incorrect:1,last_correct:true,bookmarked:true,flagged:false,note:'keep me',due_at:null,interval_days:3,ease:2.4,streak:1,updated_at:old}],
+      attempts:[
+        {user_id:uid,client_key:'practice:'+qid+':1000:A',qid,correct:false,selected:'A',confidence:null,mistake:'',note:'',skipped:false,happened_at:'1970-01-01T00:00:01.000Z',elapsed_seconds:1,session_id:'practice-1',subject:'Medicine',difficulty:2,updated_at:old},
+        {user_id:uid,client_key:'mock:'+qid+':2000:B',qid,correct:true,selected:'B',confidence:null,mistake:'',note:'',skipped:false,happened_at:'1970-01-01T00:00:02.000Z',elapsed_seconds:1,session_id:'mock-1',subject:'Medicine',difficulty:2,updated_at:old}
+      ],
+      study_sessions:[
+        {user_id:uid,session_id:'practice-1',started_at:'1970-01-01T00:00:00.000Z',ended_at:'1970-01-01T00:00:03.000Z',question_count:1,correct_count:0,accuracy:0,mode:'smart',feedback:'instant',subjects:['Medicine'],payload:{},updated_at:old},
+        {user_id:uid,session_id:'mock-1',started_at:'1970-01-01T00:00:00.000Z',ended_at:'1970-01-01T00:00:04.000Z',question_count:1,correct_count:1,accuracy:100,mode:'Mock · full',feedback:'exam',subjects:['Medicine'],payload:{},updated_at:old}
+      ],
+      user_settings:[],active_sessions:[]
+    };
+    const rows=(table,filters)=>remote[table].filter(row=>filters.every(([k,v])=>row[k]===v));
+    const client={from(table){
+      let filters=[];
+      const q={
+        select(){return q;},
+        eq(k,v){filters.push([k,v]);return q;},
+        order(){return q;},
+        range(){return Promise.resolve({data:rows(table,filters),error:null});},
+        maybeSingle(){return Promise.resolve({data:rows(table,filters)[0]||null,error:null});},
+        upsert(input){
+          for(const row of (Array.isArray(input)?input:[input])){
+            const keys=table==='question_state'?['user_id','qid']:table==='attempts'?['user_id','client_key']:table==='study_sessions'?['user_id','session_id']:['user_id'];
+            const i=remote[table].findIndex(x=>keys.every(k=>x[k]===row[k]));
+            if(i>=0)remote[table][i]={...remote[table][i],...row};else remote[table].push({...row});
+          }
+          return Promise.resolve({data:null,error:null});
+        },
+        delete(){return q;},
+        then(resolve){resolve({data:null,error:null});}
+      };
+      return q;
+    }};
+
+    for(const store of ['qstate','attempts','sessions','runtime'])await dbClear(store);
+    const contaminated={...stateFor(qid),qid,attempts:2,correct:1,incorrect:1,lastCorrect:true,bookmarked:true,note:'keep me',dueAt:null,intervalDays:3,ease:2.4,streak:1,updatedAt:new Date(old).getTime()};
+    await dbPut('qstate',contaminated);
+    app.states.set(qid,contaminated);app.attempts=[];app.sessions=[];app.session=null;app.savedSession=null;
+    localStorage.removeItem('neetpg2027-cloud-active-clear');
+
+    Object.assign(NEETPG_CLOUD,{user:{id:uid,email:'sync@example.test'},client,dirty:true,changeVersion:1,error:null});
+    await NEETPG_CLOUD.syncNow();
+
+    const repaired=stateFor(qid), cloudRow=remote.question_state.find(x=>x.qid===qid);
+    return {
+      local:{attempts:repaired.attempts,correct:repaired.correct,incorrect:repaired.incorrect,lastCorrect:repaired.lastCorrect,streak:repaired.streak,bookmarked:repaired.bookmarked,note:repaired.note,intervalDays:repaired.intervalDays,ease:repaired.ease},
+      remote:{attempts:cloudRow.attempts,correct:cloudRow.correct,incorrect:cloudRow.incorrect,lastCorrect:cloudRow.last_correct,streak:cloudRow.streak,bookmarked:cloudRow.bookmarked,note:cloudRow.note,intervalDays:cloudRow.interval_days,ease:cloudRow.ease},
+      lastSyncAt:NEETPG_CLOUD.lastSyncAt,error:NEETPG_CLOUD.error||null
+    };
+  });
+
+  expect(result.local).toEqual({attempts:1,correct:0,incorrect:1,lastCorrect:false,streak:0,bookmarked:true,note:'keep me',intervalDays:3,ease:2.4});
+  expect(result.remote).toEqual({attempts:1,correct:0,incorrect:1,lastCorrect:false,streak:0,bookmarked:true,note:'keep me',intervalDays:3,ease:2.4});
+  expect(result.lastSyncAt).toBeTruthy();
+  expect(result.error).toBeNull();
+});
