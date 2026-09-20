@@ -230,3 +230,7 @@ browser-ci.sqlite3
 ci.sqlite3
 
 _site/
+
+
+# Generated exam deployment cache (canonical source is data/pyq)
+supabase/exam-bank.sql

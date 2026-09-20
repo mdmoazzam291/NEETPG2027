@@ -1,59 +1,35 @@
-const { test, expect } = require('@playwright/test');
-
-async function loadExam(page){
-  await page.goto('/');
-  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined' ? app.questions.length : 0)).toBeGreaterThan(0);
-  await page.addStyleTag({url:'/assets/exam-v9.css'});
-  await page.addScriptTag({url:'/assets/exam-v9.js'});
-  await expect.poll(()=>page.evaluate(()=>Boolean(window.NEETPG_EXAM9))).toBe(true);
-}
-
-test('available-bank simulator uses section-locked NEET-PG flow', async ({page})=>{
-  await loadExam(page);
-  await page.evaluate(()=>window.NEETPG_EXAM9.startAvailable());
-  await expect(page.locator('#exam9Backdrop')).toHaveClass(/show/);
-  const total=await page.evaluate(()=>app.questions.length);
-  const sections=Math.ceil(total/40);
-  await expect(page.locator('#exam9HeaderSub')).toContainText(`Section 1 of ${sections}`);
-  await expect(page.locator('.exam9-q')).toHaveCount(40);
-  await expect(page.locator('#exam9Clock')).toContainText(/41:|42:/);
-
-  await page.locator('.exam9-option').first().click();
-  await expect(page.locator('.exam9-option.selected')).toHaveCount(1);
-  await page.click('#exam9Mark');
-  await expect(page.locator('#exam9Body')).toContainText('Q 2/40');
-
-  await page.click('#exam9SubmitSection');
-  await expect(page.locator('#exam9HeaderSub')).toContainText(`Section 2 of ${sections}`);
-  const state=await page.evaluate(()=>window.NEETPG_EXAM9.state);
-  expect(state.sections[0].locked).toBe(true);
-  expect(state.currentSection).toBe(1);
+const {test,expect}=require('@playwright/test');
+const {fixture,connect,begin}=require('./helpers/exam_fixture.cjs');
+test('strict full mock saves all five palette states and never exits early',async({context,page})=>{
+ await fixture(context);await connect(page);await begin(page);
+ await expect(page.locator('.exam9-q')).toHaveCount(36);await expect(page.locator('#exam9SubmitSection')).toHaveCount(0);await expect(page.locator('#exam9Previous')).toBeDisabled();
+ await page.check('#exam9Option1');await expect(page.locator('.exam9-option.selected')).toHaveCount(1);await page.click('#exam9Mark');
+ await expect(page.locator('#exam9QuestionTitle')).toHaveText('Question 2 of 36');await expect(page.locator('.exam9-q.answered-review')).toHaveCount(1);
+ await page.click('#exam9Previous');await page.click('#exam9Clear');await expect(page.locator('.exam9-q.review')).toHaveCount(1);
+ await page.locator('[data-pos="35"]').click();await page.click('#exam9Save');await expect(page.locator('#exam9QuestionTitle')).toHaveText('Question 36 of 36');await expect(page.locator('#exam9HeaderSub')).toContainText('SECTION A');
+ await expect(page.locator('#exam9Body')).not.toContainText('Medicine');await expect(page.locator('#exam9Body')).not.toContainText('Test explanation');
 });
-
-test('active exam survives reload and 200Q mode follows available content', async ({page})=>{
-  await loadExam(page);
-  await page.evaluate(()=>window.NEETPG_EXAM9.startAvailable());
-  await page.locator('.exam9-option').nth(1).click();
-  const before=await page.evaluate(()=>window.NEETPG_EXAM9.state.id);
-  await page.reload();
-  await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined' ? app.questions.length : 0)).toBeGreaterThan(0);
-  await page.addScriptTag({url:'/assets/exam-v9.js'});
-  await expect.poll(()=>page.evaluate(()=>Boolean(window.NEETPG_EXAM9))).toBe(true);
-  await page.evaluate(()=>window.NEETPG_EXAM9.open());
-  await expect(page.locator('#exam9Resume')).toBeVisible();
-  await page.click('#exam9Resume');
-  const after=await page.evaluate(()=>window.NEETPG_EXAM9.state.id);
-  expect(after).toBe(before);
-
-  await page.click('#exam9Close');
-  await page.evaluate(()=>localStorage.removeItem('neetpg2027-exam-v9-active'));
-  await page.evaluate(()=>window.NEETPG_EXAM9.open());
-  const n=await page.evaluate(()=>app.questions.length);
-  if(n<200){
-    await expect(page.locator('#exam9Full')).toBeDisabled();
-    await expect(page.locator('#exam9Body')).toContainText(`Current bank: ${n}`);
-  }else{
-    await expect(page.locator('#exam9Full')).toBeEnabled();
-    await expect(page.locator('#exam9Body')).toContainText(`${n} questions available`);
-  }
+test('refresh recovery, stale tab, offline failure and full 210-minute lifecycle',async({context,page})=>{
+ const server=await fixture(context);await connect(page);await begin(page);await page.check('#exam9Option0');await expect.poll(()=>server.get().responses[0].selected).toBe('A');
+ await page.click('#exam9Close');await page.getByRole('button',{name:'EXIT ANYWAY'}).click();await connect(page);await page.click('#exam9Resume');await expect(page.locator('#exam9Option0')).toBeChecked();
+ server.offline(true);await page.check('#exam9Option1');await expect(page.locator('#exam9Notice')).toContainText('Save not confirmed');server.offline(false);await page.click('#exam9Retry');
+ for(let section=1;section<=4;section++){server.advance(section*2520+1);await page.click('#exam9Retry');await expect(page.locator('#exam9HeaderSub')).toContainText(`SECTION ${String.fromCharCode(65+section)}`);await expect(page.locator('#exam9Previous')).toBeDisabled();}
+ server.advance(12600);await page.click('#exam9Retry');await expect(page.locator('.exam9-score')).toContainText('4 / 720');await expect(page.locator('#exam9Analysis')).toContainText('Section-wise marks');
+ await expect.poll(()=>page.evaluate(async()=>(await dbAll('sessions')).length)).toBe(1);await page.click('#exam9SyncResult');expect(await page.evaluate(async()=>(await dbAll('attempts')).length)).toBe(180);
+ await page.locator('[data-review="unattempted"]').click();await page.click('#exam9AddRevision');await expect(page.locator('#exam9Notice')).toContainText('Saved');
+});
+test('two tabs reject stale versions and reconcile an 85-minute absence',async({context,page})=>{
+ const server=await fixture(context);await connect(page);await begin(page);const second=await context.newPage();await connect(second);await second.click('#exam9Resume');
+ await page.check('#exam9Option0');await expect.poll(()=>server.get().responses[0].selected).toBe('A');await second.click('#exam9Retry');await expect(second.locator('#exam9Option0')).toBeChecked();
+ server.advance(5100);await second.click('#exam9Retry');await expect(second.locator('#exam9HeaderSub')).toContainText('SECTION C');await expect(second.locator('#exam9Clock')).toHaveText('41:00');
+});
+for(const [width,height] of [[360,740],[430,932],[768,1024],[1024,768],[1280,720],[1366,768],[1440,900],[1920,1080]])test(`exam layout ${width}x${height} in light and dark`,async({context,page})=>{
+ await page.setViewportSize({width,height});await fixture(context);await connect(page);await begin(page);
+ for(const theme of ['light','dark']){
+  await page.evaluate(t=>document.documentElement.dataset.theme=t,theme);
+  expect(await page.locator('#exam9Backdrop').evaluate(el=>el.scrollWidth<=innerWidth+1)).toBe(true);
+  await expect(page.locator('#exam9Save')).toBeInViewport();await expect(page.locator('#exam9Clock')).toBeInViewport();
+  if(width<=768){await page.click('#exam9PaletteToggle');await expect(page.locator('#exam9Side')).toBeVisible();await page.click('#exam9PaletteClose');}
+  await page.screenshot({path:test.info().outputPath(`exam-${theme}.png`)});
+ }
 });

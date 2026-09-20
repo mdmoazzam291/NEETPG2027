@@ -65,6 +65,8 @@ jobs:
           python-version: '3.12'
       - run: npm install --no-save @playwright/test@1.55.1
       - run: npx playwright install --with-deps chromium webkit
+      - name: Exam scoring tests
+        run: node --test tests/exam_analytics.test.cjs
       - name: Generate question manifest
         run: python scripts/generate_question_manifest.py
       - name: Start static app
@@ -86,3 +88,4 @@ jobs:
           path: |
             playwright-report/
             test-results/
+
