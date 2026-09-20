@@ -123,10 +123,17 @@ test('Phase 13 prevents initial cloud sync from deleting a remote active session
 test('Phase 13 cloud conflict policy is deterministic and deletion is explicitly guarded', async ({ request }) => {
   const auth = await (await request.get('/assets/auth-sync.js')).text();
   const guard = await (await request.get('/assets/phase13-preauth.js')).text();
+  const schema = await (await request.get('/supabase/schema.sql')).text();
 
   expect(auth).toContain('ms(remote.updatedAt)>ms(local.updatedAt)');
-  expect(auth).toContain('if(localKeys.has(key))');
+  expect(auth).toContain('remoteAttemptUpdated');
+  expect(auth).toContain('await reconcileQuestionStateFromAttempts()');
+  expect(auth).toContain('ACTIVE_CLEAR_KEY');
+  expect(auth).toContain('app.savedSession');
+  expect(auth).toContain('waitForCore');
   expect(auth).toContain("onConflict:'user_id,client_key'");
+  expect(schema).toContain('updated_at timestamptz not null default now()');
+  expect(schema).toContain('attempts_user_updated_idx');
   expect(guard).toContain('__NEETPG_ALLOW_ACTIVE_SESSION_DELETE__');
   expect(guard).toContain('clearActiveSession');
 });
