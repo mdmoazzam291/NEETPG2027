@@ -367,6 +367,10 @@
     if (!modal || !panel || enhanced) return false;
     enhanced = true;
     modal.classList.add('auth-v2');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'authTitle');
+    modal.setAttribute('aria-describedby', 'authSubtitle');
     panel.classList.add('auth-v2-card');
 
     const shell = make('div', 'auth-v2-shell');
@@ -414,6 +418,11 @@
     if (modalHead) panel.insertBefore(mobileBrand, modalHead);
     if (heading) { heading.id = 'authTitle'; heading.textContent = 'Welcome back'; }
     if (subtitle) { subtitle.id = 'authSubtitle'; subtitle.textContent = 'Sign in to sync your NEET-PG progress across devices.'; }
+    const closeButton = document.getElementById('authClose');
+    if (closeButton) {
+      closeButton.type = 'button';
+      closeButton.setAttribute('aria-label', 'Close account dialog');
+    }
 
     const mobileHighlights = make('div','auth-v2-mobile-highlights');
     mobileHighlights.innerHTML =
@@ -642,11 +651,34 @@
     });
 
     modal.querySelectorAll('[data-auth-tab]').forEach(tab => tab.addEventListener('click', () => setTimeout(() => renderMode(tab.dataset.authTab), 0)));
+    modal.addEventListener('keydown', event => {
+      if (!modal.classList.contains('show')) return;
+      if (event.key === 'Escape') {
+        if (window.NEETPG_AUTH_LAUNCH?.state === 'signed-out') return;
+        event.preventDefault();
+        closeButton?.click();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = [...modal.querySelectorAll('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),a[href],[tabindex]:not([tabindex="-1"])')]
+        .filter(el => el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden');
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
     new MutationObserver(() => {
       if (modal.classList.contains('show')) {
         const currentMode = getCloud()?.user ? (modal.dataset.mode === 'reset' ? 'reset' : 'account') : (modal.dataset.mode || 'signin');
         renderMode(currentMode);
-        if (currentMode !== 'account') setTimeout(() => document.getElementById('authEmail')?.focus(), 40);
+        if (currentMode === 'account') setTimeout(() => document.getElementById('authAccountContinue')?.focus(), 40);
+        else setTimeout(() => document.getElementById('authEmail')?.focus(), 40);
       }
     }).observe(modal, { attributes: true, attributeFilter: ['class'] });
 
