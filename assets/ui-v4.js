@@ -5,6 +5,7 @@
   const $qa = s => [...document.querySelectorAll(s)];
   const fmt = n => new Intl.NumberFormat('en-IN').format(Number(n || 0));
   const clampV4 = (n,a,b) => Math.max(a,Math.min(b,n));
+  const escapeV4 = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const EXAM_TARGET_KEY='neetpg2027-exam-target';
   const PREFS_UPDATED_KEY='neetpg2027-v2-settings-updated';
   const EXAM_TARGET = {iso: '2027-08-29'};
@@ -319,7 +320,7 @@
     const host=$q('#v4SubjectBars');if(!host)return;
     let stats={};try{stats=typeof subjectStats==='function'?subjectStats():{}}catch{}
     const rows=Object.entries(stats).filter(([,v])=>v.attempts>0).map(([name,v])=>({name,acc:Math.round(v.correct/v.attempts*100),n:v.attempts})).sort((a,b)=>b.n-a.n).slice(0,8);
-    host.innerHTML=rows.length?rows.map(r=>`<div class="v4-subject-row"><span title="${r.name}">${r.name.length>14?r.name.slice(0,13)+'…':r.name}</span><div class="v4-subject-track"><div class="v4-subject-fill" style="width:${r.acc}%"></div></div><span class="v4-subject-value">${r.acc}%</span></div>`).join(''):'<div class="muted small">Solve a few questions to unlock subject accuracy.</div>';
+    host.innerHTML=rows.length?rows.map(r=>{const label=r.name.length>14?r.name.slice(0,13)+'…':r.name;return `<div class="v4-subject-row"><span title="${escapeV4(r.name)}">${escapeV4(label)}</span><div class="v4-subject-track"><div class="v4-subject-fill" style="width:${r.acc}%"></div></div><span class="v4-subject-value">${r.acc}%</span></div>`}).join(''):'<div class="muted small">Solve a few questions to unlock subject accuracy.</div>';
   }
 
   function renderSpark(attempts){
@@ -334,7 +335,7 @@
     let t={};try{t=typeof topicStats==='function'?topicStats():{}}catch{}
     const rows=Object.entries(t).filter(([,v])=>v.attempts>=1).map(([name,v])=>({name,acc:v.correct/v.attempts,n:v.attempts})).sort((a,b)=>a.acc-b.acc||b.n-a.n).slice(0,4);
     if(!rows.length){host.innerHTML='<div class="muted small">Weak-topic priorities appear after your first attempts.</div>';return;}
-    host.innerHTML=rows.map((r,i)=>{const p=r.acc<.5?'High priority':r.acc<.7?'Medium':'Low';const cls=r.acc<.5?'':r.acc<.7?' medium':' low';return `<button class="v4-revise-item" data-topic="${r.name.replace(/"/g,'&quot;')}" style="border:0;background:transparent;text-align:left;padding:0;cursor:pointer"><span class="v4-rank">${i+1}</span><span><strong>${r.name}</strong><small>${Math.round(r.acc*100)}% accuracy · ${r.n} attempts</small></span><span class="v4-priority${cls}">${p}</span></button>`}).join('');
+    host.innerHTML=rows.map((r,i)=>{const p=r.acc<.5?'High priority':r.acc<.7?'Medium':'Low';const cls=r.acc<.5?'':r.acc<.7?' medium':' low';return `<button class="v4-revise-item" data-topic="${escapeV4(r.name)}" style="border:0;background:transparent;text-align:left;padding:0;cursor:pointer"><span class="v4-rank">${i+1}</span><span><strong>${escapeV4(r.name)}</strong><small>${Math.round(r.acc*100)}% accuracy · ${r.n} attempts</small></span><span class="v4-priority${cls}">${p}</span></button>`}).join('');
     $qa('.v4-revise-item').forEach(b=>b.addEventListener('click',()=>{if(typeof navigate==='function')navigate('bank');const s=$q('#bankSearch');if(s){s.value=b.dataset.topic;s.dispatchEvent(new Event('input',{bubbles:true}));}}));
   }
 
