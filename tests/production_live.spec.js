@@ -13,7 +13,7 @@ async function openLiveApp(page,url,options={waitUntil:'domcontentloaded'}){
 
 test('live public app opens auth-first before exposing the study shell', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await openLiveApp(page, `${LIVE}?auth-first-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await page.goto(`${LIVE}?auth-first-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#authContinueOffline')).toBeVisible({ timeout: 20000 });
   await expect(page.locator('html')).toHaveAttribute('data-auth-launch','signed-out');
   await expect(page.locator('.app')).not.toBeVisible();
