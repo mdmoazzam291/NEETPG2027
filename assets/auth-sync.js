@@ -175,7 +175,18 @@
     }
     modal?.classList.add('show');
   }
-  function closeAuth(){ document.getElementById('authModal')?.classList.remove('show'); }
+  function launchGate(){ return window.NEETPG_AUTH_LAUNCH || null; }
+  function showLaunchLogin(detail=''){
+    const gate=launchGate();
+    const mode=gate?.resolveNoSession?.() || 'signed-out';
+    if(mode==='guest')return;
+    openAuth();
+    if(detail)setAuthMessage(detail,'');
+  }
+  function closeAuth(){
+    if(launchGate()?.state==='signed-out')return;
+    document.getElementById('authModal')?.classList.remove('show');
+  }
 
 
   function initials(user){
@@ -579,15 +590,50 @@
   async function initCloud(){
     injectUi(); bindUi(); updateCloudUi();
     if(!localStorage.getItem(PREFS_UPDATED_KEY) && localStorage.getItem(SETTINGS_KEY))localStorage.setItem(PREFS_UPDATED_KEY,String(Date.now()));
-    if(!configured)return;
+    if(!configured){
+      showLaunchLogin('Cloud sign-in is unavailable right now. Continue offline to use the local study app.');
+      return;
+    }
     try{
       const sdk=await loadSdk();
       cloud.client=sdk.createClient(cfg.url,cfg.anonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storageKey:'neetpg2027-auth'}});
       const {data:{session},error}=await cloud.client.auth.getSession(); if(error)throw error;
-      await setSession(session);
-      cloud.client.auth.onAuthStateChange((_event,next)=>{setTimeout(()=>setSession(next),0);});
+
+      const initialSessionWork=setSession(session);
+      if(session){
+        launchGate()?.resolveAuthenticated?.();
+        closeAuth();
+      }else{
+        showLaunchLogin();
+      }
+      await initialSessionWork;
+
+      cloud.client.auth.onAuthStateChange((event,next)=>{
+        setTimeout(async()=>{
+          await setSession(next);
+          const gate=launchGate();
+          if(event==='SIGNED_OUT'){
+            gate?.requireLogin?.();
+            openAuth();
+            return;
+          }
+          if(next && event!=='PASSWORD_RECOVERY'){
+            gate?.resolveAuthenticated?.();
+            document.getElementById('authModal')?.classList.remove('show');
+            return;
+          }
+          if(!next && event==='INITIAL_SESSION'){
+            const mode=gate?.resolveNoSession?.();
+            if(mode!=='guest')openAuth();
+          }
+        },0);
+      });
       cloud.periodicTimer=setInterval(()=>{if(document.visibilityState==='visible' && cloud.user && navigator.onLine)syncNow();},30000);
-    }catch(e){console.error('Supabase init failed',e);updateCloudUi('error',`Supabase unavailable: ${e.message || e}`);}
+    }catch(e){
+      console.error('Supabase init failed',e);
+      updateCloudUi('error',`Supabase unavailable: ${e.message || e}`);
+      showLaunchLogin('Cloud sign-in could not start. Continue offline and try again later.');
+    }
   }
 
 
