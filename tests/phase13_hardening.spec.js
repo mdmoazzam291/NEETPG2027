@@ -165,7 +165,7 @@ test('Phase 13 manifest and service worker expose versioned install metadata', a
   expect(manifest.icons?.length).toBeGreaterThan(0);
   expect(manifest.icons[0].src).toContain('app-icon.svg');
   const sw = await (await request.get('/sw.js')).text();
-  expect(sw).toContain("RELEASE='2026-09-21-auth-first-v5'");
+  expect(sw).toContain("RELEASE='2026-09-21-auth-reference-v6'");
   expect(sw).toContain("type==='SKIP_WAITING'");
   expect(sw).not.toContain('await self.skipWaiting()');
   expect(sw).toContain("event.request.destination==='script'");
