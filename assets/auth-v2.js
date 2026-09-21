@@ -37,6 +37,90 @@
     return client;
   }
 
+  function accountEmail() {
+    return String(getCloud()?.user?.email || '').trim();
+  }
+
+  function updateDeleteAccountUi() {
+    const action = document.getElementById('accountDeleteAction');
+    if (action) action.hidden = !getCloud()?.user;
+  }
+
+  function closeDeleteAccountDialog() {
+    const modal = document.getElementById('deleteAccountModal');
+    if (!modal) return;
+    modal.classList.remove('show');
+    const input = document.getElementById('deleteAccountConfirm');
+    const error = document.getElementById('deleteAccountError');
+    const confirm = document.getElementById('deleteAccountConfirmBtn');
+    if (input) input.value = '';
+    if (error) error.textContent = '';
+    if (confirm) confirm.disabled = true;
+    document.getElementById('deleteAccountBtn')?.focus();
+  }
+
+  function openDeleteAccountDialog() {
+    const modal = document.getElementById('deleteAccountModal');
+    const input = document.getElementById('deleteAccountConfirm');
+    const error = document.getElementById('deleteAccountError');
+    const confirm = document.getElementById('deleteAccountConfirmBtn');
+    const email = accountEmail();
+    if (!modal || !input || !confirm || !getCloud()?.user) return;
+    if (error) error.textContent = '';
+    input.value = '';
+    input.placeholder = email || 'Type DELETE';
+    confirm.disabled = true;
+    modal.classList.add('show');
+    setTimeout(() => input.focus(), 30);
+  }
+
+  async function deleteSignedInAccount() {
+    const cloud = getCloud();
+    const client = clientOrError();
+    const input = document.getElementById('deleteAccountConfirm');
+    const errorNode = document.getElementById('deleteAccountError');
+    const button = document.getElementById('deleteAccountConfirmBtn');
+    const email = accountEmail();
+    const expected = email || 'DELETE';
+    const entered = String(input?.value || '').trim();
+    if (!client || !cloud?.user || !button) return;
+    if (entered.toLowerCase() !== expected.toLowerCase()) {
+      if (errorNode) errorNode.textContent = email ? 'Type your account email exactly to continue.' : 'Type DELETE to continue.';
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = 'Deleting account…';
+    if (errorNode) errorNode.textContent = '';
+    try {
+      const { data, error } = await client.functions.invoke('delete-account', {
+        body: { confirmation: entered }
+      });
+      if (error) {
+        let detail = '';
+        try { detail = (await error.context?.json?.())?.error || ''; } catch {}
+        throw new Error(detail || error.message || 'Account deletion failed.');
+      }
+      if (!data?.deleted) throw new Error('Account deletion was not confirmed by the server.');
+
+      try { await client.auth.signOut({ scope: 'local' }); } catch {}
+      closeDeleteAccountDialog();
+      window.NEETPG_AUTH_LAUNCH?.requireLogin?.();
+      const authModal = document.getElementById('authModal');
+      if (authModal) {
+        authModal.dataset.mode = 'signin';
+        authModal.classList.add('show');
+      }
+      renderMode('signin');
+      message('', 'Account deleted. Local study data remains on this device.');
+    } catch (error) {
+      if (errorNode) errorNode.textContent = error.message || 'Account deletion failed. Try again.';
+    } finally {
+      button.disabled = true;
+      button.textContent = 'Delete my account';
+    }
+  }
+
   function validEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
   }
@@ -682,6 +766,38 @@
       }
     }).observe(modal, { attributes: true, attributeFilter: ['class'] });
 
+    const deleteOpen = document.getElementById('deleteAccountBtn');
+    const deleteModal = document.getElementById('deleteAccountModal');
+    const deleteInput = document.getElementById('deleteAccountConfirm');
+    const deleteConfirm = document.getElementById('deleteAccountConfirmBtn');
+    deleteOpen?.addEventListener('click', openDeleteAccountDialog);
+    document.getElementById('deleteAccountClose')?.addEventListener('click', closeDeleteAccountDialog);
+    document.getElementById('deleteAccountCancel')?.addEventListener('click', closeDeleteAccountDialog);
+    deleteModal?.addEventListener('click', event => { if (event.target === deleteModal) closeDeleteAccountDialog(); });
+    deleteInput?.addEventListener('input', () => {
+      const expected = accountEmail() || 'DELETE';
+      deleteConfirm.disabled = String(deleteInput.value || '').trim().toLowerCase() !== expected.toLowerCase();
+      const error = document.getElementById('deleteAccountError');
+      if (error) error.textContent = '';
+    });
+    deleteConfirm?.addEventListener('click', deleteSignedInAccount);
+    deleteModal?.addEventListener('keydown', event => {
+      if (!deleteModal.classList.contains('show')) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeDeleteAccountDialog();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = [...deleteModal.querySelectorAll('button:not([disabled]),input:not([disabled]),[tabindex]:not([tabindex="-1"])')]
+        .filter(el => el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    });
+    updateDeleteAccountUi();
+
     renderMode(modal.dataset.mode || 'signin');
     return true;
   }
@@ -719,6 +835,7 @@
   }
 
   window.addEventListener('neetpg:cloud-status', () => {
+    updateDeleteAccountUi();
     const modal = document.getElementById('authModal');
     if (modal?.classList.contains('show') && getCloud()?.user && modal.dataset.mode !== 'reset') renderMode('account');
   });
