@@ -1,7 +1,29 @@
 const {test,expect}=require('@playwright/test');
+
+async function openGuest(page,path='/'){
+  await page.goto(path);
+  if(path.startsWith('/neuralvault'))return;
+  await expect(page.locator('#authContinueOffline')).toBeVisible({timeout:20000});
+  await page.locator('#authContinueOffline').click();
+  await expect(page.locator('html')).toHaveAttribute('data-auth-launch','guest');
+}
+
+test('production launch is auth-first and Continue offline unlocks a session-scoped guest workspace',async({page})=>{
+  await openGuest(page);
+  await expect(page.locator('#authContinueOffline')).toBeVisible({timeout:20000});
+  await expect(page.locator('.app')).not.toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('data-auth-launch','signed-out');
+  await page.locator('#authContinueOffline').click();
+  await expect(page.locator('.app')).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('data-auth-launch','guest');
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-auth-launch','guest',{timeout:20000});
+  await expect(page.locator('.app')).toBeVisible();
+});
+
 test('production shell loads all scripts, preserves answers after reload and paginates',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('/');await expect(page.locator('body')).toHaveAttribute('data-v4ready','1');
+  await openGuest(page);await expect(page.locator('body')).toHaveAttribute('data-v4ready','1');
   await expect(page.locator('.study-grid > section')).toHaveCount(4);
   await page.click('#continueLearning');await page.locator('#qOptions .option').first().click();
   const selected=await page.locator('#qOptions .selected').getAttribute('data-label');
@@ -15,7 +37,7 @@ test('production shell loads all scripts, preserves answers after reload and pag
   expect(errors).toEqual([]);
 });
 test('attempt annotations get a durable edit timestamp for cloud conflict resolution',async({page})=>{
-  await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
+  await openGuest(page);await expect(page.locator('#continueLearning')).toBeVisible();
   await page.click('#continueLearning');await page.locator('#qOptions .option').first().click();await page.click('#qSubmit');await expect(page.locator('#qFeedback')).toBeVisible();
   const before=await page.evaluate(()=>app.session.lastAttempt.updatedAt||app.session.lastAttempt.ts);
   await page.waitForTimeout(5);await page.fill('#attemptNote','sync edit survives reload');await page.locator('#attemptNote').dispatchEvent('change');
@@ -24,7 +46,7 @@ test('attempt annotations get a durable edit timestamp for cloud conflict resolu
   await page.reload();await expect.poll(()=>page.evaluate(()=>app.attempts.some(a=>a.note==='sync edit survives reload'&&Number(a.updatedAt)>Number(a.ts)))).toBe(true);
 });
 test('target-date edits update immediately and are marked for cloud settings sync',async({page})=>{
-  await page.goto('/');await expect(page.locator('#v4ExamCountdown')).toBeVisible();
+  await openGuest(page);await expect(page.locator('#v4ExamCountdown')).toBeVisible();
   const before=await page.evaluate(()=>Number(localStorage.getItem('neetpg2027-v2-settings-updated')||0));
   await page.click('#editTarget');await page.fill('#targetDate','2027-09-01');await page.locator('#targetForm button').click();
   await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-09-01');
@@ -36,13 +58,13 @@ test('target-date edits update immediately and are marked for cloud settings syn
   expect(state.target).toBe('2027-09-01');expect(state.updated).toBeGreaterThan(before);
 });
 test('production mobile themes have no horizontal overflow and target date persists',async({page})=>{
-  await page.setViewportSize({width:390,height:844});await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
+  await page.setViewportSize({width:390,height:844});await openGuest(page);await expect(page.locator('#continueLearning')).toBeVisible();
   await expect(page.locator('.mobile-bottom button')).toHaveCount(5);
   for(let n=0;n<2;n++){expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.click('#themeToggle')}
   await page.click('#editTarget');await page.fill('#targetDate','2027-09-01');await page.locator('#targetForm button').click();await page.reload();await expect(page.locator('#v4ExamCountdown')).toHaveAttribute('data-target','2027-09-01');
 });
 test('reimporting a backup does not duplicate attempts',async({page})=>{
-  await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
+  await openGuest(page);await expect(page.locator('#continueLearning')).toBeVisible();
   const counts=await page.evaluate(async()=>{const data={qstate:[],attempts:[{qid:app.questions[0].external_id,sessionId:'backup-test',ts:123456,selected:'A',correct:false}],sessions:[],custom:[]};const f=new File([JSON.stringify(data)],'backup.json');await importBackupFile(f);const before=app.attempts.length;await importBackupFile(f);return [before,app.attempts.length]});expect(counts).toEqual([1,1]);
 });
 test('Vault commits survive a failed localStorage cache write',async({page})=>{
@@ -53,14 +75,14 @@ test('Vault commits survive a failed localStorage cache write',async({page})=>{
 });
 test('a missing question bundle keeps the available bank usable',async({page})=>{
   await page.route('**/data/pyq/2021_2026/2024-expansion-a.json',route=>route.abort());
-  await page.goto('/');await expect(page.locator('body')).toHaveAttribute('data-core-ready','1');
+  await openGuest(page);await expect(page.locator('body')).toHaveAttribute('data-core-ready','1');
   await expect(page.locator('#bundleStatus')).toContainText('1 question bundles unavailable');
   await page.click('#continueLearning');await expect(page.locator('#qStem')).not.toBeEmpty();
 });
 
 test('production Revision schedules answers immediately and keeps the sidebar queue coherent',async({page})=>{
   await page.setViewportSize({width:390,height:844});
-  await page.goto('/');await expect(page.locator('body')).toHaveAttribute('data-v4ready','1');
+  await openGuest(page);await expect(page.locator('body')).toHaveAttribute('data-v4ready','1');
   await page.evaluate(()=>{const q=app.questions[20];buildSession([q],{...builtInPreset('rapid'),count:1,feedback:'instant',timer:'off',shuffle:false})});
   const qid=await page.evaluate(()=>currentQ().external_id);
   const correct=await page.evaluate(()=>currentQ().options.find(o=>o.is_correct).label);
@@ -83,7 +105,7 @@ test('production Revision schedules answers immediately and keeps the sidebar qu
 });
 
 test('starting Revision after answer review restores practice controls',async({page})=>{
- await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
+ await openGuest(page);await expect(page.locator('#continueLearning')).toBeVisible();
  await page.evaluate(()=>buildSession([app.questions[0]],{...builtInPreset('rapid'),feedback:'instant',timer:'off'}));
  await page.locator('#qOptions .option').first().click();await page.click('#qSubmit');await page.click('#qNext');await page.click('#reviewSession');
  await expect(page.locator('#qSubmit')).toBeHidden();
@@ -93,7 +115,7 @@ test('starting Revision after answer review restores practice controls',async({p
 });
 
 test('Analytics includes saved mocks and unfinished sessions without duplicates and paginates',async({page})=>{
- await page.goto('/');await expect(page.locator('#continueLearning')).toBeVisible();
+ await openGuest(page);await expect(page.locator('#continueLearning')).toBeVisible();
  await page.evaluate(async()=>{
   const sessions=Array.from({length:12},(_,i)=>({id:'complete-'+i,startedAt:Date.now()-i*1000,count:2,correct:1,mode:'Practice'}));
   for(const session of sessions)await dbPut('sessions',session);
