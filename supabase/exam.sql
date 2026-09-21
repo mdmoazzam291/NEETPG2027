@@ -13,7 +13,7 @@ insert into exam_private.presets values
  ('neetpg-drill-v1', '{"version":"neetpg-drill-v1","mode":"drill","title":"Section Drill","totalQuestions":36,"maximumMarks":144,"numberOfSections":1,"questionsPerSection":36,"sectionDurationSeconds":2520,"totalDurationSeconds":2520,"correctMarks":4,"incorrectMarks":-1,"unattemptedMarks":0,"optionsPerQuestion":4,"language":"English","allowPause":false,"allowPreviousSection":false,"allowFutureSectionAccess":false,"allowEarlySectionExit":false,"allowTimeCarryForward":false,"autoAdvanceSection":true,"scoreAnsweredReviewQuestions":true,"ruleVerification":"SIMULATION_DESIGN","assemblyVersion":"balanced-v1"}')
 on conflict do nothing;
 create table if not exists exam_private.attempts (
- id uuid primary key default gen_random_uuid(), user_id uuid not null references auth.users(id),
+ id uuid primary key default gen_random_uuid(), user_id uuid not null references auth.users(id) on delete cascade,
  preset jsonb not null, seed text not null, blueprint jsonb not null,
  paper jsonb not null, responses jsonb not null,
  started_at timestamptz not null, expires_at timestamptz not null,

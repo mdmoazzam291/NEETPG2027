@@ -239,7 +239,7 @@ No new feature should create a second competing source of truth for attempts, SR
 
 1. Never ship Supabase service-role credentials in browser code.
 2. Never ship permanent AI-provider API keys in browser code.
-3. Full Auth-user deletion requires a trusted privileged backend.
+3. Full Auth-user deletion is handled only through the authenticated `delete-account` Edge Function; the service-role credential remains server-side.
 4. Importing content does not equal medical verification.
 5. Destructive local/vault actions require recovery paths.
 6. Remote generative AI must not silently mutate notes or study state.

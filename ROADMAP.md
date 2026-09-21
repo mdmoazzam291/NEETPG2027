@@ -245,16 +245,22 @@ Planned:
 
 ## Phase 18 — Account & Security Center
 
-**Priority: PLANNED**
+**Priority: PARTIALLY IMPLEMENTED**
 
+Implemented:
+- ✅ permanent account deletion from Settings → Danger zone
+- ✅ email-confirmed destructive flow
+- ✅ trusted Supabase Edge Function using server-side admin deletion
+- ✅ cloud study/settings data deletion through auth-user cascades
+- ✅ server-stored mock history deletion through auth-user cascade
+- ✅ no service-role credential exposed in the browser
+
+Still planned:
 - connected login-method display
-- password-management flow
+- password-management surface
 - session/device view
-- explicit sign-out-all-devices/session revocation
-- account deletion through a trusted privileged backend
+- explicit sign-out-all-devices/session revocation UI
 - account/security activity UX
-
-Full Auth-user deletion must never expose a Supabase service-role credential in the browser.
 
 ## Phase 19 — reminders and notifications
 
