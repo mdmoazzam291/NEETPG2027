@@ -41,6 +41,43 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
   }
 
+  function providerAvatarUrl(user) {
+    const identityData = Array.isArray(user?.identities)
+      ? user.identities.map(x => x?.identity_data || {}).find(x => x.avatar_url || x.picture) || {}
+      : {};
+    const raw = user?.user_metadata?.avatar_url || user?.user_metadata?.picture || identityData.avatar_url || identityData.picture || '';
+    if (!raw) return '';
+    try {
+      const url = new URL(String(raw), location.href);
+      return url.protocol === 'https:' ? url.href : '';
+    } catch {
+      return '';
+    }
+  }
+
+  function paintProviderAvatar(node, user, fallback) {
+    if (!node) return;
+    const text = fallback || 'U';
+    node.replaceChildren();
+    node.textContent = text;
+    node.classList.remove('has-photo');
+    const src = providerAvatarUrl(user);
+    if (!src) return;
+    const img = document.createElement('img');
+    img.alt = '';
+    img.src = src;
+    img.referrerPolicy = 'no-referrer';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('load', () => node.classList.add('has-photo'), { once: true });
+    img.addEventListener('error', () => {
+      node.classList.remove('has-photo');
+      node.replaceChildren();
+      node.textContent = text;
+    }, { once: true });
+    node.replaceChildren(img);
+  }
+
   function providerEnabled(name) {
     if (runtimeProviders[name] !== null) return Boolean(runtimeProviders[name]);
     return Boolean(getCfg()[name + 'Enabled']);
@@ -164,7 +201,8 @@
       const nameEl = document.getElementById('authAccountName');
       const emailEl = document.getElementById('authAccountEmail');
       const statusEl = document.getElementById('authAccountStatus');
-      if (avatar) avatar.textContent = displayName.split(/\s+|@/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()).join('') || 'U';
+      const fallbackInitials = displayName.split(/\s+|@/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()).join('') || 'U';
+      paintProviderAvatar(avatar, user, fallbackInitials);
       if (nameEl) nameEl.textContent = displayName;
       if (emailEl) emailEl.textContent = email;
       if (statusEl) statusEl.textContent = cloud?.syncing ? 'Syncing now' : cloud?.dirty ? 'Changes pending sync' : cloud?.lastSyncAt ? 'Cloud sync up to date' : 'Cloud account connected';
