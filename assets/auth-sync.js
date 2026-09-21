@@ -178,7 +178,8 @@
   function launchGate(){ return window.NEETPG_AUTH_LAUNCH || null; }
   function showLaunchLogin(detail=''){
     const gate=launchGate();
-    const mode=gate?.resolveNoSession?.() || 'signed-out';
+    if(!gate)return;
+    const mode=gate.resolveNoSession?.() || 'signed-out';
     if(mode==='guest')return;
     openAuth();
     if(detail)setAuthMessage(detail,'');
