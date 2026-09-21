@@ -196,3 +196,14 @@ body[data-theme="dark"] #authModal.auth-v2 .auth-v2-account-settings{color:var(-
   #authModal.auth-v2 .auth-v2-logout-zone{align-items:flex-start;flex-direction:column}
   #authModal.auth-v2 .auth-v2-signout{width:100%}
 }
+
+#accountAvatar,
+#authModal.auth-v2 .auth-v2-account-avatar{overflow:hidden}
+#accountAvatar img,
+#authModal.auth-v2 .auth-v2-account-avatar img{
+  width:100%;height:100%;display:block;object-fit:cover;border-radius:inherit
+}
+#accountAvatar.has-photo,
+#authModal.auth-v2 .auth-v2-account-avatar.has-photo{
+  background:var(--surface2,#eef5f3);color:transparent
+}

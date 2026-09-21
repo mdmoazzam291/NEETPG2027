@@ -72,7 +72,7 @@ test('Auth UI supports email sign-in and account creation modes without privileg
 });
 
 
-test('signed-in account surface includes an in-page logout action', async ({ page }) => {
+test('signed-in account surface includes logout and provider avatar support', async ({ page }) => {
   await page.goto('/');
   const sources=await page.evaluate(async()=>({
     sync:await (await fetch('/assets/auth-sync.js')).text(),
@@ -83,6 +83,13 @@ test('signed-in account surface includes an in-page logout action', async ({ pag
   expect(sources.v2).toContain("authPageSignOut");
   expect(sources.v2).toContain("client.auth.signOut()");
   expect(sources.v2).toContain("Local study data remains available on this device.");
+  for(const source of [sources.sync,sources.v2]){
+    expect(source).toContain("user?.user_metadata?.avatar_url");
+    expect(source).toContain("user?.user_metadata?.picture");
+    expect(source).toContain("identity_data");
+    expect(source).toMatch(/referrerPolicy\s*=\s*'no-referrer'/);
+    expect(source).toMatch(/url\.protocol\s*===\s*'https:'/);
+  }
 });
 
 
@@ -183,6 +190,10 @@ test('initial cloud sync change counter is zero so a successful first sync settl
 
 test('cloud sync does not re-upload unchanged rows after an acknowledged push', async ({ page }) => {
   await page.goto('/');
+  await expect.poll(
+    () => page.evaluate(() => document.body?.dataset.coreReady === '1' && typeof dbPut === 'function'),
+    {timeout:15000}
+  ).toBe(true);
   await page.evaluate(async()=>{
     const qid='sync-regression-question';
     const now=Date.now(),s=stateFor(qid),next={...s,qid,attempts:1,correct:1,incorrect:0,lastCorrect:true,updatedAt:now};
