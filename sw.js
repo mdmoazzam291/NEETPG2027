@@ -1,4 +1,4 @@
-const RELEASE='2026-09-21-auth-account-v3';
+const RELEASE='2026-09-21-auth-avatar-v4';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[
