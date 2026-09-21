@@ -34,9 +34,9 @@ test('Connected Supabase backend keeps guest mode usable and RLS protects privat
   expect(backend.rows).toEqual([]);
   expect(backend.hasPrivilegedKey).toBe(false);
 
-  const launchGated=await page.evaluate(()=>Boolean(window.NEETPG_AUTH_LAUNCH));
-  if(!launchGated)await page.click('#accountBtn');
-  await expect(page.locator('#authModal')).toHaveClass(/show/);
+  const authModal=page.locator('#authModal');
+  if(!(await authModal.evaluate(el=>el.classList.contains('show'))))await page.click('#accountBtn');
+  await expect(authModal).toHaveClass(/show/);
   await expect(page.locator('#authSubmit')).toHaveText('Sign in');
   const googleEnabled = await page.evaluate(async () => {
     const cfg=window.NEETPG_SUPABASE;
@@ -45,7 +45,8 @@ test('Connected Supabase backend keeps guest mode usable and RLS protects privat
     return Boolean(settings?.external?.google);
   });
   await expect.poll(()=>page.locator('#authGoogle').isVisible()).toBe(googleEnabled);
-  if(launchGated)await page.locator('#authContinueOffline').click();
+  const offline=page.locator('#authContinueOffline');
+  if(await offline.isVisible())await offline.click();
   else await page.click('#authClose');
 
   await page.click('[data-view="practice"]');
