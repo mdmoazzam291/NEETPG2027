@@ -177,8 +177,39 @@
 
 
   function initials(user){
-    const label=cloud.profile?.display_name || user?.user_metadata?.display_name || user?.email || 'U';
+    const label=cloud.profile?.display_name || user?.user_metadata?.display_name || user?.user_metadata?.full_name || user?.email || 'U';
     return label.split(/\s+|@/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()).join('') || 'U';
+  }
+
+  function providerAvatarUrl(user){
+    const identityData=Array.isArray(user?.identities)
+      ? user.identities.map(x=>x?.identity_data||{}).find(x=>x.avatar_url||x.picture)||{}
+      : {};
+    const raw=user?.user_metadata?.avatar_url || user?.user_metadata?.picture || identityData.avatar_url || identityData.picture || '';
+    if(!raw)return '';
+    try{
+      const url=new URL(String(raw),location.href);
+      return url.protocol==='https:'?url.href:'';
+    }catch{return '';}
+  }
+
+  function paintProviderAvatar(node,user,fallback){
+    if(!node)return;
+    const text=fallback || initials(user);
+    node.replaceChildren();
+    node.textContent=text;
+    node.classList.remove('has-photo');
+    const src=providerAvatarUrl(user);
+    if(!src)return;
+    const img=document.createElement('img');
+    img.alt='';
+    img.src=src;
+    img.referrerPolicy='no-referrer';
+    img.loading='lazy';
+    img.decoding='async';
+    img.addEventListener('load',()=>node.classList.add('has-photo'),{once:true});
+    img.addEventListener('error',()=>{node.classList.remove('has-photo');node.replaceChildren();node.textContent=text;},{once:true});
+    node.replaceChildren(img);
   }
 
 
@@ -190,8 +221,8 @@
     const signIn=document.getElementById('cloudSignIn'), sync=document.getElementById('cloudSyncNow'), signOut=document.getElementById('cloudSignOut'), saveProfile=document.getElementById('cloudSaveProfile'), profile=document.getElementById('cloudProfile');
     if(dot){ dot.className='cloud-dot'+(state==='syncing'?' syncing':state==='error'?' error':user?' online':''); }
     if(user){
-      if(label)label.textContent=cloud.profile?.display_name || user.email?.split('@')[0] || 'Account';
-      if(avatar)avatar.textContent=initials(user);
+      if(label)label.textContent=cloud.profile?.display_name || user?.user_metadata?.full_name || user.email?.split('@')[0] || 'Account';
+      paintProviderAvatar(avatar,user,initials(user));
       if(status)status.textContent=state==='error'?'Sync failed':state==='syncing'?'Syncing…':cloud.dirty?'Changes pending':cloud.lastSyncAt?'Synced':'Waiting to sync';
       if(d)d.textContent=detail || `${user.email || 'Signed in'}${cloud.lastSyncAt?` · Last sync ${new Date(cloud.lastSyncAt).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}`:''}`;
       signIn?.classList.add('hidden'); sync?.classList.remove('hidden'); signOut?.classList.remove('hidden'); saveProfile?.classList.remove('hidden'); profile?.classList.remove('hidden');
@@ -199,7 +230,7 @@
       if(n && document.activeElement!==n)n.value=cloud.profile?.display_name || '';
       if(goal && document.activeElement!==goal)goal.value=cloud.profile?.daily_goal || 50;
     }else{
-      if(label)label.textContent='Sign in'; if(avatar)avatar.textContent='G';
+      if(label)label.textContent='Sign in'; if(avatar){avatar.replaceChildren();avatar.textContent='G';avatar.classList.remove('has-photo');}
       if(status)status.textContent=configured?'Local-only mode':'Supabase setup pending';
       if(d)d.textContent=detail || (configured?'Sign in to sync progress across devices. Local/offline study still works without an account.':'The frontend is ready for Supabase. Connect the backend to enable login and cloud sync.');
       signIn?.classList.remove('hidden'); sync?.classList.add('hidden'); signOut?.classList.add('hidden'); saveProfile?.classList.add('hidden'); profile?.classList.add('hidden');
