@@ -87,7 +87,7 @@ test('signed-in account surface includes logout and provider avatar support', as
     expect(source).toContain("user?.user_metadata?.avatar_url");
     expect(source).toContain("user?.user_metadata?.picture");
     expect(source).toContain("identity_data");
-    expect(source).toContain("referrerPolicy = 'no-referrer'");
+    expect(source).toMatch(/referrerPolicy\s*=\s*'no-referrer'/);
     expect(source).toMatch(/url\.protocol\s*===\s*'https:'/);
   }
 });
