@@ -9,7 +9,7 @@ async function openGuest(page,path='/'){
 }
 
 test('production launch is auth-first and Continue offline unlocks a session-scoped guest workspace',async({page})=>{
-  await openGuest(page);
+  await page.goto('/');
   await expect(page.locator('#authContinueOffline')).toBeVisible({timeout:20000});
   await expect(page.locator('.app')).not.toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('data-auth-launch','signed-out');
