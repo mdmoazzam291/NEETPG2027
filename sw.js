@@ -1,4 +1,4 @@
-const RELEASE='2026-09-21-auth-reference-v6';
+const RELEASE='2026-09-21-ui-hardening-v7';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[

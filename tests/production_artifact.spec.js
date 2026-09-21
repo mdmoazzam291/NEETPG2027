@@ -21,6 +21,19 @@ test('production launch is auth-first and Continue offline unlocks a session-sco
   await expect(page.locator('.app')).toBeVisible();
 });
 
+test('production head declares an Apple touch icon',async({page})=>{
+  await page.goto('/');
+  const icon=page.locator('link[rel="apple-touch-icon"]');
+  await expect(icon).toHaveCount(1);
+  await expect(icon).toHaveAttribute('href','assets/app-icon.svg');
+});
+
+test('unknown analytics accuracy stays visually neutral',async({page})=>{
+  await openGuest(page);
+  const source=await page.evaluate(async()=>await (await fetch('/assets/app.js')).text());
+  expect(source).toContain("s.accuracy==null?'':s.accuracy>=70?'good':s.accuracy<50?'bad':'warn'");
+});
+
 test('production shell loads all scripts, preserves answers after reload and paginates',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await openGuest(page);await expect(page.locator('body')).toHaveAttribute('data-v4ready','1');

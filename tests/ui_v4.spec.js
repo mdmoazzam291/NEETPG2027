@@ -38,6 +38,34 @@ test('global search opens the question bank and applies the query', async ({ pag
   await expect(page.locator('#bankSearch')).toHaveValue('myocardial');
 });
 
+test('mobile global search results open below the wrapped search field', async ({ page }) => {
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/');
+  await loadV4(page);
+  const target=await page.evaluate(()=>app.questions.find(q=>String(q.topic||'').length>=3)?.topic || 'medicine');
+  await page.fill('#v4SearchInput',target);
+  await expect(page.locator('#v4SearchResults')).toBeVisible();
+
+  const geometry=await page.evaluate(()=>{
+    const search=document.querySelector('#v4Search').getBoundingClientRect();
+    const results=document.querySelector('#v4SearchResults').getBoundingClientRect();
+    return {searchBottom:search.bottom,resultsTop:results.top,searchLeft:search.left,resultsLeft:results.left,searchWidth:search.width,resultsWidth:results.width};
+  });
+  expect(geometry.resultsTop).toBeGreaterThanOrEqual(geometry.searchBottom+4);
+  expect(Math.abs(geometry.resultsLeft-geometry.searchLeft)).toBeLessThanOrEqual(1);
+  expect(Math.abs(geometry.resultsWidth-geometry.searchWidth)).toBeLessThanOrEqual(2);
+});
+
+test('dashboard source escapes imported metadata and refreshes durable vault notes', async ({ page }) => {
+  await page.goto('/');
+  const source=await page.evaluate(async()=>await (await fetch('/assets/ui-v4.js')).text());
+  expect(source).toContain('const escapeV4 = value =>');
+  expect(source).toContain('title="${escapeV4(r.name)}"');
+  expect(source).toContain('<strong>${escapeV4(r.name)}</strong>');
+  expect(source).toContain("window.addEventListener('focus',()=>refreshDurableNotes()");
+  expect(source).toContain("event.key==='neuralvault:v1'");
+});
+
 test('rapid 15 quick start launches a practice session', async ({ page }) => {
   await page.goto('/');
   await loadV4(page,{timer:true});

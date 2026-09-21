@@ -44,7 +44,18 @@ for(const [width,height] of [[360,740],[430,932],[768,1024],[1024,768],[1280,720
   await page.evaluate(t=>document.documentElement.dataset.theme=t,theme);
   expect(await page.locator('#exam9Backdrop').evaluate(el=>el.scrollWidth<=innerWidth+1)).toBe(true);
   await expect(page.locator('#exam9Save')).toBeInViewport();await expect(page.locator('#exam9Clock')).toBeInViewport();
-  if(width<=768){await page.click('#exam9PaletteToggle');await expect(page.locator('#exam9Side')).toBeVisible();await page.click('#exam9PaletteClose');}
+  if(width<=768){
+    await page.click('#exam9PaletteToggle');
+    await expect(page.locator('#exam9Side')).toBeVisible();
+    const geometry=await page.evaluate(()=>{
+      const work=document.querySelector('.exam9-work').getBoundingClientRect();
+      const side=document.querySelector('#exam9Side').getBoundingClientRect();
+      return {workTop:work.top,workBottom:work.bottom,sideTop:side.top,sideBottom:side.bottom};
+    });
+    expect(geometry.sideTop).toBeGreaterThanOrEqual(geometry.workTop-1);
+    expect(geometry.sideBottom).toBeLessThanOrEqual(geometry.workBottom+1);
+    await page.click('#exam9PaletteClose');
+  }
   await page.screenshot({path:test.info().outputPath(`exam-${theme}.png`)});
  }
 });
