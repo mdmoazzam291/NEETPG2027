@@ -2,6 +2,11 @@ const { test, expect } = require('@playwright/test');
 
 test('NEET-PG timer uses 63-second pace without hard auto-submit', async ({ page }) => {
   await page.goto('/');
+  if(await page.evaluate(()=>Boolean(window.NEETPG_AUTH_LAUNCH))){
+    await expect(page.locator('#authContinueOffline')).toBeVisible({timeout:20000});
+    await page.locator('#authContinueOffline').click();
+    await expect(page.locator('html')).toHaveAttribute('data-auth-launch','guest');
+  }
   await expect(page.locator('#statTotal')).toHaveText('100');
 
   // The live deployment injects this enhancement after the core app script.
