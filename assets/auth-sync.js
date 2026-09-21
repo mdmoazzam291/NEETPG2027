@@ -62,7 +62,9 @@
     style.id='cloudStyles';
     style.textContent=`
       .account-btn{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:12px}
-      .account-avatar{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--accent,#0f766e);color:white;font-size:12px;font-weight:800}
+      .account-avatar{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--accent,#0f766e);color:white;font-size:12px;font-weight:800;overflow:hidden}
+      .account-avatar img{width:100%;height:100%;display:block;object-fit:cover;border-radius:inherit}
+      .account-avatar.has-photo{background:var(--surface2,#eef5f3);color:transparent}
       .auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
       .auth-tabs button.active{background:var(--accent,#0f766e);color:white;border-color:transparent}
       .auth-stack{display:grid;gap:10px}
