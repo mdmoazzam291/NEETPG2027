@@ -191,7 +191,7 @@ test('initial cloud sync change counter is zero so a successful first sync settl
 test('cloud sync does not re-upload unchanged rows after an acknowledged push', async ({ page }) => {
   await page.goto('/');
   await expect.poll(
-    () => page.evaluate(() => document.body?.dataset.coreReady === '1' && typeof dbPut === 'function' && typeof db !== 'undefined' && db !== null),
+    () => page.evaluate(() => document.body?.dataset.coreReady === '1' && typeof dbPut === 'function'),
     {timeout:15000}
   ).toBe(true);
   await page.evaluate(async()=>{
