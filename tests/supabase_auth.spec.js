@@ -93,6 +93,29 @@ test('reference login composition includes responsive branding, theme control an
   expect(source.hero.ok).toBe(true);
 });
 
+test('auth surface has stable reference styling and modal keyboard semantics', async ({ page }) => {
+  await page.goto('/');
+  await page.addScriptTag({content: `window.NEETPG_SUPABASE={url:'https://example.supabase.co',anonKey:'public-test-key',redirectUrl:location.href,googleEnabled:false};window.supabase={createClient:()=>({from:()=>({select:()=>({eq:()=>({maybeSingle:async()=>({data:null,error:null})})})}),auth:{getSession:async()=>({data:{session:null},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}}),signInWithPassword:async()=>({error:null}),signUp:async()=>({data:{session:null},error:null}),signInWithOAuth:async()=>({error:null}),signOut:async()=>({error:null})}})};`});
+  await page.addScriptTag({url:'/assets/auth-sync.js'});
+  await page.addScriptTag({url:'/assets/auth-v2.js'});
+  await page.click('#accountBtn');
+
+  const modal=page.locator('#authModal');
+  await expect(modal).toHaveAttribute('role','dialog');
+  await expect(modal).toHaveAttribute('aria-modal','true');
+  await expect(modal).toHaveAttribute('aria-labelledby','authTitle');
+  await expect(page.locator('#authClose')).toHaveAttribute('aria-label','Close account dialog');
+
+  const source=await page.evaluate(async()=>({
+    css:await (await fetch('/assets/auth-v2.css')).text(),
+    js:await (await fetch('/assets/auth-v2.js')).text()
+  }));
+  expect(source.css).toMatch(/auth-v2-promo:after[\s\S]*?width:auto;[\s\S]*?height:auto;[\s\S]*?box-shadow:none;/);
+  expect(source.css).toMatch(/@media\(max-width:820px\)[\s\S]*?#authModal\.auth-v2\{[\s\S]*?overflow:hidden;/);
+  expect(source.js).toContain("if (event.key === 'Escape')");
+  expect(source.js).toContain("if (event.key !== 'Tab') return");
+});
+
 test('signed-in account surface includes logout and provider avatar support', async ({ page }) => {
   await page.goto('/');
   const sources=await page.evaluate(async()=>({
