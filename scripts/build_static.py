@@ -16,7 +16,7 @@ for name in ['index.html', 'manifest.webmanifest', 'sw.js']:
 page = (DEST / 'index.html').read_text()
 styles = ['ui-v4', 'exam-v9', 'phase13', 'auth-v2']
 scripts = ['supabase-config', 'phase13-preauth', 'auth-sync', 'auth-provider-guard', 'auth-v2', 'neetpg-timer', 'ui-v4', 'exam-analytics', 'exam-v9', 'phase10-taxonomy', 'pyq-metadata', 'phase11-analytics', 'phase11-exam-overlay', 'phase12-planning', 'phase13-hardening']
-page = page.replace('</head>', ''.join(f'<link rel="stylesheet" href="assets/{name}.css">' for name in styles) + '</head>')
+page = page.replace('</head>', '<link rel="stylesheet" href="assets/auth-launch.css"><script src="assets/auth-launch.js"></script>' + ''.join(f'<link rel="stylesheet" href="assets/{name}.css">' for name in styles) + '</head>')
 page = page.replace('</body>', '<script src="neuralvault/vault-db.js"></script>' + ''.join(f'<script src="assets/{name}.js" defer></script>' for name in scripts) + '</body>')
 (DEST / 'index.html').write_text(page)
 version = os.environ.get('GITHUB_SHA', 'dev')[:12]
