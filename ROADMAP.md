@@ -1,121 +1,308 @@
 # NEETPG2027 Roadmap
 
-The repository contains a FastAPI/local backend for normalized imports/taxonomy/media/study APIs and a GitHub Pages study app with offline IndexedDB, Supabase sync, adaptive practice, SRS, analytics, premium UI and the NEET-PG exam simulator.
+_Last updated: 2026-09-21_
 
-## Completed: Phases 1–8.5
+This file is the canonical product-status and roadmap document for the repository. Historical phase documents describe how features were built; this file describes what is actually available on current `main` and what is still planned.
 
-Database foundation, normalized question/PYQ data, controlled imports, taxonomy administration, media workflow, study interaction engine, offline/PWA study app, NEET-PG pacing timer, Supabase authentication/cloud sync and premium dashboard UI v4 are implemented and regression-tested. The original 100-question synthetic/platform bank has been retired from the active study app.
+## Status legend
 
-## Completed: Phase 9 — NEET-PG exam simulator
+- ✅ **Complete** — implemented on `main`, covered by regression tests, and part of the production path.
+- 🟢 **Substantially complete** — useful production implementation exists; further depth is planned.
+- 🟡 **Partially implemented / externally gated** — application code exists, but external configuration, deployment, content, or trusted backend work is still required.
+- ⬜ **Planned** — intentionally queued; not part of the current production contract.
 
-- section-locked 40-question / 42-minute NEET-PG flow
-- 5-section / 200-question engine support when ≥200 unique questions exist
-- current-bank simulation for the expanded bundled study bank
-- question palette states, Save & Next, Mark for Review & Next, Clear Response
-- permanent section locking, automatic timeout and reload-safe active-exam resume
-- post-test review and result summary
+## Current production snapshot
 
-Full 200-question mocks remain content-unlocked because the active PYQ bank contains 405 unique questions. Simulator behavior remains separate from any future NEET-PG 2027 pattern update.
+| Area | Status | Current state |
+| --- | --- | --- |
+| Production source | ✅ | `main` only; GitHub Pages deploys from `main` and runs a live smoke test |
+| Study bank | 🟢 | 405 normalized NEET-PG recall-derived questions covering 2021–2026 |
+| Practice/QBank | ✅ | Full manifest loading, filters, adaptive sessions, bookmarks, notes, confidence/error capture |
+| Revision/SRS | ✅ | Due, incorrect, bookmarked and note-driven revision with spaced repetition |
+| Dashboard/UI | ✅ | Premium UI v4, responsive phone/iPad/desktop layout, global search, dark mode, exam countdown |
+| Planning | ✅ | Daily/weekly targets, adaptive mix, 15/30/60-minute plans and 5/10-minute micro-sessions |
+| Analytics | ✅ | Subject/system/topic weakness, timing, confidence, trends, readiness and revision effectiveness |
+| Mock Exams | ✅ | 180-question preset, 5 × 36-question sections, 42 minutes/section, 210 minutes total, +4/−1 |
+| NeuralVault | 🟢 | Markdown vault, wiki links/backlinks, graph, search, version history, PYQ matching and grounded Brain tools |
+| Authentication | ✅ core / 🟡 providers | Auth-first launch, email/password, recovery, email link/code, logout, avatars; Google/Apple depend on provider configuration |
+| Cloud sync | ✅ | Supabase auth/RLS, attempts/question state/sessions/settings sync, idle reconciliation, conflict handling |
+| PWA/offline | ✅ | Service worker, offline study assets, update flow, install metadata and local-first recovery |
+| AI/intelligence | 🟢 local / 🟡 remote | Deterministic Brain V1/V2 and provider-router code exist; full production generative AI service is not deployed |
+| Content verification | 🟡 | Governance/provenance workflow exists; large-scale medical review and corpus expansion remain active work |
 
-## Completed: Phase 10 — content infrastructure and medical verification
+### Current mock-exam preset
 
-Bulk synthetic question generation remains deferred. Source-backed PYQ expansion is active; the surrounding infrastructure remains complete:
+The production simulator currently uses the requested **180-question** pattern:
 
-- browser-compatible `Subject → System → Topic → Subtopic` metadata contract
-- deterministic system inference for legacy platform items and conservative topic→subtopic fallback
-- System filter in Practice and Question Bank, including filtered-session launch
-- explicit `unverified / reviewed / verified / retired` governance workflow documented in `CONTENT_GOVERNANCE.md`
-- provenance contract for origin, source kind, content version, reviewer and review timestamp
-- legacy items remain **unverified**; automation cannot self-certify medical correctness
-- dedicated Phase 10 browser tests plus full Python 3.11/3.12, migration and browser CI passed
+- 180 questions
+- 5 locked sections
+- 36 questions per section
+- 42 minutes per section
+- 210 minutes total
+- +4 correct, −1 incorrect, 0 unattempted
+- no return to expired sections
+- server-timed signed-in attempts, reload-safe resume, palette states, review, history and analytics
 
-## Completed: Phase 11 — analytics and weakness engine v2
+This is a **simulation preset**, not a claim of official NBEMS endorsement. If NEET-PG 2027 primary-source rules change, the simulator must be re-verified and updated.
 
-- Subject, system and topic weakness scores with transparent formulas
-- speed × accuracy analysis and accuracy inside/outside the 63-second pace target
+## Completed foundation: Phases 1–8.5
+
+✅ Database foundation, normalized question/PYQ data, controlled imports, taxonomy administration, media workflow, study interaction engine, offline/PWA study app, pacing timer, Supabase authentication/cloud sync and dashboard UI are implemented.
+
+The original repository-authored 100-question synthetic/platform bank is retired from the active study app.
+
+## Phase 9 — exam simulator
+
+✅ Complete for the current 180-question preset.
+
+Implemented:
+
+- immutable full mock and section-drill presets
+- 5-section locked exam workflow
+- server-backed timing and response persistence
+- Save & Next, Mark for Review & Next, Clear Response and palette states
+- permanent section expiry
+- reload/multi-tab recovery protections
+- result summary, post-test review, history and timing/behavior analytics
+- separate handling so mock attempts do not contaminate normal SRS counters
+
+## Phase 10 — taxonomy, provenance and medical-content governance
+
+✅ Infrastructure complete; 🟡 corpus review remains ongoing.
+
+Implemented:
+
+- `Subject → System → Topic → Subtopic` contract
+- System filtering in Practice/QBank
+- provenance fields and repeat keys
+- `unverified / reviewed / verified / retired` workflow
+- import review and duplicate handling
+- browser/backend regression coverage
+
+Automation must never self-certify medical correctness.
+
+## Phase 11 — analytics and weakness engine v2
+
+✅ Complete core.
+
+Implemented:
+
+- subject/system/topic weakness scores
+- speed × accuracy analysis
 - time-pressure, overthinking and confidence-miscalibration signatures
-- rolling performance trends and revision effectiveness
-- readiness scoring with documented inputs
-- “Why this question?” explanation for Smart queue prioritization
-- exam-review timing/confidence/error overlays
-- dedicated Phase 11 Playwright validation passed
+- rolling trends and revision effectiveness
+- readiness scoring
+- transparent Smart-queue prioritization
+- mock timing/confidence/error overlays
 
-## Completed: Phase 12 — planning and adaptive revision v2
+## Phase 12 — planning and adaptive revision v2
 
-- Daily/weekly MCQ targets tied to the user profile with local fallback
-- user-set exam countdown and rolling study plan without inventing an exam date
-- SRS workload calendar, daily review cap and overdue-load balancing
-- automatic daily mix across due, weak, incorrect, unseen and balanced adaptive material
-- 15/30/60-minute study plans plus interruption-friendly 5/10-minute micro-sessions
-- reminders remain off until scheduling history is sufficiently reliable
-- planner launches the existing practice engine rather than duplicating question logic
-- dedicated Phase 12 Playwright validation passed
+✅ Complete core.
 
-## Completed: Phase 13 — production hardening and repository cleanup
+Implemented:
 
-### 13.1 Consolidate production source
+- daily/weekly targets
+- user-set exam countdown
+- SRS workload calendar and overdue balancing
+- automatic daily mix across due, weak, incorrect, unseen and balanced material
+- 15/30/60-minute plans
+- 5/10-minute micro-sessions
 
-- [x] `main` is the single production source of truth
-- [x] validated Phase 9–12 frontend, Supabase browser layer, PWA and tests are on the `main` lineage
-- [x] primary CI covers Python 3.11/3.12, migration round trips, backend browser and static browser suites
-- [x] GitHub Pages checks out `main` only
-- [x] deployed production is followed by an automated live-site smoke test
+Automated reminders remain a later feature.
 
-### 13.2 Repository and workflow cleanup
+## Phase 13 — production hardening
 
-- [x] legacy deployment/test workflows and experimental branches inventoried in `PHASE13_OPERATIONS.md`
-- [x] only `ci.yml` and `pages-option1-live.yml` remain active on `main`
-- [x] CI push scope reduced to `main`; historical branches are retained as non-production reference points
-- [x] no historical branch was deleted during hardening
+✅ Complete and continuously extended.
 
-### 13.3 Production reliability
+Implemented:
 
-- [x] live GitHub Pages smoke test
-- [x] Supabase guest/RLS plus authentication/sync UI regression coverage
-- [x] offline → online recovery and service-worker update behavior
-- [x] interrupted exam/practice cloud-session protection and recovery paths
-- [x] backup/export/reset/import restoration
-- [x] deterministic sync-conflict policy regression checks
+- `main` as the single production source
+- Python 3.11/3.12 CI
+- backend browser tests
+- Chromium regression suite
+- iPad-sized WebKit regression
+- production-artifact tests
+- GitHub Pages post-deploy live smoke
+- service-worker release discipline
+- offline → online recovery
+- backup/export/reset/import recovery paths
+- deterministic sync/conflict checks
+- responsive navigation and accessibility baseline
+- active-session cleanup and sync protections
 
-### 13.4 iPad and accessibility
+### Post-Phase-13 production upgrades
 
-- [x] iPad-sized WebKit regression in CI in addition to Chromium coverage
-- [x] 44 px touch targets and horizontal-overflow checks
-- [x] keyboard/focus navigation and keyboard-operable switches
-- [x] screen-reader semantics for navigation, dialogs, progress and status regions
-- [x] premium dashboard search/navigation labels and `aria-current`
-- [x] mobile/sidebar navigation regression
+✅ Also complete on current `main`:
 
-### 13.5 PWA and account hardening
+- auth-first startup gate
+- redesigned Google/Apple/email login UI
+- forgot-password and email-link/code flows
+- signed-in account view and logout
+- provider-profile avatars with initials fallback
+- responsive editorial login redesign
+- mobile search geometry hardening
+- auth dialog/focus accessibility hardening
+- imported metadata escaping
+- NeuralVault recent-note refresh
+- mock-exam mobile palette geometry fix
+- analytics neutral state for unknown accuracy
+- iOS touch-icon declaration
 
-- [x] explicit release/cache version discipline
-- [x] controlled update-ready banner and user-accepted service-worker activation
-- [x] install/icon/offline fallback validation
-- [x] active-session deletion guard and sync-conflict recovery checks
-- [x] local data export plus normal and global sign-out/device-session controls
-- [x] full Auth-user deletion intentionally remains outside the public browser client because it requires a trusted privileged backend; no service-role credential is exposed
+## Phase 14 — intelligence layer
 
-Operational details and the historical branch inventory are recorded in `PHASE13_OPERATIONS.md`.
+The earlier roadmap incorrectly marked all of Phase 14 as “not started.” The current implementation is more advanced:
+
+### 14A — deterministic/local learning intelligence
+
+✅ Complete.
+
+- mastery graph derived from retrieval evidence
+- matched-PYQ coverage/accuracy scoring
+- next-study prioritization
+- local cross-subject concept suggestions
+- evidence bundles for grounded prompting
+
+### 14B — NeuralVault Brain V1/V2
+
+🟢 Substantially complete.
+
+- local grounded Q&A over notes + cached PYQs
+- exact source/evidence IDs
+- hybrid concept retrieval
+- cross-subject note suggestions
+- recall-card candidates derived from source text
+- safe note-patch previews with explicit apply/cancel
+- local/offline operation for deterministic tools
+
+### 14C — secure provider router
+
+🟡 Code implemented, production service not activated.
+
+The FastAPI backend contains optional adapters for OpenAI, Gemini, Anthropic and OpenAI-compatible/local providers. Provider keys belong on a trusted backend, never in GitHub Pages/browser storage.
+
+Remaining before production activation:
+
+- deploy/authorize the backend boundary
+- configure provider/model selection
+- define quotas/rate limits
+- production privacy/telemetry policy
+- regression/evaluation set for medical answers
+
+### 14D — personalized generative coaching
+
+⬜ Planned.
+
+- “why am I getting this wrong?” synthesis
+- evidence-grounded explanation variants
+- contradiction/gap detection
+- personalized error-pattern coaching
+- medically reviewed AI-assisted content workflows
+
+The generative layer must remain subordinate to deterministic SRS, analytics, provenance and medical-review controls.
 
 ---
 
 # Next roadmap
 
-## Phase 14 — optional intelligence layer
+## Phase 15 — content expansion and verification
 
-**Not started.** Begin only with explicit approval after Phase 13. Candidate work:
+**Priority: NEXT**
 
-- source-constrained AI explanation variants
-- personalized error-pattern coaching
-- automatic cross-subject concept linking
-- “why am I getting this wrong?” analysis
-- AI-assisted note generation
-- medically reviewed question-generation assistance
+The largest current bottleneck is content depth rather than UI infrastructure.
 
-The AI layer must not replace the deterministic study engine, SRS, analytics, provenance or medical-review controls.
+Planned:
+
+- expand source-backed NEET-PG recalls toward a broader 8–10+ year corpus
+- add INI-CET recall-derived/source-backed coverage
+- increase subject/system balance
+- add image/IBQ material where provenance and reuse rights permit
+- verify answer keys, explanations, references and duplicates
+- keep unverified material visibly labelled
+- build review queues for human/medical verification
+
+## Phase 16 — integrated master curriculum
+
+**Priority: PLANNED**
+
+- 500+ high-yield topic master checklist
+- map every topic to subject, system, presentation, PYQ, note and revision objects
+- reduce duplicate learning across MBBS subjects
+- preserve subject views for coverage auditing while learning through integrated systems
+
+## Phase 17 — NeuralVault learning engine
+
+**Priority: PLANNED**
+
+- heading/block references and aliases
+- attachments/media objects
+- richer Markdown/editor support
+- trash/recycle bin
+- note-to-flashcard extraction
+- concept-level SRS separate from question SRS
+- error-note linking
+- combined revision queue across questions, cards, errors and notes
+- image/spotter note objects
+
+## Phase 18 — Account & Security Center
+
+**Priority: PLANNED**
+
+- connected login-method display
+- password-management flow
+- session/device view
+- explicit sign-out-all-devices/session revocation
+- account deletion through a trusted privileged backend
+- account/security activity UX
+
+Full Auth-user deletion must never expose a Supabase service-role credential in the browser.
+
+## Phase 19 — reminders and notifications
+
+**Priority: LATER**
+
+- due-review reminders
+- daily-plan reminder
+- mock scheduling
+- overdue workload nudges
+- user-controlled quiet hours/frequency
+
+Do not enable aggressive reminders until scheduling behavior is reliable and user-configurable.
+
+## Phase 20 — production AI activation
+
+**Priority: LATER**
+
+- deploy secure provider gateway
+- grounded citations and evidence tracing
+- model/evaluation policy
+- medical hallucination/contradiction checks
+- optional local/offline model path
+- personalized coaching using existing analytics rather than replacing it
+
+## Phase 21 — native shell / deeper filesystem integration
+
+**Priority: LATER**
+
+Tauri remains the preferred desktop-shell direction for direct filesystem access while reusing the browser data contracts. Native mobile packaging is optional and should follow demonstrated need.
 
 ---
 
-## Current state
+# Ongoing maintenance queue
 
-**Phases 1–13 are complete. Phase 14 is not started. The active study bank now contains only the 405 normalized 2021–2026 NEET-PG recall-derived questions. The original 100 repository-authored items are no longer loaded or deployed. The 2024 and 2025 recall sets are the first substantially expanded years.**
+These are maintenance tasks, not missing core features:
+
+- consolidate duplicate CSS/selectors and reduce `!important` debt in controlled passes
+- keep OAuth provider configuration verified after Google/Apple console changes
+- expand medical-content verification coverage
+- keep simulator rules synchronized with future official primary-source changes
+- maintain PWA cache/version discipline
+- keep stale branches as historical references unless deliberate branch cleanup is later approved
+
+## Repository status policy
+
+1. `main` is the only production source of truth.
+2. `ROADMAP.md` is the canonical feature-status document.
+3. Historical phase docs should not override current `ROADMAP.md`.
+4. Open pull requests should represent active work only.
+5. Superseded PRs are closed with an audit comment; historical branches are retained unless branch deletion is explicitly approved.
+6. Production claims should be backed by current code/tests, not old branch descriptions.
