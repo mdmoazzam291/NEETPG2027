@@ -48,6 +48,7 @@ test('reimporting a backup does not duplicate attempts',async({page})=>{
 test('Vault commits survive a failed localStorage cache write',async({page})=>{
   await page.goto('/neuralvault/');await expect(page.locator('#editor')).toBeVisible();
   await expect.poll(()=>page.evaluate(()=>Boolean(window.NeuralVaultDB))).toBe(true);
+  await page.evaluate(async()=>{await NeuralVaultDB.open();await new Promise(resolve=>setTimeout(resolve,150));});
   const saved=await page.evaluate(async()=>{const original=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw new DOMException('Full','QuotaExceededError')};try{await NeuralVaultDB.saveState({notes:[{id:'durable-test',title:'Durable',content:'Retained without cache',updatedAt:Date.now()}],currentId:'durable-test'});return (await NeuralVaultDB.loadState()).notes.find(n=>n.id==='durable-test')?.content}finally{Storage.prototype.setItem=original}});expect(saved).toBe('Retained without cache');
 });
 test('a missing question bundle keeps the available bank usable',async({page})=>{
