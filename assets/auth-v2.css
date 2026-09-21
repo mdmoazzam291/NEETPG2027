@@ -262,6 +262,8 @@ body[data-theme="dark"] #authModal.auth-v2 .auth-v2-account-settings{color:var(-
   content:"DISCIPLINE  TODAY\A DOCTOR  TOMORROW";
   white-space:pre;
   position:absolute;
+  width:auto;
+  height:auto;
   right:34px;
   bottom:104px;
   z-index:1;
@@ -269,6 +271,7 @@ body[data-theme="dark"] #authModal.auth-v2 .auth-v2-account-settings{color:var(-
   border-radius:14px;
   background:rgba(246,237,216,.80);
   border:1px solid rgba(119,87,42,.16);
+  box-shadow:none;
   color:#674d2f;
   font:700 .84rem/1.55 Georgia,serif;
   letter-spacing:.12em;
@@ -671,6 +674,8 @@ body[data-theme="dark"] #authModal.auth-v2 .auth-v2-theme{
 @media(max-width:820px){
   #authModal.auth-v2{
     padding:0;
+    overflow:hidden;
+    overscroll-behavior:none;
     background:
       radial-gradient(circle at 90% 6%,rgba(101,146,102,.13),transparent 24%),
       radial-gradient(circle at 6% 4%,rgba(188,158,91,.10),transparent 22%),
@@ -678,12 +683,16 @@ body[data-theme="dark"] #authModal.auth-v2 .auth-v2-theme{
   }
   #authModal.auth-v2 .auth-v2-shell{
     display:block;
-    min-height:100dvh;
+    height:100dvh;
+    min-height:0;
     width:100%;
     border:0;
     border-radius:0;
     background:transparent;
-    overflow:auto;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
   }
   #authModal.auth-v2 .auth-v2-promo,
   #authModal.auth-v2 .auth-v2-trust{display:none}
@@ -700,7 +709,7 @@ body[data-theme="dark"] #authModal.auth-v2 .auth-v2-theme{
   #authModal.auth-v2 .auth-v2-theme-label{display:none}
   #authModal.auth-v2 .modal.auth-v2-card{
     width:min(100%,520px)!important;
-    min-height:100dvh;
+    min-height:100%;
     max-height:none;
     margin:0 auto;
     padding:max(56px,calc(env(safe-area-inset-top) + 42px)) clamp(20px,6vw,30px) max(26px,calc(env(safe-area-inset-bottom) + 18px));
