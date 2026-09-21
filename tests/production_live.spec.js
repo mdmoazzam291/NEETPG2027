@@ -2,9 +2,27 @@ const { test, expect } = require('@playwright/test');
 
 const LIVE = process.env.NEETPG2027_LIVE_URL || 'https://mdmoazzam291.github.io/NEETPG2027/';
 
+async function openLiveApp(page,url,options={waitUntil:'domcontentloaded'}){
+  await page.goto(url,options);
+  await expect(page.locator('#authContinueOffline')).toBeVisible({timeout:20000});
+  await expect(page.locator('.app')).not.toBeVisible();
+  await page.locator('#authContinueOffline').click();
+  await expect(page.locator('html')).toHaveAttribute('data-auth-launch','guest',{timeout:10000});
+  await expect(page.locator('.app')).toBeVisible();
+}
+
+test('live public app opens auth-first before exposing the study shell', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openLiveApp(page, `${LIVE}?auth-first-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#authContinueOffline')).toBeVisible({ timeout: 20000 });
+  await expect(page.locator('html')).toHaveAttribute('data-auth-launch','signed-out');
+  await expect(page.locator('.app')).not.toBeVisible();
+  await expect(page.locator('#authTitle')).toHaveText('Welcome back');
+});
+
 test('live GitHub Pages build serves the validated Phase 13 study shell', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto(`${LIVE}?phase13-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await openLiveApp(page, `${LIVE}?phase13-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
 
   await expect.poll(()=>page.evaluate(()=>typeof app!=='undefined'?app.questions.length:0),{timeout:15000}).toBe(405);
   await expect(page.locator('#v4Greeting')).toBeVisible({ timeout: 15000 });
@@ -41,7 +59,7 @@ test('live GitHub Pages build serves the validated Phase 13 study shell', async 
 
 test('live Mock Exams launcher opens the deployed simulator shell', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(`${LIVE}?mock-live-audit=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await openLiveApp(page, `${LIVE}?mock-live-audit=${Date.now()}`, { waitUntil: 'domcontentloaded' });
   await expect(page.locator('body')).toHaveAttribute('data-v4ready','1',{timeout:15000});
 
   const nav=page.locator('.v4-nav[data-v4-label="Mock Exams"]');
@@ -112,7 +130,7 @@ test('live GitHub Pages build serves NeuralVault Brain V2', async ({ page }) => 
 
 test('live main app visibly links to NeuralVault', async ({ page }) => {
   await page.setViewportSize({ width: 1366, height: 900 });
-  await page.goto(`${LIVE}?vault-nav-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await openLiveApp(page, `${LIVE}?vault-nav-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
 
   const vault = page.locator('.v4-nav[data-v4-label="NeuralVault"]');
   await expect(vault).toBeVisible({ timeout: 15000 });
@@ -126,7 +144,7 @@ test('live main app visibly links to NeuralVault', async ({ page }) => {
 
 test('live dashboard shows dedicated continuous countdown to 29 Aug 2027', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(`${LIVE}?countdown-v2-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await openLiveApp(page, `${LIVE}?countdown-v2-smoke=${Date.now()}`, { waitUntil: 'domcontentloaded' });
 
   const countdown = page.locator('#v4ExamCountdown');
   await expect(countdown).toBeVisible({ timeout: 15000 });
@@ -152,7 +170,7 @@ test('live post-deployment audit has clean primary navigation and same-origin re
   page.on('pageerror',e=>pageErrors.push(e.message));
   page.on('response',r=>{try{const u=new URL(r.url());if(u.origin===new URL(LIVE).origin&&r.status()>=400)failed.push([r.status(),u.pathname]);}catch{}});
   await page.setViewportSize({width:1440,height:900});
-  await page.goto(`${LIVE}?post-deploy-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
+  await openLiveApp(page, `${LIVE}?post-deploy-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
   await expect(page.locator('body')).toHaveAttribute('data-v4ready','1',{timeout:15000});
   for(const label of ['Dashboard','QBank','Revision','Mock Exams','Study Plan','Analytics','Settings']){
     const nav=page.locator(`.v4-nav[data-v4-label="${label}"]`);
@@ -169,7 +187,7 @@ test('live post-deployment audit has clean primary navigation and same-origin re
 
 test('live global search, mobile navigation and target-date edit remain coherent', async ({ page }) => {
   await page.setViewportSize({width:390,height:844});
-  await page.goto(`${LIVE}?mobile-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
+  await openLiveApp(page, `${LIVE}?mobile-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
   await expect(page.locator('body')).toHaveAttribute('data-v4ready','1',{timeout:15000});
   const topic=await page.evaluate(()=>app.questions.find(q=>String(q.topic||'').length>=3)?.topic||app.questions[0].subject);
   await page.fill('#v4SearchInput',String(topic).slice(0,12));
@@ -191,7 +209,7 @@ test('live global search, mobile navigation and target-date edit remain coherent
 
 test('live Revision sidebar keeps due ordering, badge, CTA and keyboard tabs coherent', async ({ page }) => {
   await page.setViewportSize({width:390,height:844});
-  await page.goto(`${LIVE}?revision-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
+  await openLiveApp(page, `${LIVE}?revision-audit=${Date.now()}`,{waitUntil:'domcontentloaded'});
   await expect(page.locator('body')).toHaveAttribute('data-v4ready','1',{timeout:15000});
   const ids=await page.evaluate(async()=>{
     const [later,earlier,bookmark,note]=app.questions.slice(10,14),t=Date.now();
