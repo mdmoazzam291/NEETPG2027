@@ -372,24 +372,76 @@
     const shell = make('div', 'auth-v2-shell');
     const promo = make('aside', 'auth-v2-promo');
     promo.innerHTML =
-      '<div class="auth-v2-brand"><div class="auth-v2-logo">✚</div><div><strong>NEETPG 2027</strong><span>Study smarter. Practice deeper.</span></div></div>' +
-      '<h2>Your preparation, synced.</h2>' +
-      '<p>One account keeps your practice history, spaced repetition, bookmarks, notes and study sessions connected.</p>' +
+      '<div class="auth-v2-brand"><div class="auth-v2-logo">⚕</div><div><strong>NEETPG <em>2027</em></strong><span>STUDY · PRACTICE · REVISE · SUCCEED</span></div></div>' +
+      '<div class="auth-v2-promo-copy">' +
+        '<span class="auth-v2-eyebrow">YOUR NEET-PG JOURNEY</span>' +
+        '<h2>More Knowledge.<br><span>Brighter Futures.</span></h2>' +
+        '<p>For every hour you study today, you are one step closer to the doctor you want to become.</p>' +
+      '</div>' +
       '<div class="auth-v2-features">' +
-        '<div class="auth-v2-feature"><span class="auth-v2-feature-icon">◎</span><div><b>Practice</b><small>High-yield MCQs and adaptive sessions</small></div></div>' +
-        '<div class="auth-v2-feature"><span class="auth-v2-feature-icon">↻</span><div><b>Revise</b><small>Spaced repetition and error recovery</small></div></div>' +
-        '<div class="auth-v2-feature"><span class="auth-v2-feature-icon">⌁</span><div><b>Track</b><small>Performance and weakness analytics</small></div></div>' +
-        '<div class="auth-v2-feature"><span class="auth-v2-feature-icon">◇</span><div><b>Build</b><small>Your connected medical knowledge vault</small></div></div>' +
-      '</div>';
+        '<div class="auth-v2-feature"><span class="auth-v2-feature-icon">◎</span><div><b>High-yield QBank</b><small>PYQs, IBQs and exam-focused practice</small></div></div>' +
+        '<div class="auth-v2-feature"><span class="auth-v2-feature-icon">↻</span><div><b>Smart Revision</b><small>Spaced repetition for durable recall</small></div></div>' +
+        '<div class="auth-v2-feature"><span class="auth-v2-feature-icon">◇</span><div><b>Integrated Notes</b><small>Concepts connected across subjects</small></div></div>' +
+        '<div class="auth-v2-feature"><span class="auth-v2-feature-icon">⌁</span><div><b>Track Your Progress</b><small>Data-driven performance insights</small></div></div>' +
+      '</div>' +
+      '<blockquote>“Small consistent steps create big results.”</blockquote>' +
+      '<div class="auth-v2-hero-art" aria-hidden="true"></div>';
+
+    const themeButton = make('button', 'auth-v2-theme');
+    themeButton.id = 'authThemeToggle';
+    themeButton.type = 'button';
+    themeButton.setAttribute('aria-label','Toggle light and dark mode');
+    themeButton.innerHTML = '<span aria-hidden="true">☀</span><span class="auth-v2-theme-label">Light mode</span>';
 
     modal.insertBefore(shell, panel);
     shell.appendChild(promo);
     shell.appendChild(panel);
+    shell.appendChild(themeButton);
+
+    const trust = make('div', 'auth-v2-trust');
+    trust.innerHTML =
+      '<div><span>🏆</span><b>Exam-focused</b><small>PYQs & high-yield topics</small></div>' +
+      '<div><span>◫</span><b>Track & improve</b><small>Measure your growth</small></div>' +
+      '<div><span>☁</span><b>Learn anywhere</b><small>Sync across devices</small></div>' +
+      '<div><span>▣</span><b>Private & secure</b><small>Protected with Supabase RLS</small></div>';
+    shell.appendChild(trust);
 
     const heading = panel.querySelector('.modal-head h3');
     const subtitle = panel.querySelector('.modal-head p');
+    const modalHead = panel.querySelector('.modal-head');
+    const mobileBrand = make('div','auth-v2-mobile-brand');
+    mobileBrand.innerHTML = '<span class="auth-v2-mobile-mark">⚕</span><strong>NEETPG <em>2027</em></strong><small>STUDY · PRACTICE · REVISE · SUCCEED</small>';
+    if (modalHead) panel.insertBefore(mobileBrand, modalHead);
     if (heading) { heading.id = 'authTitle'; heading.textContent = 'Welcome back'; }
     if (subtitle) { subtitle.id = 'authSubtitle'; subtitle.textContent = 'Sign in to sync your NEET-PG progress across devices.'; }
+
+    const mobileHighlights = make('div','auth-v2-mobile-highlights');
+    mobileHighlights.innerHTML =
+      '<span><b>◎</b><small>Practice smarter</small></span>' +
+      '<span><b>↻</b><small>Revise deeper</small></span>' +
+      '<span><b>⌁</b><small>Track progress</small></span>';
+    if (modalHead) modalHead.after(mobileHighlights);
+
+    const syncThemeButton = () => {
+      const dark = document.body?.dataset.theme === 'dark';
+      const label = themeButton.querySelector('.auth-v2-theme-label');
+      const icon = themeButton.querySelector('[aria-hidden="true"]');
+      if (label) label.textContent = dark ? 'Dark mode' : 'Light mode';
+      if (icon) icon.textContent = dark ? '☾' : '☀';
+      themeButton.setAttribute('aria-pressed', String(dark));
+    };
+    themeButton.addEventListener('click', () => {
+      const appToggle = document.getElementById('themeToggle');
+      if (appToggle) appToggle.click();
+      else {
+        const dark = document.body?.dataset.theme === 'dark';
+        document.body.dataset.theme = dark ? 'light' : 'dark';
+        document.documentElement.style.colorScheme = dark ? 'light' : 'dark';
+      }
+      setTimeout(syncThemeButton, 0);
+    });
+    window.addEventListener('neetpg:theme-change', syncThemeButton);
+    syncThemeButton();
 
     const stack = panel.querySelector('.auth-stack');
     const google = document.getElementById('authGoogle');
@@ -478,7 +530,8 @@
     switchRow.innerHTML = '<span id="authSwitchText">New here?</span> <button type="button" class="auth-v2-link" id="authSwitchBtn">Create account</button>';
     emailCode.after(switchRow);
 
-    const offline = make('button', 'auth-v2-offline', 'Continue offline · study now, sync later');
+    const offline = make('button', 'auth-v2-offline');
+    offline.innerHTML = '<span class="auth-v2-offline-icon">☘</span><span><b>Continue offline</b><small>Study now, sync later</small></span><span class="auth-v2-offline-arrow">›</span>';
     offline.id = 'authContinueOffline';
     offline.type = 'button';
     switchRow.after(offline);
@@ -503,7 +556,11 @@
 
     if (error) accountPanel.after(error);
     if (success) error?.after(success);
-    if (privacy) { privacy.id = 'authPrivacy'; success?.after(privacy); }
+    if (privacy) {
+      privacy.id = 'authPrivacy';
+      privacy.innerHTML = '<span aria-hidden="true">▣</span> Your data is secure with Supabase <span class="auth-v2-privacy-dot">·</span> <span>Private by default</span>';
+      success?.after(privacy);
+    }
 
     apple.addEventListener('click', appleSignIn);
     document.getElementById('authForgot')?.addEventListener('click', () => { message(); renderMode('forgot'); });
