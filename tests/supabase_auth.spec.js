@@ -136,6 +136,7 @@ test('signed-in users can confirm account deletion from Settings without exposin
     });
   });
   await page.addScriptTag({url:'/assets/auth-v2.js'});
+  await page.evaluate(()=>window.dispatchEvent(new CustomEvent('neetpg:cloud-status')));
   await expect(page.locator('#accountDeleteAction')).toBeVisible();
   await page.click('#deleteAccountBtn');
   await expect(page.locator('#deleteAccountModal')).toHaveClass(/show/);
