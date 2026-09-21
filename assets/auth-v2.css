@@ -819,3 +819,47 @@ body[data-theme="dark"] #authModal.auth-v2 .auth-v2-theme{
   #authModal.auth-v2 .auth-v2-mobile-brand{margin-bottom:18px}
   #authModal.auth-v2 .modal-head h3{font-size:1.78rem}
 }
+
+
+/* Account deletion / danger-zone hardening */
+.danger-action{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  padding:14px 0;
+  border-top:1px solid var(--line,#e5e7eb);
+}
+.danger-action:first-of-type{border-top:0;padding-top:6px}
+.danger-action>div{min-width:0}
+.danger-action strong{display:block;margin-bottom:4px}
+.danger-action small{display:block;max-width:620px;color:var(--muted,#6b7280);line-height:1.45}
+.account-delete-action{margin-top:4px}
+.account-delete-modal .modal{max-width:520px}
+.account-delete-warning{
+  margin:10px 0 14px;
+  padding:14px;
+  border:1px solid rgba(180,35,24,.22);
+  border-radius:14px;
+  background:rgba(180,35,24,.06);
+}
+.account-delete-warning strong{color:#9f271f}
+.account-delete-warning p{margin:6px 0 0;line-height:1.5}
+.account-delete-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:16px;
+}
+#deleteAccountError{min-height:1.25em;margin:8px 0 0}
+body[data-theme="dark"] .account-delete-warning{
+  background:rgba(220,70,60,.08);
+  border-color:rgba(235,95,85,.30);
+}
+body[data-theme="dark"] .account-delete-warning strong{color:#ff9c93}
+@media(max-width:640px){
+  .danger-action{display:grid}
+  .danger-action .btn{width:100%}
+  .account-delete-actions{display:grid;grid-template-columns:1fr}
+  .account-delete-actions .btn{width:100%}
+}
