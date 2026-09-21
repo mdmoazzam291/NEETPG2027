@@ -75,6 +75,24 @@ test('Auth UI supports email sign-in and account creation modes without privileg
 });
 
 
+test('reference login composition includes responsive branding, theme control and offline trust UI', async ({ page }) => {
+  await page.goto('/');
+  const source=await page.evaluate(async()=>({
+    js:await (await fetch('/assets/auth-v2.js')).text(),
+    css:await (await fetch('/assets/auth-v2.css')).text(),
+    hero:await fetch('/assets/auth-hero.svg').then(r=>({ok:r.ok,text:r.text()}))
+  }));
+  expect(source.js).toContain('More Knowledge.');
+  expect(source.js).toContain('Brighter Futures.');
+  expect(source.js).toContain('auth-v2-mobile-highlights');
+  expect(source.js).toContain('authThemeToggle');
+  expect(source.js).toContain('Private by default');
+  expect(source.css).toContain("url('./auth-hero.svg')");
+  expect(source.css).toContain('.auth-v2-trust');
+  expect(source.css).toContain('@media(max-width:820px)');
+  expect(source.hero.ok).toBe(true);
+});
+
 test('signed-in account surface includes logout and provider avatar support', async ({ page }) => {
   await page.goto('/');
   const sources=await page.evaluate(async()=>({

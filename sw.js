@@ -1,8 +1,8 @@
-const RELEASE='2026-09-21-auth-first-v5';
+const RELEASE='2026-09-21-auth-reference-v6';
 const CACHE_PREFIX='neetpg2027-';
 const CACHE=`${CACHE_PREFIX}${RELEASE}`;
 const ASSETS=[
-  './','./index.html','./manifest.webmanifest','./assets/app-icon.svg',
+  './','./index.html','./manifest.webmanifest','./assets/app-icon.svg','./assets/auth-hero.svg',
   './assets/app.css','./assets/ui-v4.css','./assets/exam-v9.css','./assets/phase13.css','./assets/auth-v2.css','./assets/auth-launch.css',
   './assets/app.js','./assets/review-hotfix.js','./assets/neetpg-timer.js',
   './assets/supabase-config.js','./assets/phase13-preauth.js','./assets/auth-sync.js','./assets/auth-provider-guard.js','./assets/auth-v2.js','./assets/auth-launch.js',
