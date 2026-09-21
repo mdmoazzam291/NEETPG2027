@@ -1,0 +1,60 @@
+html.auth-launch-pending,
+html.auth-launch-locked{background:#071f1b}
+html.auth-launch-pending body,
+html.auth-launch-locked body{overflow:hidden}
+html.auth-launch-pending body>.app,
+html.auth-launch-locked body>.app,
+html.auth-launch-pending body>#mobileOverlay,
+html.auth-launch-locked body>#mobileOverlay,
+html.auth-launch-pending body>#shortcutsModal,
+html.auth-launch-locked body>#shortcutsModal,
+html.auth-launch-pending body>.toast,
+html.auth-launch-locked body>.toast{
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+#authLaunchSplash{
+  position:fixed;
+  inset:0;
+  z-index:1600;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  background:
+    radial-gradient(circle at 22% 18%,rgba(37,191,159,.16),transparent 30%),
+    linear-gradient(160deg,#061b18 0%,#0a332d 55%,#0a2a25 100%);
+  color:#f5fffc;
+}
+#authLaunchSplash[hidden]{display:none!important}
+.auth-launch-card{
+  width:min(440px,100%);
+  display:grid;
+  justify-items:center;
+  text-align:center;
+  gap:14px;
+}
+.auth-launch-mark{
+  width:72px;
+  height:72px;
+  border-radius:22px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#19b99d,#0a8675);
+  box-shadow:0 20px 48px rgba(0,0,0,.24);
+  font-size:30px;
+  font-weight:900;
+}
+.auth-launch-card strong{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em}
+.auth-launch-card p{margin:0;color:#b8d9d2;font-size:.9rem}
+.auth-launch-loader{
+  width:34px;
+  height:34px;
+  border:3px solid rgba(255,255,255,.18);
+  border-top-color:#67e8cb;
+  border-radius:50%;
+  animation:authLaunchSpin .8s linear infinite;
+  margin-top:6px;
+}
+@keyframes authLaunchSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.auth-launch-loader{animation:none;border-top-color:rgba(255,255,255,.55)}}
+html.auth-launch-locked #authModal.auth-v2 #authClose{display:none!important}
