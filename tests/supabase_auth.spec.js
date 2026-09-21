@@ -72,7 +72,7 @@ test('Auth UI supports email sign-in and account creation modes without privileg
 });
 
 
-test('signed-in account surface includes an in-page logout action', async ({ page }) => {
+test('signed-in account surface includes logout and provider avatar support', async ({ page }) => {
   await page.goto('/');
   const sources=await page.evaluate(async()=>({
     sync:await (await fetch('/assets/auth-sync.js')).text(),
@@ -83,6 +83,13 @@ test('signed-in account surface includes an in-page logout action', async ({ pag
   expect(sources.v2).toContain("authPageSignOut");
   expect(sources.v2).toContain("client.auth.signOut()");
   expect(sources.v2).toContain("Local study data remains available on this device.");
+  for(const source of [sources.sync,sources.v2]){
+    expect(source).toContain("user?.user_metadata?.avatar_url");
+    expect(source).toContain("user?.user_metadata?.picture");
+    expect(source).toContain("identity_data");
+    expect(source).toContain("referrerPolicy = 'no-referrer'");
+    expect(source).toContain("url.protocol === 'https:'");
+  }
 });
 
 
