@@ -508,7 +508,10 @@
     apple.addEventListener('click', appleSignIn);
     document.getElementById('authForgot')?.addEventListener('click', () => { message(); renderMode('forgot'); });
     emailCode.addEventListener('click', () => { message(); renderMode('email'); });
-    offline.addEventListener('click', () => document.getElementById('authClose')?.click());
+    offline.addEventListener('click', () => {
+      window.NEETPG_AUTH_LAUNCH?.continueOffline?.();
+      document.getElementById('authClose')?.click();
+    });
     document.getElementById('authSwitchBtn')?.addEventListener('click', () => {
       message();
       useBaseTab(document.getElementById('authSwitchBtn')?.dataset.targetMode || 'signin');
