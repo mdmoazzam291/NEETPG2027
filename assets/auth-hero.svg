@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760" role="img" aria-label="Warm medical study landscape illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset=".48" stop-color="#f6e8c8"/>
+      <stop offset="1" stop-color="#d8c59b"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffd780"/>
+      <stop offset="1" stop-color="#f2a83b"/>
+    </linearGradient>
+    <linearGradient id="desk" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#cfb182"/>
+      <stop offset="1" stop-color="#8d6b45"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="900" height="760" fill="url(#sky)"/>
+  <circle cx="670" cy="210" r="90" fill="url(#sun)" opacity=".88"/>
+  <circle cx="670" cy="210" r="150" fill="#ffd98f" opacity=".18" filter="url(#blur)"/>
+  <path d="M390 410 L565 225 L720 410 Z" fill="#c7b27f" opacity=".72"/>
+  <path d="M500 410 L690 255 L850 410 Z" fill="#9e9274" opacity=".64"/>
+  <path d="M250 430 L440 300 L600 430 Z" fill="#d4c6a6" opacity=".68"/>
+  <path d="M0 420 C170 385 280 450 430 425 C600 395 690 430 900 400 L900 610 L0 610 Z" fill="#aab694" opacity=".58"/>
+  <path d="M0 470 C180 435 350 490 520 455 C670 424 780 450 900 438 L900 610 L0 610 Z" fill="#7f9d7c" opacity=".50"/>
+  <rect x="0" y="585" width="900" height="175" fill="url(#desk)"/>
+  <g transform="translate(65 520)">
+    <rect x="0" y="78" width="235" height="34" rx="5" fill="#153d3b"/>
+    <rect x="10" y="45" width="225" height="33" rx="5" fill="#315c50"/>
+    <rect x="20" y="12" width="212" height="33" rx="5" fill="#5f403c"/>
+    <text x="22" y="99" font-family="Arial" font-size="15" fill="#fff">PHARMACOLOGY</text>
+    <text x="34" y="67" font-family="Arial" font-size="15" fill="#fff">PATHOLOGY</text>
+    <text x="45" y="34" font-family="Arial" font-size="15" fill="#fff">SURGERY</text>
+  </g>
+  <g transform="translate(310 610)">
+    <path d="M0 32 C60 -10 155 -4 215 20 C250 34 276 58 282 84" fill="none" stroke="#173f3a" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="282" cy="84" r="18" fill="none" stroke="#173f3a" stroke-width="8"/>
+    <circle cx="282" cy="84" r="5" fill="#173f3a"/>
+  </g>
+  <g transform="translate(585 565)">
+    <rect x="0" y="0" width="135" height="118" rx="14" fill="#f6efe0" stroke="#ba9b68" stroke-width="3"/>
+    <path d="M135 28 C174 20 180 95 139 94" fill="none" stroke="#ba9b68" stroke-width="10"/>
+    <text x="30" y="44" font-family="Georgia" font-size="15" fill="#5c4934">GOOD</text>
+    <text x="22" y="66" font-family="Georgia" font-size="15" fill="#5c4934">DOCTORS</text>
+    <text x="18" y="88" font-family="Georgia" font-size="15" fill="#5c4934">KEEP LEARNING</text>
+  </g>
+  <g opacity=".78">
+    <path d="M35 110 C90 70 118 40 132 0 C145 58 128 100 84 128 Z" fill="#547654"/>
+    <path d="M815 65 C855 40 880 20 894 0 C900 48 884 86 848 104 Z" fill="#6e8a65"/>
+    <path d="M0 175 C36 160 58 136 76 104 C76 152 54 189 18 204 Z" fill="#78966f"/>
+  </g>
+</svg>
