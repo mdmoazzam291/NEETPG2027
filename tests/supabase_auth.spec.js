@@ -116,6 +116,57 @@ test('auth surface has stable reference styling and modal keyboard semantics', a
   expect(source.js).toContain("if (event.key !== 'Tab') return");
 });
 
+test('signed-in users can confirm account deletion from Settings without exposing privileged keys', async ({ page }) => {
+  await page.goto('/');
+  await page.addScriptTag({content:`
+    window.NEETPG_SUPABASE={};
+  `});
+  await page.addScriptTag({url:'/assets/auth-sync.js'});
+  await page.evaluate(()=>{
+    window.__deleteCalls=[];
+    Object.assign(window.NEETPG_CLOUD,{
+      user:{id:'user-1',email:'doctor@example.com',user_metadata:{}},
+      client:{
+        functions:{invoke:async(name,options)=>{window.__deleteCalls.push({name,options});return {data:{deleted:true},error:null};}},
+        auth:{
+          signOut:async(options)=>{window.__deleteCalls.push({name:'signOut',options});return {error:null};},
+          onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})
+        }
+      }
+    });
+  });
+  await page.addScriptTag({url:'/assets/auth-v2.js'});
+  await expect(page.locator('#accountDeleteAction')).toBeVisible();
+  await page.click('#deleteAccountBtn');
+  await expect(page.locator('#deleteAccountModal')).toHaveClass(/show/);
+  await expect(page.locator('#deleteAccountConfirmBtn')).toBeDisabled();
+  await page.fill('#deleteAccountConfirm','wrong@example.com');
+  await expect(page.locator('#deleteAccountConfirmBtn')).toBeDisabled();
+  await page.fill('#deleteAccountConfirm','doctor@example.com');
+  await expect(page.locator('#deleteAccountConfirmBtn')).toBeEnabled();
+  await page.click('#deleteAccountConfirmBtn');
+  await expect.poll(()=>page.evaluate(()=>window.__deleteCalls.length)).toBe(2);
+  const calls=await page.evaluate(()=>window.__deleteCalls);
+  expect(calls[0]).toEqual({name:'delete-account',options:{body:{confirmation:'doctor@example.com'}}});
+  expect(calls[1]).toEqual({name:'signOut',options:{scope:'local'}});
+  await expect(page.locator('#deleteAccountModal')).not.toHaveClass(/show/);
+});
+
+test('delete-account backend validates the user and keeps service credentials server-side', async ({ page }) => {
+  await page.goto('/');
+  const source=await page.evaluate(async()=>({
+    fn:await (await fetch('/supabase/functions/delete-account/index.ts')).text(),
+    exam:await (await fetch('/supabase/exam.sql')).text(),
+    auth:await (await fetch('/assets/auth-v2.js')).text()
+  }));
+  expect(source.fn).toContain('SUPABASE_SERVICE_ROLE_KEY');
+  expect(source.fn).toContain('admin.auth.getUser(token)');
+  expect(source.fn).toContain('admin.auth.admin.deleteUser(user.id)');
+  expect(source.fn).toContain('confirmation.toLowerCase() !== expected.toLowerCase()');
+  expect(source.exam).toContain('references auth.users(id) on delete cascade');
+  expect(source.auth).not.toContain('SUPABASE_SERVICE_ROLE_KEY');
+});
+
 test('signed-in account surface includes logout and provider avatar support', async ({ page }) => {
   await page.goto('/');
   const sources=await page.evaluate(async()=>({
